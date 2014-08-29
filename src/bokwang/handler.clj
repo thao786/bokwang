@@ -8,6 +8,7 @@
 
 (defroutes app-routes
 	(GET "/" [] (r/render "index.html"))
+	(GET "/programs" [] (r/render "programs.html"))
 
 	(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
