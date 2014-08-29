@@ -2,12 +2,20 @@
 (ns bokwang.handler
   (:require [compojure.core :refer :all]
             [compojure.handler :as handler]
-            [compojure.route :as route]))
+            [compojure.route :as route]
+            [sodahead.render :as r]
+            [clojure.java.io :as io]))
 
 (defroutes app-routes
-  (GET "/" [] "Hello World")
-  (route/resources "/")
-  (route/not-found "Not Found"))
+	(GET "/" [] (r/render "index.html"))
+
+	(GET "/image/:name" [name] (io/resource (str "image/" name)))
+	(GET "/file/:name" [name] (io/resource name))
+	(GET "/bootstrap/css/:name" [name] (io/resource (str "bootstrap/css/" name)))
+	(GET "/bootstrap/js/:name" [name] (io/resource (str "bootstrap/js/" name)))
+	(GET "/bootstrap/fonts/:name" [name] (io/resource (str "bootstrap/fonts/" name)))
+	(route/resources "/")
+	(route/not-found "Not Found"))
 
 (def app
-  (handler/site app-routes))
+	(handler/site app-routes))

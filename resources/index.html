@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+%{(require '[bokwang.lib :as l]
+           '[sodahead.render :as r]
+           '[clojure.java.io :as io]
+)}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -6,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Temple</title>
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link  href="csssheet.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
     	a{ color:#5a5a5a;
     	}
