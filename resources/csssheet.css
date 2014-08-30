@@ -228,3 +228,7 @@ body{
 ul{
   list-style-type: none;
 }
+.panel{
+  border-top: solid #d1e73a 3px;
+  border-bottom: solid #d1e73a 3px;
+}

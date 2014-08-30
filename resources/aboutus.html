@@ -49,11 +49,11 @@
       <div class="row">
         <div class="col-lg-3">
           <div class="list-group">
-            <a href="#" class="list-group-item active">Mission</a>
-            <a href="#" class="list-group-item">People</a>
+            <a href="#" class="list-group-item list-group-item-warning">Mission</a>
+            <a href="#" class="list-group-item list-group-item-warning">People</a>
                 <a href="#" class="list-group-item">&raquo; Hae Kwang</a>
                 <a href="#" class="list-group-item">&raquo; Pat</a>
-            <a href="#" class="list-group-item">Others</a>
+            <a href="#" class="list-group-item list-group-item-warning">Others</a>
                 <a href="#" class="list-group-item">&raquo; Monk num 1</a>
                 <a href="#" class="list-group-item">&raquo; Monk num 2</a>
                 <a href="#" class="list-group-item">&raquo; Monk num 3</a>
@@ -89,7 +89,9 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    <script src="bootstrap/js/bootstrap.min.js"></script>
    <script>
-      $("#one").addClass("active");
+      $(document).ready(function(){
+        $("#one").addClass("active");
+      });
    </script>
 </body>
 </html>

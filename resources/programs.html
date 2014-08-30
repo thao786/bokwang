@@ -60,7 +60,7 @@
           <div class="panel-body">
             <a href="%{l/host}/meditation"><h1>Meditation</h1></a>
             <hr>
-            <img class="img-thumbnail imgFloat" src="image/coming.jpg" width="350" height="250">
+            <img class="img-thumbnail imgFloat" src="image/content4.jpg" width="350" height="250">
             <p class="text-success">As of v7.0.1, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
             <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
@@ -124,9 +124,11 @@
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    <script src="bootstrap/js/bootstrap.min.js"></script>
-   <script>
-      $("#two").addClass("active");
+   <script>      
+      $(document).ready(function(){
+        $("#two").addClass("active");
+      });
    </script>
-   
+
 </body>
 </html>
