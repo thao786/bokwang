@@ -11,6 +11,7 @@
 	(GET "/programs" [] (r/render "programs.html"))
 	(GET "/meditation" [] (r/render "meditation.html"))
 	(GET "/aboutus" [] (r/render "aboutus.html"))
+	(GET "/gallery" [] (r/render "gallery.html"))
 
 	(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
@@ -18,7 +19,7 @@
 	(GET "/bootstrap/js/:name" [name] (io/resource (str "bootstrap/js/" name)))
 	(GET "/bootstrap/fonts/:name" [name] (io/resource (str "bootstrap/fonts/" name)))
 	(route/resources "/")
-	(route/not-found "Not Found"))
+	(route/not-found "under construction"))
 
 (def app
 	(handler/site app-routes))
