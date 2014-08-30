@@ -34,6 +34,15 @@
       .list-group{
         margin-top:70px;
       }
+      .caption{
+        text-align: center;
+      }
+      .thumbnail{
+        margin:8px;
+      }
+      .thumbnail:hover{
+        border-radius: 25px;
+      }
     </style>
    
   </head>
@@ -67,8 +76,38 @@
           </div>
 
 
-          <div class="row">
-              <
+          <div class="row" id="deletelater">
+              <div class="col-md-2 thumbnail">
+                <a href=""><img src="image/content1.jpg" width="200" height="200"></a>
+                <div class="caption">
+                    <p>Image label</p>
+                </div>
+              </div>
+              <div class="col-md-2 thumbnail">
+                <a href=""><img src="image/content2.jpg" width="200" height="200"></a>
+                <div class="caption">
+                    <p>Image label</p>
+                </div>
+              </div>
+              <div class="col-md-2 thumbnail">
+                <a href=""><img src="image/content3.jpg" width="200" height="200"></a>
+                <div class="caption">
+                    <p>Image label</p>
+                </div>
+              </div>
+              <div class="col-md-2 thumbnail">
+                <a href=""><img src="image/content4.jpg" width="200" height="200"></a>
+                <div class="caption">
+                    <p>Image label</p>
+                </div>
+              </div>
+              <div class="col-md-2 thumbnail">
+                <a href=""><img src="image/content1.jpg" width="200" height="200"></a>
+                <div class="caption">
+                    <p>Image label</p>
+                </div>
+              </div>
+
           </div>
         </div>  
       </div>
@@ -88,7 +127,14 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    <script src="bootstrap/js/bootstrap.min.js"></script>
    <script>
-      $("#one").addClass("active");
+      $("#six").addClass("active");
+
+      var body = document.getElementById("deletelater").innerHTML;
+      var newbody;
+      for (i = 0; i < 5; i++) { 
+          newbody += "<div class='row'>" + body +"</div><br><br>";
+      }
+      document.getElementById("deletelater").innerHTML=newbody;
    </script>
 </body>
 </html>
