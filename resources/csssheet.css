@@ -1,6 +1,5 @@
 body{	
-  background-color: #f1f1f1;
-  background-image: url('image/bgr.jpg');
+  background-color: #f1f1f1;  
   background-attachment: fixed;
 }
 .whiteBgr{
@@ -225,4 +224,7 @@ body{
 } 
 .img-thumbnail{
   border-radius: 20px;
+}
+ul{
+  list-style-type: none;
 }
