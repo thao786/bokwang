@@ -10,7 +10,7 @@
 	(GET "/" [] (r/render "index.html"))
 	(GET "/programs" [] (r/render "programs.html"))
 	(GET "/meditation" [] (r/render "meditation.html"))
-	(GET "/aboutus" [] (r/render "aboutus.html"))
+	(GET "/about" [] (r/render "about.html"))
 	(GET "/gallery" [] (r/render "gallery.html"))
 
 	(GET "/image/:name" [name] (io/resource (str "image/" name)))
