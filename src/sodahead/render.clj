@@ -1,3 +1,7 @@
+;when cant find file -> report
+
+
+
 (ns sodahead.render
 	(:require 	[clojure.java.io :as io]
 				[sodahead.parse :as p]
