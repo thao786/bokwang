@@ -11,7 +11,8 @@
     <title>Activities</title>
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link  href="/csssheet.css" rel="stylesheet">
+
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
     	.jumbotron {
         text-align: center;
@@ -36,31 +37,8 @@
 
 
 <body>
-    <div class="container">
-      <div class="masthead">
-        <h3 class="text-muted">Bo Kwang Center</h3>
-        <ul class="nav nav-justified">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">Activities</a></li>
-          <li><a href="#about">Calendar</a></li>
-          <li><a href="#contact">Members</a></li>
-          <li><a href="#contact">Gallery</a></li>
-          <li><a href="#contact">Discussion</a></li>
-          <li><a href="#contact">Blog</a></li>
-          <!--<li><a href="#contact"><span class="glyphicon glyphicon-search"></span></a></li>-->
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span></a>
-            <div class="dropdown-menu" role="menu">
-                <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-             </form>
-              </div>
-          </li>
-        </ul>
-      </div>
+  
+    %include {"util/header.html"}    
 
 
 
@@ -139,19 +117,7 @@
 <br><br><br><br>
 
 
-<footer class="subhead">  
-  <div class="container">
-    <div class="text-muted">
-      <h1>Bo Kwang Center</h1>
-      <p>57 Gorevale Dr, M4J M9J, Brampton</p>
-      <p>Email:gjej@gjejkijgeaa.com</p>
-    </div>
-  </div>
-</div>
-
-
-
-
+%include {"util/footer.html"}
 
 
 

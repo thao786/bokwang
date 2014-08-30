@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+%{(require '[bokwang.lib :as l]
+           '[sodahead.render :as r]
+           '[clojure.java.io :as io]
+)}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+    	.jumbotron {
+        text-align: center;
+        background-color: transparent;
+      }
+      .jumbotron{
+        padding: 14px 24px;
+        margin-top: 20px;
+        font-size: 21px;
+      }
+      a{ color:#5a5a5a;
+      }
+      a:hover{
+        color:#9c9c9c;
+        text-decoration: none;
+      }
+      .list-group{
+        margin-top:70px;
+      }
+    </style>
+   
+  </head>
+
+
+<body>
+
+  %include {"util/header.html"}    
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">Mission</a>
+            <a href="#" class="list-group-item">People</a>
+                <a href="#" class="list-group-item">&raquo; Hae Kwang</a>
+                <a href="#" class="list-group-item">&raquo; Pat</a>
+            <a href="#" class="list-group-item">Others</a>
+                <a href="#" class="list-group-item">&raquo; Monk num 1</a>
+                <a href="#" class="list-group-item">&raquo; Monk num 2</a>
+                <a href="#" class="list-group-item">&raquo; Monk num 3</a>
+          </div>
+        </div>
+
+        <div class="col-lg-9">
+          <div class="jumbotron">
+            <h1>About Us</h1>
+            <p>We are a group of Buddhists who aiming to hepl others reduce life suffering.</p>
+          </div>
+
+
+          <div class="">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          </div>
+        </div>  
+      </div>
+    </div>
+
+   
+
+
+
+<br><br><br><br>
+
+
+%include {"util/footer.html"}
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
