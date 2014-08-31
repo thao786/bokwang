@@ -23,7 +23,11 @@
 		(GET "/taego" [] "")
 		(GET "/taego-monks" [] ""))
 	(GET "/gallery" [] (r/render "gallery.html"))
-	(GET "/faq" [] (r/render "faq.html"))
+	(context "/faqs" []
+	    (GET "/" [] (r/render "faqs.html")) 
+	    (GET "/meditation" [] "profile")
+	    (GET "/qigong" [] "posts")
+		(GET "/general" [] "posts"))
 
 	(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
