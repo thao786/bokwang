@@ -1,4 +1,5 @@
 ;lein new compojure bokwang
+;nohup lein ring server &
 (ns bokwang.handler
   (:require [compojure.core :refer :all]
             [compojure.handler :as handler]
