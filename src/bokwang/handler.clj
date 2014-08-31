@@ -13,6 +13,8 @@
 	(GET "/about" [] (r/render "about.html"))
 	(GET "/gallery" [] (r/render "gallery.html"))
 	(GET "/faq" [] (r/render "faq.html"))
+	(GET "/contact" [] (r/render "contact.html"))
+	(GET "/donation" [] (r/render "donation.html"))
 
 	(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))

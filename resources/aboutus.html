@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FAQs</title>
+    <title>About Us</title>
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
@@ -34,15 +34,6 @@
       .list-group{
         margin-top:70px;
       }
-      .caption{
-        text-align: center;
-      }
-      .thumbnail{
-        margin:8px;
-      }
-      .thumbnail:hover{
-        border-radius: 25px;
-      }
     </style>
    
   </head>
@@ -58,11 +49,11 @@
       <div class="row">
         <div class="col-lg-3">
           <div class="list-group">
-            <a href="#" class="list-group-item active">Mission</a>
-            <a href="#" class="list-group-item">People</a>
+            <a href="#" class="list-group-item list-group-item-warning">Mission</a>
+            <a href="#" class="list-group-item list-group-item-warning">People</a>
                 <a href="#" class="list-group-item">&raquo; Hae Kwang</a>
                 <a href="#" class="list-group-item">&raquo; Pat</a>
-            <a href="#" class="list-group-item">Others</a>
+            <a href="#" class="list-group-item list-group-item-warning">Others</a>
                 <a href="#" class="list-group-item">&raquo; Monk num 1</a>
                 <a href="#" class="list-group-item">&raquo; Monk num 2</a>
                 <a href="#" class="list-group-item">&raquo; Monk num 3</a>
@@ -71,43 +62,14 @@
 
         <div class="col-lg-9">
           <div class="jumbotron">
-            <h1>Gallery</h1>
+            <h1>About Us</h1>
             <p>We are a group of Buddhists who aiming to hepl others reduce life suffering.</p>
           </div>
 
 
-          <div class="row" id="deletelater">
-              <div class="col-md-2 thumbnail">
-                <a href=""><img src="image/content1.jpg" width="200" height="200"></a>
-                <div class="caption">
-                    <p>Image label</p>
-                </div>
-              </div>
-              <div class="col-md-2 thumbnail">
-                <a href=""><img src="image/content2.jpg" width="200" height="200"></a>
-                <div class="caption">
-                    <p>Image label</p>
-                </div>
-              </div>
-              <div class="col-md-2 thumbnail">
-                <a href=""><img src="image/content3.jpg" width="200" height="200"></a>
-                <div class="caption">
-                    <p>Image label</p>
-                </div>
-              </div>
-              <div class="col-md-2 thumbnail">
-                <a href=""><img src="image/content4.jpg" width="200" height="200"></a>
-                <div class="caption">
-                    <p>Image label</p>
-                </div>
-              </div>
-              <div class="col-md-2 thumbnail">
-                <a href=""><img src="image/content1.jpg" width="200" height="200"></a>
-                <div class="caption">
-                    <p>Image label</p>
-                </div>
-              </div>
-
+          <div class="">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           </div>
         </div>  
       </div>
@@ -128,15 +90,8 @@
    <script src="bootstrap/js/bootstrap.min.js"></script>
    <script>
       $(document).ready(function(){
-        $("#six").addClass("active");
+        $("#one").addClass("active");
       });
-
-      var body = document.getElementById("deletelater").innerHTML;
-      var newbody;
-      for (i = 0; i < 5; i++) { 
-          newbody += "<div class='row'>" + body +"</div><br><br>";
-      }
-      document.getElementById("deletelater").innerHTML=newbody;
    </script>
 </body>
 </html>
