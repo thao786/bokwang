@@ -238,3 +238,8 @@ ul{
   border: solid 1px #495e3e;
   border-radius: 10px;
 }
+.list-group-item{
+  border-radius: 20px;
+  border-top: dashed 2px #d8e792;
+  border-bottom: dashed 2px #d8e792;
+}
