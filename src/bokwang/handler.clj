@@ -9,8 +9,19 @@
 (defroutes app-routes
 	(GET "/" [] (r/render "index.html"))
 	(GET "/programs" [] (r/render "programs.html"))
-	(GET "/meditation" [] (r/render "meditation.html"))
-	(GET "/about" [] (r/render "about.html"))
+	(context "/meditation" []
+	    (GET "/" [] (r/render "meditation.html")) 
+	    (GET "/why" [] "profile")
+	    (GET "/how" [] "posts")
+		(GET "/classes" [] "posts"))
+	(context "/about" []
+	    (GET "/" [] (r/render "about.html"))
+	    (GET "/buddhism" [] "posts")
+	    (GET "/bo-kwang-centre" [] "profile")
+	    (GET "/kwang" [] "posts")
+		(GET "/pat" [] "posts")
+		(GET "/taego" [] "")
+		(GET "/taego-monks" [] ""))
 	(GET "/gallery" [] (r/render "gallery.html"))
 	(GET "/faq" [] (r/render "faq.html"))
 
