@@ -1,6 +1,7 @@
 body{	
   background-color: #f1f1f1;  
   background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 .whiteBgr{
 	background-color: white;
@@ -238,8 +239,23 @@ ul{
   border: solid 1px #495e3e;
   border-radius: 10px;
 }
-.list-group-item{
-  border-radius: 20px;
-  border-top: dashed 2px #d8e792;
-  border-bottom: dashed 2px #d8e792;
+/*.dropdown:hover .dropdown-menu {
+  display: block;
+} 
+.dropdown-menu .dropdownStyle{
+  color:green;
+  background-color: green;
+}*/
+
+.jumbotron {
+  text-align: center;
+  background-color: transparent;
+}
+.jumbotron{
+  padding: 14px 24px;
+  margin-top: 20px;
+  font-size: 21px;
+}
+.anHien{
+  display: none;
 }
