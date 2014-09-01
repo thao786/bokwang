@@ -24,6 +24,8 @@
       }
       .list-group{
         margin-top:70px;
+        position:fixed; 
+        width:250px;
       }
     </style>
    
@@ -38,9 +40,10 @@
       <div class="row">
         <div class="col-lg-3">
           <div class="list-group">
-            <a href="%{l/host}/faqs/meditation" class="list-group-item list-group-item-success active">Meditation</a>
-            <a href="%{l/host}/faqs/qigong" class="list-group-item list-group-item-success">Qigong</a>
-            <a href="%{l/host}/faqs/general" class="list-group-item list-group-item-success">General</a>            
+            <a href="#buddhism" class="list-group-item list-group-item-success active">Buddhism</a>
+            <a href="#meditation" class="list-group-item list-group-item-success">Meditation</a>
+            <a href="#qigong" class="list-group-item list-group-item-success">Qigong</a>
+            <a href="#general" class="list-group-item list-group-item-success">General</a>            
           </div>
         </div>
 
@@ -52,22 +55,56 @@
 
 
           <div class="whiteBgr">
-          		<h2>Buhddism</h2>        				
-        					<p><span id="showanswer" class="glyphicon glyphicon-plus-sign"></span>  Does buhddism believe in god?</p>
-                  <span class="anHien">Yeah kjfhe khfeb kebf kwbf jbwk bfbwk bfwkwb kwbfdkw bkwfbwk ikuwgowo kfwbu bwuhbf kwu bkwur.</span>
-        				
+          		<h2 class="text-success" id="buddhism">Buddhism</h2>
+              <hr>
+              <ol>       				
+      					<li><p class="question text-info">Does buhddism believe in god?</p>
+                    <p class="anHien text-success">Yeah kjfhe khfeb kebf kwbf jbwk bfbwk bfwkwb kwbfdkw bkwfbwk ikuwgowo kfwbu bwuhbf kwu bkwur.</p>  
+                </li>            
+                <li><p class="question text-info">Does beg egw wgeg ges se?</p>
+                    <p class="anHien text-success">Yeah kjfhe khfeb kebf kwbf jbwk bfbwk bfwkwb kwbfdkw bkwfbwk ikuwgowo kfwbu bwuhbf kwu bkwur.</p>  
+                </li> 
+                <li><p class="question text-info">Does bge egbg elie ve in god?</p>
+                    <p class="anHien text-success">Yeah kjfhe khfeb kebf kwbf jbwk bfbwk bfwkwb kwbfdkw bkwfbwk ikuwgowo kfwbu bwuhbf kwu bkwur.</p>  
+                </li>     
+              </ol>
 
-        			<h2>Meditation</h2>
+
+              <br><br>
+
+
+        			<h2 class="text-info" id="meditation">Meditation</h2>
+              <hr>
         				<ol>				  
         					<li>how long to meditate</li>
+                  <li>how long to meditate</li>
+                  <li>how long to meditate</li>
+                  <li>how long to meditate</li>
+                  <li>how long to meditate</li>
+                  <li>how long to meditate</li>
         				</ol>
 
-        			<h2>Qigong</h2>
+
+              <br><br>
+
+
+        			<h2 class="text-warning" id="qigong">Qigong</h2>
+              <hr>
         				<ol>				  
         					<li>I don't feel anything</li>
+                  <li>I don't feel anything</li>
+                  <li>I don't feel anything</li>
+                  <li>I don't feel anything</li>
+                  <li>I don't feel anything</li>
+                  <li>I don't feel anything</li>
         				</ol>
 
-        			<h2>General</h2>
+
+              <br><br>
+
+
+        			<h2 class="text-danger" id="general">General</h2>
+              <hr>
         				<ol>
         				  <li>I dont feel happy</li>
         				  <li>I dont know what to do wt my life</li>
@@ -96,8 +133,8 @@
         $("#faqs-tab").addClass("active");
       });
 
-      $("#showanswer").click(function(){
-        $(".anHien").slideToggle();    
+      $(".question").click(function(){
+        $(this).next().toggleClass("show");    
       });
 
    </script>

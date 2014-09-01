@@ -5,10 +5,11 @@ body{
 }
 .whiteBgr{
 	background-color: white;
+  opacity: 0.8;
 	border-radius: 5px;
 	border-top: solid #d1e73a 3px;
   border-bottom: solid #d1e73a 3px;
-	padding: 5px;
+	padding-left: 15px;
 }
 
 
@@ -258,4 +259,8 @@ ul{
 }
 .anHien{
   display: none;
+}
+.question:hover{
+    cursor: pointer;
+    color: #69ab98;
 }
