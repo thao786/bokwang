@@ -1,5 +1,6 @@
 ;lein new compojure bokwang
 ;nohup lein ring server &
+; ps aux | grep server
 (ns bokwang.handler
   (:require [compojure.core :refer :all]
             [compojure.handler :as handler]
