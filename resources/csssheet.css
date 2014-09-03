@@ -11,6 +11,10 @@ body{
   border-bottom: solid #d1e73a 3px;
 	padding-left: 15px;
 }
+.whiteBgr:hover{
+  border-top: solid #98e73a 3px;
+  border-bottom: solid #98e73a 3px;
+}
 
 
 
@@ -236,6 +240,10 @@ ul{
   border-top: solid #d1e73a 3px;
   border-bottom: solid #d1e73a 3px;
 }
+.panel:hover{
+  border-top: solid #48d028 3px;
+  border-bottom: solid #48d028 3px;
+}
 #gmap_canvas{
   border: solid 1px #495e3e;
   border-radius: 10px;
@@ -264,7 +272,13 @@ ul{
     cursor: pointer;
     color: #69ab98;
 }
-.yeah{
-  margin-right: 200px;
-  padding: 20px;
+.searchdrop{
+  display: none;
+}
+ 
+a{ color:#5a5a5a;
+}
+a:hover{
+  color:#6d766d;
+  text-decoration: none;
 }
