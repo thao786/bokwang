@@ -218,18 +218,23 @@ body{
 	font-size:13px;
 }
 .subhead{
-  background-color: #2e3639;
-  border-top: solid 3px #d6e78b;           
+  background-color: #2c3e50;        
   color:white;          
   width:100%;
   margin-bottom: 0px; 
 }
 .subhead2{
-  background-color: #192428;         
-  color:#50646c;          
+  background-color: #1f2c3a;         
+  color:#7393aa;          
   width:100%;
   margin-bottom: 0px; 
 }  
+.subhead-blue{
+color:#7393aa;
+}
+.subhead-green{
+color:#1b9373;
+}
 .img-thumbnail{
   border-radius: 20px;
 }
@@ -248,13 +253,6 @@ ul{
   border: solid 1px #495e3e;
   border-radius: 10px;
 }
-/*.dropdown:hover .dropdown-menu {
-  display: block;
-} 
-.dropdown-menu .dropdownStyle{
-  color:green;
-  background-color: green;
-}*/
 
 .jumbotron {
   text-align: center;
