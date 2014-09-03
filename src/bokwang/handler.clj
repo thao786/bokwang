@@ -1,5 +1,6 @@
 ;lein new compojure bokwang
 ;nohup lein ring server &
+; ps aux | grep server
 (ns bokwang.handler
   (:require [compojure.core :refer :all]
             [compojure.handler :as handler]
@@ -12,9 +13,8 @@
 	(GET "/programs" [] (r/render "programs.html"))
 	(context "/meditation" []
 	    (GET "/" [] (r/render "meditation.html")) 
-	    (GET "/why" [] "profile")
-	    (GET "/how" [] "posts")
-		(GET "/classes" [] "posts"))
+	    (GET "/how" [] (r/render "meditation.html")) 
+		(GET "/class" [] (r/render "meditation-class.html")))
 	(context "/about" []
 	    (GET "/" [] (r/render "about.html"))
 	    (GET "/buddhism" [] "posts")

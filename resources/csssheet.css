@@ -1,13 +1,19 @@
 body{	
   background-color: #f1f1f1;  
   background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 .whiteBgr{
 	background-color: white;
+  opacity: 0.8;
 	border-radius: 5px;
 	border-top: solid #d1e73a 3px;
   border-bottom: solid #d1e73a 3px;
-	padding: 5px;
+	padding-left: 15px;
+}
+.whiteBgr:hover{
+  border-top: solid #98e73a 3px;
+  border-bottom: solid #98e73a 3px;
 }
 
 
@@ -121,7 +127,7 @@ body{
   /* The navbar becomes detached from the top, so we round the corners */
   .navbar-wrapper .navbar {
     border-radius: 4px;
-  } */
+  } 
 
   /* Bump up size of carousel content */
   .carousel-caption p {
@@ -234,12 +240,45 @@ ul{
   border-top: solid #d1e73a 3px;
   border-bottom: solid #d1e73a 3px;
 }
+.panel:hover{
+  border-top: solid #48d028 3px;
+  border-bottom: solid #48d028 3px;
+}
 #gmap_canvas{
   border: solid 1px #495e3e;
   border-radius: 10px;
 }
-.list-group-item{
-  border-radius: 20px;
-  border-top: dashed 2px #d8e792;
-  border-bottom: dashed 2px #d8e792;
+/*.dropdown:hover .dropdown-menu {
+  display: block;
+} 
+.dropdown-menu .dropdownStyle{
+  color:green;
+  background-color: green;
+}*/
+
+.jumbotron {
+  text-align: center;
+  background-color: transparent;
+}
+.jumbotron{
+  padding: 14px 24px;
+  margin-top: 20px;
+  font-size: 21px;
+}
+.anHien{
+  display: none;
+}
+.question:hover{
+    cursor: pointer;
+    color: #69ab98;
+}
+.searchdrop{
+  display: none;
+}
+ 
+a{ color:#5a5a5a;
+}
+a:hover{
+  color:#6d766d;
+  text-decoration: none;
 }

@@ -10,20 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gallery</title>
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
-          background-image: url('image/bgr.jpg');
-      }
-    	.jumbotron {
-        text-align: center;
-        background-color: transparent;
-      }
-      .jumbotron{
-        padding: 14px 24px;
-        margin-top: 20px;
-        font-size: 21px;
+          background-image: url('%{l/image-host}/bgr.jpg');
       }
       a{ color:#5a5a5a;
       }
@@ -76,31 +67,31 @@
 
           <div class="row" id="deletelater">
               <div class="col-md-2 thumbnail">
-                <a href=""><img src="image/content1.jpg" width="200" height="200"></a>
+                <a href=""><img src="%{l/image-host}/content1.jpg" width="200" height="200"></a>
                 <div class="caption">
                     <p>Image label</p>
                 </div>
               </div>
               <div class="col-md-2 thumbnail">
-                <a href=""><img src="image/content2.jpg" width="200" height="200"></a>
+                <a href=""><img src="%{l/image-host}/content2.jpg" width="200" height="200"></a>
                 <div class="caption">
                     <p>Image label</p>
                 </div>
               </div>
               <div class="col-md-2 thumbnail">
-                <a href=""><img src="image/content3.jpg" width="200" height="200"></a>
+                <a href=""><img src="%{l/image-host}/content3.jpg" width="200" height="200"></a>
                 <div class="caption">
                     <p>Image label</p>
                 </div>
               </div>
               <div class="col-md-2 thumbnail">
-                <a href=""><img src="image/content4.jpg" width="200" height="200"></a>
+                <a href=""><img src="%{l/image-host}/content4.jpg" width="200" height="200"></a>
                 <div class="caption">
                     <p>Image label</p>
                 </div>
               </div>
               <div class="col-md-2 thumbnail">
-                <a href=""><img src="image/content1.jpg" width="200" height="200"></a>
+                <a href=""><img src="%{l/image-host}/content1.jpg" width="200" height="200"></a>
                 <div class="caption">
                     <p>Image label</p>
                 </div>
@@ -126,7 +117,7 @@
    <script src="bootstrap/js/bootstrap.min.js"></script>
    <script>
       $(document).ready(function(){
-        $("#six").addClass("active");
+        $("#gallery-tab").addClass("active");
       });
 
       var body = document.getElementById("deletelater").innerHTML;

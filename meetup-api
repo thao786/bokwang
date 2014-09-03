@@ -1,0 +1,4 @@
+https://api.meetup.com/2/events?&sign=true&photo-host=public&group_urlname=Qi-Gong-Zen-Healing&page=20
+
+sign request:
+http://api.meetup.com/2/events?status=upcoming&order=time&limited_events=False&group_urlname=Qi-Gong-Zen-Healing&desc=false&offset=0&photo-host=public&format=json&page=3&fields=&sig_id=92282822&sig=85b836df4e667551eb45ccb3c8a90a9c9ae5f491

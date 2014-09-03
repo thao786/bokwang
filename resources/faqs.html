@@ -8,22 +8,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Meditation</title>
+    <title>FAQs</title>
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">    
+     <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
-          background-image: url('image/bgr.jpg');
-      }
-    	.jumbotron {
-        text-align: center;
-        background-color: transparent;
-      }
-      .jumbotron{
-        padding: 14px 24px;
-        margin-top: 20px;
-        font-size: 21px;
+          background-image: url('%{l/image-host}/bgr.jpg');
       }
       a{ color:#5a5a5a;
       }
@@ -33,6 +24,8 @@
       }
       .list-group{
         margin-top:70px;
+        position:fixed; 
+        width:250px;
       }
     </style>
    
@@ -41,29 +34,88 @@
 
 <body>
 
-  %include {"util/header.html"}    
-
-
+  %include {"util/header.html"}
 
     <div class="container">
       <div class="row">
         <div class="col-lg-3">
           <div class="list-group">
-            <a href="%{l/static-file-host}/faqs/meditation" class="list-group-item active">Meditation</a>
-            <a href="%{l/static-file-host}/faqs/qigong" class="list-group-item">Qigong</a>
-            <a href="%{l/static-file-host}/faqs/general" class="list-group-item">General</a>            
+            <a href="#buddhism" class="list-group-item list-group-item-success active">Buddhism</a>
+            <a href="#meditation" class="list-group-item list-group-item-success">Meditation</a>
+            <a href="#qigong" class="list-group-item list-group-item-success">Qigong</a>
+            <a href="#general" class="list-group-item list-group-item-success">General</a>            
           </div>
         </div>
 
         <div class="col-lg-9">
           <div class="jumbotron">
-            <h1>FAQ</h1>
+            <h1>FAQs</h1>
+            <p>List of all commonly asked questions, concerns</p>
           </div>
 
 
-          <div class="">
-              <h2>Heading</h2>
-              <p>list of all commonly asked questions, concerns</p>
+          <div class="whiteBgr">
+          		<h2 class="text-success" id="buddhism">Buddhism</h2>
+              <hr>
+              <ol>       				
+      					<li><p class="question text-info">Does buhddism believe in god?</p>
+                    <p class="anHien text-success">We believe in God inside each individual. Everybody can become "God".</p>  
+                </li>            
+                <li><p class="question text-info">Do I have to live like a monk to follow Buddhism?</p>
+                    <p class="anHien text-success">No.</p>  
+                </li> 
+                <li><p class="question text-info">Do I need to get rid of all detachment?</p>
+                    <p class="anHien text-success">No. Live a normal life.</p>  
+                </li>
+                <li><p class="question text-info">Relationship, marriage, sex?</p>
+                    <p class="anHien text-success">No.</p>  
+                </li> 
+              </ol>
+
+
+              <br><br>
+
+
+        			<h2 class="text-info" id="meditation">Meditation</h2>
+              <hr>
+        				<ol>				  
+        					<li>how long to meditate</li>
+                  <li>how long to meditate</li>
+                  <li>how long to meditate</li>
+                  <li>how long to meditate</li>
+                  <li>how long to meditate</li>
+                  <li>how long to meditate</li>
+        				</ol>
+
+
+              <br><br>
+
+
+        			<h2 class="text-warning" id="qigong">Qigong</h2>
+              <hr>
+        				<ol>				  
+        					<li>I don't feel anything</li>
+                  <li>I don't feel anything</li>
+                  <li>I don't feel anything</li>
+                  <li>I don't feel anything</li>
+                  <li>I don't feel anything</li>
+                  <li>I don't feel anything</li>
+        				</ol>
+
+
+              <br><br>
+
+
+        			<h2 class="text-danger" id="general">General</h2>
+              <hr>
+        				<ol>
+        				  <li><p class="question text-info">I dont feel happy</p>
+                    <p class="anHien text-success"></p>  
+                  </li>            
+                  <li><p class="question text-info">I dont know what to do wt my life</p>
+                    <p class="anHien text-success"></p>  
+                  </li>
+        				</ol><br><br>
           </div>
         </div>  
       </div>
@@ -84,8 +136,13 @@
    <script src="bootstrap/js/bootstrap.min.js"></script>
    <script>
       $(document).ready(function(){
-        $("#two").addClass("active");
+        $("#faqs-tab").addClass("active");
       });
+
+      $(".question").click(function(){
+        $(this).next().toggleClass("show");    
+      });
+
    </script>
 </body>
 </html>

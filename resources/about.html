@@ -10,20 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About</title>
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
-          background-image: url('image/bgr.jpg');
-      }
-    	.jumbotron {
-        text-align: center;
-        background-color: transparent;
-      }
-      .jumbotron{
-        padding: 14px 24px;
-        margin-top: 20px;
-        font-size: 21px;
+          background-image: url('%{l/image-host}/bgr.jpg');
       }
       a{ color:#5a5a5a;
       }
@@ -33,6 +24,8 @@
       }
       .list-group{
         margin-top:70px;
+        border-top: solid 2px green;
+        border-bottom: solid 2px green;
       }
     </style>
    
@@ -43,18 +36,16 @@
 
   %include {"util/header.html"}    
 
-
-
     <div class="container">
       <div class="row">
         <div class="col-lg-3">
           <div class="list-group">
-            <a href="%{l/static-file-host}/about/buddhism" class="list-group-item">Buddhism</a>
-            <a href="%{l/static-file-host}/about/bo-kwang-centre" class="list-group-item">Bo Kwang Centre</a>
-                <a href="%{l/static-file-host}/about/kwang" class="list-group-item sub-menu">&raquo;&raquo; Hae Kwang</a>
-                <a href="%{l/static-file-host}/about/pat" class="list-group-item sub-menu">&raquo;&raquo; Pat</a>
-            <a href="%{l/static-file-host}/about/taego" class="list-group-item">Taego Order</a>
-                <a href="%{l/static-file-host}/about/taego-monks" class="list-group-item sub-menu">&raquo;&raquo; Monks</a>
+            <a href="%{l/host}/about/buddhism" class="list-group-item list-group-item-success"><b>Zen Buddhism</b></a>
+            <a href="%{l/host}/about/bo-kwang-centre" class="list-group-item list-group-item-success"><b>Bo Kwang Centre</b></a>
+                <a href="%{l/host}/about/kwang" class="list-group-item">&raquo;&raquo; Hae Kwang</a>
+                <a href="%{l/host}/about/pat" class="list-group-item">&raquo;&raquo; Pat</a>
+            <a href="%{l/host}/about/taego" class="list-group-item list-group-item-success"><b>Taego Order</b></a>
+                <a href="%{l/host}/about/taego-monks" class="list-group-item">&raquo;&raquo; Monks</a>
           </div>
         </div>
 
@@ -88,7 +79,7 @@
    <script src="bootstrap/js/bootstrap.min.js"></script>
    <script>
       $(document).ready(function(){
-        $("#one").addClass("active");
+        $("#about-tab").addClass("active");
       });
    </script>
 </body>

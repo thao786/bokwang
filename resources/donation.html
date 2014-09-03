@@ -10,20 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Donation</title>
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">    
+     <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
-          background-image: url('image/bgr.jpg');
-      }
-      .jumbotron {
-        text-align: center;
-        background-color: transparent;
-      }
-      .jumbotron{
-        padding: 14px 24px;
-        margin-top: 20px;
-        font-size: 21px;
+          background-image: url('%{l/image-host}/bgr.jpg');
       }
       a{ color:#5a5a5a;
       }
@@ -61,12 +52,120 @@
 
 
       <div class="row">     
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h1>a</h1><h1>a</h1><h1>a</h1><h1>a</h1><h1>a</h1>
-            
-          </div> 
-        </div>         
+        <div class="col-lg-10 col-md-offset-1">
+          <div class="whiteBgr">
+            <h2>How Do I Donate?</h2>
+                <p class="text-muted">More than ever, your donation is needed to ensure that low-income people in upstate New York are not denied equal justice under the law.</p>
+
+            <hr>
+            <br>
+
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">Country</label>
+                <div class="col-sm-4">
+                  <select class="form-control">
+                    <option>America</option>
+                    <option>Americano</option>
+                    <option>Bolalala</option>
+                    <option>Vn expre</option>
+                    <option>Shalalla</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">First Name</label>
+                <div class="col-sm-4">
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Last Name</label>
+                <div class="col-sm-4">
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Creditcard Number</label>
+                <div class="col-sm-4">
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+               <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Payment Type</label>
+                <div class="col-sm-4">
+                  <img src="http://www.credit-card-logos.com/images/multiple_credit-card-logos-2/credit_card_paypal_logos_2.gif" width="190" height="24" border="0">
+                </div>
+              </div>           
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Expiration Date</label>
+                <div class="col-sm-2">
+                  <select class="form-control">
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                  </select>
+                </div>
+                <div class="col-sm-2">
+                  <select class="form-control">
+                    <option>2014</option>
+                    <option>2015</option>
+                    <option>2016</option>
+                    <option>2017</option>
+                    <option>2018</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">CSC</label>
+                <div class="col-sm-2">
+                  <input type="email" class="form-control"> 
+                  <abbr title="This is a haoih hgeo hieh">What's this?</abbr>
+                </div>                
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Billing Address</label>
+                <div class="col-sm-4">
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">City</label>
+                <div class="col-sm-4">
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Zipcode</label>
+                <div class="col-sm-4">
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Phone Number</label>
+                <div class="col-sm-4">
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-4">
+                  <input type="email" class="form-control">
+                </div>
+              </div>            
+              <br>
+              <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-4">
+                  <button type="submit" class="btn btn-success">Save the info and donate</button>
+                </div>
+              </div>
+            </form>
+
+
+            <br><br><br>
+              
+          </div>            
+        </div>     
       </div>  
   </div>
 
@@ -82,7 +181,7 @@
    <script src="bootstrap/js/bootstrap.min.js"></script>
    <script>
       $(document).ready(function(){
-        $("#seven").addClass("active");
+        $("#donate-tab").addClass("active");
       });
    </script>
 </body>
