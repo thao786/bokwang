@@ -2,3 +2,5 @@
 
 (def static-file-host "http://localhost:3000/file")
 (def host "http://localhost:3000")
+(def bootstrap-host "http://localhost:3000/bootstrap")
+(def image-host "http://localhost:3000/image")
