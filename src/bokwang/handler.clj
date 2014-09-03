@@ -13,7 +13,7 @@
 	(GET "/programs" [] (r/render "programs.html"))
 	(context "/meditation" []
 	    (GET "/" [] (r/render "meditation.html")) 
-	    (GET "/how" [] (r/render "meditation.html")) 
+	    (GET "/how" [] (r/render "meditation-how.html")) 
 		(GET "/class" [] (r/render "meditation-class.html")))
 	(context "/about" []
 	    (GET "/" [] (r/render "about.html"))
