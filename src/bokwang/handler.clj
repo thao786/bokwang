@@ -18,8 +18,7 @@
 		(GET "/class" [] (r/render "meditation-class.html")))
 	(context "/qigong" []
 	    (GET "/" [] (r/render "qigong.html")) 
-	    (GET "/how" [] (r/render "meditation-how.html")) 
-		(GET "/class" [] (r/render "meditation-class.html")))
+		(GET "/class" [] (r/render "qigong-class.html")))
 	(context "/about" []
 	    (GET "/" [] (r/render "about-bokwang-centre.html"))
 	    (GET "/zen" [] (r/render "about-zen.html"))
