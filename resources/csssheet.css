@@ -10,8 +10,9 @@ body{
   border-top-right-radius: 80px;
 	border-top: solid #d1e73a 3px;
   border-bottom: solid #d1e73a 3px;
-	padding-left: 15px;
+	padding-left: 25px;
   padding-top: 10px;
+  padding-right: 20px;
 }
 .whiteBgr:hover{
   border-top: solid #98e73a 3px;
@@ -191,7 +192,7 @@ body{
     border-radius: 0 5px 5px 0;
   }
 }
-.masthead{
+/*.masthead{
   background-color: #e2e2ae;
   padding:10px;
   opacity: 0.9;
@@ -283,9 +284,8 @@ a:hover{
   color:#6d766d;
   text-decoration: none;
 }
-.green{
-  color:#6a9331;
-}
-.green:hover{
-  color:#355d20;
+.pofbody{
+  font-size:17px;
+  margin:50px;
+  text-align: justify;
 }
