@@ -1,6 +1,7 @@
 ;lein new compojure bokwang
 ;nohup lein ring server &
 ; ps aux | grep server
+; ssh thao@50.116.53.36
 (ns bokwang.handler
   (:require [compojure.core :refer :all]
             [compojure.handler :as handler]
@@ -16,13 +17,13 @@
 	    (GET "/how" [] (r/render "meditation-how.html")) 
 		(GET "/class" [] (r/render "meditation-class.html")))
 	(context "/about" []
-	    (GET "/" [] (r/render "about.html"))
-	    (GET "/buddhism" [] "posts")
-	    (GET "/bo-kwang-centre" [] "profile")
-	    (GET "/kwang" [] "posts")
-		(GET "/pat" [] "posts")
-		(GET "/taego" [] "")
-		(GET "/taego-monks" [] ""))
+	    (GET "/" [] (r/render "about-bokwang-centre.html"))
+	    (GET "/zen" [] (r/render "about-zen.html"))
+	    (GET "/bo-kwang-centre" [] (r/render "about-bokwang-centre.html"))
+	    (GET "/kwang" [] (r/render "about-kwang.html"))
+		(GET "/taego" [] (r/render "about-taego.html"))
+		(GET "/taego-monks" [] (r/render "about-taego-monks.html"))
+		(GET "/become-priest" [] (r/render "about-become-priest.html")))
 	(GET "/gallery" [] (r/render "gallery.html"))
 	(GET "/contact" [] (r/render "contact.html"))
 	(GET "/donation" [] (r/render "donation.html"))
