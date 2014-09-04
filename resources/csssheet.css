@@ -5,11 +5,13 @@ body{
 }
 .whiteBgr{
 	background-color: white;
-  opacity: 0.8;
+  opacity: 0.9;
 	border-radius: 5px;
+  border-top-right-radius: 80px;
 	border-top: solid #d1e73a 3px;
   border-bottom: solid #d1e73a 3px;
 	padding-left: 15px;
+  padding-top: 10px;
 }
 .whiteBgr:hover{
   border-top: solid #98e73a 3px;
@@ -144,29 +146,26 @@ body{
 .nav-justified {
   background-color: #eee;
   border: 1px solid #ccc;
+  border-top:solid 1px #ffffff;
   border-radius: 5px;
 }
 .nav-justified > li > a {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   margin-bottom: 0;
-  font-weight: bold;
-  color: #777;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-size: 16px;
+  color: #f3f3f3;
   text-align: center;
-  background-color: #d8d7d7; /* Old browsers */
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#d8d7d7));
-  background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #d8d7d7 100%);
-  background-image:      -o-linear-gradient(top, #f5f5f5 0%, #d8d7d7 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(top), color-stop(0%, #f5f5f5), to(#d8d7d7));
-  background-image:         linear-gradient(top, #f5f5f5 0%, #d8d7d7 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#d8d7d7',GradientType=0 ); /* IE6-9 */
-  background-repeat: repeat-x; /* Repeat the gradient */
+  background-color: #6e3700; 
+  background-repeat: repeat-x;  
   border-bottom: 1px solid #d5d5d5;
 }
 .nav-justified > .active > a,
 .nav-justified > .active > a:hover,
 .nav-justified > .active > a:focus {
-  background-color: #ddd;
+  background-color: #dde0a8;
+  color:#6e3700;
   background-image: none;
   -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
           box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
@@ -183,10 +182,6 @@ body{
   .nav-justified {
     max-height: 52px;
   }
-  .nav-justified > li > a {
-    border-right: 1px solid #d5d5d5;
-    border-left: 1px solid #fff;
-  }
   .nav-justified > li:first-child > a {
     border-left: 0;
     border-radius: 5px 0 0 5px;
@@ -195,6 +190,13 @@ body{
     border-right: 0;
     border-radius: 0 5px 5px 0;
   }
+}
+.masthead{
+  background-color: #e2e2ae;
+  padding:10px;
+  opacity: 0.9;
+  border-bottom-left-radius:80px; 
+  border-bottom-right-radius:80px; 
 }
 
 /* Responsive: Portrait tablets and up */
@@ -222,6 +224,8 @@ body{
   color:white;          
   width:100%;
   margin-bottom: 0px; 
+  border-top: solid 3px #d1e73a;
+  border-top-style: ridge;
 }
 .subhead2{
   background-color: #1f2c3a;         
@@ -259,8 +263,7 @@ ul{
   background-color: transparent;
 }
 .jumbotron{
-  padding: 14px 24px;
-  margin-top: 20px;
+  padding: 10px 15px;
   font-size: 21px;
 }
 .anHien{
@@ -279,4 +282,10 @@ a{ color:#5a5a5a;
 a:hover{
   color:#6d766d;
   text-decoration: none;
+}
+.green{
+  color:#6a9331;
+}
+.green:hover{
+  color:#355d20;
 }
