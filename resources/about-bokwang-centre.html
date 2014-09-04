@@ -8,27 +8,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Meditation - Rationale</title>
+    <title>About</title>
     <!-- Bootstrap -->
-    <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
+     <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
           background-image: url('%{l/image-host}/bgr.jpg');
       }
-      a{ color:#5a5a5a;
-      }
-      a:hover{
-        color:#9c9c9c;
-        text-decoration: none;
-      }      
       .list-group{
         margin-top:70px;
         border-top: solid 2px green;
         border-bottom: solid 2px green;
       }
     </style>
+   
   </head>
+
 
 <body>
 
@@ -36,37 +32,38 @@
 
     <div class="container">
       <div class="row">
-        
-        %include {"util/meditation-nav-bar.html"}
-
+        %include {"util/about-nav-bar.html"} 
 
         <div class="col-lg-9">
           <div class="jumbotron">
-            <h1>Meditation</h1>
-            <p>"The intuitive mind is a sacred gift and the rational mind is a faithful servant"</p>
-            <p class="text-muted">-Albert Einstein-</p>
           </div>
 
 
           <div class="whiteBgr">
-              <h2></h2>
-              
+              <h2>Wellcome!</h2>
+              <p>We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.</p>
           </div>
         </div>  
       </div>
     </div>
 
    
+
+
+
 <br><br><br><br>
 
+
 %include {"util/footer.html"}
+
+
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    <script src="bootstrap/js/bootstrap.min.js"></script>
    <script>
       $(document).ready(function(){
-        $("#programs-tab").addClass("active");
-        $("#meditation-nav-bar-why").addClass("active");
+        $("#about-tab").addClass("active");
+        $("#about-nav-bar-bokwang-centre").addClass("active");
       });
    </script>
 </body>
