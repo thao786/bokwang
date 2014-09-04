@@ -8,13 +8,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Meditation</title>
+    <title>How to Meditation</title>
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">    
+    <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
-          background-image: url('image/bgr.jpg');
+          background-image: url('%{l/image-host}/bgr.jpg');
       }
       a{ color:#5a5a5a;
       }
@@ -34,34 +34,58 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-3">
-          <div class="list-group">
-            <a href="%{l/host}/meditation" class="list-group-item list-group-item-success active">Why Meditation?</a>
-            <a href="%{l/host}/meditation/how" class="list-group-item list-group-item-success">How To Do It</a>
-            <a href="%{l/host}/meditation/class" class="list-group-item list-group-item-success">Our Class</a>            
-          </div>
-        </div>
+        
+        %include {"util/meditation-nav-bar.html"}
 
-        <div class="col-lg-9">
+
+        <div class="col-lg-9">  
           <div class="jumbotron">
-            <h1>Meditation</h1>
-            <p>"The intuitive mind is a sacred gift and the rational mind is a faithful servant"</p>
-            <p class="text-muted">-Albert Einstein-</p>
-          </div>
+              
+            </div>        
 
 
-          <div class="">
-              <h2>there're only 2 kinds of meditations</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          </div>
+            <div class="whiteBgr">
+              <h1>How to Meditate</h1>
+              <p>There're 2 kinds of meditations: <span class="text-muted"> Mantra and Zazen</span>. All methods of meditation you hear is a variation of one those 2 forms.</p>
+                <h1 class="text-success">Mantra</h1>
+                <hr>
+
+                <p>Mantra meditation is giving the mind something to do to discipline it. The most common variation is observing the breathe by counting to 10, or saying a word when inhale and saying another when exhale. It doesn't matter what the word is as the purpose of this exercise is to tie the mind down by forcing it to do one thing only.</p>
+
+                <h3>How to do Mantra Meditation</h3>
+
+                <p>You have total control of how you want to do mantra. As you inhale, say the word "soft" in your mind, and as you exhale, say the word "softer". If your breath is too short for both, you can just say "softer" when you exhale. It doesn't matter what the technique is as long as you are persistent with it.</p>
+
+                <br><br><br>
+
+                <h1 class="text-success">Zazen</h1>
+                <hr>
+
+                <p>Zazen meditation is to observe the mind. The priciple is to observe everything presently unfolding in your thoughts and sensations. Your job is to be one step above your thought, observe it but not entangle with it. Let the thought move through you.</p>
+
+                <p>Zazen meditation could be exciting as the mind would throw the craziest imaginations or dig up long gone memories in order to pull you out of focus. Your job is to see it, and not touch it. Just sit back and watch the movie.</p>
+
+                <br><br><br>
+
+                <h1 class="text-success">Meditation Posture</h1>
+                <hr>
+
+                <br><br><br>
+
+                <h1 class="text-success">Structure your meditation</h1>
+                <hr>
+
+                <p>A beginner should include both of those meditation methods. A session would begin with 3 minutes of mantra meditations following by 20 minutes of Zazen (or more). One should do 2 sessions a day, before starting the day and before bed.</p>
+
+                For more questions you can also email us or visit our meditation group at <a href="%{l/host}/contact">Bo Kwang Centre </a>.
+
+                <br><br><br>
+            </div>
         </div>  
       </div>
     </div>
 
    
-
-
-
 <br><br><br><br>
 
 %include {"util/footer.html"}
@@ -71,6 +95,7 @@
    <script>
       $(document).ready(function(){
         $("#programs-tab").addClass("active");
+        $("#meditation-nav-bar-how").addClass("active");
       });
    </script>
 </body>

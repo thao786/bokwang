@@ -14,16 +14,12 @@
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
-          background-image: url('image/bgr.jpg');
+          background-image: url('%{l/image-host}/bgr.jpg');
       }
       .img-thumbnail:hover{
         border-bottom: solid 2px #0e3565;
         opacity: 0.9;
         border-radius: 70px;
-      }
-      a{
-        color:green;
-        text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
       }
     </style>
    
@@ -44,7 +40,7 @@
               </button>              
             </div>
             <div class="navbar-collapse collapse">
-              <img src="image/logo1.png" width="220" height="70">
+              <img src="%{l/image-host}/logo1.png" width="220" height="70">
               <ul class="nav nav-justified">
                 <li class="active"><a href="%{l/host}">Home</a></li>
                 <li id="about-tab" class="dropdown">
@@ -115,7 +111,7 @@
       </ol>
       <div class="carousel-inner">
         <div class="item active">
-          <img src="image/carousel1.jpg" alt="First slide">
+          <img src="%{l/image-host}/carousel1.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Enter the gateway</h1>
@@ -125,7 +121,7 @@
           </div>
         </div>
         <div class="item">
-          <img src="image/carousel2.jpg" alt="Second slide">
+          <img src="%{l/image-host}/carousel2.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>All Are Welcome!</h1>
@@ -135,7 +131,7 @@
           </div>
         </div>
         <div class="item">
-          <img src="image/carousel3.jpg" alt="Third slide">
+          <img src="%{l/image-host}/carousel3.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Experiences and Reconnect</h1>
@@ -145,7 +141,7 @@
           </div>
         </div>
         <div class="item">
-          <img src="image/carousel4.jpg" alt="Fourth slide">
+          <img src="%{l/image-host}/carousel4.jpg" alt="Fourth slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Our Members</h1>
@@ -174,7 +170,7 @@
     	          <h3><small>Enter the gateway to a fast growing community of warm, like-minded people, where you can explore the healing power of Zen Qigong & P.K. teachings on Restoring Inner Balance & Harmony. We also teach the deeper wisdom of Experiential Zen, Inner Freedom, Energy Work and much more...</small></h3>
             </div>
 		        <div class="col-md-5">
-		          <img class="img-responsive img-thumbnail" src="image/feature1.jpeg" width="500" height="350">
+		          <img class="img-responsive img-thumbnail" src="%{l/image-host}/feature1.jpeg" width="500" height="350">
 		        </div>  
           </div>        
    			</div>
@@ -187,17 +183,17 @@
     		<div class="row">
             <br><br>
 		        <div class="col-lg-4">
-		          <img class="img-thumbnail" src="image/content1.jpg" width="300" height="250">
+		          <img class="img-thumbnail" src="%{l/image-host}/content1.jpg" width="300" height="250">
 		          <a href="%{l/host}/meditation"><h2>Zazen Meditation Services</h2></a>
 		          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
 		        </div><!-- /.col-lg-3 -->
 		        <div class="col-lg-4">
-		          <img class="img-thumbnail" src="image/content2.jpg" width="300" height="250">
+		          <img class="img-thumbnail" src="%{l/image-host}/content2.jpg" width="300" height="250">
 		          <a href=""><h2>Qigong</h2></a>
 		          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. </p>
 		        </div><!-- /.col-lg-3 -->
 		        <div class="col-lg-4">
-		         <img class="img-thumbnail" src="image/content3.jpg" width="300" height="250">
+		         <img class="img-thumbnail" src="%{l/image-host}/content3.jpg" width="300" height="250">
 		          <a href=""><h2>Calendar</h2></a>
 		          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. </p>
 		        </div><!-- /.col-lg-3 -->
@@ -231,22 +227,22 @@
 			  	<div class="panel-body">
 			    	<div class="list-group">
 					  	<a href="#" class="list-group-item">
-					  		<img class="imgFloat" src="image/content4.jpg" width="60" height="46">
+					  		<img class="imgFloat" src="%{l/image-host}/content4.jpg" width="60" height="46">
 					    	<h5 class="list-group-item-heading"><b>Gfth drgh hteg rrag</b></h5>
 					    	<p class="text-muted describe">Duis mollis, est non commodo luctus, nisi erat porttitor ligula justo odio.</p>
 					  	</a>
 					  	<a href="#" class="list-group-item">
-					    	<img class="imgFloat" src="image/content4.jpg" width="60" height="46">
+					    	<img class="imgFloat" src="%{l/image-host}/content4.jpg" width="60" height="46">
 					    	<h5 class="list-group-item-heading"><b>Gfth drgh hteg rrag</b></h5>
 					    	<p class="text-muted describe">Duis mollis, est non commodo luctus, nisi erat porttitor ligula justo odio.</p>
 					  	</a>
 					  	<a href="#" class="list-group-item">
-					    	<img class="imgFloat" src="image/content4.jpg" width="60" height="46">
+					    	<img class="imgFloat" src="%{l/image-host}/content4.jpg" width="60" height="46">
 					    	<h5 class="list-group-item-heading"><b>Gfth drgh hteg rrag</b></h5>
 					    	<p class="text-muted describe">Duis mollis, est non commodo luctus, nisi erat porttitor ligula justo odio.</p>
 					  	</a>
 					  	<a href="#" class="list-group-item">
-					    	<img class="imgFloat" src="image/content4.jpg" width="60" height="46">
+					    	<img class="imgFloat" src="%{l/image-host}/content4.jpg" width="60" height="46">
 					    	<h5 class="list-group-item-heading"><b>Gfth drgh hteg rrag</b></h5>
 					    	<p class="text-muted describe">Duis mollis, est non commodo luctus, nisi erat porttitor ligula justo odio.</p>
 					  	</a>

@@ -8,23 +8,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About</title>
+    <title>Meditation - Rationale</title>
     <!-- Bootstrap -->
-     <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
+    <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
           background-image: url('%{l/image-host}/bgr.jpg');
       }
+      a{ color:#5a5a5a;
+      }
+      a:hover{
+        color:#9c9c9c;
+        text-decoration: none;
+      }
       .list-group{
         margin-top:70px;
-        border-top: solid 2px green;
-        border-bottom: solid 2px green;
       }
     </style>
-   
   </head>
-
 
 <body>
 
@@ -32,39 +34,39 @@
 
     <div class="container">
       <div class="row">
-        %include {"util/about-nav-bar.html"} 
+        
+        %include {"util/meditation-nav-bar.html"}
+
 
         <div class="col-lg-9">
           <div class="jumbotron">
-            <h1>About Us</h1>
-            <p>We are a group of Buddhists who aiming to hepl others reduce life suffering.</p>
+            <h1>Meditation</h1>
+            <p>"The intuitive mind is a sacred gift and the rational mind is a faithful servant"</p>
+            <p class="text-muted">-Albert Einstein-</p>
           </div>
 
 
           <div class="whiteBgr">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <h2>Meditation classes and groups</h2>
+              <p>At Bo Kwang Centre we offer meditation classes for beginner starting every 2nd Thursday every month. In addition to that we held meditation group night every week. Everyone is welcome to join us.</p>
+
+              <p>For more information and registration please refer to our <a href="http://www.meetup.com/Qi-Gong-Zen-Healing">meetup page</a>.</p>
           </div>
         </div>  
       </div>
     </div>
 
    
-
-
-
 <br><br><br><br>
 
-
 %include {"util/footer.html"}
-
-
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    <script src="bootstrap/js/bootstrap.min.js"></script>
    <script>
       $(document).ready(function(){
-        $("#about-tab").addClass("active");
+        $("#programs-tab").addClass("active");
+        $("#meditation-nav-bar-class").addClass("active");
       });
    </script>
 </body>
