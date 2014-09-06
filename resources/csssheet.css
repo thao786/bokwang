@@ -15,36 +15,13 @@ body{
   padding-right: 20px;
 }
 .whiteBgr:hover{
-  border-top: solid #98e73a 3px;
-  border-bottom: solid #98e73a 3px;
+  border-top: solid #794a10 3px;
+  border-bottom: solid #3eb123 3px;
+}
+.container{
+  max-width: 1920px;
 }
 
-
-
-/* CUSTOMIZE THE NAVBAR
--------------------------------------------------- */
-
-/* Special class on .container surrounding .navbar, used for positioning it into place. */
-.navbar-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
-}
-
-/* Flip around the padding for proper display in narrow viewports */
-.navbar-wrapper > .container {
-  padding-right: 0;
-  padding-left: 0;
-}
-.navbar-wrapper .navbar {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-.navbar-wrapper .navbar .container {
-  width: auto;
-}
 
 
 /* CUSTOMIZE THE CAROUSEL
@@ -192,8 +169,8 @@ body{
     border-radius: 0 5px 5px 0;
   }
 }
-/*.masthead{
-  background-color: #e2e2ae;
+.masthead{
+
   padding:10px;
   opacity: 0.9;
   border-bottom-left-radius:80px; 
