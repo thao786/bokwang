@@ -15,7 +15,10 @@
 	(context "/meditation" []
 	    (GET "/" [] (r/render "meditation.html")) 
 	    (GET "/how" [] (r/render "meditation-how.html")) 
-		(GET "/class" [] (r/render "meditation-class.html")))
+		(GET "/class" [] (r/render "meditation-class.html"))
+		(GET "/class/zi" [] (r/render "meditation-class-zi.html"))
+		(GET "/class/zen-tool" [] (r/render "meditation-class-zen-tool.html"))
+		(GET "/class/meditate-circle" [] (r/render "meditation-class-meditate-circle.html")))
 	(context "/qigong" []
 	    (GET "/" [] (r/render "qigong.html")) 
 		(GET "/class" [] (r/render "qigong-class.html")))
