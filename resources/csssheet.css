@@ -1,5 +1,13 @@
 body{	
-  background-color: #f1f1f1;  
+  background: #feffe8; /* Old browsers */
+background: -moz-linear-gradient(top,  #feffe8 0%, #d1d8ad 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feffe8), color-stop(100%,#d1d8ad)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #feffe8 0%,#d1d8ad 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #feffe8 0%,#d1d8ad 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #feffe8 0%,#d1d8ad 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #feffe8 0%,#d1d8ad 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', endColorstr='#d1d8ad',GradientType=0 ); /* IE6-9 */
+  
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
@@ -242,7 +250,15 @@ ul{
 }
 .jumbotron{
   padding: 10px 15px;
-  font-size: 21px;
+  font-size: 20px;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  color: #39593a;
+}
+.jumbotron h1{
+  font-size: 45px;
+  font-weight: bold;
+  color: brown;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
 }
 .anHien{
   display: none;
@@ -265,4 +281,7 @@ a:hover{
   font-size:17px;
   margin:50px;
   text-align: justify;
+}
+.list-group{
+  box-shadow: -2px 2px 12px #888888;
 }
