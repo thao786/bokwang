@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+%{(require '[bokwang.lib :as l]
+           '[sodahead.render :as r]
+           '[clojure.java.io :as io]
+)}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Why Pon Klie Qigong</title>
+    <!-- Bootstrap -->
+    <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url('%{l/image-host}/bgr.jpg');
+      }
+      a{ color:#5a5a5a;
+      }
+      a:hover{
+        color:#9c9c9c;
+        text-decoration: none;
+      }      
+      .list-group{
+        margin-top:70px;
+        border-top: solid 2px green;
+        border-bottom: solid 2px green;
+      }
+    </style>
+  </head>
+
+<body>
+
+  %include {"util/header.html"}    
+
+    <div class="container">
+      <div class="row">
+        
+        %include {"util/qigong-nav-bar.html"}
+
+
+        <div class="col-lg-9">
+          <div class="jumbotron">
+            <h1></h1>
+            <p>"Qigong is fun"</p>
+            <p class="text-muted">- -</p>
+          </div>
+
+
+          <div class="whiteBgr">
+              <h2></h2>         
+
+<p>According to recent research, Qigong was found to lower levels of cortisol, the damaging stress hormone, while simultaneously increasing immune system activity.  In another study, Qigong had fewer side effects than medical intervention in detoxifying heroin addicts and provided faster reduction in withdrawal symptoms with less anxiety.  Qigong was also found to reduce after-meal blood sugar levels in diabetic patients. </p>
+
+<p>(References: Jones BM. Changes in cytokine production in healthy subjects practicing Guolin Qigong: a pilot study. BMC Complement Altern Med 2001; 1(1):8. , Li M, et al. Use of qigong therapy in the detoxification of heroin addicts. Altern Ther Health Med 2002; 8(1):50-4, 56-9. , Iwao M, et al Effects of qigong walking on diabetic patients: a pilot study. J Altern Complement Med 1999; 5(4):353-8. , Ryu H, et al. Acute effect of qigong training on stress hormonal levels in man. Am J Chin Med 1996;24(2):193-8.</p>
+
+<p>This class and overall system is quite different from Yoga and there is a high demand for well trained P.K. Zen Qi-Gong Instructors - especially at Yoga Studios and recreation centers.  We are living in a time of ‘high stress’ and for many, P.K. Zen Qi-Gong is the ultimate stress reducer.  The recreation centre co-ordinator for the City of Vaughn pointed out to Hae Kwang Robert recently that they have more then enough Yoga teachers. He went on to say that he specifically want’s this class in the Fall and will promote it in the magazine that gets sent to all the homes because it’s different and so unique.</p>
+
+<p>This Ancient healing technology is needed now more than ever before.  It effectively meets the needs of the 21st Century.
+- Hae Wool Sunim</p>
+
+          </div>
+        </div>  
+      </div>
+    </div>
+
+   
+<br><br><br><br>
+
+%include {"util/footer.html"}
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="bootstrap/js/bootstrap.min.js"></script>
+   <script>
+      $(document).ready(function(){
+        $("#programs-tab").addClass("active");
+        $("#qigong-nav-bar-why").addClass("active");
+      });
+   </script>
+</body>
+</html>
