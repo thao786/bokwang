@@ -25,6 +25,7 @@
 	(context "/about" []
 	    (GET "/" [] (r/render "about-bokwang-centre.html"))
 	    (GET "/zen" [] (r/render "about-zen.html"))
+	    (GET "/zen-self" [] (r/render "about-zen-self.html"))
 	    (GET "/bo-kwang-centre" [] (r/render "about-bokwang-centre.html"))
 	    (GET "/kwang" [] (r/render "about-kwang.html"))
 		(GET "/taego" [] (r/render "about-taego.html"))

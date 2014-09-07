@@ -16,15 +16,6 @@
       body{
           background-image: url('%{l/image-host}/bgr.jpg');
       }
-      a{ color:#5a5a5a;
-      }
-      a:hover{
-        color:#9c9c9c;
-        text-decoration: none;
-      }
-      .list-group{
-        margin-top:70px;
-      }
     </style>
   </head>
 
@@ -32,20 +23,33 @@
 
   %include {"util/header.html"}    
 
-    <div class="container">
+
+<div class="container">
+
+          <ol class="breadcrumb">
+            <li><a href="%{l/host}">Home</a></li>
+            <li class="active">Meditation</a></li>
+          </ol>
+
+
       <div class="row">
-        
-        %include {"util/meditation-nav-bar.html"}
-
-
-        <div class="col-lg-9">  
+        <div class="col-lg-9 col-lg-offset-3">
           <div class="jumbotron">
-              <p>there is no substitute for hard work</p>
+              <p>"There is no substitute for hard work."</p>
               <p>- Thomas Edison -</p>
-            </div>        
+          </div>    
+        </div>
+      </div>
 
+<!--====================================================================-->
 
-            <div class="whiteBgr">
+      <div class="row">
+         %include {"util/meditation-nav-bar.html"} 
+
+         
+
+        <div class="col-lg-9">
+          <div class="whiteBgr"> 
               <h1>How to Meditate</h1>
               <p>There're 2 kinds of meditations: <span class="text-muted"> Mantra and Zazen</span>. All methods of meditation you hear is a variation of one those 2 forms.</p>
                 <h1 class="text-success">Mantra</h1>

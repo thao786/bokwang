@@ -23,7 +23,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', end
   padding-right: 20px;
 }
 .whiteBgr:hover{
-  border-top: solid #794a10 3px;
+  border-top: solid #3eb123 3px;
   border-bottom: solid #3eb123 3px;
 }
 .container{
@@ -247,6 +247,8 @@ ul{
 .jumbotron {
   text-align: center;
   background-color: transparent;
+  margin-top: -40px;
+  margin-bottom: 10px;
 }
 .jumbotron{
   padding: 10px 15px;
@@ -270,12 +272,13 @@ ul{
 .searchdrop{
   display: none;
 }
- 
-a{ color:#5a5a5a;
-}
-a:hover{
-  color:#6d766d;
+a {
+  color: #0f621f;
+} 
+a:hover,a:focus {
+  color: #27933b;
   text-decoration: none;
+  outline: none;
 }
 .pofbody{
   font-size:17px;
@@ -283,5 +286,30 @@ a:hover{
   text-align: justify;
 }
 .list-group{
-  box-shadow: -2px 2px 12px #888888;
+  /*box-shadow: -2px 0px 12px #888888;*/
+  border-top: solid green 2px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.list-group .active{
+  -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
+          box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
+          background-color: #dfe3ad;
+          border: none;
+          color:#7b4b17;
+}
+.list-group-item:first-child {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.list-group-item:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.activeBgr{
+  background-color: #90c140;
+}  
+.breadcrumb{
+  background-color: transparent;
 }
