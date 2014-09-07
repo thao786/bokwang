@@ -23,7 +23,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', end
   padding-right: 20px;
 }
 .whiteBgr:hover{
-  border-top: solid #794a10 3px;
+  border-top: solid #3eb123 3px;
   border-bottom: solid #3eb123 3px;
 }
 .container{
