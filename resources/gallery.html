@@ -16,9 +16,6 @@
       body{
           /*background-image: url('%{l/image-host}/bgr.jpg');*/
       }
-      .list-group{
-        margin-top:70px;
-      }
       .caption{
         text-align: center;
       }
@@ -40,6 +37,23 @@
 
 
     <div class="container">
+
+          <ol class="breadcrumb">
+            <li><a href="%{l/host}">Home</a></li>
+            <li class="active">Gallery</a></li>
+          </ol>
+
+      <div class="row">        
+        <div class="col-lg-9 col-lg-offset-3">
+          <div class="jumbotron">
+            <h1>Gallery</h1>
+            <p>A collection of picture bal bahei jeith iehwu hieht wjer ngliew wohti eth</p>
+          </div>
+        </div>
+      </div> 
+
+
+
       <div class="row">
         <div class="col-lg-3">
           <div class="list-group">
@@ -53,12 +67,6 @@
         </div>
 
         <div class="col-lg-9">
-          <div class="jumbotron">
-            <h1>Gallery</h1>
-            <p>A collection of picture bal bahei jeith iehwu hieht wjer ngliew wohti eth</p>
-          </div>
-
-
           <div class="row" id="deletelater">
               <div class="col-md-2 thumbnail">
                 <a href=""><img src="%{l/image-host}/content1.jpg" width="200" height="200"></a>

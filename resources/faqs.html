@@ -17,7 +17,6 @@
           /*background-image: url('%{l/image-host}/bgr.jpg');*/
       }
       .list-group{
-        margin-top:70px;
         position:fixed; 
         width:250px;
       }
@@ -36,24 +35,33 @@
 
   %include {"util/header.html"}
 
-    <div class="container">
+    <div class="container">    
+
+          <ol class="breadcrumb">
+            <li><a href="%{l/host}">Home</a></li>
+            <li class="active">Faqs</a></li>
+          </ol>
+
+      <div class="row">
+        <div class="col-lg-9 col-lg-offset-3">
+          <div class="jumbotron">
+            <h1>FAQs</h1>
+            <p>The Taego order is one of the largest Zen orders in the world.</p>
+          </div>      
+        </div>
+      </div>
+
+
       <div class="row">
         <div class="col-lg-3">
           <div class="list-group">
-            <a href="#buddhism" class="list-group-item list-group-item-success active">Buddhism</a>
-            <a href="#meditation" class="list-group-item list-group-item-success">Meditation</a>
-            <a href="#qigong" class="list-group-item list-group-item-success">Qigong</a>
-            <a href="#general" class="list-group-item list-group-item-success">General</a>            
+            <a href="#buddhism" class="list-group-item activeBgr"><span class="glyphicon glyphicon-leaf"></span><b> Buddhism</b></a>
+            <a href="#meditation" class="list-group-item activeBgr"><span class="glyphicon glyphicon-leaf"></span><b> Meditation</b></a>
+            <a href="#qigong" class="list-group-item activeBgr"><span class="glyphicon glyphicon-leaf"></span><b> Qigong</b></a>
+            <a href="#general" class="list-group-item activeBgr"><span class="glyphicon glyphicon-leaf"></span><b> General</b></a>            
           </div>
         </div>
-
         <div class="col-lg-9">
-          <div class="jumbotron">
-            <h1>FAQs</h1>
-            <p>List of all commonly asked questions, concerns</p>
-          </div>
-
-
           <div class="whiteBgr">
           		<h2 class="text-success" id="buddhism">Buddhism</h2>
               <hr>
