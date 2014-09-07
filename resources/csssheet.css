@@ -285,3 +285,14 @@ a:hover{
 .list-group{
   box-shadow: -2px 2px 12px #888888;
 }
+.mainofmenu{
+  background: #ecbaa6; /* Old browsers */
+background: -moz-linear-gradient(top,  #ecbaa6 0%, #863616 50%, #6f2407 51%, #ba7154 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ecbaa6), color-stop(50%,#863616), color-stop(51%,#6f2407), color-stop(100%,#ba7154)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ecbaa6 0%,#863616 50%,#6f2407 51%,#ba7154 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ecbaa6 0%,#863616 50%,#6f2407 51%,#ba7154 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ecbaa6 0%,#863616 50%,#6f2407 51%,#ba7154 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #ecbaa6 0%,#863616 50%,#6f2407 51%,#ba7154 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ecbaa6', endColorstr='#ba7154',GradientType=0 ); /* IE6-9 */
+
+}
