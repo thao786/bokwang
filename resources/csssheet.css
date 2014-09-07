@@ -9,7 +9,6 @@ background: linear-gradient(to bottom,  #feffe8 0%,#d1d8ad 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', endColorstr='#d1d8ad',GradientType=0 ); /* IE6-9 */
   
   background-attachment: fixed;
-  background-repeat: no-repeat;
 }
 .whiteBgr{
 	background-color: white;
@@ -252,13 +251,12 @@ ul{
 }
 .jumbotron{
   padding: 10px 15px;
-  font-size: 20px;
+  font-size: 18px;
   font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   color: #39593a;
 }
 .jumbotron h1{
   font-size: 45px;
-  font-weight: bold;
   color: brown;
   font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
 }
@@ -312,4 +310,71 @@ a:hover,a:focus {
 }  
 .breadcrumb{
   background-color: transparent;
+}
+/*=================================================================================================*/
+
+
+
+.site-navigation {
+  display: block;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 40px;
+}
+
+.site-navigation ul {
+  background: #3498DB;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.site-navigation li {
+  color: #fff;
+  background: #6e3700;
+  display: block;
+  float: left;
+  margin: 0 2px 0 0;
+  padding: 10px 20px 10px 20px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+  
+.site-navigation li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.site-navigation li:hover {
+  background: #A7E882;
+  cursor: pointer;
+}
+
+.site-navigation ul li ul {
+  background: #52a6df;
+  visibility: hidden;
+  float: left;
+  min-width: 150px;
+  position: absolute;
+  margin-top:5px;
+  left: 0;
+  z-index: 20;
+}
+
+.site-navigation ul li:hover > ul,
+.site-navigation ul li ul:hover {
+   visibility: visible;
+}
+
+.site-navigation ul li ul li {
+  clear: both;
+  padding: 5px 0 5px 18px;
+  width: 100%;
+}
+
+.site-navigation ul li ul li:hover {
+  background: #74b7e4;
 }
