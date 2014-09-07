@@ -247,6 +247,7 @@ ul{
 .jumbotron {
   text-align: center;
   background-color: transparent;
+  margin-bottom: -20px;
 }
 .jumbotron{
   padding: 10px 15px;
@@ -270,12 +271,13 @@ ul{
 .searchdrop{
   display: none;
 }
- 
-a{ color:#5a5a5a;
-}
-a:hover{
-  color:#6d766d;
+a {
+  color: #0f621f;
+} 
+a:hover,a:focus {
+  color: #27933b;
   text-decoration: none;
+  outline: none;
 }
 .pofbody{
   font-size:17px;
@@ -283,16 +285,30 @@ a:hover{
   text-align: justify;
 }
 .list-group{
-  box-shadow: -2px 2px 12px #888888;
+  /*box-shadow: -2px 0px 12px #888888;*/
+  border-top: solid green 2px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
-.mainofmenu{
-  background: #ecbaa6; /* Old browsers */
-background: -moz-linear-gradient(top,  #ecbaa6 0%, #863616 50%, #6f2407 51%, #ba7154 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ecbaa6), color-stop(50%,#863616), color-stop(51%,#6f2407), color-stop(100%,#ba7154)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #ecbaa6 0%,#863616 50%,#6f2407 51%,#ba7154 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #ecbaa6 0%,#863616 50%,#6f2407 51%,#ba7154 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #ecbaa6 0%,#863616 50%,#6f2407 51%,#ba7154 100%); /* IE10+ */
-background: linear-gradient(to bottom,  #ecbaa6 0%,#863616 50%,#6f2407 51%,#ba7154 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ecbaa6', endColorstr='#ba7154',GradientType=0 ); /* IE6-9 */
-
+.list-group .active{
+  -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
+          box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
+          background-color: #dfe3ad;
+          border: none;
+          color:#7b4b17;
+}
+.list-group-item:first-child {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.list-group-item:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.activeBgr{
+  background-color: #90c140;
+}  
+.breadcrumb{
+  background-color: transparent;
 }

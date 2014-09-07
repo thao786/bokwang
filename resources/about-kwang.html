@@ -16,11 +16,6 @@
       body{
           background-image: url('%{l/image-host}/bgr.jpg');
       }
-      .list-group{
-        margin-top:70px;
-        border-top: solid 2px green;
-        border-bottom: solid 2px green;
-      }
     </style>
    
   </head>
@@ -32,14 +27,29 @@
 
     <div class="container">
       <div class="row">
-        %include {"util/about-nav-bar.html"} 
-
-        <div class="col-lg-9">
+        <div class="col-lg-9 col-lg-offset-3">
           <div class="jumbotron">
             <h1>Our Teacher</h1>
-          </div>
+          </div>      
 
 
+
+          <ol class="breadcrumb">
+            <li><a href="%{l/host}">Home</a></li>
+            <li><a href="%{l/host}/about">About Zen Center</a></li>
+            <li class="active">Our Teacher</li>
+          </ol>
+        </div>
+      </div>
+
+<!--====================================================================-->
+
+      <div class="row">
+         %include {"util/about-nav-bar.html"} 
+
+
+
+        <div class="col-lg-9">
           <div class="whiteBgr">
             <div class="pofbody">
               <p>Ven. Hae Kwang Sunim is our Vice Dean at the Institute of Asian / Buddhist Studies (I.B.S.) for North America (See: http://taegozen.net/t... ). His given name is Robert Gallop and he started studying comparative religion, Buddhism and Eastern Complimentary Medicine in 1990. In 1994, he traveled to Thailand to study with different teachers including Ajahn Sumedho and a number of other Thai monks in the Theravada Tradition. He received ordination as Bodhi-Cari at Bo Kwang Temple Anaheim and Novice Zen Priest ordination at the International Buddhist Meditation Center in Los Angeles. In 1998, he started to study Zen (and Zen Qi Gong) and became a student of Ven. Dr. Jong Mae Park and later a graduate of I.B.S. with a degree of Associates of Arts and Dharma Instructor of Buddhist Studies. Hae Kwang works closely with the Institute which is affiliated with Dong-Bang University in Seoul and World Buddhist University in Bangkok. Dr. Park gave him the name Hae Kwang (Brightness of Wisdom) after extensive training both in California and Korea. In 2004, the Taego council ordained him Zen Priest at Taego Head Quarters in Soul, South Korea. The Taego Order is one of the largest Zen Orders in the world with over 1600 Temples: http://taegozen.net/...</p><br>
@@ -52,6 +62,7 @@
         </div>  
       </div>
     </div>
+  </div>
 
    
 
