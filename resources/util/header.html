@@ -59,15 +59,15 @@
 
     <nav id="navigation" class="site-navigation" role="navigation">
   <ul class="menu">
-    <li class="menu-item"><a href="#">Home</a></li>
-    <li class="menu-item"><a href="#">About Us</a>
+    <li id="home-tab" class="menu-item"><a href="%{l/host}">HOME</a></li>
+    <li id="about-tab" class="menu-item"><a href="%{l/host}/about">ABOUT US</a>
       <ul class="dropdown">
         <li class="menu-item sub-menu"><a href="#">Buddhism</a></li>
         <li class="menu-item sub-menu"><a href="#">Bo Kwang Center</a></li>
         <li class="menu-item sub-menu"><a href="#">Taego Order</a></li>
       </ul>
     </li>
-    <li class="menu-item"><a href="#">Programs</a>
+    <li id="programs-tab" class="menu-item"><a href="%{l/host}/programs">PROGRAMS</a>
       <ul class="dropdown">
         <li class="menu-item sub-menu"><a href="#">Meditation</a></li>
         <li class="menu-item sub-menu"><a href="#">Qigong</a></li>
@@ -76,10 +76,20 @@
         <li class="menu-item sub-menu"><a href="#">Food Based</a></li>
       </ul>
     </li>
-    <li class="menu-item"><a href="#">Faqs</a></li>
-    <li class="menu-item"><a href="#">Gallery</a></li>
-    <li class="menu-item"><a href="#">Donations</a></li>
-    <li class="menu-item"><a href="#">Contact</a></li>
+    <li id="faqs-tab" class="menu-item"><a href="%{l/host}/faqs">FAQs</a></li>
+    <li id="gallery-tab" class="menu-item"><a href="%{l/host}/gallery">GALLERY</a></li>
+    <li id="donate-tab"class="menu-item"><a href="%{l/host}/donations">DONATION</a></li>
+    <li id="contact-tab" class="menu-item"><a href="%{l/host}/contact">CONTACT</a></li>
+    <li class="menu-item"><a href=""><span class="glyphicon glyphicon-search"></span></a>
+      <ul class="dropdown">
+        <form class="navbar-form navbar-left" role="search">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                      </div>
+                      <button type="submit" class="btn btn-default">Submit</button>
+                   </form>
+      </ul>
+    </li>
   </ul>
 </nav>
 
