@@ -73,26 +73,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', end
   }
 }
 
-
-
-/* MARKETING CONTENT
--------------------------------------------------- */
-
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 20px;
-  text-align: center;
-}
-.marketing h2 {
-  font-weight: normal;
-}
-.marketing .col-lg-4 p {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-
-
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -171,7 +151,21 @@ color:#7393aa;
 color:#1b9373;
 }
 .img-thumbnail{
-  border-radius: 20px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.img-thumbnail:hover{  
+   cursor: pointer;
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+    -ms-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+    border-left: solid 3px #f0ad4e;
+    border-radius: 20px;
 }
 ul{
   list-style-type: none;
@@ -229,18 +223,37 @@ a:hover,a:focus {
   margin:50px;
   text-align: justify;
 }
+.quotediv{
+  background-color: white;
+  color:#722d19;
+  font-size: 20px;
+  font-weight: lighter;
+  border-radius: 5px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius:20px; 
+  margin: 0 100px 20px 0;
+  border: solid 1px #e2dfde;
+  border-left:solid 7px #f0ad4e;
+  padding:30px 0 5px 0;
+  font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+}
+.quotediv:hover{
+  border-left:solid 7px #1b4b6d;
+}
 .list-group{
   /*box-shadow: -2px 0px 12px #888888;*/
-  border-top: solid green 2px;
+  border: solid 1px #e2dfde;
+  border-top: solid #d1e73a 3px;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 }
 .list-group .active{
   -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
           box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
-          background-color: #dfe3ad;
           border: none;
+          border-left: solid 2px #1b4b6d;
           color:#7b4b17;
+          background-color: transparent;
 }
 .list-group-item:first-child {
   border-top-left-radius: 20px;
@@ -251,26 +264,37 @@ a:hover,a:focus {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
 }
-.activeBgr{
-  background-color: #90c140;
-}  
 .breadcrumb{
   background-color: transparent;
+  margin-top:20px;
+  border-left:solid 4px #722d19;
+  border-radius: 0px;
+  padding-left: 7px;
+  margin-left:10px;
 }
-/*=================================================================================================*/
+.menuphu{
+  text-indent: 10px;
+}
+.tieude{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  color: #8cb316;
+}
 
 
-
+/*======================================MENU BAR===========================================================*/
 .site-navigation {
   display: block;
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  /*font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;*/
+  font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
   font-size: 16px;
   margin: 10px 10px 30px;
   z-index: 1001;
   background: #3498DB;
   width: 100%;
 }
-
+.green{
+  color:#8cb316;
+}
 .site-navigation ul {
   background: #3498DB;
   list-style: none;
@@ -287,8 +311,7 @@ a:hover,a:focus {
   padding: 10px 20px 10px 20px;
   position: relative;
   text-decoration: none;
-  text-transform: uppercase;
-  width:14%;
+  width:12%;
   border-top:solid 2px #8cb316;
   text-align: center;
 }
@@ -332,16 +355,15 @@ a:hover,a:focus {
   background: #5e5d5d;
 }
 .site-navigation ul li ul li:hover {
-  background: #3a678d;
+  background: #b9d064;
 }
-.site-navigation ul li:first-child {
-  border-top-left-radius: 15px;
-}
-.site-navigation ul li:last-child{
-  border-top-right-radius: 15px;
+.site-navigation .active {
+  -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
+          box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
+          background-color: #8cb316;
 }
 .site-navigation ul li ul li:last-child{
-  border-bottom: solid 2px #1b4b6d;
+  border-bottom: solid 3px #8cb316;
 }
 
 @media (max-width: 768px) {
