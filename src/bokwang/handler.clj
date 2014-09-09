@@ -12,9 +12,10 @@
 (defroutes app-routes
 	(GET "/" [] (r/render "index.html"))
 	(GET "/programs" [] (r/render "programs.html"))
+	(GET "/test" [] (r/render "meditation-how.html"))
 	(context "/meditation" []
 	    (GET "/" [] (r/render "meditation.html")) 
-	    (GET "/how" [] (r/render "meditation-how.html")) 
+	    (GET "/structure" [] (r/render "meditation-structure.html")) 
 		(GET "/class" [] (r/render "meditation-class.html"))
 		(GET "/class/zi" [] (r/render "meditation-class-zi.html"))
 		(GET "/class/zen-tool" [] (r/render "meditation-class-zen-tool.html"))
