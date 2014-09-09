@@ -242,7 +242,8 @@ a:hover,a:focus {
 }
 .list-group{
   /*box-shadow: -2px 0px 12px #888888;*/
-  border-top: solid #1b4b6d 2px;
+  border: solid 1px #e2dfde;
+  border-top: solid #d1e73a 3px;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 }
@@ -250,8 +251,9 @@ a:hover,a:focus {
   -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
           box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
           border: none;
-          border-left: solid 3px #1b4b6d;
+          border-left: solid 2px #1b4b6d;
           color:#7b4b17;
+          background-color: transparent;
 }
 .list-group-item:first-child {
   border-top-left-radius: 20px;
@@ -262,9 +264,6 @@ a:hover,a:focus {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
 }
-.activeBgr{
-  background-color: #90c140;
-}  
 .breadcrumb{
   background-color: transparent;
   margin-top:20px;
