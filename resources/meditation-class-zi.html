@@ -22,37 +22,34 @@
 <body>
 
   %include {"util/header.html"}    
-   
 
-<div class="container">  
+    <div class="container"> 
 
           <ol class="breadcrumb">
             <li><a href="%{l/host}">Home</a></li>
             <li><a href="%{l/host}/programs">Programs</a></li>
             <li><a href="%{l/host}/meditation">Meditation</a></li>
             <li><a href="%{l/host}/meditation/class">Our Class</a></li>
-            <li class="active">Meditation instruction Zi</a></li>
+            <li class="active">(ZI- 1) START HERE: Instructions, Learn Zazen Meditation</li>
           </ol>
-
-
-      <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
-          <div class="jumbotron">
-            <h1>Meditation</h1>
-          </div>      
-        </div>
-      </div>
+      
 
 <!--====================================================================-->
 
+
       <div class="row">
-         %include {"util/meditation-nav-bar.html"} 
-         
+        
+        %include {"util/meditation-nav-bar.html"}
+
 
         <div class="col-lg-9">
-          <div class="whiteBgr">              
-            <div class="pofbody">              
-              <h2>(ZI- 1) START HERE: Instructions, Learn Zazen Meditation (A Donation Class)</h2>
+          <div class="whiteBgr">
+            <div class="pofbody">
+              <div class="jumbotron">
+                  <p>(ZI- 1) START HERE: Instructions, Learn Zazen Meditation (A Donation Class)<br>
+              </div>
+              <hr>
+
               <p>DONATIONS ARE APPRECIATED...  All are welcome! 
               Note: This is a Donation Class. ALL ARE WELCOME. For people in financial hardship please know that ‘Gratitude Passes’ are accepted for ZI 1.   **Thank You Patron Members.  N/C to P.M. for Meditation and Dokusan</p>
 
@@ -78,13 +75,12 @@
 
               <p>If you are new to Zazen Meditation we suggest taking the ZI Series which includes meditation instruction (ZI 1 and ZI 2), and a full day of practice at Bo Kwang Meditation Centre (ZI 3).  Z1 is Bo Kwang Meditation Centres ‘Learn to Meditate - Zazen Meditation Instruction class (See Meetup). Our Zen Instruction 1 program (ZI 1) is a pefect opportunity to learn the essential practice of meditation. The ZI 1 class includes a guided meditation, essential tools and instructions that can easily be applied to daily life.  By attending ZI 1, 2 and 3 and applying the teachings on a regular basis, anyone can start to tap into a deeper state of peace and well being.  Zazen Meditation can improve virtually all areas of ones life.</p>
 
-              <p>For more information and registration please refer to our <a href="http://www.meetup.com/Qi-Gong-Zen-Healing">meetup page</a>.</p><br><br>
+              <p>For more information and registration please refer to our <a href="http://www.meetup.com/Qi-Gong-Zen-Healing">meetup page</a>.</p>
           </div>
         </div>  
       </div>
     </div>
-  </div>
-
+  </div> 
    
 <br><br><br><br>
 
@@ -95,7 +91,7 @@
    <script>
       $(document).ready(function(){
         $("#programs-tab").addClass("active");
-        $("#meditate-nav-class-z1").addClass("active");
+        $("#meditation-nav-class-z1").addClass("active");
       });
    </script>
 </body>
