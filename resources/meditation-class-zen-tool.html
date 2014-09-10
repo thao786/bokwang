@@ -23,19 +23,33 @@
 
   %include {"util/header.html"}    
 
-    <div class="container">
+    <div class="container"> 
+
+          <ol class="breadcrumb">
+            <li><a href="%{l/host}">Home</a></li>
+            <li><a href="%{l/host}/programs">Programs</a></li>
+            <li><a href="%{l/host}/meditation">Meditation</a></li>
+            <li><a href="%{l/host}/meditation/class">Our Class</a></li>
+            <li class="active">Zen Life Practice Tools and Mastering Zen Meditation Night</li>
+          </ol>
+      
+
+<!--====================================================================-->
+
+
       <div class="row">
         
         %include {"util/meditation-nav-bar.html"}
 
 
         <div class="col-lg-9">
-          <div class="jumbotron">
-          </div>
-
           <div class="whiteBgr">
-              <h2>Zen Life Practice Tools and Mastering Zen Meditation Night</h2>
-              <p>Zen Life Practice Q & A class addresses how to deal with the grip of insecurities like not feeling good enough. How to “let go” and become more compassionate towards all beings including ‘seemingly’ unforgivable parts in ourselves. These practical mindfulness teachings help liberate your True-Self from the conditioned "little" self with its unconscious, self-limiting beliefs. </p>
+            <div class="pofbody">
+              <div class="jumbotron">
+                  <p>Zen Life Practice Tools and Mastering Zen Meditation Night<br>
+              </div>
+              <hr>
+<p>Zen Life Practice Q & A class addresses how to deal with the grip of insecurities like not feeling good enough. How to “let go” and become more compassionate towards all beings including ‘seemingly’ unforgivable parts in ourselves. These practical mindfulness teachings help liberate your True-Self from the conditioned "little" self with its unconscious, self-limiting beliefs. </p>
 
 <p>You Will Also Learn the Root Practice and deeper aspects of Zazen Here.</p>
 
@@ -52,17 +66,13 @@
 <p>Just sitting is to be one with your present experience. Being one with your present experience is to become one with yourself - to re-harmonize body and mind and unentangle as we go deeper in our meditation. The practice is truly life changing and unbinding on many levels.</p>
 
 <p>***Thank-You for being a part of and supporting this community! Through meditation, Zen, Training, mindfulness practice, prayer, and contemplation, we aspire to be transformed in mind and heart by embodying the Path of Loving-Kindness, Compassion, and Service in ways appropriate for our times.</p>
-
-Participant Notice:
-
-Please note that some tea circles / group talks / event and group answer sessions with Hae Kwang Sunim (Robert) are recorded or skyped out as a possible teaching tool. If any participant wishes not to be recorded please let us know.
-
-              <p>For more information and registration please refer to our <a href="http://www.meetup.com/Qi-Gong-Zen-Healing">meetup page</a>.</p>
+              
+              <p>For more information and registration please refer to our <a href="http://www.meetup.com/Qi-Gong-Zen-Healing">meetup page</a>.
           </div>
         </div>  
       </div>
     </div>
-
+  </div> 
    
 <br><br><br><br>
 
@@ -73,7 +83,7 @@ Please note that some tea circles / group talks / event and group answer session
    <script>
       $(document).ready(function(){
         $("#programs-tab").addClass("active");
-        $("#meditate-nav-class-zen-tool").addClass("active");
+        $("#meditation-nav-class-zen-tool").addClass("active");
       });
    </script>
 </body>

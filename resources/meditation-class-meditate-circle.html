@@ -23,19 +23,33 @@
 
   %include {"util/header.html"}    
 
-    <div class="container">
+    <div class="container"> 
+
+          <ol class="breadcrumb">
+            <li><a href="%{l/host}">Home</a></li>
+            <li><a href="%{l/host}/programs">Programs</a></li>
+            <li><a href="%{l/host}/meditation">Meditation</a></li>
+            <li><a href="%{l/host}/meditation/class">Our Class</a></li>
+            <li class="active">Your Community Meditation Circle</li>
+          </ol>
+      
+
+<!--====================================================================-->
+
+
       <div class="row">
         
         %include {"util/meditation-nav-bar.html"}
 
 
         <div class="col-lg-9">
-          <div class="jumbotron">
-          </div>
-
           <div class="whiteBgr">
-              <h2>(Donation Class) ‘Your Community Meditation Circle’ - Open to 'Well Being' Night</h2>
-              <p>DONATIONS ARE APPRECIATED... Join a Zazen Meditation Circle!</p>
+            <div class="pofbody">
+              <div class="jumbotron">
+                  <p>Your Community Meditation Circle - Open to 'Well Being' Night<br>
+              </div>
+              <hr>
+<p>DONATIONS ARE APPRECIATED... Join a Zazen Meditation Circle!</p>
 
 <p>‘Your Community Meditation Circle' is an opportunity to Open and release the collected contractions of the day. It’s a time to refresh and go deeper into the underlying ground of being with Zazen Meditation. In the beginning of each class you will be guided, step by step, to deeply relax through the body in a specific order that also supports the flow of Qi energy within your body. (Qi is the bioelectricity carried by your nervous system. Current physiological research has verified that these currents control your immune system, the regeneration of organ tissues, and the growth of muscle and bone).</p>
 
@@ -45,12 +59,13 @@
 
 <p>**Thank You Patron Members, N/C for Meditation and Dokusan</p>
 
-              <p>For more information and registration please refer to our <a href="http://www.meetup.com/Qi-Gong-Zen-Healing">meetup page</a>.</p>
+              <p>For more information and registration please refer to our <a href="http://www.meetup.com/Qi-Gong-Zen-Healing">meetup page</a>.
+              </p>
           </div>
         </div>  
       </div>
     </div>
-
+  </div> 
    
 <br><br><br><br>
 
@@ -61,7 +76,7 @@
    <script>
       $(document).ready(function(){
         $("#programs-tab").addClass("active");
-        $("#meditate-nav-class-zen-tool").addClass("active");
+        $("#meditation-nav-class-meditate-circle").addClass("active");
       });
    </script>
 </body>

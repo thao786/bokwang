@@ -12,9 +12,11 @@
 (defroutes app-routes
 	(GET "/" [] (r/render "index.html"))
 	(GET "/programs" [] (r/render "programs.html"))
+	(GET "/test" [] (r/render "meditation-how.html"))
 	(context "/meditation" []
 	    (GET "/" [] (r/render "meditation.html")) 
-	    (GET "/how" [] (r/render "meditation-how.html")) 
+	    (GET "/structure" [] (r/render "meditation-structure.html")) 
+	    (GET "/how" [] (r/render "meditation-how.html"))
 		(GET "/class" [] (r/render "meditation-class.html"))
 		(GET "/class/zi" [] (r/render "meditation-class-zi.html"))
 		(GET "/class/zen-tool" [] (r/render "meditation-class-zen-tool.html"))
@@ -33,7 +35,7 @@
 		(GET "/become-priest" [] (r/render "about-become-priest.html")))
 	(GET "/gallery" [] (r/render "gallery.html"))
 	(GET "/contact" [] (r/render "contact.html"))
-	(GET "/donation" [] (r/render "donation.html"))
+	(GET "/donations" [] (r/render "donation.html"))
 	(context "/faqs" []
 	    (GET "/" [] (r/render "faqs.html")) 
 	    (GET "/meditation" [] "profile")
