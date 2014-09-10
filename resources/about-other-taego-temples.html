@@ -8,75 +8,59 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About</title>
+    <title>Other Taego Temples</title>
     <!-- Bootstrap -->
-     <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
+    <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
           background-image: url('%{l/image-host}/bgr.jpg');
       }
     </style>
-   
   </head>
-
 
 <body>
 
   %include {"util/header.html"}    
 
-<div class="container">
-
-
+    <div class="container"> 
           <ol class="breadcrumb">
             <li><a href="%{l/host}">Home</a></li>
-            <li><a href="%{l/host}/about">Taego Order</a></li>
-            <li class="active">Taego Monks</li>
+            <li><a href="%{l/host}/about">About</a></li>
+            <li><a href="%{l/host}/about/taego">Taego Order</a></li>
+            <li class="active">Other Taego Temples</li>
           </ol>
-
-
-      <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
-          <div class="jumbotron">
-            <h1>Zen Buddhism</h1>
-          </div>      
-        </div>
-      </div>
-
 <!--====================================================================-->
 
+
       <div class="row">
-         %include {"util/about-nav-bar.html"} 
-
-
+        
+%include {"util/about-nav-bar.html"} 
 
         <div class="col-lg-9">
           <div class="whiteBgr">
-              <h2>Zen Buddhism</h2>
+            <div class="pofbody">
+              <div class="jumbotron">
+                  <h1>Taego Order</h1>
+              </div>
               <hr>
-              <p>Zen doesn't require you to believe in anything. Instead we invite you to experience and see for yourself.</p>
+            Links to other priests temples here
           </div>
         </div>  
       </div>
     </div>
-
+  </div> 
    
-
-
-
 <br><br><br><br>
 
-
 %include {"util/footer.html"}
-
-
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    <script src="bootstrap/js/bootstrap.min.js"></script>
    <script>
       $(document).ready(function(){
         $("#about-tab").addClass("active");
-        $("#about-taego-monk").addClass("active");
+        $("#about-taego-temples").addClass("active");
       });
    </script>
 </body>

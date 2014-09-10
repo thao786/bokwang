@@ -8,67 +8,56 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About</title>
+    <title>BoKwang Zen Centre</title>
     <!-- Bootstrap -->
-     <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
+    <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
-          /*background-image: url('%{l/image-host}/bgr.jpg');*/
+          background-image: url('%{l/image-host}/bgr.jpg');
       }
     </style>
-   
   </head>
-
 
 <body>
 
   %include {"util/header.html"}    
 
-    <div class="container">    
-
+    <div class="container"> 
 
           <ol class="breadcrumb">
             <li><a href="%{l/host}">Home</a></li>
             <li><a href="%{l/host}/about">About</a></li>
             <li class="active">Bo Kwang Zen Center</a></li>
           </ol>
-
-          
-      <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
-          <div class="jumbotron">
-            <h1>Bo Kwang Zen Center</h1>
-          </div>  
-        </div>
-      </div>
+      
 
 <!--====================================================================-->
 
-      <div class="row">
-         %include {"util/about-nav-bar.html"} 
 
-         
+      <div class="row">
+        
+%include {"util/about-nav-bar.html"} 
 
         <div class="col-lg-9">
           <div class="whiteBgr">
-              <h2>Wellcome!</h2>
-              <p>We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.</p>
+            <div class="pofbody">
+              <div class="jumbotron">
+                  <h1>Bo Kwang Zen Center</h1>
+                  <p>Wellcome!<br>
+              </div>
+              <hr>
+<p>We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.</p>
+              </p>
           </div>
         </div>  
       </div>
     </div>
-
+  </div> 
    
-
-
-
 <br><br><br><br>
 
-
 %include {"util/footer.html"}
-
-
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    <script src="bootstrap/js/bootstrap.min.js"></script>

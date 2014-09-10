@@ -31,7 +31,7 @@
 	    (GET "/bo-kwang-centre" [] (r/render "about-bokwang-centre.html"))
 	    (GET "/kwang" [] (r/render "about-kwang.html"))
 		(GET "/taego" [] (r/render "about-taego.html"))
-		(GET "/taego-monks" [] (r/render "about-taego-monks.html"))
+		(GET "/other-temples" [] (r/render "about-other-taego-temples.html"))
 		(GET "/become-priest" [] (r/render "about-become-priest.html")))
 	(GET "/gallery" [] (r/render "gallery.html"))
 	(GET "/contact" [] (r/render "contact.html"))
