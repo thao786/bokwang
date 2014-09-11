@@ -15,16 +15,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', end
   opacity: 0.9;
 	border-radius: 5px;
   border-top-right-radius: 80px;
-	border-top: solid #d1e73a 3px;
-  border-bottom: solid #d1e73a 3px;
+	border-top: solid #3eb123 3px;
+  border-bottom: solid #3eb123 3px;
 	padding-left: 25px;
   padding-top: 10px;
   padding-right: 20px;
 }
-.whiteBgr:hover{
+/*.whiteBgr:hover{
   border-top: solid #3eb123 3px;
-  border-bottom: solid #3eb123 3px;
-}
+  border-bottom: solid #d1e73a 3px;
+}*/
 .container{
   max-width: 1920px;
 }
@@ -151,21 +151,20 @@ color:#7393aa;
 color:#1b9373;
 }
 .img-thumbnail{
-  -webkit-transition: all 0.5s ease;
+  /*-webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease;*/
 }
 .img-thumbnail:hover{  
    cursor: pointer;
-    -webkit-transform: rotate(-10deg);
+   /* -webkit-transform: rotate(-10deg);
     -moz-transform: rotate(-10deg);
     -o-transform: rotate(-10deg);
     -ms-transform: rotate(-10deg);
-    transform: rotate(-10deg);
-    border-left: solid 3px #f0ad4e;
-    border-radius: 20px;
+    transform: rotate(-10deg);*/
+    border-left: solid 1px #f0ad4e;
 }
 ul{
   list-style-type: none;
@@ -220,21 +219,31 @@ a:hover,a:focus {
 }
 .pofbody{
   font-size:17px;
-  margin:50px;
+  margin: 30px 50px 50px;
   text-align: justify;
 }
+.header{
+  margin:0 50px 0 50px;
+  font-size: 18px;
+  color:#9aa1a6;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-style: italic;
+}
+.header h1{
+  color: #ac3e3b;
+  font-size: 50px;
+  text-align: center;
+  font-style: normal;
+}
 .quotediv{
-  background-color: white;
+  background-color: #f3f4ee;
   color:#722d19;
   font-size: 20px;
   font-weight: lighter;
   border-radius: 5px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius:20px; 
-  margin: 0 100px 20px 0;
-  border: solid 1px #e2dfde;
+  margin-bottom: 20px;
   border-left:solid 7px #f0ad4e;
-  padding:30px 0 5px 0;
+  padding:30px 0 10px 0;
   font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
 }
 .quotediv:hover{
@@ -253,12 +262,19 @@ a:hover,a:focus {
           border: none;
           border-left: solid 2px #1b4b6d;
           color:#7b4b17;
-          background-color: transparent;
+          background-color: #C9E0A4;
 }
-.list-group-item:first-child {
+.list-group .active:hover{
+  color:#7b4b17;
+  background-color: #C9E0A4;
+}
+.list-group-item:hover{
+  border-left: solid 1px #1b4b6d;
+}
+/*.list-group-item:first-child {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-}
+}*/
 .list-group-item:last-child {
   margin-bottom: 0;
   border-bottom-right-radius: 0px;
@@ -267,7 +283,7 @@ a:hover,a:focus {
 .breadcrumb{
   background-color: transparent;
   margin-top:20px;
-  border-left:solid 4px #722d19;
+  /*border-left:solid 4px #722d19;*/ 
   border-radius: 0px;
   padding-left: 7px;
   margin-left:10px;
