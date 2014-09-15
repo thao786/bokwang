@@ -83,15 +83,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', end
 
 .jumbotron{
   background: transparent;
-  margin: 0;
-  padding: 0;
+  margin: 0 100px 50px;
+  font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+  padding: 1px 20px 20px;
+  position: relative;
 }
 .jumbotron h1{
     color: #a83a32;
     font-weight: normal;
-    font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
     font-size: 50px;
-    text-shadow: 0 2px white, 0 3px #777;
+}
+.jumbotron:before {
+    border: 2px solid #65981b;
+    content: "";
+    position: absolute;
+    top: -8px;
+    bottom: -8px;
+    left: -8px;
+    right: -8px;
 }
 /*
  * Main content
@@ -310,8 +319,8 @@ a:hover,a:focus {
 .site-navigation {
   display: block;
   /*font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;*/
-  font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
-  font-size: 16px;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 15px;
   margin: 10px 10px 30px;
   z-index: 1001;
   background: #3498DB;
@@ -359,7 +368,7 @@ a:hover,a:focus {
   background: #5e5d5d;
   visibility: hidden;
   float: left;
-  width: 100%;
+  width: 150%;
   position: absolute;
   margin: 10px 0 0;
   left: 0;
