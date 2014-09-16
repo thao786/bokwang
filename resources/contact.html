@@ -14,11 +14,10 @@
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
-          /*background-image: url('%{l/image-host}/bgr.jpg');*/
+          background-image: url('%{l/image-host}/bgr.jpg');
       }
-      .panel{
-        background: white;
-        opacity:0.8;
+      .whiteBgr{
+        opacity:0.9;
       }
     </style>
    
@@ -37,19 +36,10 @@
             <li class="active">Contact</a></li>
           </ol>
 
-      <div class="row">    
-        <div class="col-lg-8 col-md-offset-2">
-          <div class="header">
-            <h1>Contact</h1>
-            <p>We are located at <span class="text-muted">57 Gorevale Dr, L6P 2H2, Brampton</span> and have satellite offices around Toronto.</p>
-          </div>
-        </div>
-      </div>
 
+      <div class="row whiteBgr">  
+            <div class="alert alert-success" role="alert">We are located at <span class="text-muted">57 Gorevale Dr, L6P 2H2, Brampton</span> and have satellite offices around Toronto.</div>
 
-      <div class="row">     
-        <div class="panel panel-default">
-          <div class="panel-body">
             <div class="col-lg-6">
               <h2>Contact</h2>
               <hr>              
@@ -106,13 +96,10 @@
                   </script>
                   <div style="overflow:hidden;height:400px;width:600px;">
                     <div id="gmap_canvas" style="height:400px;width:500px;">
-                    </div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style><a class="google-map-code" href="http://www.mapsembed.com" id="get-map-data">mapsembed.com</a></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(43.7747957,-79.67805629999998),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(43.7747957, -79.67805629999998)});infowindow = new google.maps.InfoWindow({content:"<b>Bo Kwang Center</b><br/>57 Gorevale Dr<br/>L6P 2H2 Brampton" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
-              
+                    </div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style><a class="google-map-code" href="http://www.mapsembed.com" id="get-map-data">mapsembed.com</a></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(43.7747957,-79.67805629999998),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(43.7747957, -79.67805629999998)});infowindow = new google.maps.InfoWindow({content:"<b>Bo Kwang Center</b><br/>57 Gorevale Dr<br/>L6P 2H2 Brampton" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script><br><br><br>
+                  </div>
+            </div>         
 
-            <br><br><br>
-            </div>
-          </div> 
-        </div>         
       </div>  
   </div>
 
