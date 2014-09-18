@@ -14,7 +14,7 @@
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
-          /*background-image: url('%{l/image-host}/bgr.jpg');*/
+          background-image: url('%{l/image-host}/bgr.jpg');
       }
       .caption{
         text-align: center;
@@ -40,31 +40,14 @@
 
           <ol class="breadcrumb">
             <li><a href="%{l/host}">Home</a></li>
+            <li><a href="%{l/host}/about">About</a></li>
             <li class="active">Gallery</a></li>
           </ol>
 
-      <div class="row">        
-        <div class="col-lg-9 col-lg-offset-3">
-          <div class="jumbotron">
-            <h1>Gallery</h1>
-            <p>A collection of picture bal bahei jeith iehwu hieht wjer ngliew wohti eth</p>
-          </div>
-        </div>
-      </div> 
-
-
-
+      
       <div class="row">
-        <div class="col-lg-3">
-          <div class="list-group">
-            <a href="#" class="list-group-item">Category 1</a>
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
-            <a href="#" class="list-group-item">Category 4</a>
-            <a href="#" class="list-group-item">Category 5</a>
-            <a href="#" class="list-group-item">Category 6</a>
-          </div>
-        </div>
+        %include {"util/about-nav-bar.html"} 
+
 
         <div class="col-lg-9">
           <div class="row" id="deletelater">
@@ -119,7 +102,11 @@
    <script src="bootstrap/js/bootstrap.min.js"></script>
    <script>
       $(document).ready(function(){
-        $("#gallery-tab").addClass("active");
+        $("#about-tab").addClass("active");
+             
+        $(".searchble").click(function(){
+           $(".searchbox").slideToggle();    
+        });
       });
 
       var body = document.getElementById("deletelater").innerHTML;

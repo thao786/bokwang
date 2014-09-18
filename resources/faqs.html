@@ -57,7 +57,7 @@
                 <h1>FAQs</h1>
                 <p class="text-center">The Taego order is one of the largest Zen orders in the world.</p>
               </div>
-              <hr><br>
+              <hr>
               
           		<h2 class="text-success" id="buddhism">Buddhism</h2>
               <hr>
@@ -157,6 +157,10 @@
    <script>
       $(document).ready(function(){
         $("#faqs-tab").addClass("active");
+             
+        $(".searchble").click(function(){
+           $(".searchbox").slideToggle();    
+        });
       });
 
       $(".question").click(function(){

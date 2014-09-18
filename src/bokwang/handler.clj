@@ -32,9 +32,10 @@
 	    (GET "/kwang" [] (r/render "about-kwang.html"))
 		(GET "/taego" [] (r/render "about-taego.html"))
 		(GET "/other-temples" [] (r/render "about-other-taego-temples.html"))
-		(GET "/become-priest" [] (r/render "about-become-priest.html")))
-	(GET "/gallery" [] (r/render "gallery.html"))
+		(GET "/become-priest" [] (r/render "about-become-priest.html"))
+		(GET "/gallery" [] (r/render "gallery.html")))
 	(GET "/contact" [] (r/render "contact.html"))
+	(GET "/calendar" [] (r/render "calendar.html"))
 	(GET "/donations" [] (r/render "donation.html"))
 	(context "/faqs" []
 	    (GET "/" [] (r/render "faqs.html")) 
@@ -48,7 +49,7 @@
 	(GET "/bootstrap/js/:name" [name] (io/resource (str "bootstrap/js/" name)))
 	(GET "/bootstrap/fonts/:name" [name] (io/resource (str "bootstrap/fonts/" name)))
 	(route/resources "/")
-	(route/not-found "under construction"))
+	(route/not-found "under construction :((((((("))
 
 (def app
 	(handler/site app-routes))
