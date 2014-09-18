@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+%{(require '[bokwang.lib :as l]
+           '[sodahead.render :as r]
+           '[clojure.java.io :as io]
+)}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calendar</title>
+    <!-- Bootstrap -->
+     <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url('%{l/image-host}/bgr.jpg');
+      }
+      .whiteBgr{
+        opacity:0.9;
+      }
+    </style>
+   
+  </head>
+
+
+<body>
+
+  %include {"util/header.html"}    
+
+
+
+  <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="%{l/host}">Home</a></li>
+            <li class="active">Calendar</a></li>
+          </ol>
+
+
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10 whiteBgr">              
+            <div class="header">
+              <h1><b>Calendar</b></h1>
+              <p>"The intuitive mind is a sacred gift and the rational mind is a faithful servant. We have created a society that honors the servant and has forgotten the gift."</p>
+              <p class="text-right" style="margin-top:-10px;">- Albert Eistein -</span></p>
+            </div>
+
+            <p class="text-center">
+              <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;height=500&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=xiaoyuner2014%40gmail.com&amp;color=%2328754E&amp;ctz=America%2FLos_Angeles" style=" border-width:0 " width="800" height="500" frameborder="0" scrolling="no"></iframe>
+            </p>
+
+            <br><br><br>
+        </div>
+      </div>  
+  </div>
+
+
+<br><br><br><br>
+
+
+%include {"util/footer.html"}
+
+
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="bootstrap/js/bootstrap.min.js"></script>
+   <script>
+      $(document).ready(function(){
+        $("#calendar-tab").addClass("active");
+             
+        $(".searchble").click(function(){
+           $(".searchbox").slideToggle();    
+        });
+      });
+   </script>
+</body>
+</html>

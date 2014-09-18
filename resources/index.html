@@ -161,6 +161,8 @@
             </div>
           </div>
 
+
+
         	<div class="panel panel-success">
 			  	<div class="panel-heading">
 			    	<a href=""><h3 class="panel-title"><b>Upcoming Events</b></h3></a>
@@ -207,8 +209,14 @@
       $(document).ready(function(){
         $(".list-group-item:even").addClass("list-group-item-info");
         $(".list-group-item:odd").addClass("list-group-item-success");
+        
         $("#home-tab").addClass("active");
+             
+        $(".searchble").click(function(){
+           $(".searchbox").slideToggle();    
+        });
       });
+
    </script>
   </body>
 </html>

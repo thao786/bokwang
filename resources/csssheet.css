@@ -198,6 +198,14 @@ color:#1b9373;
   cursor: pointer;
   box-shadow: inset 0 0 0 2px #fbe94e;
 }
+.searchbox{
+  width:230px;
+  float:right;
+  margin-right:10px;
+  border-radius: 20px;
+  border-bottom: solid 3px #edad48; 
+  z-index: 500
+}
 ul{
   list-style-type: none;
 }
