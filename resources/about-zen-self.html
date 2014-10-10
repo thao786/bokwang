@@ -14,16 +14,21 @@
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
-          background-image: url('%{l/image-host}/bgr.jpg');
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
       }
     </style>
   </head>
 
 <body>
 
+<div class="container biggest">
+
   %include {"util/header.html"}    
 
-    <div class="container"> 
+    <div class="container whiteBgr"> 
           <ol class="breadcrumb">
             <li><a href="%{l/host}">Home</a></li>
             <li><a href="%{l/host}/about">About</a></li>
@@ -34,29 +39,33 @@
 
 
       <div class="row">
-        
-%include {"util/about-nav-bar.html"} 
+        <div class="col-lg-3">
+          %include {"util/about-nav-bar.html"} 
 
-        <div class="col-lg-9">
-          <div class="whiteBgr">
+          %include {"util/advertise-bar.html"}
+        </div>
+
+        <div class="col-lg-9" style="border-left: solid 1px #dfdeeb;">
             <div class="pofbody">
-                <div class="header">
-                  <h1><b>Zen and the Self</b></h1>
-                  <p class="text-center">"Know Thyself"</p>
-                    <p class="text-right" style="margin-top:-10px;">- Socrates -</span></p>
-                </div>
-                <hr>
-              
+              <div class="header" style="margin-top:-40px;">
+                <h1><b>Zen and the Self</b></h1>
+                <p class="text-center">"Know Thyself"</p>
+                <p class="text-right" style="margin-top:-10px;">- Socrates -</span></p>
+              </div>
+              <hr>
+
+              <img src="%{l/image-host}/abt3.jpg" class="img-thumbnail imgFloat">
+
               <p>"The Western approach is that the self needs to be developed, that it needs to be made. This also is based on the understanding that psychological stability occurs through continuity over time. This is the point of view in Zen. Zen believes that rather than developing the self, when the ego is correctly apprehended, the self (also known as the True Self), that is already present appears in one's experience." - Reginald H. Pawle (The Psychology of Zen: Possibility for Western Psychotherapy)-</p><br>
 
               <p>Zen will diminish the "I" (the grasping ego), but it doesn't break the spirit and leave one with the deceptive remains of a neutral, lifeless unresponsive product. Instead, it will stir up old misdirected energies and jar them into kensho, from which they will re-channelled. The practice (of Zen) is safer, easier to attain, more supportive of joyousness as sublime state of being and is safer than drug therapies.</p><br>
                   <p class="text-right text-muted">- Dr James H. Austin -</p><br><br>
               </p>
           </div>
-        </div>  
       </div>
     </div>
   </div> 
+</div>
    
 <br><br><br><br>
 

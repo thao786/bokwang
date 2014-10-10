@@ -13,8 +13,11 @@
      <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
-      body{
-          background-image: url('%{l/image-host}/bgr.jpg');
+     body{
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
       }
       .whiteBgr{
         opacity:0.9;
@@ -26,11 +29,11 @@
 
 <body>
 
+<div class="container biggest">
+
   %include {"util/header.html"}    
-
-
-
-  <div class="container">
+ 
+  <div class="container whiteBgr">
           <ol class="breadcrumb">
             <li><a href="%{l/host}">Home</a></li>
             <li class="active">Calendar</a></li>
@@ -38,22 +41,31 @@
 
 
       <div class="row">
-        <div class="col-md-offset-1 col-md-10 whiteBgr">              
-            <div class="header">
+        <div class="col-lg-3">
+
+          %include {"util/advertise-bar.html"}
+
+        </div>
+
+        <div class="col-lg-9" style="border-left: solid 1px #dfdeeb;">
+            <div class="pofbody">
+                <div class="header" style="margin-top:-40px;">
               <h1><b>Calendar</b></h1>
               <p>"The intuitive mind is a sacred gift and the rational mind is a faithful servant. We have created a society that honors the servant and has forgotten the gift."</p>
               <p class="text-right" style="margin-top:-10px;">- Albert Eistein -</span></p>
             </div>
+            <hr>
 
             <p class="text-center">
-              <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;height=500&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=xiaoyuner2014%40gmail.com&amp;color=%2328754E&amp;ctz=America%2FLos_Angeles" style=" border-width:0 " width="800" height="500" frameborder="0" scrolling="no"></iframe>
+              <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;height=500&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=xiaoyuner2014%40gmail.com&amp;color=%2328754E&amp;ctz=America%2FLos_Angeles" style=" border-width:0 " width="750" height="600" frameborder="0" scrolling="no"></iframe>
             </p>
 
             <br><br><br>
         </div>
       </div>  
+    </div>
   </div>
-
+</div>
 
 <br><br><br><br>
 

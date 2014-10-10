@@ -14,16 +14,21 @@
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
-          background-image: url('%{l/image-host}/bgr.jpg');
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
       }
     </style>
   </head>
 
 <body>
 
+<div class="container biggest">
+
   %include {"util/header.html"}    
 
-    <div class="container">  
+    <div class="container whiteBgr"> 
 
           <ol class="breadcrumb">
             <li><a href="%{l/host}">Home</a></li>
@@ -35,39 +40,43 @@
 
 <!--====================================================================-->
 
-      <div class="row">
-        
-        %include {"util/qigong-nav-bar.html"}
+      <div class="row">        
+        <div class="col-lg-3">
+          %include {"util/qigong-nav-bar.html"} 
+
+          %include {"util/advertise-bar.html"}
+        </div> 
 
 
-        <div class="col-lg-9">          
-          <div class="whiteBgr">
+        <div class="col-lg-9" style="border-left: solid 1px #dfdeeb;">
             <div class="pofbody">
-                <div class="header">
+                <div class="header" style="margin-top:-40px;">
                   <h1><b>Qigong Class</b></h1>
                   <p class="text-center">"Qigong is fun"</p>
                 </div>
               <hr>
 
+              <img class="img-thumbnail imgFloat" src="%{l/image-host}/qigong-class2.jpeg"/>
+
               <p>We welcome you to a great class which includes Zen Qi-Gong, "Experiential" Qi Energy and healing instruction, Meditation and more. This class runs weekly For locations and additional dates and times please see: http://www.meetup.com...</p>
 
               <p>Classes also include a soft, flowing series of warm up calisthenics, Soft Yoga, Core Body Exercises and Stretches, Deep Breathing, Relaxation and an amazing stress reduction closing and meditation that will leave you floating out of the class. The energy healing components of the classes are taught at Zen Temples in Korea that specialize in martial arts. This class by Hae Kwang Robert is considered the ultimate stress reducer.</p>
 
-              <img src="%{l/image-host}/qigong-class.jpeg"/> <img src="%{l/image-host}/qigong-class2.jpeg"/>
-
               <p>Benefits Include: Increased overall fitness, flexibility and toning of the muscles, reduced stress level / tolerance, improved blood pressure, stronger bones, joints, tendons and ligaments, massaging of all organs of the body, reduced anxiety and depression, relieving chronic pain, improved balance and coordination, improved sleep quality (such as staying asleep longer at night and feeling more alert during the day) improved vitality and everyday physical functioning.</p>
+
+              <img  class="img-thumbnail imgFloat" src="%{l/image-host}/qigong-class4.jpeg"/>
 
               <p>In addition to improved fitness and flexibility, Pon Klie Zen Qi-Gong helps the body and mind release built up stress and tension. Each class is further enhanced with key P.K. exercises that generate even higher levels of Qi Vitality (Life Force Energy). First Class FREE! - JUST SHOW UP!</p>
 
               <p>As acclaimed cardiovascular surgeon Dr. Mehmet Oz, vice-chair and professor of surgery at Columbia University and director of the Cardiovascular Institute and Complementary Medicine Program at NewYork–Presbyterian Hospital writes in his best selling book ‘Staying Young’: “Qi-Gong allows us to cope with the day to day struggle of being human – it can help us stretch and stay loose and balanced in both mind and body.” On the Ophra Winfrey show in November he simply put it this way, "If you want to be healthy and live to be 100, do Qi-Gong." He also added that Qi-gong reverses the aging process.</p>
 
+              <img  class="img-thumbnail imgFloat" src="%{l/image-host}/qigong-class3.jpeg"/>
+              
               <p>Parts of P.K.Q.G. are modeled off of the Mind-Body Wellness Program taught at the Stress Reduction Clinic at the University of Massachusetts Medical Center. The mindfulness based stress reduction meditation techniques come from Dr. Jongmae Park of Loyola Marymount University. During P.K.Q.G., cares and troubles wash away. Replacing them are positive images, increased confidence and peace of mind.</p>
 
-              <img src="%{l/image-host}/qigong-class3.jpeg"/>
 
               <p>Near the end of each class the goal is for participants to attain the full ‘relaxation response’ and it’s that response that helps release the feel good endorphins. Why is this important? Endorphins encourage white blood cells and white blood cells help the body fight infection and disease. According to Dr. Benson, “repeated activation of the relaxation response can reverse sustained problems in the body and mend the internal wear and tear brought on by stress.” (Ref: Center for Women’s Healthcare, Weil Medical College of Cornell University.)</p>
 
-              <img src="%{l/image-host}/qigong-class4.jpeg"/><img src="%{l/image-host}/qigong-class5.jpeg"/>
 
             </div>  
           </div>

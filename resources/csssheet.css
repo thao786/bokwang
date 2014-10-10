@@ -1,24 +1,22 @@
 body{	 
-  background-attachment: fixed;
+  /*background-attachment: fixed;
   background-repeat:no-repeat;
   background-position: center;
-  background-size:cover;
+  background-size:cover;*/
+
+  background: #dbd5a4;
+  background-repeat: repeat-y, repeat;
+        
 }
 .whiteBgr{
 	background-color: white;
-	/*border-radius: 5px;
-  border-top-right-radius: 80px;
-  border-bottom: solid #3eb123 3px;
-	border-top: solid #3eb123 3px;*/
 	padding-left: 25px;
   padding-top: 10px;
   padding-right: 20px;
 }
-.biggest{  
-  
+.biggest{    
   background: #dbd5a4;
-  background-repeat: repeat-y, repeat;
-        
+  background-repeat: repeat-y, repeat;        
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 80px;
@@ -27,10 +25,6 @@ body{
   border-bottom-left-radius: 20px;
   border-top: solid 2px #ac3e3b;
 }
-/*.whiteBgr:hover{
-  border-top: solid #3eb123 3px;
-  border-bottom: solid #d1e73a 3px;
-}*/
 .container{
   max-width: 1920px;
 }
@@ -48,16 +42,25 @@ body{
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 10;
-  background: -webkit-linear-gradient(90deg, #360033 10%, #0b8793 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #360033 10%, #0b8793 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #360033 10%, #0b8793 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #360033 10%, #0b8793 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #360033 10%, #0b8793 90%); /* W3C */
-        
-  filter: alpha(opacity=80);
-  outline: none;
-  opacity: .8;
-  border-radius: 10px; 
+}
+.carousel-caption p{
+  background-color: #313133;
+  padding: 5px 0px 5px 10px;
+  width:80%;
+  font-size: 16px;
+  opacity: 0.8;
+  text-align: left;
+  border-left: solid 3px #865e21;
+}
+.carousel-caption h2{
+  background-color: #0f0d0d;
+  padding: 13px 0px 13px 10px;
+  width:55%;
+  border-left: solid 3px #c99441;
+  margin-bottom:1px;
+  opacity: 0.8;        
+  text-align: left;
+  border-top-left-radius: 20px;
 }
 
 /* Declare heights because of positioning of img element */
@@ -72,17 +75,6 @@ body{
   min-width: 100%;
   height: 595px;
 }
-
-.jumbotron{
-  background: transparent;
-  margin: 0 100px 50px;
-  font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
-  padding: 1px 20px 20px;
-  position: relative;
-}
-/*
- * Main content
- */
 
 .main {
   padding: 20px;
@@ -143,6 +135,28 @@ body{
     float:left;
     margin-right:10px;       
 }
+.ribbon {
+ font-size: 14px !important;
+ width: 50%;    
+ position: relative;
+ background: #ba89b6;
+ color: #fff;
+ text-align: center;
+ padding: 1em 2em; /* Adjust to suit */
+ margin: 2em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+}
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+ content: "";
+ position: absolute;
+ display: block;
+ border-style: solid;
+ border-color: #804f7c transparent transparent transparent;
+ bottom: -1em;
+}
+.ribbon .ribbon-content:before {
+ left: 0;
+ border-width: 1em 0 0 1em;
+}
 .describe{
 	font-size:13px;
 }
@@ -181,7 +195,6 @@ color:#1b9373;
   float:right;
   margin-right:10px;
   border-radius: 20px;
-  border-bottom: solid 3px #edad48; 
   z-index: 500;
 }
 ul{
@@ -316,7 +329,7 @@ a:hover,a:focus {
   padding: 10px 20px 10px 20px;
   position: relative;
   text-decoration: none;
-  width:12.5%;
+  width:12.3%;
   border-top:solid 2px #8cb316;
   text-align: center;
 }

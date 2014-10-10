@@ -14,7 +14,7 @@
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
-          background-image: url('%{l/image-host}/bgr.jpg');
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
       }
       .biggest{
         background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
@@ -41,8 +41,11 @@
 
 
       <div class="row">
-        
-        %include {"util/about-nav-bar.html"} 
+        <div class="col-lg-3">
+          %include {"util/about-nav-bar.html"} 
+
+          %include {"util/advertise-bar.html"}
+        </div>
 
         <div class="col-lg-9" style="border-left: solid 1px #dfdeeb;">
             <div class="pofbody">
@@ -52,13 +55,17 @@
                     <p class="text-right" style="margin-top:-10px;">- Albert Eistein -</span></p>
                 </div>
               <hr>
+              <img src="%{l/image-host}/abt1.jpg" class="img-thumbnail imgFloat">
               <p>We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.</p>
 
               <p>We wellcome everyone. Including every background, religion, belief, and suffering people.</p>
 
+              <p>We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.We are experiential Buddhist group trying to help people find happiness and inner peace. Our methods integrate Buddhism into daily life in a practical and natural manner.</p>
+
               <br><br>
           </div>
       </div>
+
     </div>
   </div> 
 </div>
