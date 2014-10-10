@@ -20,7 +20,7 @@ body{
   background-repeat: repeat-y, repeat;
         
   margin-left: auto;
-  margin-right: 50px;
+  margin-right: auto;
   padding-bottom: 80px;
   padding:0 0 35px 0 ;
   border-bottom-right-radius: 20px;
@@ -124,11 +124,6 @@ body{
     font-size: 21px;
     line-height: 1.4;
   }
-}
-.masthead{
-  padding:10px;
-  border-bottom-left-radius:80px; 
-  border-bottom-right-radius:80px;   
 }
 
 /* Responsive: Portrait tablets and up */
@@ -321,7 +316,7 @@ a:hover,a:focus {
   padding: 10px 20px 10px 20px;
   position: relative;
   text-decoration: none;
-  width:12%;
+  width:12.5%;
   border-top:solid 2px #8cb316;
   text-align: center;
 }
