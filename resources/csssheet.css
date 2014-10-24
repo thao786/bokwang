@@ -239,7 +239,7 @@ a:hover,a:focus {
 }
 .header{
   font-size: 18px;
-  color:#9aa1a6;
+  color:#48778c;
   font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-style: italic;
 }
@@ -247,6 +247,7 @@ a:hover,a:focus {
   color: #ac3e3b;
   font-size: 50px;
   font-style: normal;
+  text-align: left;
 }
 .welcome{
   border: solid 1px #dbdcd7;
