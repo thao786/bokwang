@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+%{(require '[bokwang.lib :as l]
+           '[sodahead.render :as r]
+           '[clojure.java.io :as io]
+)}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zen Buddhism</title>
+    <!-- Bootstrap -->
+    <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
+      }
+    </style>
+  </head>
+
+<body>
+
+<div class="container biggest">
+
+  %include {"util/header.html"}    
+
+    <div class="container whiteBgr"> 
+          <ol class="breadcrumb">
+            <li><a href="%{l/host}">Home</a></li>
+            <li class="active">Zen</a></li>
+          </ol>
+<!--====================================================================-->
+
+
+      <div class="row">
+        <div class="col-lg-3">
+          %include {"util/zen-nav-bar.html"} 
+
+          %include {"util/advertise-bar.html"}
+        </div>
+
+        <div class="col-lg-9" style="border-left: solid 1px #dfdeeb;">
+            <div class="pofbody">
+                <div class="header" style="margin-top:-40px;">
+                  <h1><b>World Peace & Healing Prayers</b></h1>
+                </div>
+              <hr>
+
+              <img src="%{l/image-host}/abt5.jpg" class="img-thumbnail imgFloat">
+
+              <p>Zen is the study of the self. There is no mysticism in Zen meditation. It is used merely as a tool and a science of mind that transcends psychology. Not only does it help a person understand more deeply their true nature, it also teaches one how to uproot the cause of suffering at a deep level and gain mastery over the mind. With practice. the heart opens and addictions, ill will and craving, start to fall away. People from many different religious and cultural backgrounds study Zen. It senesa great need. Ultimata, world peace can only be achieved if we first establish peace within our own minds. </p><br>
+
+              <p>When a student is truly ready, with proper guidance, th original inner peace and purity of mind can be brought fourth, regardless of religion or creed. The problems of mental impurities is not sectarian, and as such the remedy can't be sectarian. When the mind is at peace, the world too is at peace. Zen is Universal All wrong doing arises because of mind, With our thoughts, we make for destroy) the world. If mind (hears) is transformed, can wrong doing remain? </p><br>
+
+              <p>For more information you can always shoot us an email or visit our Temple.</p><br><br>
+              </p>
+          </div>
+      </div>
+    </div>
+  </div>  
+</div>
+   
+<br><br><br><br>
+
+%include {"util/footer.html"}
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="bootstrap/js/bootstrap.min.js"></script>
+   <script>
+      $(document).ready(function(){
+        $("#about-tab").addClass("active");
+        $("#about-zen").addClass("active");
+             
+        $(".searchble").click(function(){
+           $(".searchbox").slideToggle();    
+        });
+      });
+   </script>
+</body>
+</html>
