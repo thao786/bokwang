@@ -130,9 +130,6 @@ body{
     padding-left: 0;
   }
 }
-.featuresize{
-	font-size: 40px;
-}
 .imgFloat{
     float:left;
     margin-right:10px;       
@@ -190,7 +187,10 @@ color:#1b9373;
 }
 .img-thumbnail:hover{  
   cursor: pointer;
-  box-shadow: inset 0 0 0 1px #ac3e3b;
+  border-color: #a7e966;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
 .searchbox{
   width:230px;

@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
     <title>Gallery</title>
     <!-- Bootstrap -->
      <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
@@ -19,14 +20,8 @@
       .biggest{
         background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
       }
-      .caption{
-        text-align: center;
-      }
       .thumbnail{
         margin:8px;
-      }
-      .thumbnail:hover{
-        border-radius: 25px;
       }
     </style>
    
@@ -62,39 +57,24 @@
                 <p>World Peace is Zen.</p>
               </div>
               <hr>
-            <div class="row" id="deletelater">
+            <div class="row">
                 <div class="col-md-2 thumbnail">
-                  <a href=""><img src="%{l/image-host}/content1.jpg" width="200" height="200"></a>
-                  <div class="caption">
-                      <p>Image label</p>
-                  </div>
+                  <a href="http://i.imgur.com/zngkrz6.png"><img src="http://i.imgur.com/zngkrz6.png" width="200" height="200"></a>
                 </div>
                 <div class="col-md-2 thumbnail">
-                  <a href=""><img src="%{l/image-host}/content2.jpg" width="200" height="200"></a>
-                  <div class="caption">
-                      <p>Image label</p>
-                  </div>
+                  <a href="http://i.imgur.com/tubzm78.jpg"><img src="http://i.imgur.com/tubzm78.jpg" width="200" height="200"></a>
                 </div>
                 <div class="col-md-2 thumbnail">
-                  <a href=""><img src="%{l/image-host}/content3.jpg" width="200" height="200"></a>
-                  <div class="caption">
-                      <p>Image label</p>
-                  </div>
+                  <a href="http://i.imgur.com/SnVZCAY.png"><img src="http://i.imgur.com/SnVZCAY.png" width="200" height="200"></a>
                 </div>
                 <div class="col-md-2 thumbnail">
-                  <a href=""><img src="%{l/image-host}/content4.jpg" width="200" height="200"></a>
-                  <div class="caption">
-                      <p>Image label</p>
-                  </div>
+                  <a href="http://i.imgur.com/0b1rKEH.jpg"><img src="http://i.imgur.com/0b1rKEH.jpg" width="200" height="200"></a>
                 </div>
                 <div class="col-md-2 thumbnail">
-                  <a href=""><img src="%{l/image-host}/content1.jpg" width="200" height="200"></a>
-                  <div class="caption">
-                      <p>Image label</p>
-                  </div>
+                  <a href="http://i.imgur.com/TkdLEpy.jpg"><img src="http://i.imgur.com/TkdLEpy.jpg" width="200" height="200"></a>                  
                 </div>
 
-            </div>
+          </div>
         </div>  
       </div>
     </div>
@@ -120,13 +100,6 @@
            $(".searchbox").slideToggle();    
         });
       });
-
-      var body = document.getElementById("deletelater").innerHTML;
-      var newbody;
-      for (i = 0; i < 5; i++) { 
-          newbody += "<div class='row'>" + body +"</div><br><br>";
-      }
-      document.getElementById("deletelater").innerHTML=newbody;
    </script>
 </body>
 </html>
