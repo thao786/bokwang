@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+%{(require '[bokwang.lib :as l]
+           '[sodahead.render :as r]
+           '[clojure.java.io :as io]
+)}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
+    <title>Qigong Instructor Training</title>
+    <!-- Bootstrap -->
+    <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
+      }
+    </style>
+  </head>
+
+<body>
+
+<div class="container biggest">
+
+  %include {"util/header.html"}    
+
+    <div class="container whiteBgr"> 
+
+          <ol class="breadcrumb">
+            <li><a href="%{l/host}">Home</a></li>
+            <li><a href="%{l/host}/programs">Programs</a></li>
+            <li class="active">Qigong Instructor Training</a></li>
+          </ol>
+      
+
+<!--====================================================================-->
+
+      <div class="row">         
+        <div class="col-lg-3">
+
+          %include {"util/qigong-instructor-nav-bar.html"}
+
+          %include {"util/advertise-bar.html"}
+        </div> 
+         
+
+        <div class="col-lg-9" style="border-left: solid 1px #dfdeeb;">
+            <div class="pofbody">
+                <div class="header" style="margin-top:-40px;">
+                  <h1 style="font-size:35px;"><b>Qigong Instructor Training - Advanced</b></h1>
+                  <p>This class is for people that want to go deeper in mastering the inner art of Qi Energy and Pon Klie Zen Qigong</p>
+                </div>
+              <hr>
+
+              <img class="img-thumbnail imgFloat" src="%{l/image-host}/qigong-instructor1.jpg" width="400">
+
+              <p>If one wishes to they can go deeper. With level 3 training more movements and skills are added to your program and after successful completion of level 4 one will be able to teach a full 90 minute program with medical qigong elements. You will learn full body mechanics, Qi awareness, how to master each movement in the series, effortless transitions between each movement and the 'Mind-Body' Medicine aspects of the program that support health and healing. This course not only provides instruction in technical forms but also teaches students to strengthen their power of mind and increases inner Qi-awareness in order to protect their own Qi and improve their quality of life.<br><br>
+
+
+              <b>After graduation:</b> If choosing to teach, graduates agree not to teach for a company or orginization where another graduate or T.H.P.A. member is already teaching. Upon completion of level 2 in this program, instructors can advertise they are teaching "Pon Klie (Bad Stress Out) Zen Qigong 101."<br><br>
+
+              <b>Note:</b> “Pon Klie Zen Qigong 103” involves additional training in Medical Qigong (The floor program).  Qigong has many self healing support tools and valuable ancient Qi healing imagery techniques and the very best are shared with our teachers. In all courses, one must show a clear understanding of the material and pass a class demonstration test. Persons can retake the test for $65.00 at any time through the year.<br><br>
+
+              <b>Additional Comments:</b> Pon Klie Zen Qigong contains deep roots that reflect a way of life. P.K.Z.Q. honours the principles of Zen and the enhanced energy flow through presence. With deeper practice, one comes to understand that every breath, thought, feeling, perception, etc..., becomes a form of Pon Klie Zen Qigong. Inner and outer life merge into one.<br><br>
+
+              <b>Additional requirements:</b> In “Pon Klie Zen Qigong 103” Students are required to attend the Zen Psychology program (3 classes) to understand Zazen & the Zen Qigong aspects of the program. This program runs periodically through the year. The Zen Psychology classes are especially important for T.T.C. members to attend as they teach important releasing tools and other deeper healing aspects of the program.   <br><br>
+
+
+              <b><i>To pre-register please e-mail Hae Kwang Sunim at <a href='lotus-zen@earthlink.net'>this address</a>.</i></b>
+
+            </p>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+   
+   
+<br><br><br><br>
+
+%include {"util/footer.html"}
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="bootstrap/js/bootstrap.min.js"></script>
+   <script>
+      $(document).ready(function(){
+        $("#programs-tab").addClass("active");
+        $("#qigong-nav-bar-why").addClass("active");
+             
+        $(".searchble").click(function(){
+           $(".searchbox").slideToggle();    
+        });
+      });
+   </script>
+</body>
+</html>

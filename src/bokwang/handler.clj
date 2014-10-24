@@ -24,6 +24,10 @@
 	(context "/qigong" []
 	    (GET "/" [] (r/render "qigong.html")) 
 		(GET "/class" [] (r/render "qigong-class.html")))
+	(context "/qigong-instructor-training" []
+	    (GET "/" [] (r/render "instructor-training-about.html"))
+	    (GET "/level-1" [] (r/render "instructor-training-lv1.html"))
+	    (GET "/advanced" [] (r/render "instructor-training-advanced.html"))) 
 	(context "/food-healing" []
 		(GET "/" [] (r/render "food-healing.html")))
 	(context "/about" []

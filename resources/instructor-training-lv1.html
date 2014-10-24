@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+%{(require '[bokwang.lib :as l]
+           '[sodahead.render :as r]
+           '[clojure.java.io :as io]
+)}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
+    <title>Qigong Instructor Training</title>
+    <!-- Bootstrap -->
+    <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
+      }
+    </style>
+  </head>
+
+<body>
+
+<div class="container biggest">
+
+  %include {"util/header.html"}    
+
+    <div class="container whiteBgr"> 
+
+          <ol class="breadcrumb">
+            <li><a href="%{l/host}">Home</a></li>
+            <li><a href="%{l/host}/programs">Programs</a></li>
+            <li><a href="%{l/host}/qigong-instructor-training">Qigong Instructor Training</a></li>
+            <li class="active">Level 1</a></li>
+          </ol>
+      
+
+<!--====================================================================-->
+
+      <div class="row">         
+        <div class="col-lg-3">
+          %include {"util/qigong-instructor-nav-bar.html"}
+
+          %include {"util/advertise-bar.html"}
+        </div> 
+         
+
+        <div class="col-lg-9" style="border-left: solid 1px #dfdeeb;">
+            <div class="pofbody">
+                <div class="header" style="margin-top:-40px;">
+                  <h1 style="font-size:35px;"><b>Qigong Instructor Training - Level 1</b></h1>
+                  <p>"Become a Certified Pon Klie (Bad Stress Out) Zen Qigong Instructor/Teacher"</p>
+                </div>
+              <hr>
+
+              <p class="text-center"><img class="img-thumbnail" src="%{l/image-host}/qigong-instructor1.jpg"></p>
+              <hr>
+
+              <h3 class="text-danger">Schedule</h3>
+              <p>Thursday April 24th from 6:30 p.m. to 9:30 p.m.<br>
+
+              Friday April 25th from 6:30 p.m. to 9:30 p.m.<br><br>
+
+              ***Plus Bonus Class Tuesday April 29th from 6:30 p.m. to 9:30 p.m.***<br><br><br>
+
+              <h3 class="text-danger">Also Required in Level 1</h3>
+
+              Special Qigong Level 1 Saturday Workshop ($65) With Hae Kwang Sunim May 3rd from 2 p.m. - 5 p.m. (Saturday Workshop Covers Qi Up Through Centre Channel, Myong Mun Breathing Meditation, Close, Special Teachings, feed back and more.<br><br>
+
+              Special Qigong Level 1 Saturday Workshop: ($65) Mid Term Review with Hae Kwang Sunim June 7th from 2 p.m. - 5 p.m. (All Steps plus Qi Up Through Centre Channel, Myong Mun Breathing Meditation, Close, Special Teachings, feed back and more.<br><br>
+
+              Extra / Optional Check In with Hae Kwang Sunim Tuesday June 17th @ 6:00 p.m. to 9 p.m. $30 <br><br>
+
+              Extra / Optional Check In with Hae Kwang Sunim Saturday June 28th @ 2:00 p.m. to 5 p.m. $30  (Test Review / Evaluation).<br><br>
+
+                Level 1 Test for Certification is at the end of 3 months on July 26th ($65) at 11:00 a.m. with Hae Kwang Sunim.  One must log 50 hours of practice time before final testing.   <br><br>
+
+              <b>Practice Option:</b>  <br>
+              **Level 1 Mentor ship Included: Over the 3 months following the first class students can attend P.K.Z.Q. 101 and Pon Klie Zen Qigong with Moo Il as T.A. / mentor ship for no charge / for practice.<br><br>
+
+              Total Level 1 Tuition is $380.00 ($250 + $65 + $65 Workshops) plus $65 at the end for level 1 test.  <br><br>Register as soon as possible.  Payment is required 1 week in advance of qigong instructor program start date (by April 24th). <br><br>
+
+              <b>ACT NOW:</b> Payments received before March 27th can save $65.00 (Save the cost of 1 workshop) <br><br>
+
+              <b>Optional Extras:</b> Test Review / Evaluation with Hae Kwang Sunim June 17th and June 28th - $30 ea. <br><br>
+
+              <b>Required Materials Extra:</b> $30.00 (CD / DVD)<br><br>
+
+              As always, if additional private sessions with Hae Kwang Sunim are wanted (for individual Pon Klie Zen Qigong Training or Zen Life Counselling) they can be arranged at $65 / 1 hr. session.  <br><br>
+
+              <i><b>Note:</b> Private Teacher Training Certification Classes are also available with Hae Kwang Sunim $65 (1 hr sessions). </i><br><br>
+
+              <b><i>To pre-register please e-mail Hae Kwang Sunim at <a href='lotus-zen@earthlink.net'>this address</a>.</i></b>
+              </p>
+              
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+   
+   
+<br><br><br><br>
+
+%include {"util/footer.html"}
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="bootstrap/js/bootstrap.min.js"></script>
+   <script>
+      $(document).ready(function(){
+        $("#programs-tab").addClass("active");
+        $("#qigong-nav-bar-why").addClass("active");
+             
+        $(".searchble").click(function(){
+           $(".searchbox").slideToggle();    
+        });
+      });
+   </script>
+</body>
+</html>

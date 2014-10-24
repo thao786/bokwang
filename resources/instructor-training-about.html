@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+%{(require '[bokwang.lib :as l]
+           '[sodahead.render :as r]
+           '[clojure.java.io :as io]
+)}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
+    <title>Qigong Instructor Training</title>
+    <!-- Bootstrap -->
+    <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
+      }
+    </style>
+  </head>
+
+<body>
+
+<div class="container biggest">
+
+  %include {"util/header.html"}    
+
+    <div class="container whiteBgr"> 
+
+          <ol class="breadcrumb">
+            <li><a href="%{l/host}">Home</a></li>
+            <li><a href="%{l/host}/programs">Programs</a></li>
+            <li class="active">Qigong Instructor Training</a></li>
+          </ol>
+      
+
+<!--====================================================================-->
+
+      <div class="row">         
+        <div class="col-lg-3">
+          %include {"util/qigong-instructor-nav-bar.html"}
+
+          %include {"util/advertise-bar.html"}
+        </div> 
+         
+
+        <div class="col-lg-9" style="border-left: solid 1px #dfdeeb;">
+            <div class="pofbody">
+                <div class="header" style="margin-top:-40px;">
+                  <h1><b>Qigong Instructor Training</b></h1>
+                  <p>Pon Klie Zen Qigong is Mind-Body Medicine and much more...</p>
+                </div>
+              <hr>
+
+              <img class="img-thumbnail imgFloat" src="%{l/image-host}/qigong-instructor.jpg" width="400">
+
+              <p><i>We offer 4 Levels of practice and certification that will take place throughout the year.  Each level will have a unique focus in Pon Klie (Bad Stress Out) Zen Qigong training.  After successful completion of level 1 & 2 one will be certified to teach a 60 minute Pon Klie Zen Qigong Class which includes a laying down series.</i>
+
+              This class is for people that want to go deeper in mastering the inner art of Qi Energy and Pon Klie Zen Qigong<br><br>
+
+              Join our growing number of Instructors and learn to teach the powerful healing art of Pon Klie Zen Qigong.  Not only does Pon Klie Zen Qigong help people restore health—it also helps them to reconnect to their deep, innate inner nature, inner serenity, balance and harmony. Becoming a teacher of this inner art is a blessing to self and others at a deep level.  After successfully completing Level 1 and 2 students will be able to teach a 60 minute Pon Klie Zen Qigong Class.   <br><br>
+
+              <h3 class="text-warning">About Pon Klie Zen Qigong(P.K.Z.Q.) Standing Series</h3>
+
+              In the Western world, exercise programs focus mainly just on strength and fitness. In the East, exercise systems incorporate fitness practices for the body, mind, and spirit. This important balance is strongly emphasized in our Pon Klie (Bad Stress Out) Zen Qigong.  It focuses on releasing tension and energy blockages through the whole body, opening Sen Lines and restoring peace and inner harmony. It strengthens the mind-body connection and harmonizes the bodies "Chi" (life force energy) as one moves through the flow.<br><br>
+
+              The P.K.Z.Q. movements also increase strength, bone density and flexibility through tendon stretching. The deep breathing and energy tapping in the flow further support the body by helping to release toxins.<br><br>
+
+              There is a great need for Pon Klie Zen Qigong Instructors today. Stress is a big issue and Qigong helps restore and harmonize mind and body at the root level.  <br><br>
+
+              Also, as we were told by the manager at a large city recreation centre in the area, “We have files full of applications from yoga teachers wanting to work at our centre. That is not what we need. We are looking for something new.  Something that even more people can participate in.  Qigong is what we were looking for!”<br><br>
+
+              Additional Benefits of regular P.K.Z.Q. practice include:<br>
+
+              - Reducing anxiety and depression<br>
+
+              - Restoring Peace of Mind<br>
+
+              - Increasing energy, endurance and agility<br>
+
+              - Reducing falls in older adults<br>
+
+              - Improving sleep quality<br>
+
+              - Lowering blood pressure<br>
+
+              - Improving cardiovascular fitness in older adult<br>
+
+              - Relieving chronic pain<br>
+
+              - Improving balance, flexibility and muscle strength<br>
+
+              - Improving overall feelings of well-being<br><br>
+
+              Qigong is ideal also for people in health recovery or who have a hard time doing Yoga.  Its ancient and yet powerfully effective! <br><br>
+
+              <i>"If you want happiness for a day, go fishing. If you want happiness for a year, inherit a fortune. If you want happiness for a lifetime, help people heal and become whole and free with the inner art of Pon Klie Zen Qi-Gong."</i><br><br>
+
+              <b><i>To pre-register please e-mail Hae Kwang Sunim at <a href='lotus-zen@earthlink.net'>this address</a>.</i></b>
+                </p>
+              
+              
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+   
+   
+<br><br><br><br>
+
+%include {"util/footer.html"}
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="bootstrap/js/bootstrap.min.js"></script>
+   <script>
+      $(document).ready(function(){
+        $("#programs-tab").addClass("active");
+        $("#qigong-nav-bar-why").addClass("active");
+             
+        $(".searchble").click(function(){
+           $(".searchbox").slideToggle();    
+        });
+      });
+   </script>
+</body>
+</html>
