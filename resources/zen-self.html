@@ -32,8 +32,7 @@
     <div class="container whiteBgr"> 
           <ol class="breadcrumb">
             <li><a href="%{l/host}">Home</a></li>
-            <li><a href="%{l/host}/about">About</a></li>
-            <li><a href="%{l/host}/about/zen">Zen</a></li>
+            <li><a href="%{l/host}/zen">Zen</a></li>
             <li class="active">Zen and the Self</li>
           </ol>
 <!--====================================================================-->
@@ -41,7 +40,7 @@
 
       <div class="row">
         <div class="col-lg-3">
-          %include {"util/about-nav-bar.html"} 
+          %include {"util/zen-nav-bar.html"} 
 
           %include {"util/advertise-bar.html"}
         </div>
@@ -50,12 +49,19 @@
             <div class="pofbody">
               <div class="header" style="margin-top:-40px;">
                 <h1><b>Zen and the Self</b></h1>
-                <p class="text-center">"Know Thyself"</p>
-                <p class="text-right" style="margin-top:-10px;">- Socrates -</span></p>
+                <p class="text-center">"The intuitive mind is a sacred gift and the rational mind is a faithful servant. We have created a society that honors the servant and has forgotten the gift."</p>
+                <p class="text-right" style="margin-top:-10px;">- Albert Eistein -</span></p>
               </div>
               <hr>
 
               <img src="%{l/image-host}/abt3.jpg" class="img-thumbnail imgFloat">
+            <p>There are many reasons why stress and mental illness are becoming epidemic in our societies. those are just some of them.</p>
+
+            <p>1. Our civilization relies almost 100% on the power of the thinking mind: engineering, sciences, accounting, management, law. etc. Our societies need to support a hugh population with increasing demands, thus requires high level of complexity. People constantly use their minds to the point of addicting to it. In fact our societies pride ourselves on rational thinking. Other form of intelligence like intuition is rejected as bogus, or seudo-science. Like Einstein said, we've embraced the servant and rejected our true self.</p>
+
+            <p>2. We've created an attitude where everyone needs to be successfull, meaning holding a high paying job, be an active part in the economy. Society has become a high pressure cooker. Stress is considered the norm, or a sign that a person is working hard.</p>
+
+            <p>Meditation is needed more than ever. Lessons by Zen masters 1000 years ago is still applicable today. Meditation's purpuse is to help you control your thinking mind and find back your true self.</p>
 
               <p>"The Western approach is that the self needs to be developed, that it needs to be made. This also is based on the understanding that psychological stability occurs through continuity over time. This is the point of view in Zen. Zen believes that rather than developing the self, when the ego is correctly apprehended, the self (also known as the True Self), that is already present appears in one's experience." - Reginald H. Pawle (The Psychology of Zen: Possibility for Western Psychotherapy)-</p><br>
 
@@ -76,8 +82,8 @@
    <script src="bootstrap/js/bootstrap.min.js"></script>
    <script>
       $(document).ready(function(){
-        $("#about-tab").addClass("active");
-        $("#about-zen-and-self").addClass("active");
+        $("#zen-tab").addClass("active");
+        $("#zen-and-self").addClass("active");
              
         $(".searchble").click(function(){
            $(".searchbox").slideToggle();    

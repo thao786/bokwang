@@ -37,7 +37,6 @@
 	(context "/zen" []	    
 	    (GET "/" [] (r/render "zen.html"))
 	    (GET "/prayers" [] (r/render "zen-prayers.html"))
-	;    (GET "/prayers" [] (r/render "zen.html"))
 	    (GET "/zen-self" [] (r/render "zen-self.html")))
 	(GET "/contact" [] (r/render "contact.html"))
 	(GET "/calendar" [] (r/render "calendar.html"))
