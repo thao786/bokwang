@@ -51,6 +51,9 @@
 	    (GET "/qigong" [] "posts")
 		(GET "/general" [] "posts"))
 
+
+	(POST "/subscribe" request (str request))
+
 	(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
 	(GET "/bootstrap/css/:name" [name] (io/resource (str "bootstrap/css/" name)))
