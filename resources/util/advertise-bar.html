@@ -5,18 +5,42 @@
               <p class="text-center"><button class="btn btn-md btn-default">Join Us</button></p>
 
       <hr>
+
+
+
+
+
+
+
       <h3 class="text-success text-center">Join The Newsletters</h3>
       <div class="form-group">
 
-      <form action="%{l/host}/subscribe" name="email_subscribe" id="email_subscribe" method="POST">
+      <form id="email_subscribe" action="%{l/host}/subscribe" name="email_subscribe" method="POST" enctype="multipart/form-data">
         <input type="email"  class="form-control" style="margin-bottom:5px;" id="email" name="email" placeholder="Enter email" required>
         <input type="text" maxlength="20" class="form-control" style="margin-bottom:5px;" id="fname" name="fname" placeholder="First Name">
         <input type="text" maxlength="20" class="form-control" style="margin-bottom:5px;" id="lname" name="lname" placeholder="Last Name">
         <input type="text" name="dummy" style="display: none;" >
-        <p class="text-center"><button class="btn btn-md btn-default">Subcribe</button></p>
+        <p class="text-center"><button id="email_subscribe_submit" class="btn btn-md btn-default">Subcribe</button></p>
       </form>
+
+      <script>
+          $("#email_subscribe").click(function(){
+              $.post("%{l/host}/subscribe", {email: "txt@tr.ca"}, function(data){
+                  alert("Data: " );
+              });
+          });
+      </script>
       </div>
       <hr>
+
+
+
+
+
+
+
+
+
 
       <hr>
       <h3 class="text-success text-center">Donation</h3>

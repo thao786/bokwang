@@ -83,6 +83,7 @@ public class MailChimp {
 //		String apikey = "62afd44a23ce9116ec665bb0f2287d7a-us9";		
 //		String listId = "da698c7988";
 		
+//		bokwang centre general list
 		String apikey = "cb96bb2b28ee56a84658dccff219b570-us9";		
 		String listId = "38f29c5b2f";
 	

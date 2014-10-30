@@ -16,10 +16,24 @@
 				fname 	(params :fname)
 				lname 	(params :lname)
 				emailValidator 	(EmailCheck.)]
-			(if (.emailCheck emailValidator email)
-				(.subscribe mail-client apikey listId email fname lname)))
+			"9")
 			
 
 		;"from bots" tell logs
 		(prn "from bots")))
 
+(defn subscribe1 [params]
+	(if (= "" (params :dummy))
+		;"humans"
+		(let [email 	(params :email)
+				fname 	(params :fname)
+				lname 	(params :lname)
+				emailValidator 	(EmailCheck.)]
+			(if (.emailCheck emailValidator email)
+				(do (.subscribe mail-client apikey listId email fname lname) 
+					(prn "test ---------- " email) 
+					9)))
+			
+
+		;"from bots" tell logs
+		(prn "from bots")))
