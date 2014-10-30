@@ -7,12 +7,12 @@
             [compojure.handler :as handler]
             [compojure.route :as route]
             [sodahead.render :as r]
-            [clojure.java.io :as io]))
+            [clojure.java.io :as io]
+            [util.newsletter :as newsltr]))
 
 (defroutes app-routes
 	(GET "/" [] (r/render "index.html"))
 	(GET "/programs" [] (r/render "programs.html"))
-	(GET "/test" [] (r/render "meditation-how.html"))
 	(context "/meditation" []
 	    (GET "/" [] (r/render "meditation.html")) 
 	    (GET "/structure" [] (r/render "meditation-structure.html")) 
@@ -52,7 +52,13 @@
 		(GET "/general" [] "posts"))
 
 
-	(POST "/subscribe" request (str request))
+
+	(POST "/subscribe" request (newsltr/subscribe (request :params)))
+	(GET "/test2" [name] (clojure.java.io/file "/home/thao/Test2.pdf"))
+	(GET "/test" [name] 
+		{:status 301
+	    :headers {"Location" "http://google.com"}
+	    :body "Hello World"})
 
 	(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
