@@ -287,11 +287,11 @@ a:hover,a:focus {
   border-bottom-left-radius: 0px;
 }
 .breadcrumb{
-  background-color: transparent;
-  margin-top:20px;
-  border-radius: 0px;
-  padding-left: 7px;
-  margin-left:10px;
+  background-color: #dff0d8;
+  margin:20px 0 30px 10px;
+  border-top: solid 1px #a5bb9b;
+  border-bottom: solid 1px #a5bb9b;
+  padding-left: 17px;
 }
 .menuphu{
   text-indent: 10px;
