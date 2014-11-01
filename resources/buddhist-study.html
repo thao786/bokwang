@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+%{(require '[bokwang.lib :as l]
+           '[sodahead.render :as r]
+           '[clojure.java.io :as io]
+)}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
+    <title>Buddhist Study</title>
+    <!-- Bootstrap -->
+    <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
+      }
+    </style>
+  </head>
+
+<body>
+
+<div class="container biggest">
+
+  %include {"util/header.html"}    
+
+
+<div class="container whiteBgr">  
+
+          <ol class="breadcrumb">
+            <li><a href="%{l/host}">Home</a></li>
+            <li><a href="%{l/host}/programs">Programs</a></li>
+            <li class="active">Buddhist Study</a></li>
+          </ol>
+      
+
+<!--====================================================================-->
+
+      <div class="row">
+         <div class="col-lg-3">
+
+          %include {"util/advertise-bar.html"}
+
+        </div> 
+         
+
+        <div class="col-lg-9" style="border-left: solid 1px #dfdeeb;">
+            <div class="pofbody">
+                <div class="header" style="margin-top:-40px;">
+                  <h1 style="font-size:36px;"><b>Buddhist Studies and our Buddhist Seminary</b></h1>
+                  <p>Taego Zen Monasteries have now spread around the world.</p>
+                </div>
+              <hr>
+
+
+            <p><img class="img-thumbnail imgFloat" width="350" src="%{l/image-host}/bud-study2.jpg"/>Taego Zen Monasteries have now spread around the world. This is due in part to the creation of ‘The Institute of Eastern / Buddhist Studies' (I.B.S.). Prior to 2004 the order consisted almost entirely of Korean monks. This was because the Taego constitution requires all monks to go to Seminary College and graduate with an extensive education before being able to fully ordain. This made it difficult for Westerners to become Taego Zen monks because the College and University programs were only taught in the Korean language. This meant they (all non Koreans) had to first learn the language and then go to school full time in Korea for 4 years. That made for quite a challenge.<br><br>
+
+            <img class="img-thumbnail imgFloat" width="350" src="%{l/image-host}/bud-study3.jpg"/>This all changed with the formation of the Institute of Eastern / Buddhist Studies. In 1999, Ven. Dr. Jongmae Park, a Buddhist Director at the University of Southern California (USC) wrote an entire program including the full history of Korean Zen and weaved it into the IBS curriculum. In 2007, he made the program available as a ‘home study’ course and the program was accepted in the Taego constitution as ‘equivalent’ to taking the Taego program in Korea. Thus, for the first time in the history of Korean Zen, Westerners were able to be schooled in English (and other languages) and to train as equals with Korean Taego Zen monks for 3 months after graduation. They are also trained in temple retreat programs in the West under Ven. Dr. Jongmae Park and his senior disciples.<br><br>
+
+            Several times a year a new group of I.B.S. graduates travel to South Korea for a temple training program and full Taego ordination with their Korean counterparts. People are now taking the course from the comfort of their homes in countries throughout Europe and North America. Ordained ‘Western’ Taego monks travel regularly to stay and train with their brother and sister Taego monks in Korea. They are warmly welcomed as family and as ‘the official representatives of the Taego order outside of Korea.’<br><br>
+
+            <iframe width="350" height="235" src="//www.youtube.com/embed/WK0afWmK1ow" frameborder="4" allowfullscreen></iframe> 
+            <iframe width="350" height="235" src="//www.youtube.com/embed/YK8JEZDTNyE" frameborder="4" allowfullscreen></iframe><br><br>
+
+            To become a Dharma teacher, first one must study a two-year e-learning course at the <a href="http://taegozen.net/taegoseminary.html">Institute for Eastern / Buddhist Studies</a> . This is the official seminary (for foreigners) of the Taego Order where students can learn through either an English or German site. After completing the curriculum required, then the Taego Order will bestow the qualification of Dharma teacher.  One can also choose to train further and ordaid as Zen Priest in the our order.<br><br>
+            For more information, contact <b>Hae Kwang Sunim</b> at <i>lotus-zen@earthklink.net</i> <br><br>
+
+            The Institute for Eastern / Buddhist Studies is also affiliated with the W.B.U., which is located in Bangkok, Thailand. The WBU is an authentic, academic University / institution under the WFB. Therefore, when students have completed a course  then IBS USA will bestow a diploma that has also been signed by the WBU.<br><br>
+
+            If interested in becoming either a Zen Priest / Monk or a Dharma Instructor in the Korean Buddhist Taego Order, please search the official site of IBS USA below.<br><br>
+
+            <a href="http://taegozen.net/taegoseminary.html">IBS USA  Web</a><br><br>
+
+            <b>IBS Contact: Dean of IBS Ven. Dr. Jongmae Park: <i>jongmae@att.net</i></b><br><br> </p>
+              
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+
+   
+<br><br><br><br>
+
+%include {"util/footer.html"}
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="bootstrap/js/bootstrap.min.js"></script>
+   <script>
+      $(document).ready(function(){
+        $("#programs-tab").addClass("active");
+        $("#meditation-nav-bar-why").addClass("active");
+             
+        $(".searchble").click(function(){
+           $(".searchbox").slideToggle();    
+        });
+      });
+   </script>
+</body>
+</html>

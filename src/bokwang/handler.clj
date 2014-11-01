@@ -30,6 +30,12 @@
 	    (GET "/advanced" [] (r/render "instructor-training-advanced.html"))) 
 	(context "/food-healing" []
 		(GET "/" [] (r/render "food-healing.html")))
+	(context "/zen-reflection" []
+		(GET "/" [] (r/render "reflection-focusing.html"))
+		(GET "/about-focusing" [] (r/render "reflection-focusing-abt-focusing.html"))
+		(GET "/focus-attitude" [] (r/render "reflection-focusing-attitude.html")))
+	(context "/buddhist-study" []
+		(GET "/" [] (r/render "buddhist-study.html")))
 	(context "/about" []
 	    (GET "/" [] (r/render "about-bokwang-centre.html"))
 	    (GET "/bo-kwang-centre" [] (r/render "about-bokwang-centre.html"))
