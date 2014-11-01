@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+%{(require '[bokwang.lib :as l]
+           '[sodahead.render :as r]
+           '[clojure.java.io :as io]
+)}
+
+
+<script>
+function loadXMLDoc()
+{
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  	xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		    {
+		    	document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+		    }
+	  }
+//	xmlhttp.open("GET","http://localhost:3000/test1",true);
+	xmlhttp.open("GET","http://localhost:3000/test1",true);
+	xmlhttp.send();
+}
+</script>
+</head>
+<body>
+
+<div id="myDiv">
+	<h2>Let AJAX change this text</h2>
+</div>
+
+<button type="button" onclick="loadXMLDoc()">Change Content</button>
+
+
+</body>
+</html>
