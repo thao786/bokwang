@@ -1,4 +1,4 @@
-body{	 
+body{  
   /*background-attachment: fixed;
   background-repeat:no-repeat;
   background-position: center;
@@ -9,8 +9,8 @@ body{
         
 }
 .whiteBgr{
-	background-color: white;
-	padding-left: 25px;
+  background-color: white;
+  padding-left: 25px;
   padding-top: 10px;
   padding-right: 20px;
   opacity: 0.9;
@@ -21,6 +21,7 @@ body{
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 80px;
+  margin-bottom: -90px;
   padding:0 0 35px 0 ;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -157,33 +158,27 @@ body{
  border-width: 1em 0 0 1em;
 }
 .describe{
-	font-size:13px;
+  font-size:13px;
 }
-.subhead{
-  
-  background: -webkit-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* W3C */
-      
+.subhead{       
   color:white;          
   width:100%;
   margin-bottom: 0px; 
-  border-top: solid 3px #d1e73a;
-  border-top-style: ridge;
+  padding-top: 120px;
+  background-size: cover;
+
+    background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
 }
 .subhead2{
-  background-color: #1f2c3a;         
-  color:#7393aa;          
+  background-color: #c6caaa;         
+  color:#81846e;          
   width:100%;
   margin-bottom: 0px; 
 }  
 .subhead-blue{
-color:#7393aa;
-}
-.subhead-green{
-color:#1b9373;
+color:#48644f;
 }
 .img-thumbnail:hover{  
   cursor: pointer;
