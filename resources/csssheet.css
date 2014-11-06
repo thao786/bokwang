@@ -46,6 +46,12 @@ body{
 .carousel-caption {
   z-index: 10;
 }
+.carousel-caption a{
+  color: white;
+}
+.carousel-caption a:hover{
+  color: #d0da54;
+}
 .carousel-caption p{
   background-color: #313133;
   padding: 5px 0px 5px 10px;
