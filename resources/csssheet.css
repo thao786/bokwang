@@ -166,6 +166,7 @@ body{
   margin-bottom: 0px; 
   padding-top: 120px;
   background-size: cover;
+  background-position: bottom;
 
     background-clip: text;
     color: transparent;
