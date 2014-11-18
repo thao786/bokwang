@@ -1,0 +1,13 @@
+(def home "/home/thao/live-bokwang/")
+
+;about tab
+(sh "mkdir" (str home "about")
+			(str home "about/" "bo-kwang-centre")
+			(str home "about/" "taego"))
+
+(def about-content "")
+(spit "" about-content)
+
+(sh "mkdir" (str home "meditation")
+			(str home "meditation/" "bo-kwang-centre")
+			(str home "meditation/" "taego"))

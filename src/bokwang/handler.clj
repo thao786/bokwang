@@ -22,7 +22,7 @@
 		(GET "/class/zen-tool" [] (r/render "meditation-class-zen-tool.html"))
 		(GET "/class/meditate-circle" [] (r/render "meditation-class-meditate-circle.html")))
 	(context "/qigong" []
-	    (GET "/" [] (r/render "qigong.html")) 
+	    (GET "/" [] (r/render "qigong.html"))
 		(GET "/class" [] (r/render "qigong-class.html")))
 	(context "/qigong-instructor-training" []
 	    (GET "/" [] (r/render "instructor-training-about.html"))
@@ -51,13 +51,8 @@
 	(GET "/contact" [] (r/render "contact.html"))
 	(GET "/calendar" [] (r/render "calendar.html"))
 	(GET "/donations" [] (r/render "donation.html"))
-	(context "/faqs" []
-	    (GET "/" [] (r/render "faqs.html")) 
-	    (GET "/meditation" [] "profile")
-	    (GET "/qigong" [] "posts")
-		(GET "/general" [] "posts"))
 
-
+	(GET "/[a]+" [] "yes")
 
 	(POST "/subscribe" request (newsltr/subscribe (request :params)))
 	(GET "/test1" [name] "wats up")
