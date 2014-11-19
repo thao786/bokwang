@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+%{(require '[bokwang.lib :as l]
+           '[sodahead.render :as r]
+           '[clojure.java.io :as io]
+)}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
+    <title>Our Teacher - Hae Kwang Robert</title>   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .subhead{ 
+        background-image:url('%{l/image-host}/footer.png');    
+      } 
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
+      }
+    </style>
+  </head>
+
+<body>
+
+<div class="container biggest">
+
+  %include {"util/header.html"}    
+
+    <div class="container whiteBgr"> 
+        <ol class="breadcrumb">
+            <li><a href="%{l/host}">Home</a></li>
+            <li><a href="%{l/host}/about">About</a></li>
+            <li><a href="%{l/host}/about/bo-kwang-centre">About Zen Center</a></li>
+            <li class="active">Our Teacher</li>
+          </ol>
+
+<!--====================================================================-->
+
+
+      <div class="row">
+        <div class="col-lg-3">
+          %include {"util/about-nav-bar.html"} 
+
+          %include {"util/advertise-bar.html"}
+        </div> 
+
+        <div class="col-lg-9" style="border-left: solid 1px #dfdeeb;">
+            <div class="pofbody">
+                  <div class="header" style="margin-top:-40px;">
+                  <h1><b>Our Teacher</b></h1>
+                  <p>"The intuitive mind is a sacred gift and the rational mind is a faithful servant. We have created a society that honors the servant and has forgotten the gift."</p>
+                  <p class="text-right" style="margin-top:-10px;">- Albert Eistein -</span></p>
+                </div>
+              <hr>
+              
+              <img src="%{l/image-host}/abt6.jpg" class="img-thumbnail imgFloat">
+
+              <p>The founder of ‘Inner Peace Zen Qigong’ Hae Kwang Sunim, has trained in Thailand and Korea and for over a decade, he has been conducting classes and workshops across California and Ontario. He is a fully ordained Zen Monk (Bhikkhu) and Vice Dean at the Institute of Buddhist Studies (I.B.S.) Dong Bang College and Seminary.  He received his ordination as Bodhi-Cari at Bo Kwang Zen Center Anaheim, his Samanera ordination at I.B.M.C. in Los Angeles, California and Bhikkhu ordination at Taego Headquarters in Seoul, South Korea. <br><br>
+
+              In 2005 (2549), the 19th Headquarters in Korea appointed Venerable Hae Kwang as Director of Bo Kwang Zen Center Palm Springs, U.S.A. In 2013, the Western Bhikkhus Council nominated Hae Kwang Sunim Bishop of Taego American-European Parish.    <br><br>
+
+
+              Hae Kwang Sunim drew from the most effective mind-body teachings he acquired from studying under different teachers in the East since 1990, including the teachings of Wat Bua Luang in Thailand. The methodology is based on the ancient Eastern principles of Hai Palung (Energy Healing) Pon Klie Kwan Sow (Emotional Release), Meditation, Food Based Healing and the importance of compassion, gratitude, Oneness, and the need to support the whole person holistically - body, mind and spirit. <br><br>
+
+              Hae Kwang Sunim currently acts as Abbot of Bo Kwang Meditation Centre in Brampton with satellite locations in Oakville, Mississauga, Burlington, Thornhill and Toronto. For more information please see links below:<br><br>
+
+
+              &bull;  <a href="http://www.meetup.com/www-taegozen-info/">Mindfulness Centre </a><br>
+
+              &bull;  <a href="http://www.meetup.com/The-Spirituality-Energy-Healing-and-Alt-Health-Social-Club/">Ontario Qigong & Complimentary Wellness Institute / Community  </a><br>
+
+              &bull;  <a href="https://www.facebook.com/QiToday/timeline">Qi-Today Community Facebook</a><br>
+
+              &bull;  <a href="http://www.meetup.com/Qi-Gong-Zen-Healing/">Complimentary Practices </a><br>
+
+              &bull;  <a href="http://taegozen.net/">Taego Zen Order / Overseas Parish </a><br>
+
+              &bull;  <a href="www.taego.kr">Taego Order / Korea Training </a><br>
+
+              &bull;  <a href="http://taegozen.net/taegoseminary.html">Dong Bang Seminary / Taego International e-learning </a><br>
+              </p>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div> 
+</div>
+   
+<br><br><br><br>
+
+%include {"util/footer.html"}
+
+   <script src="bootstrap/js/bootstrap.min.js"></script>
+   <script>
+      $(document).ready(function(){
+        $("#about-tab").addClass("active");
+        $("#about-kwang").addClass("active");
+             
+        $(".searchble").click(function(){
+           $(".searchbox").slideToggle();    
+        });
+      });
+   </script>
+</body>
+</html>

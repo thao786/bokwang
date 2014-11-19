@@ -55,9 +55,8 @@
 	(GET "/[a]+" [] "yes")
 
 	(POST "/subscribe" request (newsltr/subscribe (request :params)))
-	(GET "/test1" [name] "wats up")
-	(GET "/test2" [name] (clojure.java.io/file "/home/thao/Test2.pdf"))
-	(GET "/test" [name] (r/render "test.html"))
+	(GET "/test1" [name] (clojure.java.io/file "/home/thao/Test2.pdf"))
+	(GET "/test" [name] (io/resource "comment.html"))
 
 	(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
