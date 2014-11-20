@@ -39,11 +39,12 @@
 	(context "/about" []
 	    (GET "/" [] (r/render "about-bokwang-centre.html"))
 	    (GET "/bo-kwang-centre" [] (r/render "about-bokwang-centre.html"))
-	    (GET "/kwang" [] (r/render "about-kwang.html"))
 		(GET "/taego" [] (r/render "about-taego.html"))
 		(GET "/other-temples" [] (r/render "about-other-taego-temples.html"))
 		(GET "/become-priest" [] (r/render "about-become-priest.html"))
 		(GET "/gallery" [] (r/render "gallery.html")))
+	(context "/kwang" []
+		(GET "/" [] (r/render "kwang.html")))
 	(context "/zen" []	    
 	    (GET "/" [] (r/render "zen.html"))
 	    (GET "/prayers" [] (r/render "zen-prayers.html"))
@@ -57,6 +58,7 @@
 	(POST "/subscribe" request (newsltr/subscribe (request :params)))
 	(GET "/test1" [name] (clojure.java.io/file "/home/thao/Test2.pdf"))
 	(GET "/test" [name] (io/resource "comment.html"))
+	(GET "/test2" [name] (io/resource "comment2.html"))
 
 	(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
