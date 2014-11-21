@@ -36,19 +36,14 @@
 		(GET "/focus-attitude" [] (r/render "reflection-focusing-attitude.html")))
 	(context "/buddhist-study" []
 		(GET "/" [] (r/render "buddhist-study.html")))
-	(context "/about" []
-	    (GET "/" [] (r/render "about-bokwang-centre.html"))
-	    (GET "/bo-kwang-centre" [] (r/render "about-bokwang-centre.html"))
+	(context "/teacher" []
+	    (GET "/" [] (r/render "kwang.html"))
 		(GET "/taego" [] (r/render "about-taego.html"))
-		(GET "/other-temples" [] (r/render "about-other-taego-temples.html"))
 		(GET "/become-priest" [] (r/render "about-become-priest.html"))
 		(GET "/gallery" [] (r/render "gallery.html")))
-	(context "/kwang" []
-		(GET "/" [] (r/render "kwang.html")))
 	(context "/zen" []	    
 	    (GET "/" [] (r/render "zen.html"))
-	    (GET "/prayers" [] (r/render "zen-prayers.html"))
-	    (GET "/zen-self" [] (r/render "zen-self.html")))
+	    (GET "/prayers" [] (r/render "zen-prayers.html")))
 	(GET "/contact" [] (r/render "contact.html"))
 	(GET "/calendar" [] (r/render "calendar.html"))
 	(GET "/donations" [] (r/render "donation.html"))
