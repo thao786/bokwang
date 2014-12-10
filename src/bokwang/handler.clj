@@ -52,9 +52,11 @@
 	(GET "/donate" [] (str @donate/tokens))
 	;(POST "/donate" [token] (swap! donate/tokens conj token))
 
-	(POST "/donate" [token] (str token))
+	(POST "/donate" request (request :param))
 
-	(POST "/test" params (str params))
+	(POST "/test" request (str request))
+	(GET "/test" request "get response")
+
 	(POST "/subscribe" request (newsltr/subscribe (request :params)))
 
 
