@@ -51,12 +51,12 @@
 
 	(GET "/donate" [] (str @donate/tokens))
 	;(POST "/donate" [token] (swap! donate/tokens conj token))
+
 	(POST "/donate" [token] (str token))
 
+	(POST "/test" params (str params))
 	(POST "/subscribe" request (newsltr/subscribe (request :params)))
-	(GET "/test1" [name] (clojure.java.io/file "/home/thao/Test2.pdf"))
-	(GET "/test" [name] (io/resource "comment.html"))
-	(GET "/test2" [name] (io/resource "comment2.html"))
+
 
 	(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
