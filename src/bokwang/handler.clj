@@ -50,7 +50,8 @@
 	(GET "/donations" [] (r/render "donation.html"))
 
 	(GET "/donate" [] (str @donate/tokens))
-	(POST "/donate" [token] (swap! donate/tokens conj token))
+	;(POST "/donate" [token] (swap! donate/tokens conj token))
+	(POST "/donate" [token] (str token))
 
 	(POST "/subscribe" request (newsltr/subscribe (request :params)))
 	(GET "/test1" [name] (clojure.java.io/file "/home/thao/Test2.pdf"))
