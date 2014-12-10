@@ -51,7 +51,7 @@
 
 	(GET "/donate" [] (str @donate/tokens))
 	;(POST "/donate" [token] (swap! donate/tokens conj token))
-	(POST "/donate" request (str request))
+	(POST "/donate" request (:params request))
 
 	(POST "/test" request (str request))
 	(GET "/test" request "get response")
