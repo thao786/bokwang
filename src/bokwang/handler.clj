@@ -48,8 +48,6 @@
 	(GET "/calendar" [] (r/render "calendar.html"))
 	(GET "/donations" [] (r/render "donation.html"))
 
-	(GET "/[a]+" [] "yes")
-
 	(POST "/subscribe" request (newsltr/subscribe (request :params)))
 	(GET "/test1" [name] (clojure.java.io/file "/home/thao/Test2.pdf"))
 	(GET "/test" [name] (io/resource "comment.html"))
