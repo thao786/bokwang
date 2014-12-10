@@ -234,6 +234,13 @@ a:hover,a:focus {
   margin: 30px 50px 50px;
   text-align: justify;
 }
+@media (min-width: 768px) {
+  ..pofbody{
+    padding: 0 0 0 0;
+    font-size: 16px;
+    margin: 0 0 0 0;
+  }
+}
 .header{
   font-size: 18px;
   color:#48778c;
@@ -329,7 +336,7 @@ a:hover,a:focus {
   padding: 10px 20px 10px 20px;
   position: relative;
   text-decoration: none;
-  width:12.3%;
+  width:14.2%;
   border-top:solid 2px #8cb316;
   text-align: center;
 }
