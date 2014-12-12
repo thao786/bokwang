@@ -8,7 +8,8 @@
             [compojure.route :as route]
             [sodahead.render :as r]
             [clojure.java.io :as io]
-            [util.newsletter :as newsltr]))
+            [util.newsletter :as newsltr]
+            [bokwang.donate :as donate]))
 
 (defroutes app-routes
 	(GET "/" [] (r/render "index.html"))
@@ -48,12 +49,15 @@
 	(GET "/calendar" [] (r/render "calendar.html"))
 	(GET "/donations" [] (r/render "donation.html"))
 
-	(GET "/[a]+" [] "yes")
+	(GET "/donate" [] (str @donate/tokens))
+	;(POST "/donate" [token] (swap! donate/tokens conj token))
+	(POST "/donate" request (str (:params request)))
+
+	(POST "/test" request (str request))
+	(GET "/test" request "get response")
 
 	(POST "/subscribe" request (newsltr/subscribe (request :params)))
-	(GET "/test1" [name] (clojure.java.io/file "/home/thao/Test2.pdf"))
-	(GET "/test" [name] (io/resource "comment.html"))
-	(GET "/test2" [name] (io/resource "comment2.html"))
+
 
 	(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
