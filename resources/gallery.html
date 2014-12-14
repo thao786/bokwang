@@ -13,6 +13,7 @@
     <!-- Bootstrap -->
      <link href="%{l/bootstrap-host}/css/bootstrap.min.css" rel="stylesheet">    
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <style>
       body{
           background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
@@ -37,8 +38,41 @@
       }
       .backgroundImage:hover{
         border-bottom:solid 3px #bab8b8;
-
       }
+      .strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+    font-family: 'Lobster', cursive;
+    }
+
+    .strike > span {
+        position: relative;
+        display: inline-block;
+        font-size: 35px;
+        color: #8b7543;
+    }
+
+    .strike > span:before,
+    .strike > span:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 9999px;
+        height: 1px;
+        background: #983629;
+    }
+
+    .strike > span:before {
+        right: 100%;
+        margin-right: 15px;
+    }
+
+    .strike > span:after {
+        left: 100%;
+        margin-left: 15px;
+    }
     </style>
    
   </head>
@@ -74,7 +108,7 @@
               </div>
               <hr>
 
-            <h2 class="text-warning">Retreat and stuffs</h2>
+            <div class="strike"><span><span class="glyphicon glyphicon glyphicon-link"></span> Retreat and stuffs</span> </div>
             <div class="row">
                 <a href="http://i.imgur.com/zngkrz6.png" target="_blank">
                   <div class="backgroundImage" style="background: url(http://i.imgur.com/zngkrz6.png)"></div>
@@ -109,9 +143,9 @@
                 </a>
             </div>
 
-            <br><hr class="style-one"><br>
+            <br><br><br>
 
-            <h2 class="text-warning">Outdoor activities</h2>
+            <div class="strike"><span><span class="glyphicon glyphicon glyphicon-link"></span> Outdoor Activities</span> </div>
             <div class="row">
                 <a href="http://i.imgur.com/zngkrz6.png" target="_blank">
                   <div class="backgroundImage" style="background: url(http://i.imgur.com/zngkrz6.png)"></div>
