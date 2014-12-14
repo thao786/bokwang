@@ -13,6 +13,7 @@
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
     <style>
       body{
           background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
@@ -42,6 +43,10 @@
       }
       .whiteBgr{
         padding-top: 30px;
+      }
+      .welcome h1{
+        font-family: 'Playball', cursive;
+        font-size: 45px;
       }
     </style>
    
@@ -111,12 +116,11 @@
 
 <div class="container whiteBgr">
   <div class="row">
-
     <div class="col-sm-9">
 
     	<div class="row welcome">			
         <div class="col-sm-7">
-          <h1>Welcome!</h1>
+          <h1 class="text-danger">Welcome!</h1>
           <h3><small>Bo Kwang Qi Gong and Meditation Centre provides Zen meditation, Qi Gong instruction, Mindfulness and Inner peace training as well as educational programs within a kind and supportive environment. We have classes and programs in Toronto, Brampton, Oakville, Burlington and Kitchener, Ontario. We offer daily practice schedule and Dharma talks with our guiding teacher, Hae Kwang Robert (Sunim). Our goal is to reach people and share Zen, Qi Gong, hope, healing and love to many that are struggling. Come join our growing community. </small></h3>
         </div>
         <div class="col-sm-5">
@@ -129,41 +133,75 @@
       <div class="row" style="margin-left:20px;">
 	        <div class="col-sm-4">
 	          <img class="img-thumbnail" src="%{l/image-host}/meditating-cat.jpg" width="300" height="250">
-	          <a href="%{l/host}/programs"><h2>Meditation Service</h2></a>
-	          <p>At Bo Kwang center, we provide a wide variety of programs. Explore and find one for yourself. 
+	          <a href="%{l/host}/programs"><h3>Meditation & Qigong</h3></a>
+	          <p>At Bo Kwang center, we provide a wide variety of programs... Explore and find one for yourself. 
             <br><a href="%{l/host}/programs" class="text-info">&raquo; Read More</a></p>
 	        </div><!-- /.col-sm-3 -->
 	        <div class="col-sm-4">
 	          <img class="img-thumbnail" src="%{l/image-host}/content2.jpg" width="300" height="250">
-	          <a href="%{l/host}/zen"><h2>Qigong Practice</h2></a>
+	          <a href="%{l/host}/zen"><h2>Zen Teaching</h2></a>
 	          <p>Zen is the study of the self. There is no mysticism in Zen meditation. It is used as a tool to transcends psychology.  
             <br><a href="%{l/host}/zen" class="text-info">&raquo; Read More</a></p>
 	        </div><!-- /.col-sm-3 -->
 	        <div class="col-sm-4">
-	         <img class="img-thumbnail" src="%{l/image-host}/content3.jpg" width="300" height="250">
+	         <img class="img-thumbnail" src="%{l/image-host}/calendar.jpg" width="300" height="250">
 	          <a href="%{l/host}/calendar"><h2>Calendar</h2></a>
 	          <p>Check out calendar for details about events and classes. All enrollment are made via <a href="http://www.meetup.com/Qi-Gong-Zen-Healing/" style="color:#dfa033;"><b>MEETUP</b></a>.
             <br><a href="%{l/host}/calendar" class="text-info">&raquo; Read More</a></p>
 	        </div><!-- /.col-sm-3 -->
           
   		</div><!-- /.row -->
+
+      <hr>
+
+      <div class="row" style="margin-left:20px;">
+          <div class="col-sm-4">
+            <img class="img-thumbnail" src="%{l/image-host}/abt6.jpg" width="300" height="250">
+            <a href="%{l/host}/teacher"><h2>Our Teacher</h2></a>
+            <p>The founder of ‘Inner Peace Zen Qigong’ Hae Kwang Sunim... 
+            <br><a href="%{l/host}/teacher" class="text-info">&raquo; Read More</a></p>
+          </div><!-- /.col-sm-3 -->
+          <div class="col-sm-4">
+            <img class="img-thumbnail" src="%{l/image-host}/bud-study2.jpg" width="300" height="250">
+            <a href="%{l/host}/buddhist-study"><h2>Buddhism Study</h2></a>
+            <p>Taego Zen Monasteries have now spread around the world...  
+            <br><a href="%{l/host}/buddhist-study" class="text-info">&raquo; Read More</a></p>
+          </div><!-- /.col-sm-3 -->
+          <div class="col-sm-4">
+           <img class="img-thumbnail" src="%{l/image-host}/contact.jpg" width="300" height="250">
+            <a href="%{l/host}/contact"><h2>Contact</h2></a>
+            <p>Contact us via these given methods.
+            <br><a href="%{l/host}/contact" class="text-info">&raquo; Read More</a></p>
+          </div><!-- /.col-sm-3 -->          
+      </div><!-- /.row -->
+
   	</div><!-- /.col-sm-9 -->
 
     
 		<div class="col-sm-3">     
+        <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FQiToday&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=60" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>
+
         <div class="panel panel-info">
           <div class="panel-heading">
-            <a href="https://bokwang.wordpress.com/"><h3 class="panel-title"><b>Latest Events</b></h3></a>
+            <a href="%{l/host}/calendar"><h3 class="panel-title"><b>Latest Events</b></h3></a>
           </div>
           <div class="panel-body">
             <div class="list-group">
-              <a href="https://bokwang.wordpress.com/2014/11/01/100-benefits-of-zazen-meditation/" class="list-group-item">
-                <h5 class="list-group-item-heading"><b>100 Benefits of Zazen Meditation</b></h5>
-                <p class="text-muted describe">The benefits of Zazen Meditation are many. Its affects have been shown...</p>
+              <a href="http://www.meetup.com/Qi-Gong-Zen-Healing/events/214760222/" class="list-group-item">
+                <h5 class="list-group-item-heading"><b>Full Qigong w/ Hae Kwang Robert in Oakville </b></h5>
+                <p class="text-muted describe">"HARMONIZE" - "DESTRESS" and "RECHARGE" With Hae Kwang Robert Full Qigong Program now in Oakville...</p>
               </a>
-              <a href="https://bokwang.wordpress.com/2014/11/01/a-deeper-look-at-the-health-benefits-of-qigong/" class="list-group-item">
-                <h5 class="list-group-item-heading"><b>A Deeper Look at the Health Benefits of Qigong</b></h5>
-                <p class="text-muted describe">Qigong is an energy cultivation exercise linked to mind-body medicine...</p>
+              <a href="http://www.meetup.com/Qi-Gong-Zen-Healing/events/195677412/" class="list-group-item">
+                <h5 class="list-group-item-heading"><b>Community Xmas Pot Luck Dinner & Special Teaching by Ven. Dr. Jongmae Park</b></h5>
+                <p class="text-muted describe">Community Celebration!!! Join the Community Xmas Pot Luck Dinner with special teaching by Ven. Dr. Jongmae Park...</p>
+              </a>
+              <a href="http://www.meetup.com/Qi-Gong-Zen-Healing/events/218845799/" class="list-group-item">
+                <h5 class="list-group-item-heading"><b>Sacred Stillness & Peace: Zazen Meditation</b></h5>
+                <p class="text-muted describe">Zazen Meditation Class & Teaching:  Investment:  90 Minute Classes  $15   /  2 + Hour Classes $20...</p>
+              </a>
+              <a href="http://www.meetup.com/Qi-Gong-Zen-Healing/events/214757242/" class="list-group-item">
+                <h5 class="list-group-item-heading"><b>Light Qigong and our Group Sharing / Tea Circle</b></h5>
+                <p class="text-muted describe">Join Hae Kwang Sunim for Light Qigong at 11:00 a.m. and our Group Sharing / Tea Circle at 11:45 a.m....</p>
               </a>
             </div>
           </div>
