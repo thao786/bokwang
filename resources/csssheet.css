@@ -339,6 +339,11 @@ a:hover,a:focus {
   width:14.2%;
   border-top:solid 2px #8cb316;
   text-align: center;
+  -webkit-transition: background-color 0.3s  ;
+    -moz-transition: background-color 0.3s  ;
+    -ms-transition: background-color 0.3s  ;
+    -o-transition: background-color 0.3s ;
+    transition: background-color 0.3s;
 }
   
 .site-navigation li a {
@@ -403,4 +408,13 @@ a:hover,a:focus {
   .site-navigation li {
     min-width:200px;
   }
+}
+hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #868282;
+    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:      -o-linear-gradient(left, #ccc, #333, #ccc); 
 }
