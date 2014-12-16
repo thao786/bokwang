@@ -61,9 +61,7 @@
 
 	(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
-	(GET "/bootstrap/css/:name" [name] (io/resource (str "bootstrap/css/" name)))
-	(GET "/bootstrap/js/:name" [name] (io/resource (str "bootstrap/js/" name)))
-	(GET "/bootstrap/fonts/:name" [name] (io/resource (str "bootstrap/fonts/" name)))
+	
 	(route/resources "/")
 	(route/not-found "under construction :((((((("))
 
