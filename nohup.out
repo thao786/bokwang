@@ -4,3 +4,42 @@ Started server on port 3000
 2014-08-31 00:07:13.615:INFO:oejs.Server:jetty-7.6.8.v20121106
 2014-08-31 00:07:13.651:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:3000
 Started server on port 3000
+2014-12-14 18:53:01.404:INFO:oejs.Server:jetty-7.6.8.v20121106
+2014-12-14 18:53:01.451:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:3000
+Started server on port 3000
+Exception in thread "main" java.awt.HeadlessException: 
+No X11 DISPLAY variable was set, but this program performed an operation which requires it., compiling:(/tmp/form-init1400139268613173232.clj:1:72)
+	at clojure.lang.Compiler.load(Compiler.java:7142)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7086)
+	at clojure.main$load_script.invoke(main.clj:274)
+	at clojure.main$init_opt.invoke(main.clj:279)
+	at clojure.main$initialize.invoke(main.clj:307)
+	at clojure.main$null_opt.invoke(main.clj:342)
+	at clojure.main$main.doInvoke(main.clj:420)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: java.awt.HeadlessException: 
+No X11 DISPLAY variable was set, but this program performed an operation which requires it.
+	at java.awt.GraphicsEnvironment.checkHeadless(GraphicsEnvironment.java:207)
+	at java.awt.Window.<init>(Window.java:536)
+	at java.awt.Frame.<init>(Frame.java:420)
+	at java.awt.Frame.<init>(Frame.java:385)
+	at javax.swing.JFrame.<init>(JFrame.java:181)
+	at clojure.java.browse_ui$open_url_in_swing.invoke(browse_ui.clj:20)
+	at clojure.lang.Var.invoke(Var.java:379)
+	at clojure.java.browse$open_url_in_swing.invoke(browse.clj:64)
+	at clojure.java.browse$browse_url.invoke(browse.clj:76)
+	at ring.server.standalone$open_browser_to.invoke(standalone.clj:39)
+	at ring.server.standalone$serve$fn__1863.invoke(standalone.clj:104)
+	at ring.server.standalone$try_port.invoke(standalone.clj:16)
+	at ring.server.standalone$serve.doInvoke(standalone.clj:97)
+	at clojure.lang.RestFn.invoke(RestFn.java:423)
+	at ring.server.leiningen$serve.invoke(leiningen.clj:20)
+	at user$eval2952.invoke(form-init1400139268613173232.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.eval(Compiler.java:6693)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	... 11 more
