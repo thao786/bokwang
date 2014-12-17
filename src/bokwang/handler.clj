@@ -1,7 +1,6 @@
 ;lein new compojure bokwang
 ;nohup lein ring server &
 ; ps aux | grep server
-; ssh thao@50.116.53.36
 (ns bokwang.handler
   (:require [compojure.core :refer :all]
             [compojure.handler :as handler]
@@ -53,13 +52,10 @@
 	;(POST "/donate" [token] (swap! donate/tokens conj token))
 	(POST "/donate" request (str (:params request)))
 
-	(POST "/test" request (str request))
-	(GET "/test" request "get response")
-
 	(POST "/subscribe" request (newsltr/subscribe (request :params)))
 
 
-	(GET "/image/:name" [name] (io/resource (str "image/" name)))
+	;(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
 	
 	(route/resources "/")
