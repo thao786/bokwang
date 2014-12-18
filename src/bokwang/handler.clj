@@ -7,6 +7,7 @@
             [compojure.route :as route]
             [sodahead.render :as r]
             [clojure.java.io :as io]
+            (ring.middleware [multipart-params :as mp])
             [util.newsletter :as newsltr]
             [bokwang.donate :as donate]))
 
@@ -53,6 +54,13 @@
 	(POST "/donate" request (str (:params request)))
 
 	(POST "/subscribe" request (newsltr/subscribe (request :params)))
+
+	(GET  "/file" [] (r/render "file.html"))
+    (mp/wrap-multipart-params 
+    	(POST "/file" request 
+    		(let [file (-> request :params :file :tempfile)]	
+    			(-> file .getClass .getName))))
+
 
 
 	;(GET "/image/:name" [name] (io/resource (str "image/" name)))

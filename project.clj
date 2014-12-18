@@ -8,6 +8,7 @@
                  [com.google.guava/guava "18.0"]
                  [commons-logging/commons-logging "1.1.1"]
                  [commons-validator/commons-validator "1.4.0"]
+                 [commons-io/commons-io "2.4"]
                  [com.netflix.denominator/denominator-cli "4.3.3"]
                  [com.google.code.gson/gson "2.3"]
                  [org.apache.httpcomponents/httpclient "4.3.5"]
