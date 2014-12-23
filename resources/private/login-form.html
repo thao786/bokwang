@@ -1,8 +1,10 @@
+%{}
 <!DOCTYPE html>
 <html>
 <head>
 <title>Facebook Login JavaScript Example</title>
 <meta charset="UTF-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
 <script>
@@ -15,17 +17,15 @@
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
+    	// Logged into your app and Facebook.
+    	testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
+      document.getElementById('status').innerHTML = 'Please log into this app.';
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into Facebook.';
+    	document.getElementById('status').innerHTML = 'Please log into Facebook.';
     }
   }
 
@@ -75,14 +75,26 @@
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
+	function testAPI2() {
+	    FB.api('/me', function(response) {
+		    document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
+
+          //js to reload the page
+          console.log(response);
+
+          FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+              //$('#fb_session_input').value = response.authResponse.accessToken;
+              document.getElementById("fb_session_input").value = "Johnny Bravo";
+
+              ('#fb_session_input').value = "tfgyhujkl";
+              // $('#fb_login_form').submit();
+
+              alert($('#fb_session_input').value);
+            }
+          });
+	    });
+	}
 </script>
 
 <!--
@@ -90,31 +102,53 @@
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
+<p>Hi guest! Please log in or register to view the private documents. </p>
 
+You can login via facebook 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
 <div id="status">
 </div>
 
+<form id="fb_login_form" action="http://lotus-zen.com/private" method="post">
+  <input type="hidden" type="text" name="fb_session" id="fb_session_input"><br>
+  <input type="hidden" type="submit" value="Submit">
+</form>
 
-</br></br></br></br>
+
+
+<p>or use your own credentials: </p>
+
+<div>
+	<form>
+	Username:
+	<input type="text" name="firstname">
+	Password:
+	<input type="text" name="lastname">
+	</form>
+</div>
+
+
+
 <script>
-function check() {
-    FB.getLoginStatus(function(response) {
-    	if (response.status === 'connected') {
-    		document.getElementById('status').innerHTML = response.authResponse.accessToken;
-  			document.getElementById('status').innerHTML += '</br>';
-  			document.getElementById('status').innerHTML += response.authResponse.userID;
-		}
-    });
+  function testAPI() {
+      FB.api('/me', function(response) {
+        document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
+
+          //js to reload the page
+          console.log(response);
+
+          FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+              document.getElementById("fb_session_input").value = response.authResponse.accessToken;
+
+              //alert(document.getElementById("fb_session_input").value);
+              $('#fb_login_form').submit();
+            }
+          });
+      });
   }
 </script>
-
-<button type="button" onclick="check()">
-	Click Me!
-</button>
-
-
 </body>
 </html>
