@@ -1,14 +1,15 @@
 (ns bokwang.private
 	(:import (java.io File)
 			(java.security SecureRandom)
-			(java.math BigInteger))
+			(java.math BigInteger)
+			(java.sql DriverManager))
 	(:use [clojure.java.shell :only [sh]])
 	(:require [sodahead.render :as r]
             [clojure.java.io :as io]
             [bokwang.lib :as l]))
 
 (def random (SecureRandom.))
-(def cookie-period 30)
+(def cookie-valid-period 30)
 
 (defn first-view-get [request]
 	(if-let [zen-cookie (-> request :cookie :zen)]
@@ -32,12 +33,18 @@
 				;assign a zen cookie
 				(let [gen-random (.toString (BigInteger. 100 random) 32)
 					;get st like zen-cookie-eb66rg9f1cfbug4s6knr
-					gen-random-cookie (str "zen-cookie-" gen-random) 
+					cookie (str "zen-cookie-" gen-random) 
 
 					;store in database
+					query 	(str "INSERT INTO session (cookie, userid) VALUES ('" 
+									cookie "', '" fb-id "')")
+					conn (DriverManager/getConnection l/bokwang-db-url)
+					; stmt (.createStatement conn)
+					; dummy (.executeUpdate stmt query)
+					dummy (.close conn)
 					]
 					;send cookie and render view 
-					gen-random-cookie)
+					conn)
 
 				"there is something wrong with your facebook session ID. Please try again."))
 
@@ -47,10 +54,5 @@
 
 (defn first-vew-get
 	"depends on the session-id, render the correct view"
-	[session-id] 
+	[session-id]
 	"")
-
-; {"fbm_278376725619348" {:value "base_domain=.lotus-zen.com"}, "ring-session" {:value "f15467ce-2dd2-453b-8514-3ce74ff296fc"}, 
-; "PHPSESSID" {:value "hjvovvkd8u2jejr1h9l1v2rvg5"}, 
-; "fbsr_278376725619348" 
-; 	{:value "v7tie5Isr5R-FZXZyVgp-CSjtP9Ut72TEpLFoEiGvRI.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImNvZGUiOiJBUUFBU3UzTm5ubkhfeGtZTXFyNnVPZGNUQ2g5Vl9mMnAwNDRiNl9rU3BqNXRmLTl3ekFoSFdZX2NpLUJMNTdSdE9FS29oVktpQ1R3QTkzdnZOVHplcTdSWDhTejBrNzNVX0kzNEZRWU1BYTBCMHRQVml1SEI4dU9wNWVvUENESjBENWwyekpmQlBFZmxXYlgyTVpfSFdsYzVBTlZmQkNiNmhwcWVrM3pvaE43bGxfLVl1TnE1N1FITGJ6eDJQU1NnNHhTTnphMFZNRXkyNGJCOE9Nc0d6MjN2dGVIQm9LZFVQWHpveFk2UTExMHdlX2prTlZEbU9KQUdvZmVtZlVSRjZuYzNYYjBvVVlkbFhNYnFQU2JNZmFSSFlZWTAwYnQ4Sk9IYzZHUkNSMFRaaUd2X2YxOUxHaHp1UDB4NEpWZ0luN3Mxa05GS25BQVFBN0FabEJ2bzhkeiIsImlzc3VlZF9hdCI6MTQxOTIxMDYwNiwidXNlcl9pZCI6Ijc5MzU4NTkwNDAzMzk1MSJ9"}}
