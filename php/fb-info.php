@@ -26,7 +26,7 @@ if($session) {
 
     //form a clojure map
     echo '{:fb-id ' . '"' . $user_profile->getId() . '"' .
-        ' :fb-link ' . '"' . $user_profile->getLink() . '"' .
+        ' :fb-profile ' . '"' . $user_profile->getLink() . '"' .
         ' :name ' . '"' . $user_profile->getName() . '"' .
         ' :fname ' . '"' . $user_profile->getFirstName() . '"' .
         ' :lname ' . '"' . $user_profile->getLastName() . '"' .

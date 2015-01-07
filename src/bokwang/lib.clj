@@ -9,9 +9,9 @@
 
 (def fb-verify-server "http://lotus-zen.com/fb-info.php")
 
-(def db-server "50.116.57.98")
+(def db-server "50.116.53.36")
 
-(def bokwang-db-url "jdbc:postgresql://50.116.57.98:5432/bokwang?user=thao&password=fall2010")
+(def bokwang-db-url "jdbc:postgresql://50.116.53.36:5432/bokwang?user=thao&password=fall2010")
 
 
 

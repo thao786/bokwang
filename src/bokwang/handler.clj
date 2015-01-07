@@ -13,7 +13,8 @@
             (ring.middleware [multipart-params :as mp])
             [util.newsletter :as newsltr]
             [bokwang.donate :as donate]
-            [bokwang.private :as private]))
+            [bokwang.private :as private]
+            [bokwang.doc :as doc]))
 
 
 (defroutes app-routes
@@ -60,6 +61,7 @@
 
 	(POST "/subscribe" request (newsltr/subscribe (request :params)))
 
+	(GET "/cookie" request (str request))
 
 	(context "/private" []
 		(GET "/" request (private/first-view-get request))
@@ -68,15 +70,14 @@
 
 
 
-	(GET  "/file" [] (r/render "file.html"))
-    (mp/wrap-multipart-params 
-    	(POST "/file" request 
-    		(let [file (-> request :params :file :tempfile)]
-				(FileUtils/copyFile file (File. "/home/thao/sqlite.clj")))))
+	(GET  "/upload" [] (r/render "file.html"))
+	(mp/wrap-multipart-params 
+    	(POST "/upload" request (doc/store-doc request)))
 
 
 	;(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
+
 	
 	(route/resources "/")
 	(route/not-found "under construction :((((((("))

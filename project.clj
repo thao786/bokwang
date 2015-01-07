@@ -14,7 +14,9 @@
                  [org.apache.httpcomponents/httpclient "4.3.5"]
                  [org.apache.httpcomponents/httpcore "4.3.2"]
                  [org.xerial/sqlite-jdbc "3.8.7"]
-                 [org.postgresql/postgresql "9.3-1102-jdbc41"]]
+                 [org.postgresql/postgresql "9.3-1102-jdbc41"]
+                 [com.taoensso/carmine "2.9.0"]
+                 [commons-codec/commons-codec "1.10"]]
   :plugins [[lein-ring "0.8.11"]]
   :ring {:handler bokwang.handler/app}
   :profiles
