@@ -9,9 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
-    <title>Meditation - Rationale</title>
+    <title>Page Not Found</title>
     <!-- Bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">   
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'> 
+    <link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
     <style>
       body{
@@ -22,6 +24,15 @@
       } 
       .biggest{
         background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
+      }
+      .col-sm-8{
+        font-family: 'Satisfy', cursive;
+      }
+      .col-sm-8 h1{        
+        margin-left:20px;
+        font-family: 'Droid Serif', serif;
+        text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+        font-size: 110px;
       }
     </style>
   </head>
@@ -35,13 +46,13 @@
 
   <div class="container whiteBgr">  
       <div class="row">
-        <div class="col-sm-4">
-          <img src="%{l/image-host}/404.png">
+        <div class="col-sm-3">
+          <img src="%{l/image-host}/404.png" width="400">
         </div>
-        <div class="col-sm-8">
-          <h1>Oops! </h1>
-          <h2>Page Under Construction...</h2>
-          <h3>Go back to HomePage and experience more events HEhe</h3>
+        <div class="col-sm-8 col-sm-offset-1">
+          <h1 class="text-danger"><i>Oops! </i></h1>
+          <h2 class="text-warning" style="text-indent:60px;"><i>This Page is Under Construction... Go back to HomePage and experience more events Hehehe.</i></h2>
+          <h3 class="text-primary" style="margin-left:100px;"><a href="%{l/host}"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>  Click here to go back!</a></h3>
         </div>
       </div>
           
@@ -57,8 +68,6 @@
    <script src="bootstrap/js/bootstrap.min.js"></script>
    <script>
       $(document).ready(function(){
-        $("#programs-tab").addClass("active");
-        $("#meditation-nav-bar-why").addClass("active");
              
         $(".searchble").click(function(){
            $(".searchbox").slideToggle();    
