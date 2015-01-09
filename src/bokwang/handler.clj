@@ -65,6 +65,8 @@
 
 	(GET "/login" [] (r/render "private/login-form.html"))
 
+	(GET "/404" [] (r/render "404.html"))
+
 	(context "/private" []
 		(GET "/" request (private/first-view-get request))
 		(POST "/" request (private/first-view-post-fbID request))) ;this expect a fb-session-id in request
