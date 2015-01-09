@@ -103,10 +103,9 @@
 function check() {
     FB.getLoginStatus(function(response) {
     	if (response.status === 'connected') {
-    		//alert(response.authResponse.accessToken);
     		document.getElementById('status').innerHTML = response.authResponse.accessToken;
-			document.getElementById('status').innerHTML += '</br>';
-			document.getElementById('status').innerHTML += response.authResponse.userID;
+  			document.getElementById('status').innerHTML += '</br>';
+  			document.getElementById('status').innerHTML += response.authResponse.userID;
 		}
     });
   }

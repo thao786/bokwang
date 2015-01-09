@@ -2,13 +2,20 @@
 ;nohup lein ring server &
 ; ps aux | grep server
 (ns bokwang.handler
-  (:require [compojure.core :refer :all]
+	(:import (java.io File)
+		(org.apache.commons.io FileUtils))
+
+	(:require [compojure.core :refer :all]
             [compojure.handler :as handler]
             [compojure.route :as route]
             [sodahead.render :as r]
             [clojure.java.io :as io]
+            (ring.middleware [multipart-params :as mp])
             [util.newsletter :as newsltr]
-            [bokwang.donate :as donate]))
+            [bokwang.donate :as donate]
+            [bokwang.private :as private]
+            [bokwang.doc :as doc]))
+
 
 (defroutes app-routes
 	(GET "/" [] (r/render "index.html"))
@@ -54,9 +61,25 @@
 
 	(POST "/subscribe" request (newsltr/subscribe (request :params)))
 
+	(GET "/cookie" request (str request))
+
+	(GET "/login" [] (r/render "private/login-form.html"))
+
+	(context "/private" []
+		(GET "/" request (private/first-view-get request))
+		(POST "/" request (private/first-view-post-fbID request)) ;this expect a fb-session-id in request
+	    )
+
+
+
+	(GET  "/upload" [] (r/render "file.html"))
+	(mp/wrap-multipart-params 
+    	(POST "/upload" request (doc/store-doc request)))
+
 
 	;(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
+
 	
 	(route/resources "/")
 	(route/not-found "under construction :((((((("))

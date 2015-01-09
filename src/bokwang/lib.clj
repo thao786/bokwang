@@ -7,6 +7,18 @@
 (def bootstrap-host "http://lotus-zen.com/bootstrap")
 (def image-host "http://lotus-zen.com")
 
+(def fb-verify-server "http://lotus-zen.com/fb-info.php")
+
+(def db-server "50.116.53.36")
+
+(def bokwang-db-url "jdbc:postgresql://50.116.53.36:5432/bokwang?user=thao&password=fall2010")
+
+
+
+
+
+
+
 
 
 

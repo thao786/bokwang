@@ -1,0 +1,23 @@
+%{(require 
+           '[sodahead.render :as r]
+           '[bokwang.lib :as l]
+)}
+%{
+  (def user (params :user))
+  nil
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bokwang Centre - Admin</title>  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>This is an admin account. Hi %(user :fname)! </p>
+%include {"doc-list-admin.html"}
+
+%include {"private/doc-list-admin.html"}
+
+</body>
+</html>
