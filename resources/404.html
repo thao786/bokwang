@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+%{(require '[bokwang.lib :as l]
+           '[sodahead.render :as r]
+           '[clojure.java.io :as io]
+)}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
+    <title>Meditation - Rationale</title>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">    
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .subhead{ 
+        background-image:url('%{l/image-host}/footer.png');    
+      } 
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
+      }
+    </style>
+  </head>
+
+<body>
+
+<div class="container biggest">
+
+  %include {"util/header.html"}    
+
+
+  <div class="container whiteBgr">  
+      <div class="row">
+        <div class="col-sm-4">
+          <img src="%{l/image-host}/404.png">
+        </div>
+        <div class="col-sm-8">
+          <h1>Oops! </h1>
+          <h2>Page Under Construction...</h2>
+          <h3>Go back to HomePage and experience more events HEhe</h3>
+        </div>
+      </div>
+          
+  </div>
+</div>
+
+   
+<br><br><br><br>
+
+%include {"util/footer.html"}
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="bootstrap/js/bootstrap.min.js"></script>
+   <script>
+      $(document).ready(function(){
+        $("#programs-tab").addClass("active");
+        $("#meditation-nav-bar-why").addClass("active");
+             
+        $(".searchble").click(function(){
+           $(".searchbox").slideToggle();    
+        });
+      });
+   </script>
+</body>
+</html>
