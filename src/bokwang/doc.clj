@@ -10,7 +10,9 @@
             [clojure.java.io :as io]
             [bokwang.lib :as l]))
 
-(defn store-doc [request]
+(defn store-doc
+	"store in postgres"
+	[request]
 	(let [params (request :params)
 			title (params :title)
 			content (params :content)

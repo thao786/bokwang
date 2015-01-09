@@ -6,21 +6,17 @@
 	(:use [clojure.java.shell :only [sh]])
 	(:require [sodahead.render :as r]
             [bokwang.lib :as l]
+            [taoensso.carmine :as car :refer (wcar)]
             [bokwang.session :as ses]))
 
 (def random (SecureRandom.))
 (def cookie-valid-period 30)
 
 (defn get-userid
-	"get the userid associated with this cookie from table session"
+	"get the userid associated with this cookie from redis"
 	[cookie]
-	(let [query (str "select userid from session where cookie = '" cookie "'")
-			conn (DriverManager/getConnection l/bokwang-db-url)
-			stmt (.createStatement conn)
-			result (resultset-seq (.executeQuery stmt query))
-			dummy (.close conn)]
-		(if-let [record (first result)]
-			(record :userid))))
+	(if-let [result-map (wcar* (car/get cookie))]
+		(result-map :user-id)))
 
 (defn get-user-basic-info
 	"get the user info map associated with this userid from table users"
@@ -33,32 +29,24 @@
 		(if-let [record (first result)]
 			record)))
 
-(defn view-based-on-cookie2
-	"depends on the cookie, determine roles and render the correct view"
-	[cookie]
-	(if-let [user-id (get-userid cookie)]
-		(if-let [user (get-user-basic-info user-id)]
-			;if admin, show admin view
-			(if (= (:role user) "admin")
-				(r/render "private/view-admin.html" {:user user})
-				(r/render "private/view-member.html" {:user user})))
-
-		(r/render "private/login-form.html")))
-
 (defn view-based-on-cookie
 	"depends on the cookie, determine roles and render the correct view"
 	[cookie]
 	(if-let [user-id (get-userid cookie)]
 		(if-let [user (get-user-basic-info user-id)]
-			;if admin, show admin view
-			(if (= (:role user) "admin")
-				(r/render "private/view-admin.html" {:user user})
-				(r/render "private/view-member.html" {:user user})))
-
+			(do ;inject to redis
+				(ses/cache cookie user)
+				(if (= (:role user) "admin") 	;if admin, show admin view
+					{:status 200
+					 :cookies {"zen" {:value cookie}}
+					 :body (r/render "private/view-admin.html" {:user user})}
+					
+					{:status 200
+					 :cookies {"zen" {:value cookie}}
+					 :body (r/render "private/view-member.html" {:user user})})))
+		;no record wt such cookie, delete cookie and log in again
 		{:status 200
-		 :headers {}
-		 :cookies 
-		 	{"zen" {:value "cookie" :max-age 1}}
+		 :cookies {"zen" {:value "cookie" :max-age 1}}
 		 :body (r/render "private/login-form.html")}))
 
 
@@ -99,12 +87,7 @@
 					user-id (str "fb-" fb-id)
 
 					;store session in redis
-					query-insert-session 	(str "INSERT INTO session (cookie, userid) VALUES ('" 
-									cookie "', '" user-id "')")				
-					conn (DriverManager/getConnection l/bokwang-db-url)
-					stmt (.createStatement conn)
-					dummy (.executeUpdate stmt query-insert-session)
-					dummy (.close conn)
+					dummy (ses/cache cookie {:user-id user-id})
 
 					;is this user in database?
 					query-user-exist (str "SELECT userid from users where userid = '" user-id "'")
