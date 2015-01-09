@@ -1,10 +1,32 @@
-%{}
 <!DOCTYPE html>
+%{(require '[bokwang.lib :as l]
+           '[sodahead.render :as r]
+           '[clojure.java.io :as io]
+)}
 <html>
 <head>
-<title>Facebook Login JavaScript Example</title>
-<meta charset="UTF-8">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
+    <title>Login</title>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">   
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'> 
+    <link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <style>
+      body{
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .subhead{ 
+        background-image:url('%{l/image-host}/footer.png');    
+      } 
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
+      }
+    </style>
 </head>
 <body>
 <script>
@@ -80,34 +102,58 @@
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
-<p>Hi guest! Please log in or register to view the private documents. </p>
+<div class="container biggest">
 
-You can login via facebook 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+  %include {"util/header.html"}    
 
-<div id="status">
+
+  <div class="container whiteBgr"> 
+      <h4 class="alert alert-success text-warning">Hi there! Please log in or register to view the private documents. </h4>
+
+      <div class="row">
+        <div class="col-sm-3 col-sm-offset-2 well">
+          <h4 class="text-danger">You can login via facebook </h4>
+          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+          </fb:login-button>
+
+          <div id="status">
+          </div>
+
+          <form id="fb_login_form" action="http://lotus-zen.com/private" method="post">
+            <input type="hidden" type="text" name="fb_session" id="fb_session_input"><br>
+            <input type="hidden" type="submit" value="Submit">
+          </form>
+        </div>
+
+        <div class="col-sm-5 col-sm-offset-1 well">
+          <h4 class="text-warning">Or use your own credentials: </h4>
+          <form class="form-horizontal">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" name="firstname" placeholder="Username">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" name="lastname" placeholder="Password">
+                </div>
+              </div>  
+              <div class="col-sm-offset-2 col-sm-3">
+                <button type="submit" class="btn btn-default">Log in</button>
+              </div>
+          </form>
+        </div>
+      </div>
+
+  </div>
 </div>
 
-<form id="fb_login_form" action="http://lotus-zen.com/private" method="post">
-  <input type="hidden" type="text" name="fb_session" id="fb_session_input"><br>
-  <input type="hidden" type="submit" value="Submit">
-</form>
+   
+<br><br><br><br>
 
-
-
-<p>or use your own credentials: </p>
-
-<div>
-  <form>
-  Username:
-  <input type="text" name="firstname">
-  Password:
-  <input type="text" name="lastname">
-  </form>
-</div>
-
-
+%include {"util/footer.html"}
 
 <script>
   function testAPI() {
