@@ -5,8 +5,8 @@
 			(java.sql DriverManager))
 	(:use [clojure.java.shell :only [sh]])
 	(:require [sodahead.render :as r]
-            [clojure.java.io :as io]
-            [bokwang.lib :as l]))
+            [bokwang.lib :as l]
+            [bokwang.session :as ses]))
 
 (def random (SecureRandom.))
 (def cookie-valid-period 30)
@@ -98,16 +98,18 @@
 					cookie (str "zen-cookie-" gen-random)
 					user-id (str "fb-" fb-id)
 
-					;store in database
+					;store session in redis
 					query-insert-session 	(str "INSERT INTO session (cookie, userid) VALUES ('" 
-									cookie "', '" user-id "')")
-				
+									cookie "', '" user-id "')")				
 					conn (DriverManager/getConnection l/bokwang-db-url)
 					stmt (.createStatement conn)
 					dummy (.executeUpdate stmt query-insert-session)
+					dummy (.close conn)
 
 					;is this user in database?
 					query-user-exist (str "SELECT userid from users where userid = '" user-id "'")
+					conn (DriverManager/getConnection l/bokwang-db-url)
+					stmt (.createStatement conn)
 					existed-users (resultset-seq (.executeQuery stmt query-user-exist))
 					dummy (.close conn)
 
