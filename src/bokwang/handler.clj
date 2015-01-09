@@ -69,8 +69,8 @@
 
 	(context "/private" []
 		(GET "/" request (private/first-view-get request))
-		(POST "/" request (private/first-view-post-fbID request)) ;this expect a fb-session-id in request
-	    )
+		(POST "/" request (private/first-view-post-fbID request))) ;this expect a fb-session-id in request
+	    
 
 
 

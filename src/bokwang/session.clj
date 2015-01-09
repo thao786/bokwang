@@ -11,7 +11,12 @@
 
 (wcar* (car/ping) (car/set "foo" "bar") (car/get "foo"))
 
-
+(defn cache
+	"merge this map to the one associated wt this cookie in redis"
+	[cookie data-map]
+	(let [cache (wcar* (car/get cookie))
+		new-cache (merge cache data-map)]
+		(wcar* (car/set cookie new-cache))))
 
 
 
