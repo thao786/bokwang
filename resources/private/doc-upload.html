@@ -2,10 +2,44 @@
 <h1>upload a file</h1>
 <p>you can upload a file and/or paste the content here</p>
 
+<!-- Place inside the <head> of your HTML -->
+<script src="http://cdn.ckeditor.com/4.4.6/standard/ckeditor.js"></script>
+<script type="text/javascript">
+var imgStr = '<p><img alt="Smiley face" src="http://scienceblogs.com/gregladen/files/2012/12/Beautifull-cat-cats-14749885-1600-1200.jpg" style="height:50px" /></p>';
+
+</script>
+
+<button id="intI" onclick="insertImg ()">Insert Image</button>
 <form action="/upload" method="post" enctype="multipart/form-data">
 	<input type="text" name="category" placeholder="category"/><br>
 	<input type="text" name="title" placeholder="document title"/><br>
-	<input type="textarea" name="content" placeholder="document content"/><br>
+
+	
+	<textarea name="content" id="editor1" rows="10" cols="80"></textarea>
+
     <input name="file" type="file"/><br>
     <input type="submit" name="submit" value="submit" />
 </form>
+
+
+<script>
+CKEDITOR.replace( 'editor1', {
+    height: '500', 
+    width: '1000',
+    on: {
+       	instanceReady: $('#intI').click(function(){
+		    this.insertHtml('<p><img alt="Smiley face" src="http://scienceblogs.com/gregladen/files/2012/12/Beautifull-cat-cats-14749885-1600-1200.jpg" style="height:50px" /></p>');
+		})
+    }
+} );
+
+function insertImg (){
+	CKEDITOR.instances.editor1.insertHtml(imgStr);
+}
+</script>
+
+
+
+
+
+

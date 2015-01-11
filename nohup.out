@@ -3562,3 +3562,48 @@ Caused by: java.lang.RuntimeException: No such var: ses/cache
       Compiler.java:6884 clojure.lang.Compiler.resolve
       Compiler.java:6845 clojure.lang.Compiler.analyzeSymbol
       Compiler.java:6427 clojure.lang.Compiler.analyze
+org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "doc_pkey"
+  Detail: Key (doc_id)=(hgbfv) already exists.
+                           QueryExecutorImpl.java:2198 org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse
+                           QueryExecutorImpl.java:1927 org.postgresql.core.v3.QueryExecutorImpl.processResults
+                            QueryExecutorImpl.java:255 org.postgresql.core.v3.QueryExecutorImpl.execute
+                       AbstractJdbc2Statement.java:561 org.postgresql.jdbc2.AbstractJdbc2Statement.execute
+                       AbstractJdbc2Statement.java:419 org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags
+                       AbstractJdbc2Statement.java:365 org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate
+                                            doc.clj:35 bokwang.doc/store-doc
+                                        handler.clj:79 bokwang.handler/fn
+                                           core.clj:99 compojure.core/make-route[fn]
+                                           core.clj:45 compojure.core/if-route[fn]
+                                           core.clj:30 compojure.core/if-method[fn]
+                              multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                                          core.clj:112 compojure.core/routing[fn]
+                                         core.clj:2515 clojure.core/some
+                                          core.clj:112 compojure.core/routing
+                                       RestFn.java:139 clojure.lang.RestFn.applyTo
+                                          core.clj:626 clojure.core/apply
+                                          core.clj:117 compojure.core/routes[fn]
+                                 keyword_params.clj:32 ring.middleware.keyword-params/wrap-keyword-params[fn]
+                                  nested_params.clj:75 ring.middleware.nested-params/wrap-nested-params[fn]
+                                         params.clj:58 ring.middleware.params/wrap-params[fn]
+                              multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                                          flash.clj:31 ring.middleware.flash/wrap-flash[fn]
+                                        session.clj:85 ring.middleware.session/wrap-session[fn]
+                                          Var.java:379 clojure.lang.Var.invoke
+                                         reload.clj:18 ring.middleware.reload/wrap-reload[fn]
+                                     stacktrace.clj:17 ring.middleware.stacktrace/wrap-stacktrace-log[fn]
+                                     stacktrace.clj:80 ring.middleware.stacktrace/wrap-stacktrace-web[fn]
+                                          jetty.clj:18 ring.adapter.jetty/proxy-handler[fn]
+                                      (Unknown Source) ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle
+                               HandlerWrapper.java:116 org.eclipse.jetty.server.handler.HandlerWrapper.handle
+                                       Server.java:363 org.eclipse.jetty.server.Server.handle
+                       AbstractHttpConnection.java:483 org.eclipse.jetty.server.AbstractHttpConnection.handleRequest
+                       AbstractHttpConnection.java:931 org.eclipse.jetty.server.AbstractHttpConnection.content
+                       AbstractHttpConnection.java:992 org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content
+                                   HttpParser.java:856 org.eclipse.jetty.http.HttpParser.parseNext
+                                   HttpParser.java:240 org.eclipse.jetty.http.HttpParser.parseAvailable
+                           AsyncHttpConnection.java:82 org.eclipse.jetty.server.AsyncHttpConnection.handle
+                        SelectChannelEndPoint.java:628 org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle
+                         SelectChannelEndPoint.java:52 org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run
+                             QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
+                             QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
+                                       Thread.java:745 java.lang.Thread.run

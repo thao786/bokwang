@@ -9,7 +9,6 @@
             [taoensso.carmine :as car :refer (wcar)]
             [bokwang.session :as ses]))
 
-(def random (SecureRandom.))
 (def cookie-valid-period 30)
 
 (defn get-userid
@@ -81,7 +80,8 @@
 				fb-info (read-string fb-info-str)]
 			(if-let [fb-id (fb-info :fb-id)]
 				;assign a zen cookie
-				(let [gen-random (.toString (BigInteger. 100 random) 32)
+				(let [random (SecureRandom.)
+					gen-random (.toString (BigInteger. 100 random) 32)
 					;get st like zen-cookie-eb66rg9f1cfbug4s6knr
 					cookie (str "zen-cookie-" gen-random)
 					user-id (str "fb-" fb-id)
