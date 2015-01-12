@@ -65,8 +65,6 @@
 
 	(GET "/login" [] (r/render "private/login-form.html"))
 
-	(GET "/404" [] (r/render "404.html"))
-
 	(context "/private" []
 		(GET "/" request (private/first-view-get request))
 		(POST "/" request (private/first-view-post-fbID request))) ;this expect a fb-session-id in request
@@ -82,9 +80,19 @@
 	;(GET "/image/:name" [name] (io/resource (str "image/" name)))
 	(GET "/file/:name" [name] (io/resource name))
 
-	
+
+	(mp/wrap-multipart-params 
+    	(POST "/file" request 
+    		"yo momma"))
+
+
+	; (mp/wrap-multipart-params 
+ ;    	(POST "/file" request 
+ ;    		(do (spit "/home/thao/bokwang/quote" (str (request :params)))
+ ;    			"yo momma")))
+	 
 	(route/resources "/")
-	(route/not-found "under construction :((((((("))
+	(route/not-found (r/render "404.html")))
 
 (def app
 	(handler/site app-routes))

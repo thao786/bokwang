@@ -9,13 +9,18 @@ var imgStr = '<p><img alt="Smiley face" src="http://scienceblogs.com/gregladen/f
 
 </script>
 
-<button id="intI" onclick="insertImg ()">Insert Image</button>
-<form action="/upload" method="post" enctype="multipart/form-data">
-	<input type="text" name="category" placeholder="category"/><br>
-	<input type="text" name="title" placeholder="document title"/><br>
+<input id="insertImgInput" name="insertImgInput" type="file"/><br>
+<button id="intfile" onclick="insertAjax()">Insert this Image</button><br><br><br><br>
 
-	
-	<textarea name="content" id="editor1" rows="10" cols="80"></textarea>
+
+
+<button id="intI" onclick="insertImg()">Insert cat Image</button>
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+  	<input type="text" name="category" placeholder="category"/><br>
+  	<input type="text" name="title" placeholder="document title"/><br>
+
+  	<textarea name="content" id="editor1" rows="10" cols="80"></textarea>
 
     <input name="file" type="file"/><br>
     <input type="submit" name="submit" value="submit" />
@@ -27,15 +32,39 @@ CKEDITOR.replace( 'editor1', {
     height: '500', 
     width: '1000',
     on: {
-       	instanceReady: $('#intI').click(function(){
-		    this.insertHtml('<p><img alt="Smiley face" src="http://scienceblogs.com/gregladen/files/2012/12/Beautifull-cat-cats-14749885-1600-1200.jpg" style="height:50px" /></p>');
-		})
+    	instanceReady: function() {
+           // this is current editor instance
+           this.insertHtml('<h1>someText</h1>');
+       	}
     }
-} );
+});
 
 function insertImg (){
 	CKEDITOR.instances.editor1.insertHtml(imgStr);
 }
+
+
+
+var client = new XMLHttpRequest();
+
+function insertAjax (){
+    var file = document.getElementById("insertImgInput");
+    var formData = new FormData();
+    formData.append("upload", file.files[0]);
+
+    client.open("post", "http://lotus-zen.com/file", true);
+    client.setRequestHeader("Content-Type", "multipart/form-data");
+    client.send(formData);
+}
+
+client.onreadystatechange = function(){
+  if (client.readyState == 4 && client.status == 200){
+     alert(client.statusText);
+  }
+}
+
+
+
 </script>
 
 
@@ -43,3 +72,12 @@ function insertImg (){
 
 
 
+
+
+
+
+
+
+
+
+$("insertImgInput").val()
