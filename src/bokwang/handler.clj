@@ -82,25 +82,13 @@
 
 
 	(mp/wrap-multipart-params 
-    	(POST "/file" request 
-    		"yo momma"))
+    	(POST "/file" request (doc/cke-store-img request)))
 
 
-	; (mp/wrap-multipart-params 
- ;    	(POST "/file" request 
- ;    		(do (spit "/home/thao/bokwang/quote" (str (request :params)))
- ;    			"yo momma")))
+
 	 
 	(route/resources "/")
 	(route/not-found (r/render "404.html")))
 
 (def app
 	(handler/site app-routes))
-
-
-
-
-
-
-
-

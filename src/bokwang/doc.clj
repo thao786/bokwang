@@ -4,11 +4,44 @@
 			(java.security SecureRandom)
 			(java.math BigInteger)
 			(java.sql DriverManager)
+			(org.apache.commons.io FilenameUtils)
 			(org.apache.commons.io FileUtils))
 	(:use [clojure.java.shell :only [sh]])
 	(:require [sodahead.render :as r]
             [clojure.java.io :as io]
+            [bokwang.session :as ses]
             [bokwang.lib :as l]))
+
+(defn insert-article-img
+	"return the file name of uploaded file.
+	if same name existed, add -2"
+	[file filename]
+	(let [upload-file (File. (str l/article-upload-img filename))
+			upload-folder (File. l/article-upload-img)
+			existed-file (File. (str l/article-upload-img filename))]
+		(if (FileUtils/directoryContains upload-folder existed-file)
+			;there's already a file wt the same name
+			(if (FileUtils/contentEquals file existed-file)
+				filename
+				(let [file-name-only (FilenameUtils/getBaseName filename)
+						file-extention (FilenameUtils/getExtension filename)
+						new-file-name-only (str file-name-only "_2")
+						new-file-name (str new-file-name-only "." file-extention)
+						dummy (FileUtils/copyFile file 
+									(File. (str l/article-upload-img new-file-name)))]
+					new-file-name))
+
+			(do (FileUtils/copyFile file upload-file)
+				filename))))
+
+(defn cke-store-img
+	"upload image to articles folder, return the link"
+	[request]
+	(if-let [file (-> request :params :file :tempfile)]
+		(let [filename (-> request :params :file :filename)
+				src (str l/image-host "/articles/" (insert-article-img file filename))]
+			(str "<img src=\"" src "\">"))
+		"Could not get file from request. Please try again."))
 
 (defn store-doc
 	"store in postgres"
@@ -30,21 +63,13 @@
 						(.setString 1 doc-id)
 						(.setString 2 title)
 						(.setString 3 content)
-						(.setString 4 "thao")
+						(.setString 4 (ses/get-cache-req request :user-id))
 						(.setString 5 category)
 						(.setInt 6 4)
 						(.setDate 7 now))
 			dummy 	(.executeUpdate stmt)
 			dummy (.close conn)]
-		(str request)))
+		(ses/get-cache-req request :user-id)))
 
 
 
-
-
-
-
-
-(defn a [request]
-	(let [file (-> request :params :file :tempfile)]
-		(FileUtils/copyFile file (File. "/home/thao/sqlite.clj"))))
