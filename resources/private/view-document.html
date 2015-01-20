@@ -23,8 +23,13 @@
 				documents (resultset-seq (.executeQuery stmt query))
 				dummy 	(.close conn)]
   			(first documents)))
+
+  	(def edit-url (str l/edit-doc-path doc-id))
+
   	nil
 }
+
+<a href="%edit-url">edit</a>
 
 <p> %(doc :title) </p>
 <p> </p>
