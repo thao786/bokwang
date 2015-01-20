@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bokwang Centre - view document</title>  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+
+
+<p> Search for an user </p>
+
+<form action="/upload" method="post">
+    User name:  <input type="text" name="user_name"/>
+    <input type="submit" name="submit" value="Search" />
+</form>
+
+</br></br>
+
+
+%{
+	(def users 
+  		(let [query (str "select * from users")
+  				conn 	(DriverManager/getConnection l/bokwang-db-url)
+  				stmt 	(.createStatement conn)
+				user-list (resultset-seq (.executeQuery stmt query))
+				dummy 	(.close conn)]
+  			user-list))
+
+  	(defn get-user-column [column]
+  		(str "<td>" column "</td>"))
+  	
+  	(defn get-user-row [user]
+  		(let [full-name (str (user :fname) " " (user :lname))
+  				bokwang-profile (str "<a href='" (user :fb_profile) "'>" full-name "</a>")
+  				fb-link (str "<a href='" (user :fb_profile) "'>facebook</a>")
+  				update-btn (str "<button type='button' onclick=\"alert('Hello world!')\">Update</button>
+")]
+	  		(str "<tr>" (get-user-column bokwang-profile)
+	  			(get-user-column (user :level))
+	  			(get-user-column fb-link)
+	  			(get-user-column (user :role))
+				(get-user-column update-btn)
+	  				"</tr>")))
+	nil
+}
+
+
+<p> List of all users </p>
+<table border="1">
+	<tr>
+		<td>Name</td>
+		<td>Level</td>
+		<td>Facebook Profile</td>
+		<td>Role</td>
+		<td>Action</td>
+	</tr>
+
+	%{ (apply str (map get-user-row users)) }
+</table>
+
+</body>
+</html>
+
+

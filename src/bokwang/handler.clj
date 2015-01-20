@@ -76,8 +76,8 @@
 	(mp/wrap-multipart-params 
     	(POST "/upload" request (doc/store-doc request)))
 
-
-	;(GET "/image/:name" [name] (io/resource (str "image/" name)))
+;	(GET "/doc/:doc_id" [doc_id] (str doc_id))
+(GET "/doc/:doc_id" [doc_id] (r/render "private/view-document.html" {:doc-id doc_id}))
 	(GET "/file/:name" [name] (io/resource name))
 
 

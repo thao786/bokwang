@@ -50,7 +50,7 @@
 			title (params :title)
 			content (params :content)
 			file (-> params :file :tempfile)
-			category (params :category)
+			category (reduce str (params :category))
 			now 	(java.sql.Date. (.getTime (java.util.Date.)))
 			random (SecureRandom.)
 			doc-id (str "doc-" (.toString (BigInteger. 50 random) 32))

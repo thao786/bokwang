@@ -5126,3 +5126,664 @@ java.lang.NullPointerException: null
                        QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
                        QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
                                  Thread.java:745 java.lang.Thread.run
+java.lang.Exception: java.lang.RuntimeException: No such namespace: DriverManager, compiling:(null:36:17) thrown by 
+  (def user (params :user))
+  
+  (def documents
+      (let [query "select * from doc"
+          conn  (DriverManager/getConnection l/bokwang-db-url)
+          stmt (.createStatement conn)
+          documents (resultset-seq (.executeQuery stmt query))
+          dummy (.close conn)]
+      documents))
+
+  (str documents)
+
+                         render.clj:53 sodahead.render/check[fn]
+                         render.clj:47 sodahead.render/check
+                         render.clj:78 sodahead.render/gen-ns-file
+                        render.clj:102 sodahead.render/render-text
+                        render.clj:123 sodahead.render/render-file
+                        private.clj:41 bokwang.private/view-based-on-cookie
+                        private.clj:55 bokwang.private/first-view-get
+                        handler.clj:69 bokwang.handler/fn[fn]
+                           core.clj:99 compojure.core/make-route[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                           core.clj:30 compojure.core/if-method[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:439 clojure.lang.RestFn.invoke
+                        handler.clj:70 bokwang.handler/fn
+                          core.clj:176 compojure.core/wrap-context[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:139 clojure.lang.RestFn.applyTo
+                          core.clj:626 clojure.core/apply
+                          core.clj:117 compojure.core/routes[fn]
+                 keyword_params.clj:32 ring.middleware.keyword-params/wrap-keyword-params[fn]
+                  nested_params.clj:75 ring.middleware.nested-params/wrap-nested-params[fn]
+                         params.clj:58 ring.middleware.params/wrap-params[fn]
+              multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                          flash.clj:31 ring.middleware.flash/wrap-flash[fn]
+                        session.clj:85 ring.middleware.session/wrap-session[fn]
+                          Var.java:379 clojure.lang.Var.invoke
+                         reload.clj:18 ring.middleware.reload/wrap-reload[fn]
+                     stacktrace.clj:17 ring.middleware.stacktrace/wrap-stacktrace-log[fn]
+                     stacktrace.clj:80 ring.middleware.stacktrace/wrap-stacktrace-web[fn]
+                          jetty.clj:18 ring.adapter.jetty/proxy-handler[fn]
+                      (Unknown Source) ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle
+               HandlerWrapper.java:116 org.eclipse.jetty.server.handler.HandlerWrapper.handle
+                       Server.java:363 org.eclipse.jetty.server.Server.handle
+       AbstractHttpConnection.java:483 org.eclipse.jetty.server.AbstractHttpConnection.handleRequest
+       AbstractHttpConnection.java:920 org.eclipse.jetty.server.AbstractHttpConnection.headerComplete
+       AbstractHttpConnection.java:982 org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete
+                   HttpParser.java:635 org.eclipse.jetty.http.HttpParser.parseNext
+                   HttpParser.java:235 org.eclipse.jetty.http.HttpParser.parseAvailable
+           AsyncHttpConnection.java:82 org.eclipse.jetty.server.AsyncHttpConnection.handle
+        SelectChannelEndPoint.java:628 org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle
+         SelectChannelEndPoint.java:52 org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run
+             QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
+             QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
+                       Thread.java:745 java.lang.Thread.run
+java.lang.IllegalArgumentException: No implementation of method: :make-reader of protocol: #'clojure.java.io/IOFactory found for class: nil
+                    core_deftype.clj:544 clojure.core/-cache-protocol-fn
+                               io.clj:69 clojure.java.io/fn[fn]
+                              io.clj:102 clojure.java.io/reader
+                         RestFn.java:410 clojure.lang.RestFn.invoke
+                            AFn.java:154 clojure.lang.AFn.applyToHelper
+                         RestFn.java:132 clojure.lang.RestFn.applyTo
+                            core.clj:626 clojure.core/apply
+                           core.clj:6390 clojure.core/slurp
+                         RestFn.java:410 clojure.lang.RestFn.invoke
+                          render.clj:123 sodahead.render/render-file
+                          handler.clj:79 bokwang.handler/fn
+                             core.clj:99 compojure.core/make-route[fn]
+                             core.clj:45 compojure.core/if-route[fn]
+                             core.clj:30 compojure.core/if-method[fn]
+                            core.clj:112 compojure.core/routing[fn]
+                           core.clj:2515 clojure.core/some
+                            core.clj:112 compojure.core/routing
+                         RestFn.java:139 clojure.lang.RestFn.applyTo
+                            core.clj:626 clojure.core/apply
+                            core.clj:117 compojure.core/routes[fn]
+                   keyword_params.clj:32 ring.middleware.keyword-params/wrap-keyword-params[fn]
+                    nested_params.clj:75 ring.middleware.nested-params/wrap-nested-params[fn]
+                           params.clj:58 ring.middleware.params/wrap-params[fn]
+                multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                            flash.clj:31 ring.middleware.flash/wrap-flash[fn]
+                          session.clj:85 ring.middleware.session/wrap-session[fn]
+                            Var.java:379 clojure.lang.Var.invoke
+                           reload.clj:18 ring.middleware.reload/wrap-reload[fn]
+                       stacktrace.clj:17 ring.middleware.stacktrace/wrap-stacktrace-log[fn]
+                       stacktrace.clj:80 ring.middleware.stacktrace/wrap-stacktrace-web[fn]
+                            jetty.clj:18 ring.adapter.jetty/proxy-handler[fn]
+                        (Unknown Source) ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle
+                 HandlerWrapper.java:116 org.eclipse.jetty.server.handler.HandlerWrapper.handle
+                         Server.java:363 org.eclipse.jetty.server.Server.handle
+         AbstractHttpConnection.java:483 org.eclipse.jetty.server.AbstractHttpConnection.handleRequest
+         AbstractHttpConnection.java:920 org.eclipse.jetty.server.AbstractHttpConnection.headerComplete
+         AbstractHttpConnection.java:982 org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete
+                     HttpParser.java:635 org.eclipse.jetty.http.HttpParser.parseNext
+                     HttpParser.java:235 org.eclipse.jetty.http.HttpParser.parseAvailable
+             AsyncHttpConnection.java:82 org.eclipse.jetty.server.AsyncHttpConnection.handle
+          SelectChannelEndPoint.java:628 org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle
+           SelectChannelEndPoint.java:52 org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run
+               QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
+               QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
+                         Thread.java:745 java.lang.Thread.run
+java.lang.IllegalArgumentException: No implementation of method: :make-reader of protocol: #'clojure.java.io/IOFactory found for class: nil
+                    core_deftype.clj:544 clojure.core/-cache-protocol-fn
+                               io.clj:69 clojure.java.io/fn[fn]
+                              io.clj:102 clojure.java.io/reader
+                         RestFn.java:410 clojure.lang.RestFn.invoke
+                            AFn.java:154 clojure.lang.AFn.applyToHelper
+                         RestFn.java:132 clojure.lang.RestFn.applyTo
+                            core.clj:626 clojure.core/apply
+                           core.clj:6390 clojure.core/slurp
+                         RestFn.java:410 clojure.lang.RestFn.invoke
+                          render.clj:123 sodahead.render/render-file
+                          handler.clj:79 bokwang.handler/fn
+                             core.clj:99 compojure.core/make-route[fn]
+                             core.clj:45 compojure.core/if-route[fn]
+                             core.clj:30 compojure.core/if-method[fn]
+                            core.clj:112 compojure.core/routing[fn]
+                           core.clj:2515 clojure.core/some
+                            core.clj:112 compojure.core/routing
+                         RestFn.java:139 clojure.lang.RestFn.applyTo
+                            core.clj:626 clojure.core/apply
+                            core.clj:117 compojure.core/routes[fn]
+                   keyword_params.clj:32 ring.middleware.keyword-params/wrap-keyword-params[fn]
+                    nested_params.clj:75 ring.middleware.nested-params/wrap-nested-params[fn]
+                           params.clj:58 ring.middleware.params/wrap-params[fn]
+                multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                            flash.clj:31 ring.middleware.flash/wrap-flash[fn]
+                          session.clj:85 ring.middleware.session/wrap-session[fn]
+                            Var.java:379 clojure.lang.Var.invoke
+                           reload.clj:18 ring.middleware.reload/wrap-reload[fn]
+                       stacktrace.clj:17 ring.middleware.stacktrace/wrap-stacktrace-log[fn]
+                       stacktrace.clj:80 ring.middleware.stacktrace/wrap-stacktrace-web[fn]
+                            jetty.clj:18 ring.adapter.jetty/proxy-handler[fn]
+                        (Unknown Source) ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle
+                 HandlerWrapper.java:116 org.eclipse.jetty.server.handler.HandlerWrapper.handle
+                         Server.java:363 org.eclipse.jetty.server.Server.handle
+         AbstractHttpConnection.java:483 org.eclipse.jetty.server.AbstractHttpConnection.handleRequest
+         AbstractHttpConnection.java:920 org.eclipse.jetty.server.AbstractHttpConnection.headerComplete
+         AbstractHttpConnection.java:982 org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete
+                     HttpParser.java:635 org.eclipse.jetty.http.HttpParser.parseNext
+                     HttpParser.java:235 org.eclipse.jetty.http.HttpParser.parseAvailable
+             AsyncHttpConnection.java:82 org.eclipse.jetty.server.AsyncHttpConnection.handle
+          SelectChannelEndPoint.java:628 org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle
+           SelectChannelEndPoint.java:52 org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run
+               QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
+               QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
+                         Thread.java:745 java.lang.Thread.run
+java.lang.IllegalArgumentException: No implementation of method: :make-reader of protocol: #'clojure.java.io/IOFactory found for class: nil
+                    core_deftype.clj:544 clojure.core/-cache-protocol-fn
+                               io.clj:69 clojure.java.io/fn[fn]
+                              io.clj:102 clojure.java.io/reader
+                         RestFn.java:410 clojure.lang.RestFn.invoke
+                            AFn.java:154 clojure.lang.AFn.applyToHelper
+                         RestFn.java:132 clojure.lang.RestFn.applyTo
+                            core.clj:626 clojure.core/apply
+                           core.clj:6390 clojure.core/slurp
+                         RestFn.java:410 clojure.lang.RestFn.invoke
+                          render.clj:123 sodahead.render/render-file
+                          handler.clj:79 bokwang.handler/fn
+                             core.clj:99 compojure.core/make-route[fn]
+                             core.clj:45 compojure.core/if-route[fn]
+                             core.clj:30 compojure.core/if-method[fn]
+                            core.clj:112 compojure.core/routing[fn]
+                           core.clj:2515 clojure.core/some
+                            core.clj:112 compojure.core/routing
+                         RestFn.java:139 clojure.lang.RestFn.applyTo
+                            core.clj:626 clojure.core/apply
+                            core.clj:117 compojure.core/routes[fn]
+                   keyword_params.clj:32 ring.middleware.keyword-params/wrap-keyword-params[fn]
+                    nested_params.clj:75 ring.middleware.nested-params/wrap-nested-params[fn]
+                           params.clj:58 ring.middleware.params/wrap-params[fn]
+                multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                            flash.clj:31 ring.middleware.flash/wrap-flash[fn]
+                          session.clj:85 ring.middleware.session/wrap-session[fn]
+                            Var.java:379 clojure.lang.Var.invoke
+                           reload.clj:18 ring.middleware.reload/wrap-reload[fn]
+                       stacktrace.clj:17 ring.middleware.stacktrace/wrap-stacktrace-log[fn]
+                       stacktrace.clj:80 ring.middleware.stacktrace/wrap-stacktrace-web[fn]
+                            jetty.clj:18 ring.adapter.jetty/proxy-handler[fn]
+                        (Unknown Source) ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle
+                 HandlerWrapper.java:116 org.eclipse.jetty.server.handler.HandlerWrapper.handle
+                         Server.java:363 org.eclipse.jetty.server.Server.handle
+         AbstractHttpConnection.java:483 org.eclipse.jetty.server.AbstractHttpConnection.handleRequest
+         AbstractHttpConnection.java:920 org.eclipse.jetty.server.AbstractHttpConnection.headerComplete
+         AbstractHttpConnection.java:982 org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete
+                     HttpParser.java:635 org.eclipse.jetty.http.HttpParser.parseNext
+                     HttpParser.java:235 org.eclipse.jetty.http.HttpParser.parseAvailable
+             AsyncHttpConnection.java:82 org.eclipse.jetty.server.AsyncHttpConnection.handle
+          SelectChannelEndPoint.java:628 org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle
+           SelectChannelEndPoint.java:52 org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run
+               QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
+               QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
+                         Thread.java:745 java.lang.Thread.run
+java.lang.IllegalArgumentException: No implementation of method: :make-reader of protocol: #'clojure.java.io/IOFactory found for class: nil
+                    core_deftype.clj:544 clojure.core/-cache-protocol-fn
+                               io.clj:69 clojure.java.io/fn[fn]
+                              io.clj:102 clojure.java.io/reader
+                         RestFn.java:410 clojure.lang.RestFn.invoke
+                            AFn.java:154 clojure.lang.AFn.applyToHelper
+                         RestFn.java:132 clojure.lang.RestFn.applyTo
+                            core.clj:626 clojure.core/apply
+                           core.clj:6390 clojure.core/slurp
+                         RestFn.java:410 clojure.lang.RestFn.invoke
+                          render.clj:123 sodahead.render/render-file
+                          handler.clj:79 bokwang.handler/fn
+                             core.clj:99 compojure.core/make-route[fn]
+                             core.clj:45 compojure.core/if-route[fn]
+                             core.clj:30 compojure.core/if-method[fn]
+                            core.clj:112 compojure.core/routing[fn]
+                           core.clj:2515 clojure.core/some
+                            core.clj:112 compojure.core/routing
+                         RestFn.java:139 clojure.lang.RestFn.applyTo
+                            core.clj:626 clojure.core/apply
+                            core.clj:117 compojure.core/routes[fn]
+                   keyword_params.clj:32 ring.middleware.keyword-params/wrap-keyword-params[fn]
+                    nested_params.clj:75 ring.middleware.nested-params/wrap-nested-params[fn]
+                           params.clj:58 ring.middleware.params/wrap-params[fn]
+                multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                            flash.clj:31 ring.middleware.flash/wrap-flash[fn]
+                          session.clj:85 ring.middleware.session/wrap-session[fn]
+                            Var.java:379 clojure.lang.Var.invoke
+                           reload.clj:18 ring.middleware.reload/wrap-reload[fn]
+                       stacktrace.clj:17 ring.middleware.stacktrace/wrap-stacktrace-log[fn]
+                       stacktrace.clj:80 ring.middleware.stacktrace/wrap-stacktrace-web[fn]
+                            jetty.clj:18 ring.adapter.jetty/proxy-handler[fn]
+                        (Unknown Source) ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle
+                 HandlerWrapper.java:116 org.eclipse.jetty.server.handler.HandlerWrapper.handle
+                         Server.java:363 org.eclipse.jetty.server.Server.handle
+         AbstractHttpConnection.java:483 org.eclipse.jetty.server.AbstractHttpConnection.handleRequest
+         AbstractHttpConnection.java:920 org.eclipse.jetty.server.AbstractHttpConnection.headerComplete
+         AbstractHttpConnection.java:982 org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete
+                     HttpParser.java:635 org.eclipse.jetty.http.HttpParser.parseNext
+                     HttpParser.java:235 org.eclipse.jetty.http.HttpParser.parseAvailable
+             AsyncHttpConnection.java:82 org.eclipse.jetty.server.AsyncHttpConnection.handle
+          SelectChannelEndPoint.java:628 org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle
+           SelectChannelEndPoint.java:52 org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run
+               QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
+               QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
+                         Thread.java:745 java.lang.Thread.run
+java.lang.IllegalArgumentException: No implementation of method: :make-reader of protocol: #'clojure.java.io/IOFactory found for class: nil
+                    core_deftype.clj:544 clojure.core/-cache-protocol-fn
+                               io.clj:69 clojure.java.io/fn[fn]
+                              io.clj:102 clojure.java.io/reader
+                         RestFn.java:410 clojure.lang.RestFn.invoke
+                            AFn.java:154 clojure.lang.AFn.applyToHelper
+                         RestFn.java:132 clojure.lang.RestFn.applyTo
+                            core.clj:626 clojure.core/apply
+                           core.clj:6390 clojure.core/slurp
+                         RestFn.java:410 clojure.lang.RestFn.invoke
+                          render.clj:123 sodahead.render/render-file
+                          handler.clj:80 bokwang.handler/fn
+                             core.clj:99 compojure.core/make-route[fn]
+                             core.clj:45 compojure.core/if-route[fn]
+                             core.clj:30 compojure.core/if-method[fn]
+                            core.clj:112 compojure.core/routing[fn]
+                           core.clj:2515 clojure.core/some
+                            core.clj:112 compojure.core/routing
+                         RestFn.java:139 clojure.lang.RestFn.applyTo
+                            core.clj:626 clojure.core/apply
+                            core.clj:117 compojure.core/routes[fn]
+                   keyword_params.clj:32 ring.middleware.keyword-params/wrap-keyword-params[fn]
+                    nested_params.clj:75 ring.middleware.nested-params/wrap-nested-params[fn]
+                           params.clj:58 ring.middleware.params/wrap-params[fn]
+                multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                            flash.clj:31 ring.middleware.flash/wrap-flash[fn]
+                          session.clj:85 ring.middleware.session/wrap-session[fn]
+                            Var.java:379 clojure.lang.Var.invoke
+                           reload.clj:18 ring.middleware.reload/wrap-reload[fn]
+                       stacktrace.clj:17 ring.middleware.stacktrace/wrap-stacktrace-log[fn]
+                       stacktrace.clj:80 ring.middleware.stacktrace/wrap-stacktrace-web[fn]
+                            jetty.clj:18 ring.adapter.jetty/proxy-handler[fn]
+                        (Unknown Source) ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle
+                 HandlerWrapper.java:116 org.eclipse.jetty.server.handler.HandlerWrapper.handle
+                         Server.java:363 org.eclipse.jetty.server.Server.handle
+         AbstractHttpConnection.java:483 org.eclipse.jetty.server.AbstractHttpConnection.handleRequest
+         AbstractHttpConnection.java:920 org.eclipse.jetty.server.AbstractHttpConnection.headerComplete
+         AbstractHttpConnection.java:982 org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete
+                     HttpParser.java:635 org.eclipse.jetty.http.HttpParser.parseNext
+                     HttpParser.java:235 org.eclipse.jetty.http.HttpParser.parseAvailable
+             AsyncHttpConnection.java:82 org.eclipse.jetty.server.AsyncHttpConnection.handle
+          SelectChannelEndPoint.java:628 org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle
+           SelectChannelEndPoint.java:52 org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run
+               QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
+               QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
+                         Thread.java:745 java.lang.Thread.run
+java.lang.Exception: java.lang.RuntimeException: Unable to resolve symbol: get-doc-row in this context, compiling:(null:79:24) thrown by  (apply str (map get-doc-row documents)) 
+                         render.clj:53 sodahead.render/check[fn]
+                         render.clj:47 sodahead.render/check
+                         render.clj:78 sodahead.render/gen-ns-file
+                        render.clj:102 sodahead.render/render-text
+                        render.clj:123 sodahead.render/render-file
+                        private.clj:41 bokwang.private/view-based-on-cookie
+                        private.clj:55 bokwang.private/first-view-get
+                        handler.clj:69 bokwang.handler/fn[fn]
+                           core.clj:99 compojure.core/make-route[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                           core.clj:30 compojure.core/if-method[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:439 clojure.lang.RestFn.invoke
+                        handler.clj:70 bokwang.handler/fn
+                          core.clj:176 compojure.core/wrap-context[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:139 clojure.lang.RestFn.applyTo
+                          core.clj:626 clojure.core/apply
+                          core.clj:117 compojure.core/routes[fn]
+                 keyword_params.clj:32 ring.middleware.keyword-params/wrap-keyword-params[fn]
+                  nested_params.clj:75 ring.middleware.nested-params/wrap-nested-params[fn]
+                         params.clj:58 ring.middleware.params/wrap-params[fn]
+              multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                          flash.clj:31 ring.middleware.flash/wrap-flash[fn]
+                        session.clj:85 ring.middleware.session/wrap-session[fn]
+                          Var.java:379 clojure.lang.Var.invoke
+                         reload.clj:18 ring.middleware.reload/wrap-reload[fn]
+                     stacktrace.clj:17 ring.middleware.stacktrace/wrap-stacktrace-log[fn]
+                     stacktrace.clj:80 ring.middleware.stacktrace/wrap-stacktrace-web[fn]
+                          jetty.clj:18 ring.adapter.jetty/proxy-handler[fn]
+                      (Unknown Source) ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle
+               HandlerWrapper.java:116 org.eclipse.jetty.server.handler.HandlerWrapper.handle
+                       Server.java:363 org.eclipse.jetty.server.Server.handle
+       AbstractHttpConnection.java:483 org.eclipse.jetty.server.AbstractHttpConnection.handleRequest
+       AbstractHttpConnection.java:920 org.eclipse.jetty.server.AbstractHttpConnection.headerComplete
+       AbstractHttpConnection.java:982 org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete
+                   HttpParser.java:635 org.eclipse.jetty.http.HttpParser.parseNext
+                   HttpParser.java:235 org.eclipse.jetty.http.HttpParser.parseAvailable
+           AsyncHttpConnection.java:82 org.eclipse.jetty.server.AsyncHttpConnection.handle
+        SelectChannelEndPoint.java:628 org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle
+         SelectChannelEndPoint.java:52 org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run
+             QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
+             QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
+                       Thread.java:745 java.lang.Thread.run
+java.lang.Exception: java.lang.RuntimeException: Unmatched delimiter: ], compiling:(null:80:2) thrown by  ;(apply str (map get-doc-row documents)) 
+                         render.clj:53 sodahead.render/check[fn]
+                         render.clj:47 sodahead.render/check
+                         render.clj:78 sodahead.render/gen-ns-file
+                        render.clj:102 sodahead.render/render-text
+                        render.clj:123 sodahead.render/render-file
+                        private.clj:41 bokwang.private/view-based-on-cookie
+                        private.clj:55 bokwang.private/first-view-get
+                        handler.clj:69 bokwang.handler/fn[fn]
+                           core.clj:99 compojure.core/make-route[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                           core.clj:30 compojure.core/if-method[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:439 clojure.lang.RestFn.invoke
+                        handler.clj:70 bokwang.handler/fn
+                          core.clj:176 compojure.core/wrap-context[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:139 clojure.lang.RestFn.applyTo
+                          core.clj:626 clojure.core/apply
+                          core.clj:117 compojure.core/routes[fn]
+                 keyword_params.clj:32 ring.middleware.keyword-params/wrap-keyword-params[fn]
+                  nested_params.clj:75 ring.middleware.nested-params/wrap-nested-params[fn]
+                         params.clj:58 ring.middleware.params/wrap-params[fn]
+              multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                          flash.clj:31 ring.middleware.flash/wrap-flash[fn]
+                        session.clj:85 ring.middleware.session/wrap-session[fn]
+                          Var.java:379 clojure.lang.Var.invoke
+                         reload.clj:18 ring.middleware.reload/wrap-reload[fn]
+                     stacktrace.clj:17 ring.middleware.stacktrace/wrap-stacktrace-log[fn]
+                     stacktrace.clj:80 ring.middleware.stacktrace/wrap-stacktrace-web[fn]
+                          jetty.clj:18 ring.adapter.jetty/proxy-handler[fn]
+                      (Unknown Source) ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle
+               HandlerWrapper.java:116 org.eclipse.jetty.server.handler.HandlerWrapper.handle
+                       Server.java:363 org.eclipse.jetty.server.Server.handle
+       AbstractHttpConnection.java:483 org.eclipse.jetty.server.AbstractHttpConnection.handleRequest
+       AbstractHttpConnection.java:920 org.eclipse.jetty.server.AbstractHttpConnection.headerComplete
+       AbstractHttpConnection.java:982 org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete
+                   HttpParser.java:635 org.eclipse.jetty.http.HttpParser.parseNext
+                   HttpParser.java:235 org.eclipse.jetty.http.HttpParser.parseAvailable
+           AsyncHttpConnection.java:82 org.eclipse.jetty.server.AsyncHttpConnection.handle
+        SelectChannelEndPoint.java:628 org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle
+         SelectChannelEndPoint.java:52 org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run
+             QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
+             QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
+                       Thread.java:745 java.lang.Thread.run
+java.lang.Exception: java.lang.RuntimeException: Unmatched delimiter: ], compiling:(null:80:2) thrown by  ;(apply str (map get-doc-row documents)) 
+                         render.clj:53 sodahead.render/check[fn]
+                         render.clj:47 sodahead.render/check
+                         render.clj:78 sodahead.render/gen-ns-file
+                        render.clj:102 sodahead.render/render-text
+                        render.clj:123 sodahead.render/render-file
+                        private.clj:41 bokwang.private/view-based-on-cookie
+                        private.clj:55 bokwang.private/first-view-get
+                        handler.clj:69 bokwang.handler/fn[fn]
+                           core.clj:99 compojure.core/make-route[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                           core.clj:30 compojure.core/if-method[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:439 clojure.lang.RestFn.invoke
+                        handler.clj:70 bokwang.handler/fn
+                          core.clj:176 compojure.core/wrap-context[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:139 clojure.lang.RestFn.applyTo
+                          core.clj:626 clojure.core/apply
+                          core.clj:117 compojure.core/routes[fn]
+                 keyword_params.clj:32 ring.middleware.keyword-params/wrap-keyword-params[fn]
+                  nested_params.clj:75 ring.middleware.nested-params/wrap-nested-params[fn]
+                         params.clj:58 ring.middleware.params/wrap-params[fn]
+              multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                          flash.clj:31 ring.middleware.flash/wrap-flash[fn]
+                        session.clj:85 ring.middleware.session/wrap-session[fn]
+                          Var.java:379 clojure.lang.Var.invoke
+                         reload.clj:18 ring.middleware.reload/wrap-reload[fn]
+                     stacktrace.clj:17 ring.middleware.stacktrace/wrap-stacktrace-log[fn]
+                     stacktrace.clj:80 ring.middleware.stacktrace/wrap-stacktrace-web[fn]
+                          jetty.clj:18 ring.adapter.jetty/proxy-handler[fn]
+                      (Unknown Source) ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle
+               HandlerWrapper.java:116 org.eclipse.jetty.server.handler.HandlerWrapper.handle
+                       Server.java:363 org.eclipse.jetty.server.Server.handle
+       AbstractHttpConnection.java:483 org.eclipse.jetty.server.AbstractHttpConnection.handleRequest
+       AbstractHttpConnection.java:920 org.eclipse.jetty.server.AbstractHttpConnection.headerComplete
+       AbstractHttpConnection.java:982 org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete
+                   HttpParser.java:635 org.eclipse.jetty.http.HttpParser.parseNext
+                   HttpParser.java:235 org.eclipse.jetty.http.HttpParser.parseAvailable
+           AsyncHttpConnection.java:82 org.eclipse.jetty.server.AsyncHttpConnection.handle
+        SelectChannelEndPoint.java:628 org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle
+         SelectChannelEndPoint.java:52 org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run
+             QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
+             QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
+                       Thread.java:745 java.lang.Thread.run
+java.lang.Exception: java.lang.RuntimeException: Unmatched delimiter: ), compiling:(null:58:23) thrown by 	
+	(def users 
+  		(let [query (str "select * from users")
+  				conn 	(DriverManager/getConnection l/bokwang-db-url)
+  				stmt 	(.createStatement conn)
+				user-list (resultset-seq (.executeQuery stmt query))
+				dummy 	(.close conn)]
+  			user-list))
+
+  	(defn get-user-column [column]
+  		(str "<td>" column "</td>"))
+  	
+  	(defn get-user-row [user]
+  		(let [full-name (str (user :fname) " " (user :lname))] 
+	  		(str "<tr>" (get-user-column full-name))
+	  			(get-user-column (user :level))
+	  			(get-user-column (user :fb_profile))
+	  			(get-user-column (user :role))
+	  				"</tr>")))
+
+                         render.clj:53 sodahead.render/check[fn]
+                         render.clj:47 sodahead.render/check
+                         render.clj:78 sodahead.render/gen-ns-file
+                        render.clj:102 sodahead.render/render-text
+                        render.clj:123 sodahead.render/render-file
+                        private.clj:41 bokwang.private/view-based-on-cookie
+                        private.clj:55 bokwang.private/first-view-get
+                        handler.clj:69 bokwang.handler/fn[fn]
+                           core.clj:99 compojure.core/make-route[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                           core.clj:30 compojure.core/if-method[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:439 clojure.lang.RestFn.invoke
+                        handler.clj:70 bokwang.handler/fn
+                          core.clj:176 compojure.core/wrap-context[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:139 clojure.lang.RestFn.applyTo
+                          core.clj:626 clojure.core/apply
+                          core.clj:117 compojure.core/routes[fn]
+                 keyword_params.clj:32 ring.middleware.keyword-params/wrap-keyword-params[fn]
+                  nested_params.clj:75 ring.middleware.nested-params/wrap-nested-params[fn]
+                         params.clj:58 ring.middleware.params/wrap-params[fn]
+              multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                          flash.clj:31 ring.middleware.flash/wrap-flash[fn]
+                        session.clj:85 ring.middleware.session/wrap-session[fn]
+                          Var.java:379 clojure.lang.Var.invoke
+                         reload.clj:18 ring.middleware.reload/wrap-reload[fn]
+                     stacktrace.clj:17 ring.middleware.stacktrace/wrap-stacktrace-log[fn]
+                     stacktrace.clj:80 ring.middleware.stacktrace/wrap-stacktrace-web[fn]
+                          jetty.clj:18 ring.adapter.jetty/proxy-handler[fn]
+                      (Unknown Source) ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle
+               HandlerWrapper.java:116 org.eclipse.jetty.server.handler.HandlerWrapper.handle
+                       Server.java:363 org.eclipse.jetty.server.Server.handle
+       AbstractHttpConnection.java:483 org.eclipse.jetty.server.AbstractHttpConnection.handleRequest
+       AbstractHttpConnection.java:920 org.eclipse.jetty.server.AbstractHttpConnection.headerComplete
+       AbstractHttpConnection.java:982 org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete
+                   HttpParser.java:635 org.eclipse.jetty.http.HttpParser.parseNext
+                   HttpParser.java:235 org.eclipse.jetty.http.HttpParser.parseAvailable
+           AsyncHttpConnection.java:82 org.eclipse.jetty.server.AsyncHttpConnection.handle
+        SelectChannelEndPoint.java:628 org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle
+         SelectChannelEndPoint.java:52 org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run
+             QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
+             QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
+                       Thread.java:745 java.lang.Thread.run
+java.lang.Exception: java.lang.RuntimeException: Unable to resolve symbol: button in this context, compiling:(null:65:18) thrown by 
+	(def users 
+  		(let [query (str "select * from users")
+  				conn 	(DriverManager/getConnection l/bokwang-db-url)
+  				stmt 	(.createStatement conn)
+				user-list (resultset-seq (.executeQuery stmt query))
+				dummy 	(.close conn)]
+  			user-list))
+
+  	(defn get-user-column [column]
+  		(str "<td>" column "</td>"))
+  	
+  	(defn get-user-row [user]
+  		(let [full-name (str (user :fname) " " (user :lname))
+  				bokwang-profile (str "<a href='" (user :fb_profile) "'>" full-name "</a>")
+  				fb-link (str "<a href='" (user :fb_profile) "'>facebook</a>")
+  				update-btn (str "<button type="button" onclick="alert('Hello world!')">Update</button>
+")]
+	  		(str "<tr>" (get-user-column bokwang-profile)
+	  			(get-user-column (user :level))
+	  			(get-user-column fb-link)
+	  			(get-user-column (user :role))
+				update-btn
+	  				"</tr>")))
+	nil
+
+                         render.clj:53 sodahead.render/check[fn]
+                         render.clj:47 sodahead.render/check
+                         render.clj:78 sodahead.render/gen-ns-file
+                        render.clj:102 sodahead.render/render-text
+                        render.clj:123 sodahead.render/render-file
+                        private.clj:41 bokwang.private/view-based-on-cookie
+                        private.clj:55 bokwang.private/first-view-get
+                        handler.clj:69 bokwang.handler/fn[fn]
+                           core.clj:99 compojure.core/make-route[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                           core.clj:30 compojure.core/if-method[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:439 clojure.lang.RestFn.invoke
+                        handler.clj:70 bokwang.handler/fn
+                          core.clj:176 compojure.core/wrap-context[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:139 clojure.lang.RestFn.applyTo
+                          core.clj:626 clojure.core/apply
+                          core.clj:117 compojure.core/routes[fn]
+                 keyword_params.clj:32 ring.middleware.keyword-params/wrap-keyword-params[fn]
+                  nested_params.clj:75 ring.middleware.nested-params/wrap-nested-params[fn]
+                         params.clj:58 ring.middleware.params/wrap-params[fn]
+              multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                          flash.clj:31 ring.middleware.flash/wrap-flash[fn]
+                        session.clj:85 ring.middleware.session/wrap-session[fn]
+                          Var.java:379 clojure.lang.Var.invoke
+                         reload.clj:18 ring.middleware.reload/wrap-reload[fn]
+                     stacktrace.clj:17 ring.middleware.stacktrace/wrap-stacktrace-log[fn]
+                     stacktrace.clj:80 ring.middleware.stacktrace/wrap-stacktrace-web[fn]
+                          jetty.clj:18 ring.adapter.jetty/proxy-handler[fn]
+                      (Unknown Source) ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle
+               HandlerWrapper.java:116 org.eclipse.jetty.server.handler.HandlerWrapper.handle
+                       Server.java:363 org.eclipse.jetty.server.Server.handle
+       AbstractHttpConnection.java:483 org.eclipse.jetty.server.AbstractHttpConnection.handleRequest
+       AbstractHttpConnection.java:920 org.eclipse.jetty.server.AbstractHttpConnection.headerComplete
+       AbstractHttpConnection.java:982 org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete
+                   HttpParser.java:635 org.eclipse.jetty.http.HttpParser.parseNext
+                   HttpParser.java:235 org.eclipse.jetty.http.HttpParser.parseAvailable
+           AsyncHttpConnection.java:82 org.eclipse.jetty.server.AsyncHttpConnection.handle
+        SelectChannelEndPoint.java:628 org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle
+         SelectChannelEndPoint.java:52 org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run
+             QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
+             QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
+                       Thread.java:745 java.lang.Thread.run
+java.lang.Exception: java.lang.RuntimeException: Unable to resolve symbol: alert in this context, compiling:(null:65:18) thrown by 
+	(def users 
+  		(let [query (str "select * from users")
+  				conn 	(DriverManager/getConnection l/bokwang-db-url)
+  				stmt 	(.createStatement conn)
+				user-list (resultset-seq (.executeQuery stmt query))
+				dummy 	(.close conn)]
+  			user-list))
+
+  	(defn get-user-column [column]
+  		(str "<td>" column "</td>"))
+  	
+  	(defn get-user-row [user]
+  		(let [full-name (str (user :fname) " " (user :lname))
+  				bokwang-profile (str "<a href='" (user :fb_profile) "'>" full-name "</a>")
+  				fb-link (str "<a href='" (user :fb_profile) "'>facebook</a>")
+  				update-btn (str "<button type='button' onclick="alert('Hello world!')">Update</button>
+")]
+	  		(str "<tr>" (get-user-column bokwang-profile)
+	  			(get-user-column (user :level))
+	  			(get-user-column fb-link)
+	  			(get-user-column (user :role))
+				update-btn
+	  				"</tr>")))
+	nil
+
+                         render.clj:53 sodahead.render/check[fn]
+                         render.clj:47 sodahead.render/check
+                         render.clj:78 sodahead.render/gen-ns-file
+                        render.clj:102 sodahead.render/render-text
+                        render.clj:123 sodahead.render/render-file
+                        private.clj:41 bokwang.private/view-based-on-cookie
+                        private.clj:55 bokwang.private/first-view-get
+                        handler.clj:69 bokwang.handler/fn[fn]
+                           core.clj:99 compojure.core/make-route[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                           core.clj:30 compojure.core/if-method[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:439 clojure.lang.RestFn.invoke
+                        handler.clj:70 bokwang.handler/fn
+                          core.clj:176 compojure.core/wrap-context[fn]
+                           core.clj:45 compojure.core/if-route[fn]
+                          core.clj:112 compojure.core/routing[fn]
+                         core.clj:2515 clojure.core/some
+                          core.clj:112 compojure.core/routing
+                       RestFn.java:139 clojure.lang.RestFn.applyTo
+                          core.clj:626 clojure.core/apply
+                          core.clj:117 compojure.core/routes[fn]
+                 keyword_params.clj:32 ring.middleware.keyword-params/wrap-keyword-params[fn]
+                  nested_params.clj:75 ring.middleware.nested-params/wrap-nested-params[fn]
+                         params.clj:58 ring.middleware.params/wrap-params[fn]
+              multipart_params.clj:107 ring.middleware.multipart-params/wrap-multipart-params[fn]
+                          flash.clj:31 ring.middleware.flash/wrap-flash[fn]
+                        session.clj:85 ring.middleware.session/wrap-session[fn]
+                          Var.java:379 clojure.lang.Var.invoke
+                         reload.clj:18 ring.middleware.reload/wrap-reload[fn]
+                     stacktrace.clj:17 ring.middleware.stacktrace/wrap-stacktrace-log[fn]
+                     stacktrace.clj:80 ring.middleware.stacktrace/wrap-stacktrace-web[fn]
+                          jetty.clj:18 ring.adapter.jetty/proxy-handler[fn]
+                      (Unknown Source) ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle
+               HandlerWrapper.java:116 org.eclipse.jetty.server.handler.HandlerWrapper.handle
+                       Server.java:363 org.eclipse.jetty.server.Server.handle
+       AbstractHttpConnection.java:483 org.eclipse.jetty.server.AbstractHttpConnection.handleRequest
+       AbstractHttpConnection.java:920 org.eclipse.jetty.server.AbstractHttpConnection.headerComplete
+       AbstractHttpConnection.java:982 org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete
+                   HttpParser.java:635 org.eclipse.jetty.http.HttpParser.parseNext
+                   HttpParser.java:235 org.eclipse.jetty.http.HttpParser.parseAvailable
+           AsyncHttpConnection.java:82 org.eclipse.jetty.server.AsyncHttpConnection.handle
+        SelectChannelEndPoint.java:628 org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle
+         SelectChannelEndPoint.java:52 org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run
+             QueuedThreadPool.java:608 org.eclipse.jetty.util.thread.QueuedThreadPool.runJob
+             QueuedThreadPool.java:543 org.eclipse.jetty.util.thread.QueuedThreadPool$3.run
+                       Thread.java:745 java.lang.Thread.run
