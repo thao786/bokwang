@@ -9,6 +9,9 @@
             [taoensso.carmine :as car :refer (wcar)]
             [bokwang.session :as ses]))
 
+(def server1-conn {:pool {} :spec {:host l/db-server :port 6379}})
+(defmacro wcar* [& body] `(car/wcar server1-conn ~@body))
+
 (def cookie-valid-period 30)
 
 (defn get-userid
