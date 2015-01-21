@@ -1,0 +1,55 @@
+%{(require 
+           '[sodahead.render :as r]
+           '[bokwang.lib :as l])
+
+	(import '(java.sql DriverManager))
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bokwang Centre - edit user</title>  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+
+%{
+	(def user-id (params :user-id))
+	(def user 
+  		(let [query (str "select * from users where userid = '" user-id "'")
+  				conn 	(DriverManager/getConnection l/bokwang-db-url)
+  				stmt 	(.createStatement conn)
+				documents (resultset-seq (.executeQuery stmt query))
+				dummy 	(.close conn)]
+  			(first documents)))
+
+  	nil
+}
+
+
+<p> </p>
+<p>Full Name: %(user :fname) %(user :lname)</p>
+
+
+
+%include {"private/user-info-form.html"}
+
+
+<script>
+$("#user_alias").val("%(user :alias)");
+$("#user_level").val("%(user :level)");
+$("#user_lname").val("%(user :lname)");
+$("#user_fname").val("%(user :fname)");
+$("#user_email").val("%(user :email)");
+$("#user_phone").val("%(user :phone)");
+$("#user_comment").val("%(user :comment)");
+
+
+var hidden_id_input = '<input id="%(user :userid)" type="text" name="user_id" style="display:none" value="%(user :userid)"/>';
+$("#edit_user").append(hidden_id_input);
+
+
+</script>
+
+</body>
+</html>

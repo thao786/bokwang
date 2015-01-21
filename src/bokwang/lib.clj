@@ -16,7 +16,8 @@
 (def article-upload-img "/home/thao/bokwang/resources/image/articles/")
 
 (def view-doc-path (str host "/doc/"))
-(def edit-doc-path (str host "/edit/"))
+(def edit-doc-path (str host "/edit-doc/"))
+(def edit-user-path (str host "/edit-user/"))
 
 
 

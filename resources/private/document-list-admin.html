@@ -2,7 +2,7 @@
 
 %{  
   (def documents
-      (let [query "select * from doc"
+      (let [query "select * from doc ORDER BY update_date"
           conn  (DriverManager/getConnection l/bokwang-db-url)
           stmt (.createStatement conn)
           documents (resultset-seq (.executeQuery stmt query))
@@ -20,7 +20,7 @@
                     (get-td (doc :category))
                     (get-td (doc :uploader))
                     (get-td (doc :level))
-                    (get-td (doc :upload_date))
+                    (get-td (doc :update_date))
                     (get-td edit-link)
                     "</tr>")))
 
@@ -36,7 +36,7 @@
     <td>Category</td>
     <td>Uploader</td>
     <td>Level</td>	
-    <td>Upload Date</td>
+    <td>Update Date</td>
     <td>Edit</td>
   </tr>
 

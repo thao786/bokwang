@@ -23,106 +23,34 @@
 				documents (resultset-seq (.executeQuery stmt query))
 				dummy 	(.close conn)]
   			(first documents)))
+
+  	(def content (clojure.string/replace (doc :content) #"\r\n" ""))
+
   	nil
 }
 
-<p> %(doc :title) </p>
 <p> </p>
-<p>category: %(doc :category) </p>
-<p>level: %(doc :level) </p>
+
 <p>upload date: %(doc :upload_date) </p> </br>
 
-<p>%(doc :content) </p>
+
+%include {"private/doc-upload.html"}
 
 
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
-<h1>edit a document</h1>
-<p>you can upload a file and/or paste the content here</p>
-
-<div id="error"> </div>
-
-<!-- Place inside the <head> of your HTML -->
-<script src="http://cdn.ckeditor.com/4.4.6/standard/ckeditor.js"></script>
-
-
-<img id="upload-pic-link" onclick="upload_pic();" src="http://lotus-zen.com/btn/upload-pic-btn.png"/>
-<input id="insertImgInput" onchange="insertAjax()" name="insertImgInput" type="file" style="display:none"/><br>
-
-
-
-<form action="/upload" method="post" enctype="multipart/form-data">
-    Category:
-    <input type="checkbox" name="category" value="zen">zen
-    <input type="checkbox" name="category" value="qigong">qigong
-    <input type="text" name="category-other"/> Other<br>
-
-  	document title <input type="text" name="title" placeholder="document title"/><br>
-
-  	<textarea name="content" id="editor1" rows="10" cols="80"></textarea>
-
-    <input name="file" type="file"/><br>
-    <input type="submit" name="submit" value="submit" />
-</form>
 
 
 <script>
-CKEDITOR.replace( 'editor1', {
-    height: '500', 
-    width: '1000',
-    on: {
-    	instanceReady: function() {
-           // this is current editor instance
-           //this.insertHtml('<h1>someText</h1>');
-       	}
-    }
-});
+$("#doc_title").val("%(doc :title)");
+$("#doc_level").val("%(doc :level)");
 
-function upload_pic (){
-    $("#insertImgInput").click();
-}
+var hidden_id_input = '<input id="%(doc :doc_id)" type="text" name="doc_id" style="display:none" value="%(doc :doc_id)"/>';
+$("#upload_form").append(hidden_id_input);
 
-function insertAjax (){
-    var file = document.getElementById("insertImgInput");
-    var fd = new FormData();    
-    fd.append( 'file', file.files[0] );
-
-    $.ajax({
-        url: 'http://lotus-zen.com/file',
-        data: fd,
-        processData: false,
-        contentType: false,
-        type: 'POST',
-        success: function(data){
-            $("#error").html("");
-
-            if (data.charAt(0) == '<'){
-               CKEDITOR.instances.editor1.insertHtml(data);
-            }
-            else{
-                $("#error").html(data);
-            }
-        }
-    });
-}
-
-
-
-
+CKEDITOR.on('instanceReady', 
+	function(){ 
+		CKEDITOR.instances.editor1.insertHtml('%content');
+	}); 
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </body>

@@ -1,5 +1,5 @@
 <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
-<h1>upload a new document</h1>
+<h1>upload or edit a document</h1>
 <p>you can upload a file and/or paste the content here</p>
 
 <div id="error"> </div>
@@ -13,18 +13,18 @@
 
 
 
-<form action="/upload" method="post" enctype="multipart/form-data">
+<form id="upload_form" action="/upload" method="post" enctype="multipart/form-data">
     Category:
-    <input type="checkbox" name="category" value="zen">zen
-    <input type="checkbox" name="category" value="qigong">qigong
-    <input type="text" name="category-other"/> Other<br>
-
-  	document title <input type="text" name="title"/><br>
+    <input id="checkbox_zen" type="checkbox" name="category" value="zen">zen
+    <input id="checkbox_qigong" type="checkbox" name="category" value="qigong">qigong
+    <input id="checkbox_other" type="text" name="category-other"/> Other<br>
+    level <input id="doc_level" type="text" name="level"/><br>
+  	document title <input id="doc_title" type="text" name="title"/><br>
 
   	<textarea name="content" id="editor1" rows="10" cols="80"></textarea>
 
-    <input name="file" type="file"/><br>
-    <input type="submit" name="submit" value="submit" />
+    <input id="input_upload_file" name="file" type="file"/><br>
+    <input id="upload_f" type="submit" name="submit" value="submit" />
 </form>
 
 

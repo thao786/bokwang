@@ -30,18 +30,22 @@
 
   	(defn get-user-column [column]
   		(str "<td>" column "</td>"))
+
+
   	
   	(defn get-user-row [user]
   		(let [full-name (str (user :fname) " " (user :lname))
-  				bokwang-profile (str "<a href='" (user :fb_profile) "'>" full-name "</a>")
+  				edit-url (str l/edit-user-path (user :userid))
+  				bokwang-profile (str "<a href='" edit-url "'>" full-name "</a>")
   				fb-link (str "<a href='" (user :fb_profile) "'>facebook</a>")
-  				update-btn (str "<button type='button' onclick=\"alert('Hello world!')\">Update</button>
-")]
-	  		(str "<tr>" (get-user-column bokwang-profile)
+  				fb-icon-tag (str "<a href='" (user :fb_profile) "'><img src='http://lotus-zen.com/btn/fb-icon.png'></a>")
+  				
+  				update-btn (str "<a href='" edit-url "'>edit</a>")]
+	  		(str "<tr>" (get-user-column (str bokwang-profile " " fb-icon-tag))
 	  			(get-user-column (user :level))
-	  			(get-user-column fb-link)
-	  			(get-user-column (user :role))
-				(get-user-column update-btn)
+	  			(get-user-column (user :email))
+	  			(get-user-column (user :phone))
+				(get-user-column (user :comment))
 	  				"</tr>")))
 	nil
 }
@@ -52,9 +56,9 @@
 	<tr>
 		<td>Name</td>
 		<td>Level</td>
-		<td>Facebook Profile</td>
-		<td>Role</td>
-		<td>Action</td>
+		<td>Email</td>
+		<td>Phone</td>
+		<td>Comment</td>
 	</tr>
 
 	%{ (apply str (map get-user-row users)) }

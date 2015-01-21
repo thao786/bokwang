@@ -14,6 +14,7 @@
             [util.newsletter :as newsltr]
             [bokwang.donate :as donate]
             [bokwang.private :as private]
+            [bokwang.user :as user]
             [bokwang.doc :as doc]))
 
 
@@ -74,10 +75,14 @@
 
 	(GET  "/upload" [] (r/render "file.html"))
 	(mp/wrap-multipart-params 
-    	(POST "/upload" request (doc/store-doc request)))
+    	(POST "/upload" request (doc/handle-doc request)))
 
 	(GET "/doc/:doc_id" [doc_id] (r/render "private/view-document.html" {:doc-id doc_id}))
-	(GET "/edit/:doc_id" [doc_id] (r/render "private/edit-document.html" {:doc-id doc_id}))
+	(GET "/edit-doc/:doc_id" [doc_id] (r/render "private/edit-document.html" {:doc-id doc_id}))
+
+	(GET "/edit-user/:user_id" [user_id] (r/render "private/edit-user.html" {:user-id user_id}))
+	(mp/wrap-multipart-params 
+	    	(POST "/edit-user" request (user/store-user request)))
 
 	(GET "/file/:name" [name] (io/resource name))
 
