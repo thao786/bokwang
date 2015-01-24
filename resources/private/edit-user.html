@@ -43,7 +43,15 @@ $("#user_fname").val("%(user :fname)");
 $("#user_email").val("%(user :email)");
 $("#user_phone").val("%(user :phone)");
 $("#user_comment").val("%(user :comment)");
+$("#user_fb").val("%(user :fb_profile)");
 
+var role = '%(user :role)';
+if (role == 'admin'){
+	document.getElementById("role_admin").checked = true;
+}
+else{
+	document.getElementById("role_member").checked = true;
+}
 
 var hidden_id_input = '<input id="%(user :userid)" type="text" name="user_id" style="display:none" value="%(user :userid)"/>';
 $("#edit_user").append(hidden_id_input);

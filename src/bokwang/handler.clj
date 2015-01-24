@@ -82,7 +82,7 @@
 
 	(GET "/edit-user/:user_id" [user_id] (r/render "private/edit-user.html" {:user-id user_id}))
 	(mp/wrap-multipart-params 
-	    	(POST "/edit-user" request (user/store-user request)))
+	    	(POST "/edit-user" request (user/handle-user request)))
 
 	(GET "/file/:name" [name] (io/resource name))
 

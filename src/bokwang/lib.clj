@@ -14,6 +14,7 @@
 (def bokwang-db-url "jdbc:postgresql://50.116.53.36:5432/bokwang?user=thao&password=fall2010")
 
 (def article-upload-img "/home/thao/bokwang/resources/image/articles/")
+(def article-upload-files "/home/thao/bokwang/article-upload/")
 
 (def view-doc-path (str host "/doc/"))
 (def edit-doc-path (str host "/edit-doc/"))

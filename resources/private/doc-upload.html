@@ -9,7 +9,7 @@
 
 
 <img id="upload-pic-link" onclick="upload_pic();" src="http://lotus-zen.com/btn/upload-pic-btn.png"/>
-<input id="insertImgInput" onchange="insertAjax()" name="insertImgInput" type="file" style="display:none"/><br>
+<input id="insertImgInput" onchange="insertAjax()" name="insertImgInput" type="file" style="display:none" multiple/><br>
 
 
 
@@ -17,18 +17,50 @@
     Category:
     <input id="checkbox_zen" type="checkbox" name="category" value="zen">zen
     <input id="checkbox_qigong" type="checkbox" name="category" value="qigong">qigong
-    <input id="checkbox_other" type="text" name="category-other"/> Other<br>
+    <input id="checkbox_other" type="text" name="category"/> Other<br>
     level <input id="doc_level" type="text" name="level"/><br>
   	document title <input id="doc_title" type="text" name="title"/><br>
 
   	<textarea name="content" id="editor1" rows="10" cols="80"></textarea>
 
-    <input id="input_upload_file" name="file" type="file"/><br>
-    <input id="upload_f" type="submit" name="submit" value="submit" />
+    <input id="upload_f" type="submit" name="submit" value="submit" /><br><br>
+
+    <button type="button" onclick="more_upload_tag ()" >Add Files</button>
+
 </form>
 
 
+
+
+
+
 <script>
+var div_count = 2;
+$("#upload_form").append(upload_div(0));
+$("#upload_form").append(upload_div(1));
+
+function upload_div(number){
+    var id = "div_upload_" + number;
+    var tag = '<div id="' + id + '">' +
+        '<input name="files" type="file" multiple/>' +
+        '<img onclick="delete_div(\'' + id + '\');" src="http://lotus-zen.com/btn/del-btn.png"/>' +
+        '<br>' +
+        '</div>';
+    return tag;
+}
+
+function delete_div (id){
+    $("#" + id).html('');
+}
+
+function more_upload_tag (){
+    $("#upload_form").append(upload_div(div_count));
+    div_count ++;
+
+    $("#upload_form").append(upload_div(div_count));
+    div_count ++;
+}
+
 CKEDITOR.replace( 'editor1', {
     height: '500', 
     width: '1000',
@@ -47,7 +79,7 @@ function upload_pic (){
 function insertAjax (){
     var file = document.getElementById("insertImgInput");
     var fd = new FormData();    
-    fd.append( 'file', file.files[0] );
+    fd.append('file', file.files[0]);
 
     $.ajax({
         url: 'http://lotus-zen.com/file',

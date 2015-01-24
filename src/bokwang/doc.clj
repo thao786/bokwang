@@ -10,25 +10,25 @@
 	(:require [sodahead.render :as r]
             [clojure.java.io :as io]
             [bokwang.session :as ses]
+            [bokwang.user :as u]
             [bokwang.lib :as l]))
 
-(defn insert-article-img
+(defn store-file
 	"return the file name of uploaded file.
-	if same name existed, add -2"
-	[file filename]
-	(let [upload-file (File. (str l/article-upload-img filename))
-			upload-folder (File. l/article-upload-img)
-			existed-file (File. (str l/article-upload-img filename))]
-		(if (FileUtils/directoryContains upload-folder existed-file)
+	if same name existed, add _2"
+	[file filename upload-folder-path]
+	(let [upload-file (File. (str upload-folder-path filename))
+			upload-folder (File. upload-folder-path)]
+		(if (FileUtils/directoryContains upload-folder upload-file)
 			;there's already a file wt the same name
-			(if (FileUtils/contentEquals file existed-file)
+			(if (FileUtils/contentEquals file upload-file)
 				filename
 				(let [file-name-only (FilenameUtils/getBaseName filename)
 						file-extention (FilenameUtils/getExtension filename)
 						new-file-name-only (str file-name-only "_2")
 						new-file-name (str new-file-name-only "." file-extention)
 						dummy (FileUtils/copyFile file 
-									(File. (str l/article-upload-img new-file-name)))]
+									(File. (str upload-folder-path new-file-name)))]
 					new-file-name))
 
 			(do (FileUtils/copyFile file upload-file)
@@ -39,21 +39,14 @@
 	[request]
 	(if-let [file (-> request :params :file :tempfile)]
 		(let [filename (-> request :params :file :filename)
-				src (str l/image-host "/articles/" (insert-article-img file filename))]
+				src (str l/image-host "/articles/" (store-file file filename l/article-upload-img))]
 			(str "<img src=\"" src "\">"))
 		"Could not get file from request. Please try again."))
 
 (defn store-doc
 	"store in postgres"
-	[request]
-	(let [params (request :params)
-			title (params :title)
-			level (Integer/parseInt (params :level))
-			content (params :content)
-			file (-> params :file :tempfile)
-			category (reduce (fn [a b] (str a " " b)) (conj (params :category) (params :category-other)))
-			now 	(java.sql.Date. (.getTime (java.util.Date.)))
-			random (SecureRandom.)
+	[request title level content file category now]
+	(let [	random (SecureRandom.)
 			doc-id (str "doc-" (.toString (BigInteger. 50 random) 32))
 			conn 	(DriverManager/getConnection l/bokwang-db-url)
 			query 	"INSERT INTO doc (doc_id, title, content, uploader, category, level, upload_date, update_date) 
@@ -74,15 +67,8 @@
 
 (defn edit-doc
 	"store in postgres"
-	[request doc-id]
-	(let [params (request :params)
-			title (params :title)
-			level (Integer/parseInt (params :level))
-			content (params :content)
-			file (-> params :file :tempfile)
-			category (reduce (fn [a b] (str a " " b)) (conj (params :category) (params :category-other)))
-			now 	(java.sql.Date. (.getTime (java.util.Date.)))
-			conn 	(DriverManager/getConnection l/bokwang-db-url)
+	[request doc-id title level content file category now]
+	(let [	conn 	(DriverManager/getConnection l/bokwang-db-url)
 			query 	(str "UPDATE doc SET title = ?, content = ?, category = ?, level = ?, update_date = ? where doc_id = '" doc-id "'")
 			stmt 	(.prepareStatement conn query)
 			stmt 	(doto stmt
@@ -95,11 +81,69 @@
 			dummy (.close conn)]
 		"edit"))
 
+(defn check-category [categories]
+	(try
+		(reduce (fn [a b] (str a " " b)) categories)
+    	(catch Exception e categories)))
+
+(defn check-file [file]
+	(if (= "" (file :filename))
+		false
+		(if (> (file :size) 0)
+			true 
+			false)))
+
+(defn handle-article-file
+	"expect a file map from html client, store in filesystem and update database"
+	[file]
+	(let [filename (store-file (file :tempfile) (file :filename) l/article-upload-files)]
+		filename))
+
+
+
+(defn handle-upload-files [files]
+	(condp = (type files) 
+		clojure.lang.PersistentVector "multiple"
+		clojure.lang.PersistentArrayMap 
+			(if (check-file files)
+				(handle-article-file files)
+				"empty file")
+		"void"))
+
 (defn handle-doc
 	"store in postgres"
 	[request]
-	(if-let [doc-id ((request :params) :doc_id)]
-		(edit-doc request doc-id)
-		(store-doc request)))
+	(let [params (request :params)
+			title (params :title)
+			level (u/check-level (params :level))
+			content (params :content)
+			file (-> params :file :tempfile)
+			category (check-category (params :category))
+			now 	(java.sql.Date. (.getTime (java.util.Date.)))]
+		(if-let [doc-id ((request :params) :doc_id)]
+			(edit-doc request doc-id title level content file category now)
+
+			;(store-doc request title level content file category now)
+			(str params (handle-upload-files (params :files)))
+			)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
