@@ -72,45 +72,67 @@
 		dummy (.executeUpdate stmt query-insert-user)]
 			(.close conn)))
 
+(defn gen-cookie
+	"check redis for duplicate" []
+	(let [random (SecureRandom.)
+			gen-random (.toString (BigInteger. 100 random) 32)
+			cookie (str "zen-cookie-" gen-random)]
+		cookie))
+
+(defn user-exists? [column value]
+	(let [query-user-exist? (str "SELECT userid from users where " column " =? ")]
+		4))
+
 (defn first-view-post-fbID
 	"this function only get called to send new fb-session tokens
 	coming from a form, post request"
-	[request]
-	(if-let [fb-session (-> request :params :fb_session)]
+	[request fb-session]
 		;check if fb-session is valid, then assign a zen session token
-		(let [url (str l/fb-verify-server "?fb-session=" fb-session)
-				fb-info-str (:out (sh "curl" "-X" "GET" url))
-				fb-info (read-string fb-info-str)]
-			(if-let [fb-id (fb-info :fb-id)]
-				;assign a zen cookie
-				(let [random (SecureRandom.)
-					gen-random (.toString (BigInteger. 100 random) 32)
-					;get st like zen-cookie-eb66rg9f1cfbug4s6knr
-					cookie (str "zen-cookie-" gen-random)
+	(let [url (str l/fb-verify-server "?fb-session=" fb-session)
+			fb-info-str (:out (sh "curl" "-X" "GET" url))
+			fb-info (read-string fb-info-str)]
+		(if-let [fb-id (fb-info :fb-id)]
+			;assign a zen cookie
+			(let [cookie (gen-cookie)
 					user-id (str "fb-" fb-id)
 
 					;store session in redis
 					dummy (ses/cache cookie {:user-id user-id})
 
 					;is this user in database?
-					query-user-exist (str "SELECT userid from users where userid = '" user-id "'")
+					query-user-exist? (str "SELECT userid from users where userid = '" user-id "'")
 					conn (DriverManager/getConnection l/bokwang-db-url)
 					stmt (.createStatement conn)
-					existed-users (resultset-seq (.executeQuery stmt query-user-exist))
+					existed-users (resultset-seq (.executeQuery stmt query-user-exist?))
 					dummy (.close conn)
 
 					dummy (if (= 0 (count existed-users))
-								(insert-fb-user fb-info))
-					]
+							(insert-fb-user fb-info))]
+				(view-based-on-cookie cookie))	;send cookie and render view 
+			"there is something wrong with your facebook session ID. Please try again.")))
 
-					(view-based-on-cookie cookie))	;send cookie and render view 
+(defn password-check
+	[request]
+	(if-let [email (-> request :params :email)]
+		(if-let [password (-> request :params :email)]
+			(let [query-user-exist? (str "SELECT userid from users where email = '" email "'")
+					conn (DriverManager/getConnection l/bokwang-db-url)
+					stmt (.createStatement conn)
+					existed-users (resultset-seq (.executeQuery stmt query-user-exist?))
+					dummy (.close conn)]
+				(if (= 0 (count existed-users))
+					"There is no such account."
+					(let [user-id (-> existed-users first :userid)]
+						(let [cookie (gen-cookie)
+								dummy (ses/cache cookie {:user-id user-id})]
+							(view-based-on-cookie cookie)))))
+			"please provide password")
+		"please provide email"))
 
-				"there is something wrong with your facebook session ID. Please try again."))
-
-		;fb ID doesnt work
-		"there is something wrong with your facebook session ID. Please try again."))
-
-
+(defn log-in [request]
+	(if-let [fb-session (-> request :params :fb_session)]
+		(first-view-post-fbID request fb-session)
+		(password-check request)))
 
 
 
