@@ -1,4 +1,4 @@
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+
 
 %{  
   (def documents
@@ -28,16 +28,18 @@
 }
 
 
-<p><h1>list of all documents</h1></p>
+<div class="page-header">
+  <h1 class="text-success">List of all documents </h1>
+</div>
 
-<table border="1">
+<table class="table table-hover table-striped table-responsive">
   <tr>
-    <td>Title</td>
-    <td>Category</td>
-    <td>Uploader</td>
-    <td>Level</td>	
-    <td>Update Date</td>
-    <td>Edit</td>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Uploader</th>
+    <th>Level</th>	
+    <th>Update Date</th>
+    <th>Edit</th>
   </tr>
 
   %{ (apply str (map get-doc-row documents)) }
