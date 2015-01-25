@@ -80,7 +80,7 @@
 		cookie))
 
 (defn user-exists? [column value]
-	(let [query-user-exist? (str "SELECT userid from users where " column " =? ")]
+	(let [query-user-exist? (str "SELECT * from users where " column " =? ")]
 		4))
 
 (defn first-view-post-fbID

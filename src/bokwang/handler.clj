@@ -71,13 +71,16 @@
 		(POST "/" request (private/log-in request))) ;this expect a fb-session-id in request
 	    
 
+	(GET  "/test/:id" request (str request))
+
 
 
 	(GET  "/upload" [] (r/render "file.html"))
 	(mp/wrap-multipart-params 
     	(POST "/upload" request (doc/handle-doc request)))
 
-	(GET "/doc/:doc_id" [doc_id] (r/render "private/view-document.html" {:doc-id doc_id}))
+	(GET "/doc/:doc_id" request (r/render "private/view-document.html" 
+			{:doc-id (-> request :params :doc_id) :cookie (((request :cookies) "zen") :value)}))
 	(GET "/edit-doc/:doc_id" [doc_id] (r/render "private/edit-document.html" {:doc-id doc_id}))
 
 	(GET "/edit-user/:user_id" [user_id] (r/render "private/edit-user.html" {:user-id user_id}))
