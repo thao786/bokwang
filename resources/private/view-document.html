@@ -1,6 +1,7 @@
 %{(require 
            '[sodahead.render :as r]
            '[taoensso.carmine :as car :refer (wcar)]
+           '[bokwang.private :as p]
            '[bokwang.lib :as l])
 
 	(import '(java.sql DriverManager))
@@ -28,20 +29,12 @@
 
   	(def edit-url (str l/edit-doc-path doc-id))
 
-	(defmacro wcar* [& body] `(car/wcar l/server1-conn ~@body))
-
-  	nil
+	(let [role (:role (p/wcar* (car/get cookie)))]
+		(if (= role "admin")
+			(let [edit-url (str l/edit-doc-path (doc :doc_id))
+          			edit-link (str "<a href='" edit-url "'>edit</a>")]
+				edit-link)))
 }
-
-%{
-	(let [edit-url (str l/edit-doc-path (doc :doc_id))
-          edit-link (str "<a href='" edit-url "'>edit</a>")]
-		edit-link)
-
-(wcar* (car/set  "foo" "bar"))
-
-}
-(wcar* (car/get cookie))
 
 <p> %(doc :title) </p>
 <p> </p>

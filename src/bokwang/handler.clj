@@ -81,6 +81,9 @@
 
 	(GET "/doc/:doc_id" request (r/render "private/view-document.html" 
 			{:doc-id (-> request :params :doc_id) :cookie (((request :cookies) "zen") :value)}))
+
+;(GET "/doc/:doc_id" request (str (((request :cookies) "zen") :value)))
+
 	(GET "/edit-doc/:doc_id" [doc_id] (r/render "private/edit-document.html" {:doc-id doc_id}))
 
 	(GET "/edit-user/:user_id" [user_id] (r/render "private/edit-user.html" {:user-id user_id}))
