@@ -38,52 +38,36 @@
 <body>
 
 <div class="container biggest">
-
   %include {"util/header.html"}    
-
-
-  <div class="container whiteBgr">  
-
-  	<br>
-  	<br>
-
-  	<div class="row">
-  		<div class="col-sm-3">
-			%include {"util/about-nav-bar.html"} 
-
-          	%include {"util/advertise-bar.html"}
-        </div>
-
-        <div class="col-sm-9" style="border-left: solid 1px #dfdeeb;">
-			<p class="alert alert-info">This is an admin account. Hi <span class="text-warning"><i><b>%(user :fname)! </b></i></span></p>
-
-			%include {"private/member-list.html"}
-
-
-			%include {"private/document-list-admin.html"}
-
-			<br><br><br>
-
-			%include {"private/doc-upload.html"}
-
-		</div>
-	</div>	
- </div>
 </div>
 
+<div id="error"> Error goes here </div>
+Only Class Title is required *
+<br>
+Create a class:
+<form id="zen_class_form" action="/class-regis" method="post" >
+	Class Title<br> <input type="text" name="title"> * <br>
+
+	Location<br> <input type="text" name="location">
+
+	Note 
+	<textarea rows="4" cols="50">	</textarea>
+
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>
    
 <br><br><br><br>
 
 %include {"util/footer.html"}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-   <script>
-      $(document).ready(function(){
-             
-        $(".searchble").click(function(){
-           $(".searchbox").slideToggle();    
-        });
-      });
-   </script>
+<script>
+  $(document).ready(function(){
+         
+    $(".searchble").click(function(){
+       $(".searchbox").slideToggle();    
+    });
+  });
+</script>
 </body>
 </html>

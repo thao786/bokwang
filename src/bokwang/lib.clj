@@ -26,5 +26,3 @@
 
 
 
-
-;(def image-host "http://lotus-zen.com/image")
