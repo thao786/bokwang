@@ -89,21 +89,19 @@
 	(mp/wrap-multipart-params 
 	    	(POST "/edit-user" request (user/handle-user request)))
 
-	(GET "/class-regis" request (r/render "private/class-create.html"))
-	(mp/wrap-multipart-params 
-	    	(POST "/class-regis" request (c/create-zen-class request)))
+	; (GET "/class-regis" request (r/render "private/class-create.html"))
+	; (mp/wrap-multipart-params 
+	;     	(POST "/class-regis" request (c/create-zen-class request)))
 
-	(GET "/class-regis/:class_id" request (r/render "private/class-registration.html" {:class-id (-> request :params :class_id)}))
-	(mp/wrap-multipart-params 
-	    	(POST "/class-regis/:class_id" request (c/create-zen-class request)))
+	; (GET "/class-regis/:class_id" request (r/render "private/class-registration.html" {:class-id (-> request :params :class_id)}))
+	; (mp/wrap-multipart-params 
+	;     	(POST "/class-regis/:class_id" request (c/add-class-student request)))
 
 	(GET "/file/:name" [name] (io/resource name))
 	(mp/wrap-multipart-params 
     	(POST "/file" request (doc/cke-store-img request)))
 
-
-
-
+	(POST "/delete-doc" request (doc/delete-doc (-> request :params :doc_id)))
 	 
 	(route/resources "/")
 	(route/not-found (r/render "404.html")))

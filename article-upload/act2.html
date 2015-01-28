@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://www.eecs.yorku.ca/~roumani/course/3481/res/Act3.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1258">
+  <title>Crypto/HR</title>
+  <style type="text/css">
+    body
+    { 
+       font-family: verdana, arial, Helvetica, sans-serif; 
+       font-size: 14px; 
+    }
+    .banner 
+    { 
+       background-color: #d8bfd8;
+       color: #00008b; 
+       font-size: large;
+       width: 100%;
+       border: 1px solid #00008b; 
+       font-weight: bold;
+       text-align: center;
+       vertical-align: middle;
+    }
+    .me
+    {
+      color: #4b0082;
+      font-size: x-small;
+    }
+    h2
+    {
+      color: blue;
+    }
+    ol li {margin-bottom: 8px;}
+  </style>
+</head>
+
+<body>
+
+<div class="banner">
+<p class="me">Applied Cryptography / Professor H. Roumani</p>
+<p>Teaching &amp; Learning Activity #3</p>
+</div>
+
+<article>
+
+<h2>Questions</h2>
+<p>
+Here are the questions of this activity:
+
+</p><ol>
+
+<li>
+Implement RSA with modulus 55 and public exponent 3 by finding p, q, and d.
+Given a plaintext m with GCD(m,55)=1, prove that m = c<sup>d</sup> (mod 55),
+where c is m<sup>e</sup> (mod 55).
+<br><br>
+</li>
+
+<li>
+We can implement 2RSA by choosing a modulus n and two public exponents e1 and e2.
+In this case, encryption is done using: c1 = m<sup>e1</sup> (mod n) followed by
+c2 = c1<sup>e2</sup> (mod n). Is 2RSA stronger than 1RSA? Juystify your answer.
+<br><br>
+</li>
+
+<li>
+Why are the public exponents e=1 and e=2 never used in RSA?
+<br><br>
+</li>
+
+<li>
+Two users on a network use RSA moduli n1 and n2 that are not equal and not
+relatively prime. Can you attack them?
+<br><br>
+</li>
+
+<li>
+Given a large prime n you compute k = s<sup>(n-1)/2</sup> (mod n) and find that
+k != +/-1. You compute x = k<sup>2</sup> (mod n). Prove that if x != 1 then n is not 
+prime, and that if x = 1 then we can factor n. 
+<br><br>
+</li>
+
+
+<li>
+You send your Visa card number to two e-commerce sites that use RSA with the
+same modulus but different public exponents e1 and e2 that are relatively prime.
+Show that by intercepting the two transmissions, Eve can find your credit card data.
+<br><br>
+</li>
+
+<li>
+Show that RSA works even if GCD(m,n) != 1.
+<br><br>
+</li>
+
+<li>
+In order to guard against the <i>short message attack</i>, Alice increases
+the size of m by either (1) appending 100 zeros to it or (2) repeating it
+two times (either paddings must be public accordingly to Kerckhoff's). Does
+either thwart the short message attack? 
+<br><br>
+</li>
+
+
+<li>
+<i>This is a programming question:</i>
+<p>
+Your RSA keys are as follows (all expressed as big integers):</p><pre>  n = 
+      945874683351289829816050197767812346183848578056570056860845622609107886220137
+      220709264916908438536900712481301344278323249667285825328323632215422317870682
+      037630270674000828353944598575250177072847684118190067762114937353265007829546
+      21660256501187035611332577696332459049538105669711385995976912007767106063
+  e = 74327
+  d = 7289370196881601766768920490284861650464951706793000236386405648425161747775298
+      3441046583933853592091262678338882236956093668440986552405421520173544428836766
+      3419319185756836904299985444024205035318170370675348574916529512369448767695219
+      8090537385200990850805837963871485320168470788328336240930212290450023
+</pre>
+(For clarity, we write big numbers like <code>n</code> on multiple lines but it is in
+fact a single big integer.)
+<br><br>
+You received the ciphertext:<pre> ct = 8701485697571629912108508730957703831688317541285382011555129355623048840582638
+      5706604303724175236985573832006395540199066061101502996745421485579743246846982
+      6363174405058850929567231994074036320411089130186716135085720028980086157008585
+      79079601105011909417884801902333329415712320494308682279897714456370814</pre>
+Determine the plaintext that was sent to you and do so in two different ways:
+<ol>
+<li>Using JCE</li>
+<li>Manually using the RSAalgorithm</li>
+</ol>
+Notice that since no padding was used, you may need to trim the plaintext before printing it.
+<p><br><br></p>
+
+
+</li><li>
+<i>This is a programming question:</i>
+<p>
+Bob has the an RSA public key with the following exponent <code>e</code>
+and modulus <code>n</code>:</p><pre>  e = 74327
+  n =
+      94587468335128982981605019776781234618384857805657005686084562260910788622013722
+      07092649169084385369007124813013442783232496672858253283236322154223178706820376
+      30270674000828353944598575250177072847684118190067762114937353265007829546216602
+      56501187035611332577696332459049538105669711385995976912007767106063</pre>
+(For clarity, we write big numbers like <code>n</code> on multiple lines but it is in
+fact a single big integer.)
+<br><br>
+Alice wants to send a secret message to Bob so she encrypts it with his public key
+and sends him the following big integer ciphertext:<pre>  c =
+      10870101966939556606443697147757930290262227730644958783498257036423105365610629
+      52991052582846432979261500260278236678653125327546335884041286783340625646715334
+      51395019521734099553221296896703454456327755743017818003765454489903326085581032
+      66831217073027652061091790342124418143422318965525239492387183438956</pre>
+You intercept this ciphertext. You also find out (from the consultant who helped Bob
+generate his RSA prime numbers <code>p</code> and <code>q</code>) that
+<code>p</code> is the following big integer:<pre>  p =
+      10358344307803887695931304169230543785620607743682421994532795393937342395753127
+      888522373061586445417642355843316524942445924294144921649080401518286829171</pre>
+Using this information, determine Alice's secret message.
+<br><br>
+<p></p>
+</li>
+
+
+<br>
+
+</ol></article>
+<div class="banner">
+<p class="me">Applied Cryptography / Professor H. Roumani</p>
+</div>
+
+
+
+</body></html>

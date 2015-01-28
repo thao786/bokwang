@@ -1,0 +1,86 @@
+
+<!-- saved from url=(0064)http://www-math.ucdenver.edu/~wcherowi/courses/m5410/phexam.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Pohlig-Hellman Example </title>
+</head>
+<body bgcolor="bfffff">
+<h2 align="center">Example of the Pohlig-Hellman Technique for finding discrete logarithms</h2>
+
+Let the prime p = 8101, and a generator of Z<sub>8101</sub> be a = 6. Find x so that <p align="center">
+                                       a<sup>x</sup> = 7531 mod 8101.</p><p>
+
+Observe that p-1 = 8100 = (2<sup>2</sup>)(3<sup>4</sup>)(5<sup>2</sup>), is a product of small primes. We shall determine
+the numbers x<sub>2</sub> = x mod (2<sup>2</sup>), x<sub>3</sub> = x mod (3<sup>4</sup>) and x<sub>5</sub> = x mod (5<sup>2</sup>).</p><p>
+
+</p><h3>Determination of x<sub>2</sub>.</h3>
+
+Since x<sub>2</sub> is a number mod 4, we have x<sub>2</sub> = c<sub>0</sub> + c<sub>1</sub> (2), with the coefficients being either
+0 or 1. We determine these coefficients as follows.<p>
+     7531<sup>(p-1)/2</sup> = 7531<sup>4050</sup> = -1  and as this = a<sup>c<sub>0</sub> (p-1)/2</sup>, we have c<sub>0</sub> = 1.<br>
+     Now, divide 7531 by a<sup>c<sub>0</sub></sup> to get<br>
+     7531(a<sup>-1</sup>) = 7531(6751) = 8006 mod p.<br>
+     8006<sup>(p-1)/4</sup> = 8006<sup>2025</sup> = 1 and as this = a<sup>c<sub>1</sub> (p-1)/2</sup>, we have c<sub>1</sub> = 0.</p><p>
+
+     x<sub>2</sub> = c<sub>0</sub> + c<sub>1</sub> (2) = 1 + 0(2) = 1.</p><p>
+
+</p><h3>Determination of x<sub>3</sub>.</h3>
+
+Since x<sub>3</sub> is a number mod 81, we have x<sub>3</sub> = c<sub>0</sub> + c<sub>1</sub> (3) + c<sub>2</sub> (9) + c<sub>3</sub> (27), with the
+coefficients being either 0, 1 or 2. It will be of use to know the numbers a<sup>(p-1)/3</sup> = 5883,
+and a<sup>2(p-1)/3</sup> = 2217.<p>
+
+    7531<sup>(p-1)/3</sup> = 2217, so c<sub>0</sub> = 2.<br>
+    Now divide 7531 by a<sup>c<sub>0</sub></sup> to get<br>
+    7531(a<sup>-2</sup>) = 6735 mod p.<br>
+    6735<sup>(p-1)/9</sup> = 1, so c<sub>1</sub> = 0.<br>
+    Now divide 6735 by a<sup>3c<sub>1</sub></sup> to get<br>
+    6735(a<sup>0</sup>) = 6735 mod p.<br>
+    6735<sup>(p-1)/27</sup> = 2217, so c<sub>2</sub> = 2.<br>
+    Now divide 6735 by a<sup>9c<sub>2</sub></sup> to get<br>
+    6735(a<sup>-18</sup>) = 6992 mod p.<br>
+    6992<sup>(p-1)/81</sup> = 5883, so c<sub>3</sub> = 1.</p><p>
+
+    x<sub>3</sub> = 2 + 0(3) + 2(9) + 1(27) = 47.</p><p>
+
+</p><h3>Determination of x<sub>5</sub>.</h3>
+ 
+Since x<sub>5</sub> is a number mod 25, x<sub>5</sub> = c<sub>0</sub> + c<sub>1</sub> (5), with the coefficients being either 0, 1,
+2, 3 or 4. We need to compute a<sup>(p-1)/5</sup> = 3547, a<sup>2(p-1)/5</sup> = 356, a<sup>3(p-1)/5</sup> = 7077,
+a<sup>4(p-1)/5</sup> = 5221.<p>
+
+    7531<sup>(p-1)/5</sup> = 5221, so c<sub>0</sub> = 4.<br>
+    Divide 7531 by a<sup>c<sub>0</sub></sup> to get<br>
+    7531(a<sup>-4</sup>) = 7613 mod p.<br>
+    7613<sup>(p-1)/25</sup> = 356, so c<sub>1</sub> = 2.</p><p>
+
+   x<sub>5</sub> = 4 + 2(5) = 14.</p><p>
+
+</p><h3>Determination of x.</h3>
+
+We now use the Chinese Remainder Theorem to compute the common solution of the
+congruences,
+<ul>
+<li>                           x = 1 mod 4
+</li><li>                           x = 47 mod 81
+</li><li>                           x = 14 mod 25.
+</li></ul>
+
+M<sub>1</sub> = 8100/(4) = 2025 <br> 
+y<sub>1</sub> = M<sub>1</sub><sup>-1</sup> mod 4,  y<sub>1</sub> = 1.<p>
+
+M<sub>2</sub> = 8100/81 = 100<br>
+y<sub>2</sub> = M<sub>2</sub><sup>-1</sup> mod 81, y<sub>2</sub> = 64.</p><p>
+
+M<sub>3</sub> = 8100/25 = 324<br>
+y<sub>3</sub> = M<sub>3</sub><sup>-1</sup> mod 25, y<sub>3</sub> = 24.</p><p>
+
+x = 1(2025)(1) + 47(100)(64) + 14(324)(24) =<b> 6689</b> mod 8100.
+</p><hr>
+<noframe>
+Return to <a href="http://www-math.ucdenver.edu/~wcherowi/courses/m5410/m5410.html">index</a> (non-frame version)
+<hr>
+</noframe>
+
+
+
+</body></html>

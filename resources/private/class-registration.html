@@ -57,7 +57,7 @@ Class Participants:
 <div id="student_list">
 </div>
 
-<button class="btn btn-default" onclick='more_row();'>Get More Rows</button>
+<button class="btn btn-default" onclick='more_row(5);'>Get More Rows</button>
  
 <br><br><br><br>
 
@@ -70,26 +70,56 @@ for (i = 0; i < div_count; i++) {
     $("#student_list").append(form_div(i));
 }
 
-function more_row(){
-    for (i = div_count; i < div_count + 5; i++) { 
+function more_row(n){
+    for (i = div_count; i < div_count + n; i++) { 
         $("#student_list").append(form_div(i));
-    }    
+    }
 
-    div_count = div_count + 5;
+    div_count = div_count + n;
 }
 
-function form_div(number){
-    var id = "student_" + number;
+function form_div(id){
     var tag = '<div id="student_' + id + '">' +
-        '<form action="/class-regis/%(params :class-id)" method="post" >' +
-        'Name <input type="text" name="student_name"> * ' +
-        'Email <input type="email" name="email"><br>'+
-        'Note <input type="text" name="note">' +
-        '<button type="submit" class="btn btn-default">Submit</button>' +
-        '</form>' +
+        'Full Name <input id="name_' + id + '" type="text" name="student_name"> * ' +
+        'Email <input id="email_' + id + '" type="email" name="email"><br>'+
+        'Note <input id="note_' + id + '" type="text" name="note">' +
+        '<button onclick="submit_student_ajax(' + id + ')" class="btn btn-default">Submit</button>' +
         '</div><br>';
     return tag;
 }
+
+function get_succeed_student_row(name, email, note){
+    return "Full Name: " + name +
+    "Email: " + email +
+    "Note: " + note;
+}
+
+function submit_student_ajax(id){
+    if ($("#name_" + id).val().trim() == ""){
+        $("#error").html("Name cannot be empty!");
+        return;
+    }
+
+    $.ajax({
+        url: 'http://lotus-zen.com/class-regis/%(params :class-id)',
+        data: {
+            name: $("#name_" + id).val(), 
+            email: $("#email_" + id).val(),
+            note: $("#note_" + id).val()},
+        processData: true,
+        type: 'POST',
+        success: function(data){
+            $("#error").html("");
+
+            $("#student_" + id).html(
+                get_succeed_student_row(
+                    $("#name_" + id).val(),
+                    $("#email_" + id).val(),
+                    $("#note_" + id).val()));
+        }
+    });
+}
+
 $(document).ready(function(){
     $(".searchble").click(function(){
        $(".searchbox").slideToggle();    

@@ -22,6 +22,7 @@
 (def edit-doc-path (str host "/edit-doc/"))
 (def edit-user-path (str host "/edit-user/"))
 
+(def uploaded-file-path "http://lotus-zen.com/article-upload/")
 
 
 

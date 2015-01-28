@@ -32,15 +32,28 @@
 							(.setString 6 comment))
 				dummy 	(.executeUpdate stmt)
 				dummy (.close conn)]
-			(r/render "private/class-registration.html" 
-				{:class-id class-id :title title :location location :time now}))))
+			{:status 302
+		   :headers {"Location" (str "http://lotus-zen.com/class-regis/" class-id)}
+		   :body (r/render "private/class-registration.html" 
+				{:class-id class-id :title title :location location :time now})})))
 
-
-
-
-
-
-
+(defn add-class-student [request]
+	(let [class-id (-> request :params :class_id)
+			full-name (-> request :params :name)
+			email (-> request :params :email)
+			note (-> request :params :note)
+			query 	"INSERT INTO class_participant (class_id, name, email, note) 
+						VALUES(?, ?, ?, ?)"
+				conn 	(DriverManager/getConnection l/bokwang-db-url)		
+				stmt 	(.prepareStatement conn query)
+				stmt 	(doto stmt
+							(.setString 1 class-id)
+							(.setString 2 full-name)
+							(.setString 3 email)
+							(.setString 4 note))
+				dummy 	(.executeUpdate stmt)
+				dummy (.close conn)]
+		"OK"))
 
 
 

@@ -12,33 +12,46 @@
 <input id="insertImgInput" onchange="insertAjax()" name="insertImgInput" type="file" style="display:none" multiple/><br>
 
 
+<div id="uploaded_files">
+%{
+(defn get-file-html [doc-id file]
+    (str "<div id='existed_file_div_" (file :name) "'>"
+        "<a href='" l/uploaded-file-path (file :name) "'>" (file :name) "</a>"
+        "<img onclick='delete_uploaded_file(\"" doc-id ", " (file :name) "\")' src='http://lotus-zen.com/btn/del-btn.png'/>"
+        "</div>"))
+
+(if-let [doc-id (params :doc-id)]
+    (let [query (str "select name from upload_files where doc_id='" doc-id "'")
+          conn  (DriverManager/getConnection l/bokwang-db-url)
+            stmt (.createStatement conn)
+            files (resultset-seq (.executeQuery stmt query))
+            dummy (.close conn)
+            ]
+        (reduce str (map #(get-file-html doc-id %) files))))
+}
+</div>
+
 <form class="form-inline" id="upload_form" action="/upload" method="post" enctype="multipart/form-data">
- Categories:
-  <div class="form-group">
-    <label for="exampleInputName2">Zen</label>
-    <input class="form-control" id="checkbox_zen" type="checkbox" name="category" value="zen">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail2">Qigong</label>
-    <input class="form-control" id="checkbox_qigong" type="checkbox" name="category" value="qigong">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail2">Other</label>
-    <input class="form-control" id="checkbox_other" type="text" name="category"/>
-  </div>
-  <button id="upload_f" type="submit" class="btn btn-default">Submit</button>
-</form>
+   Categories:
+    <div class="form-group">
+      <label for="exampleInputName2">Zen</label>
+      <input class="form-control" id="checkbox_zen" type="checkbox" name="category" value="zen">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail2">Qigong</label>
+      <input class="form-control" id="checkbox_qigong" type="checkbox" name="category" value="qigong">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail2">Other</label>
+      <input class="form-control" id="checkbox_other" type="text" name="category"/>
+    </div>
 
+    <button id="upload_f" type="submit" class="btn btn-default">Submit</button>
 
-<form id="upload_form" action="/upload" method="post" enctype="multipart/form-data">
-    Category:
-    <input id="checkbox_zen" type="checkbox" name="category" value="zen">zen
-    <input id="checkbox_qigong" type="checkbox" name="category" value="qigong">qigong
-    <input id="checkbox_other" type="text" name="category"/> Other<br>
     level <input id="doc_level" type="text" name="level"/><br>
   	document title <input id="doc_title" type="text" name="title"/><br>
 
-  	<textarea name="content" id="editor1" rows="10" cols="80"></textarea>
+  	<textarea name="content" id="editor1" rows="10" cols="10"></textarea>
 
     <button type="button" onclick="more_upload_tag ()" >Add Files</button>
 
@@ -50,6 +63,10 @@
 
 
 <script>
+function delete_uploaded_file(doc, file){
+    alert(doc, file);
+}
+
 var div_count = 2;
 $("#upload_form").append(upload_div(0));
 $("#upload_form").append(upload_div(1));
