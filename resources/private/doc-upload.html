@@ -8,57 +8,102 @@
 <script src="http://cdn.ckeditor.com/4.4.6/standard/ckeditor.js"></script>
 
 
-<img id="upload-pic-link" onclick="upload_pic();" src="http://lotus-zen.com/btn/upload-pic-btn.png"/>
-<input id="insertImgInput" onchange="insertAjax()" name="insertImgInput" type="file" style="display:none" multiple/><br>
+<div class="row">
+  <div class="col-sm-8">
+      <form class="form-horizontal" id="upload_form" action="/upload" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-3 control-label">Categories</label>
+          <div class="col-sm-8">
+            <input id="checkbox_zen" type="checkbox" name="category" value="zen"> Zen   
+            <input id="checkbox_qigong" type="checkbox" name="category" value="qigong" style="margin-left:20px;"> Qigong   
+            <input type="checkbox" name="category" style="margin-left:20px;"> Other
+            <input id="checkbox_other" type="text" name="category" style="margin-left:5px;">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Level</label>
+          <div class="col-sm-4">
+            <input id="doc_level" type="text" name="level" class="form-control" placeholder="Level">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Document Title</label>
+          <div class="col-sm-4">
+            <input id="doc_title" type="text" name="title" class="form-control" placeholder="Document Title">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Add Files</label>
+          <div class="col-sm-4">
+            <button class="btn btn-default" type="button" onclick="more_upload_tag ()" ><span class="glyphicon glyphicon-star" aria-hidden="true"></span> More Files</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div id="upload_div_container" class="col-sm-offset-3 col-sm-4">
+            <div id="div_upload_1">
+              <span class="glyphicon glyphicon-remove-sign text-danger" onclick="delete_div('div_upload_2');" style="display:inline-block;"></span>              
+              <input name="files" type="file" multiple="" style="display:inline-block; float:left;">
+            </div>
+
+            <div id="div_upload_2">
+              <span class="glyphicon glyphicon-remove-sign text-danger" onclick="delete_div('div_upload_2');" style="display:inline-block;"></span>
+              <input name="files" type="file" multiple="" style="display:inline-block;"> 
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Add Images</label>
+          <div class="col-sm-4">
+            <button class="btn btn-default" type="button" id="upload-pic-link" onclick="upload_pic();" ><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Add Images</button>
+            <input id="insertImgInput" onchange="insertAjax()" name="insertImgInput" type="file" style="display:none" multiple/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-4">
+            <button id="upload_f" type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </div>
+
+        <br>
+        
+        <textarea class="form-control" name="content" id="editor1" rows="7" cols="10"></textarea>
+      </form>
+  </div><!--col-sm-8-->
 
 
-<div id="uploaded_files">
-%{
-(defn get-file-html [doc-id file]
-    (str "<div id='existed_file_div_" (file :name) "'>"
-        "<a href='" l/uploaded-file-path (file :name) "'>" (file :name) "</a>"
-        "<img onclick='delete_uploaded_file(\"" doc-id ", " (file :name) "\")' src='http://lotus-zen.com/btn/del-btn.png'/>"
-        "</div>"))
+  <div class="col-sm-3">
+    <div class="panel panel-info">
+      <div class="panel-heading"><b>Attachments</b></div>
+      <div class="panel-body">
+        <ul class="list-group" id="uploaded_files">
+          %{
+          (defn get-file-html [doc-id file]
+              (str "<li  class='list-group-item' id='existed_file_div_" (file :name) "'>"
+                  "<a href='" l/uploaded-file-path (file :name) "'>" (file :name) "</a>"
+                  "<img style='margin-left:10px; cursor: pointer;' onclick='delete_uploaded_file(\"" doc-id ", " (file :name) "\")' src='http://lotus-zen.com/btn/del-btn.png'/>"
+                  "</li>"))
 
-(if-let [doc-id (params :doc-id)]
-    (let [query (str "select name from upload_files where doc_id='" doc-id "'")
-          conn  (DriverManager/getConnection l/bokwang-db-url)
-            stmt (.createStatement conn)
-            files (resultset-seq (.executeQuery stmt query))
-            dummy (.close conn)
-            ]
-        (reduce str (map #(get-file-html doc-id %) files))))
-}
+          (if-let [doc-id (params :doc-id)]
+              (let [query (str "select name from upload_files where doc_id='" doc-id "'")
+                    conn  (DriverManager/getConnection l/bokwang-db-url)
+                      stmt (.createStatement conn)
+                      files (resultset-seq (.executeQuery stmt query))
+                      dummy (.close conn)
+                      ]
+                  (reduce str (map #(get-file-html doc-id %) files))))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+
 </div>
-
-<form class="form-inline" id="upload_form" action="/upload" method="post" enctype="multipart/form-data">
-   Categories:
-    <div class="form-group">
-      <label for="exampleInputName2">Zen</label>
-      <input class="form-control" id="checkbox_zen" type="checkbox" name="category" value="zen">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail2">Qigong</label>
-      <input class="form-control" id="checkbox_qigong" type="checkbox" name="category" value="qigong">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail2">Other</label>
-      <input class="form-control" id="checkbox_other" type="text" name="category"/>
-    </div>
-
-    <button id="upload_f" type="submit" class="btn btn-default">Submit</button>
-
-    level <input id="doc_level" type="text" name="level"/><br>
-  	document title <input id="doc_title" type="text" name="title"/><br>
-
-  	<textarea name="content" id="editor1" rows="10" cols="10"></textarea>
-
-    <button type="button" onclick="more_upload_tag ()" >Add Files</button>
-
-</form>
-
-
-
 
 
 
@@ -68,28 +113,27 @@ function delete_uploaded_file(doc, file){
 }
 
 var div_count = 2;
-$("#upload_form").append(upload_div(0));
-$("#upload_form").append(upload_div(1));
 
 function upload_div(number){
     var id = "div_upload_" + number;
     var tag = '<div id="' + id + '">' +
-        '<input name="files" type="file" multiple/>' +
-        '<img onclick="delete_div(\'' + id + '\');" src="http://lotus-zen.com/btn/del-btn.png"/>' +
-        '<br>' +
+        '<span class="glyphicon glyphicon-remove-sign text-danger" onclick="delete_div(\'div_upload_' +
+          number + '\');" style="display:inline-block;"></span></label>' +
+        '<input name="files" type="file" multiple="" style="display:inline-block;">' +
         '</div>';
     return tag;
 }
 
 function delete_div (id){
-    $("#" + id).html('');
+  //  $("#" + id).html('');
+    $("#" + id).remove();
 }
 
 function more_upload_tag (){
-    $("#upload_form").append(upload_div(div_count));
+    $("#upload_div_container").append(upload_div(div_count));
     div_count ++;
 
-    $("#upload_form").append(upload_div(div_count));
+    $("#upload_div_container").append(upload_div(div_count));
     div_count ++;
 }
 

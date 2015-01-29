@@ -30,7 +30,6 @@
 						dummy (FileUtils/copyFile file 
 									(File. (str upload-folder-path new-file-name)))]
 					new-file-name))
-
 			(do (FileUtils/copyFile file upload-file)
 				filename))))
 
@@ -96,27 +95,37 @@
 (defn handle-single-upload-file
 	"expect a file map from html client, store in filesystem and update database"
 	[doc-id file]
-	(let [filename (store-file (file :tempfile) (file :filename) l/article-upload-files)
+	(if (check-file file)
+		(let [filename (store-file (file :tempfile) (file :filename) l/article-upload-files)
 			query 	(str "INSERT INTO upload_files (doc_id, name) VALUES('" doc-id "', ?)")
 			conn 	(DriverManager/getConnection l/bokwang-db-url)
 			stmt 	(.prepareStatement conn query)
 			stmt 	(doto stmt (.setString 1 filename))
 			dummy 	(.executeUpdate stmt)
 			dummy (.close conn)]
-		filename))
+		filename)))
 
 (defn handle-upload-files [doc-id files]
 	(condp = (type files) 
 		clojure.lang.PersistentVector
 			(map #(handle-single-upload-file doc-id %) files)
 		clojure.lang.PersistentArrayMap 
-			(if (check-file files)
-				(handle-single-upload-file doc-id files)
-				"empty file")
+			(handle-single-upload-file doc-id files)
 		"void"))
 
 (defn delete-doc [doc-id]
-	(str doc-id))
+	(let [query 	(str "delete from doc where doc_id=?")
+			conn 	(DriverManager/getConnection l/bokwang-db-url)
+			stmt 	(.prepareStatement conn query)
+			stmt 	(doto stmt (.setString 1 doc-id))
+			dummy 	(.executeUpdate stmt)
+
+			query 	(str "delete from upload_files where doc_id=?")
+			stmt 	(.prepareStatement conn query)
+			stmt 	(doto stmt (.setString 1 doc-id))
+			dummy 	(.executeUpdate stmt)
+			dummy (.close conn)]
+		"OK"))
 
 
 (defn handle-doc
@@ -140,6 +149,17 @@
 						{:status 302
 				   		:headers {"Location" (str "http://lotus-zen.com/edit-doc/" doc-id)}
 				   		:body (r/render "private/edit-document.html" {:doc-id doc-id})})))))
+
+
+
+
+
+
+
+
+
+
+
 
 
 
