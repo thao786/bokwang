@@ -8,10 +8,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
 	<title>Bokwang Centre - edit user</title>  
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">   
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'> 
+    <link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .subhead{ 
+        background-image:url('%{l/image-host}/footer.png');    
+      } 
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
+      }
+    </style>
 </head>
 <body>
+	<div class="biggest">
+
+	%include {"util/header-private.html"}
+
+
+	  <div class="whiteBgr">  
+	    <br>
+
+	    <div class="row">    
+	      <div class="col-sm-2">
+	          %include {"private/private-nav-bar.html"}
+	      </div>
+
+	      <div class="col-sm-9" style="border-left: solid 1px #dfdeeb;">
 
 %{
 	(def user-id (params :user-id))
@@ -27,13 +61,22 @@
 }
 
 
-<p> </p>
-<p>Full Name: %(user :fname) %(user :lname)</p>
+			<p class="alert alert-warning">Full Name: %(user :fname) %(user :lname)</p>
 
 
+			%include {"private/user-info-form.html"}
+			
+			<br><br><br>
 
-%include {"private/user-info-form.html"}
+      </div>
+  </div>  
+ </div>
+</div>
 
+   
+<br><br><br><br>
+
+%include {"util/footer.html"}
 
 <script>
 $("#user_alias").val("%(user :alias)");
