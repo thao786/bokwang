@@ -13,6 +13,15 @@
             [bokwang.user :as u]
             [bokwang.lib :as l]))
 
+(defn make-sense-str [long-title]
+	(let [short-title (if (< (.length long-title) 50) 
+					long-title
+					(subs long-title 0 50))
+			filter-title (.replaceAll short-title "[^a-zA-Z0-9 ]" "")
+			title (.replaceAll filter-title " " "_")
+			now (System/currentTimeMillis)]
+		(str title now)))
+
 (defn store-file
 	"return the file name of uploaded file.
 	if same name existed, add _2"
@@ -45,8 +54,7 @@
 (defn store-doc
 	"store in postgres"
 	[request title level content category now]
-	(let [	random (SecureRandom.)
-			doc-id (str "doc-" (.toString (BigInteger. 50 random) 32))
+	(let [doc-id (make-sense-str title)
 			conn 	(DriverManager/getConnection l/bokwang-db-url)
 			query 	"INSERT INTO doc (doc_id, title, content, uploader, category, level, upload_date, update_date) 
 					VALUES(?, ?, ?, ?, ?, ?, ?, ?)"
@@ -159,7 +167,6 @@
 						{:status 302
 				   		:headers {"Location" (str "http://lotus-zen.com/edit-doc/" doc-id)}
 				   		:body (r/render "private/edit-document.html" {:doc-id doc-id})})))))
-
 
 
 
