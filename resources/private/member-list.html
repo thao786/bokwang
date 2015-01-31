@@ -39,96 +39,102 @@
 
 %include {"util/header-private.html"}
 
-  <div class="whiteBgr">  
+<div class="whiteBgr">  
+
     <br>
+  <div class="row">
 
-      <div class="col-sm-2">
-          %include {"private/private-nav-bar.html"}
-      </div>
-
-    <div class="page-header">
-      <h1 class="text-success">Search for an user <small>Fill one of the space below</small></h1>
+    <div class="col-sm-2">
+        %include {"private/private-nav-bar.html"}
     </div>
 
-    <form class="form-horizontal" action="/search" method="post">
-      <div class="form-group">
-        <label class="col-sm-2 control-label">First Name</label>
-        <div class="col-sm-4">
-          <input type="email" class="form-control" name="fname" placeholder="Enter first name">
-        </div>
+    <div class="col-sm-9" style="border-left: solid 1px #dfdeeb;">
+
+      <div class="page-header">
+        <h1 class="text-success">Search for an user <small>Fill one of the space below</small></h1>
       </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Last Name</label>
-        <div class="col-sm-4">
-          <input type="password" class="form-control" name="lname" placeholder="Enter last name">
+
+      <form class="form-horizontal" action="/search" method="post">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">First Name</label>
+          <div class="col-sm-3">
+            <input type="email" class="form-control" name="fname" placeholder="Enter first name">
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-4">
-          <input type="password" class="form-control" name="email" placeholder="Enter email">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Last Name</label>
+          <div class="col-sm-3">
+            <input type="password" class="form-control" name="lname" placeholder="Enter last name">
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Part of Comment</label>
-        <div class="col-sm-4">
-          <input type="password" class="form-control" name="comment" placeholder="Enter comments">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-3">
+            <input type="password" class="form-control" name="email" placeholder="Enter email">
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-success" name="submit" value="Search">Submit</button>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Part of Comment</label>
+          <div class="col-sm-3">
+            <input type="password" class="form-control" name="comment" placeholder="Enter comments">
+          </div>
         </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success" name="submit" value="Search">Submit</button>
+          </div>
+        </div>
+      </form>
+
+      </br></br>
+
+
+      %{
+      	(def users 
+        		(let [query (str "select * from users")
+        				conn 	(DriverManager/getConnection l/bokwang-db-url)
+        				stmt 	(.createStatement conn)
+      				user-list (resultset-seq (.executeQuery stmt query))
+      				dummy 	(.close conn)]
+        			user-list))
+
+        	(defn get-user-column [column]
+        		(str "<td>" column "</td>"))
+
+        	(defn get-user-row [user]
+        		(let [full-name (str (user :fname) " " (user :lname))
+        				edit-url (str l/edit-user-path (user :userid))
+        				bokwang-profile (str "<a href='" edit-url "'>" full-name "</a>")
+        				fb-link (str "<a href='" (user :fb_profile) "'>facebook</a>")
+        				fb-icon-tag (str "<a href='" (user :fb_profile) "'><img src='http://lotus-zen.com/btn/fb-icon.png'></a>")
+        				
+        				update-btn (str "<a href='" edit-url "'>edit</a>")]
+      	  		(str "<tr>" (get-user-column (str bokwang-profile " " fb-icon-tag))
+      	  			(get-user-column (user :level))
+      	  			(get-user-column (user :email))
+      	  			(get-user-column (user :phone))
+      				(get-user-column (user :comment))
+      	  				"</tr>")))
+      	nil
+      }
+
+
+      <div class="page-header">
+        <h1 class="text-success">List of all users</h1>
       </div>
-    </form>
+      <table class="table table-hover table-striped table-responsive">
+      	<tr>
+      		<th>Name</th>
+      		<th>Level</th>
+      		<th>Email</th>
+      		<th>Phone</th>
+      		<th>Comment</th>
+      	</tr>
 
-    </br></br>
-
-
-    %{
-    	(def users 
-      		(let [query (str "select * from users")
-      				conn 	(DriverManager/getConnection l/bokwang-db-url)
-      				stmt 	(.createStatement conn)
-    				user-list (resultset-seq (.executeQuery stmt query))
-    				dummy 	(.close conn)]
-      			user-list))
-
-      	(defn get-user-column [column]
-      		(str "<td>" column "</td>"))
-
-      	(defn get-user-row [user]
-      		(let [full-name (str (user :fname) " " (user :lname))
-      				edit-url (str l/edit-user-path (user :userid))
-      				bokwang-profile (str "<a href='" edit-url "'>" full-name "</a>")
-      				fb-link (str "<a href='" (user :fb_profile) "'>facebook</a>")
-      				fb-icon-tag (str "<a href='" (user :fb_profile) "'><img src='http://lotus-zen.com/btn/fb-icon.png'></a>")
-      				
-      				update-btn (str "<a href='" edit-url "'>edit</a>")]
-    	  		(str "<tr>" (get-user-column (str bokwang-profile " " fb-icon-tag))
-    	  			(get-user-column (user :level))
-    	  			(get-user-column (user :email))
-    	  			(get-user-column (user :phone))
-    				(get-user-column (user :comment))
-    	  				"</tr>")))
-    	nil
-    }
-
-
-    <div class="page-header">
-      <h1 class="text-success">List of all users</h1>
+      	%{ (apply str (map get-user-row users)) }
+      </table>
     </div>
-    <table class="table table-hover table-striped table-responsive">
-    	<tr>
-    		<th>Name</th>
-    		<th>Level</th>
-    		<th>Email</th>
-    		<th>Phone</th>
-    		<th>Comment</th>
-    	</tr>
-
-    	%{ (apply str (map get-user-row users)) }
-    </table>
+  </div>
  </div>
 </div>
     <br><br>
