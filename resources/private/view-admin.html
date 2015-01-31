@@ -12,24 +12,58 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
 	<title>Bokwang Centre - Admin</title>  
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">   
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'> 
+    <link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .subhead{ 
+        background-image:url('%{l/image-host}/footer.png');    
+      } 
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
+      }
+    </style>
 </head>
 <body>
 
-<p>this is an admin account. Hi %(user :fname)! </p>
+<div class="container biggest">
 
-%include {"private/member-list.html"}
-
-
-%include {"private/document-list-admin.html"}
-
-<br><br><br>
-
-%include {"private/doc-upload.html"}
+  %include {"util/header.html"}    
 
 
+  <div class="container whiteBgr">  
+	<p>this is an admin account. Hi %(user :fname)! </p>
+
+	%include {"private/member-list.html"}
+
+
+	%include {"private/document-list-admin.html"}
+
+	<br><br><br>
+
+	%include {"private/doc-upload.html"}
+
+  </div>
+</div>
+
+   
+<br><br><br><br>
+
+%include {"util/footer.html"}
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>
