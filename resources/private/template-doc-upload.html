@@ -76,31 +76,8 @@
   </div><!--col-sm-8-->
 
 
-  <div class="col-sm-3">
-    <div class="panel panel-info">
-      <div class="panel-heading"><b>Attachments</b></div>
-      <div class="panel-body">
-        <ul class="list-group" id="uploaded_files">
-          %{
-          (defn get-file-html [doc-id file]
-              (str "<li class='list-group-item' id='existed_file_div_" (file :name) "'>"
-                  "<a href='" l/uploaded-file-path (file :name) "'>" (file :name) "</a>"
-                  "<img style='margin-left:10px; cursor: pointer;' onclick='delete_uploaded_file(\"" doc-id "\", \"" (file :name) "\")' src='http://lotus-zen.com/btn/del-btn.png'/>"
-                  "</li>"))
-
-          (if-let [doc-id (params :doc-id)]
-              (let [query (str "select name from upload_files where doc_id='" doc-id "'")
-                    conn  (DriverManager/getConnection l/bokwang-db-url)
-                      stmt (.createStatement conn)
-                      files (resultset-seq (.executeQuery stmt query))
-                      dummy (.close conn)
-                      ]
-                  (reduce str (map #(get-file-html doc-id %) files))))
-          }
-        </ul>
-      </div>
-    </div>
-  </div>
+  <!-- <div class="col-sm-3">
+  </div> -->
 
 </div>
 
