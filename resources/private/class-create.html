@@ -5,8 +5,12 @@
 	(import '(java.sql DriverManager))
 }
 
+%{
+  (def user (params :user)) 
+  nil
+}
+
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,59 +36,38 @@
     </style>
 </head>
 <body>
-  <div class="container biggest">
 
-    %include {"util/header.html"}    
-
-
-    <div class="container whiteBgr">
-%{
-	(def doc-id (params :doc-id))
-	
-	(def doc 
-  		(let [query (str "select * from doc where doc_id = '" doc-id "'")
-  				conn 	(DriverManager/getConnection l/bokwang-db-url)
-  				stmt 	(.createStatement conn)
-				documents (resultset-seq (.executeQuery stmt query))
-				dummy 	(.close conn)]
-  			(first documents)))
-
-  	(def content (clojure.string/replace (doc :content) #"\r\n" ""))
-
-  	nil
-}
-
-<p> </p>
-
-<p class="alert alert-success">Upload date: %(doc :upload_date) </p>
-
-<a href='%(str l/view-doc-path doc-id)'> View this document </a>
-
-%include {"private/doc-upload.html"}
-
-
-  </div>
+<div class="container biggest">
+  %include {"util/header.html"}    
 </div>
 
+<div id="error"> Error goes here </div>
+Only Class Title is required *
+<br>
+Create a class:
+<form id="zen_class_form" action="/class-regis" method="post" >
+	Class Title<br> <input type="text" name="title"> * <br>
 
+	Location<br> <input type="text" name="location">
+
+	Note 
+	<textarea rows="4" cols="50">	</textarea>
+
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>
+   
 <br><br><br><br>
 
 %include {"util/footer.html"}
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <script>
-$("#doc_title").val("%(doc :title)");
-$("#doc_level").val("%(doc :level)");
-
-var hidden_id_input = '<input id="%(doc :doc_id)" type="text" name="doc_id" style="display:none" value="%(doc :doc_id)"/>';
-$("#upload_form").append(hidden_id_input);
-
-CKEDITOR.on('instanceReady', 
-	function(){ 
-		CKEDITOR.instances.editor1.insertHtml('%content');
-	}); 
+  $(document).ready(function(){
+         
+    $(".searchble").click(function(){
+       $(".searchbox").slideToggle();    
+    });
+  });
 </script>
-
-
 </body>
 </html>

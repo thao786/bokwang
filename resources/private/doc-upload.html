@@ -1,116 +1,76 @@
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
-<h1>upload or edit a document</h1>
-<p>you can upload a file and/or paste the content here</p>
+%{(require 
+           '[sodahead.render :as r]
+           '[bokwang.lib :as l])
 
-<div id="error"> </div>
+  (import '(java.sql DriverManager))
+}
 
-<!-- Place inside the <head> of your HTML -->
-<script src="http://cdn.ckeditor.com/4.4.6/standard/ckeditor.js"></script>
+%{
+  (def user (params :user)) 
+  nil
+}
+
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
+    <title>Bokwang Centre - Admin</title>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'> 
+    <link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .subhead{ 
+        background-image:url('%{l/image-host}/footer.png');    
+      } 
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
+      }
+    </style>
+</head>
+<body>
+
+<div class="biggest">
+
+%include {"util/header-private.html"}
 
 
-<img id="upload-pic-link" onclick="upload_pic();" src="http://lotus-zen.com/btn/upload-pic-btn.png"/>
-<input id="insertImgInput" onchange="insertAjax()" name="insertImgInput" type="file" style="display:none" multiple/><br>
+  <div class="whiteBgr">  
+    <br>
+
+    <div class="row">    
+      <div class="col-sm-2">
+          %include {"private/private-nav-bar.html"}
+      </div>
 
 
+      %include {"private/template-doc-upload.html"}
+  </div>  
+ </div>
+</div>
 
-<form id="upload_form" action="/upload" method="post" enctype="multipart/form-data">
-    Category:
-    <input id="checkbox_zen" type="checkbox" name="category" value="zen">zen
-    <input id="checkbox_qigong" type="checkbox" name="category" value="qigong">qigong
-    <input id="checkbox_other" type="text" name="category"/> Other<br>
-    level <input id="doc_level" type="text" name="level"/><br>
-  	document title <input id="doc_title" type="text" name="title"/><br>
+   
+<br><br><br><br>
 
-  	<textarea name="content" id="editor1" rows="10" cols="80"></textarea>
-
-    <input id="upload_f" type="submit" name="submit" value="submit" /><br><br>
-
-    <button type="button" onclick="more_upload_tag ()" >Add Files</button>
-
-</form>
-
-
-
-
-
+%include {"util/footer.html"}
 
 <script>
-var div_count = 2;
-$("#upload_form").append(upload_div(0));
-$("#upload_form").append(upload_div(1));
+$("#upload-doc-link").addClass("active");
 
-function upload_div(number){
-    var id = "div_upload_" + number;
-    var tag = '<div id="' + id + '">' +
-        '<input name="files" type="file" multiple/>' +
-        '<img onclick="delete_div(\'' + id + '\');" src="http://lotus-zen.com/btn/del-btn.png"/>' +
-        '<br>' +
-        '</div>';
-    return tag;
-}
-
-function delete_div (id){
-    $("#" + id).html('');
-}
-
-function more_upload_tag (){
-    $("#upload_form").append(upload_div(div_count));
-    div_count ++;
-
-    $("#upload_form").append(upload_div(div_count));
-    div_count ++;
-}
-
-CKEDITOR.replace( 'editor1', {
-    height: '500', 
-    width: '1000',
-    on: {
-    	instanceReady: function() {
-           // this is current editor instance
-           //this.insertHtml('<h1>someText</h1>');
-       	}
-    }
-});
-
-function upload_pic (){
-    $("#insertImgInput").click();
-}
-
-function insertAjax (){
-    var file = document.getElementById("insertImgInput");
-    var fd = new FormData();    
-    fd.append('file', file.files[0]);
-
-    $.ajax({
-        url: 'http://lotus-zen.com/file',
-        data: fd,
-        processData: false,
-        contentType: false,
-        type: 'POST',
-        success: function(data){
-            $("#error").html("");
-
-            if (data.charAt(0) == '<'){
-               CKEDITOR.instances.editor1.insertHtml(data);
-            }
-            else{
-                $("#error").html(data);
-            }
-        }
+  $(document).ready(function(){
+         
+    $(".searchble").click(function(){
+       $(".searchbox").slideToggle();    
     });
-}
-
+  });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
+</body>
+</html>

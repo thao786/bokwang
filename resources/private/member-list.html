@@ -1,20 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Bokwang Centre - view document</title>  
+	<title>Bokwang Centre - View document</title>  
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
 
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
 
+<div class="page-header">
+  <h1 class="text-success">Search for an user <small>Fill one of the space below</small></h1>
+</div>
 
-<p> Search for an user </p>
-
-<form action="/search" method="post">
-    First Name: <input type="text" name="fname"/> or Last Name: <input type="text" name="lname"/> or <br>
-    Email: <input type="text" name="email"/> or part of Comment: <input type="text" name="comment"/>
-    <input type="submit" name="submit" value="Search" />
+<form class="form-horizontal" action="/search" method="post">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">First Name</label>
+    <div class="col-sm-4">
+      <input type="email" class="form-control" name="fname" placeholder="Enter first name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Last Name</label>
+    <div class="col-sm-4">
+      <input type="password" class="form-control" name="lname" placeholder="Enter last name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-4">
+      <input type="password" class="form-control" name="email" placeholder="Enter email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Part of Comment</label>
+    <div class="col-sm-4">
+      <input type="password" class="form-control" name="comment" placeholder="Enter comments">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-success" name="submit" value="Search">Submit</button>
+    </div>
+  </div>
 </form>
 
 </br></br>
@@ -50,18 +76,22 @@
 }
 
 
-<p> List of all users </p>
-<table border="1">
+<div class="page-header">
+  <h1 class="text-success">List of all users</h1>
+</div>
+<table class="table table-hover table-striped table-responsive">
 	<tr>
-		<td>Name</td>
-		<td>Level</td>
-		<td>Email</td>
-		<td>Phone</td>
-		<td>Comment</td>
+		<th>Name</th>
+		<th>Level</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th>Comment</th>
 	</tr>
 
 	%{ (apply str (map get-user-row users)) }
 </table>
+
+<br><br>
 
 </body>
 </html>

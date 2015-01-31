@@ -1,0 +1,13 @@
+3. we never use 1 cuz pt^1 mod phi equals pt, which is the same as not encrypted.
+we dont use 2 cuz gcd(2,phi) is 2, not 1
+
+4. no. we pick n1 or n2 to be prime so that it is guaranteed that we can find n2 from n1.
+
+5. use fermat little theorem:
+	x = k^2 = s^(n-1) mimd n
+according to the theorem, if x isnt 1, n cant be prime
+
+6. since modulus n is part of the public key n, eve knows the 2 sites use the same n. 
+brute force all possible credit cards that satisfies:
+ct1 = pt ^ e1 mod R
+ct2 = pt ^ e2 mod R

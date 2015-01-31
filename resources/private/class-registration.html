@@ -1,0 +1,130 @@
+%{(require 
+           '[sodahead.render :as r]
+           '[bokwang.lib :as l])
+
+	(import '(java.sql DriverManager))
+}
+
+%{
+  (def user (params :user))
+  (def class-id (params :class-id))
+  nil
+}
+
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
+  	<title>Bokwang Centre - Admin</title>  
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">   
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'> 
+    <link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url("%{l/image-host}/zen-1.png"), url("%{l/image-host}/zen-2.png");
+      }
+      .subhead{ 
+        background-image:url('%{l/image-host}/footer.png');    
+      } 
+      .biggest{
+        background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
+      }
+    </style>
+</head>
+<body>
+
+<div class="container biggest">
+  %include {"util/header.html"}    
+</div>
+
+<div id="error"> Error goes here </div><br>
+
+<div id="class_info">
+  Class Title: %(params :title) <br>
+  Class Location: %(params :location) <br>
+  Class Time: %(params :time) <br>
+</div><br>
+
+
+Class Participants:
+<div id="student_list">
+</div>
+
+<button class="btn btn-default" onclick='more_row(5);'>Get More Rows</button>
+ 
+<br><br><br><br>
+
+%include {"util/footer.html"}
+
+<script>
+var div_count = 5;
+
+for (i = 0; i < div_count; i++) { 
+    $("#student_list").append(form_div(i));
+}
+
+function more_row(n){
+    for (i = div_count; i < div_count + n; i++) { 
+        $("#student_list").append(form_div(i));
+    }
+
+    div_count = div_count + n;
+}
+
+function form_div(id){
+    var tag = '<div id="student_' + id + '">' +
+        'Full Name <input id="name_' + id + '" type="text" name="student_name"> * ' +
+        'Email <input id="email_' + id + '" type="email" name="email"><br>'+
+        'Note <input id="note_' + id + '" type="text" name="note">' +
+        '<button onclick="submit_student_ajax(' + id + ')" class="btn btn-default">Submit</button>' +
+        '</div><br>';
+    return tag;
+}
+
+function get_succeed_student_row(name, email, note){
+    return "Full Name: " + name +
+    "Email: " + email +
+    "Note: " + note;
+}
+
+function submit_student_ajax(id){
+    if ($("#name_" + id).val().trim() == ""){
+        $("#error").html("Name cannot be empty!");
+        return;
+    }
+
+    $.ajax({
+        url: 'http://lotus-zen.com/class-regis/%(params :class-id)',
+        data: {
+            name: $("#name_" + id).val(), 
+            email: $("#email_" + id).val(),
+            note: $("#note_" + id).val()},
+        processData: true,
+        type: 'POST',
+        success: function(data){
+            $("#error").html("");
+
+            $("#student_" + id).html(
+                get_succeed_student_row(
+                    $("#name_" + id).val(),
+                    $("#email_" + id).val(),
+                    $("#note_" + id).val()));
+        }
+    });
+}
+
+$(document).ready(function(){
+    $(".searchble").click(function(){
+       $(".searchbox").slideToggle();    
+    });
+});
+</script>
+</body>
+</html>

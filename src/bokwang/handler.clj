@@ -15,6 +15,7 @@
             [bokwang.donate :as donate]
             [bokwang.private :as private]
             [bokwang.user :as user]
+            [bokwang.class :as c]
             [bokwang.doc :as doc]))
 
 
@@ -69,9 +70,10 @@
 	(context "/private" []
 		(GET "/" request (private/first-view-get request))
 		(POST "/" request (private/log-in request))) ;this expect a fb-session-id in request
-	    
-
+	  
 	(GET  "/test/:id" request (str request))
+
+	(GET  "/upload-doc" request (r/render "private/doc-upload.html"))
 
 
 
@@ -81,21 +83,29 @@
 
 	(GET "/doc/:doc_id" request (r/render "private/view-document.html" 
 			{:doc-id (-> request :params :doc_id) :cookie (((request :cookies) "zen") :value)}))
+
 	(GET "/edit-doc/:doc_id" [doc_id] (r/render "private/edit-document.html" {:doc-id doc_id}))
 
 	(GET "/edit-user/:user_id" [user_id] (r/render "private/edit-user.html" {:user-id user_id}))
 	(mp/wrap-multipart-params 
 	    	(POST "/edit-user" request (user/handle-user request)))
 
+	; (GET "/class-regis" request (r/render "private/class-create.html"))
+	; (mp/wrap-multipart-params 
+	;     	(POST "/class-regis" request (c/create-zen-class request)))
+
+	; (GET "/class-regis/:class_id" request (r/render "private/class-registration.html" {:class-id (-> request :params :class_id)}))
+	; (mp/wrap-multipart-params 
+	;     	(POST "/class-regis/:class_id" request (c/add-class-student request)))
+
 	(GET "/file/:name" [name] (io/resource name))
-
-
 	(mp/wrap-multipart-params 
     	(POST "/file" request (doc/cke-store-img request)))
 
+	(POST "/delete-doc" request (doc/delete-doc (-> request :params :doc_id)))
+	(POST "/delete-attachment" request (doc/delete-attachment (-> request :params :doc_id) (-> request :params :file_name)))
 
-
-	 
+	
 	(route/resources "/")
 	(route/not-found (r/render "404.html")))
 

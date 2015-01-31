@@ -1,0 +1,19 @@
+3. Bob is sure Alice sent it because only she and him know the key and he didnt send it. Alice can deny it by saying Bob sent it to himself.
+
+4. you can send the credit card M by encrypting it wt their public key then only them who has the private key can decrypt it.
+For you to receive the confirmation number, you can pick a symmetric key first to send it along with M. The site can encrypt confirmation number wt this symmetric key before sending it to you.
+
+5. authentication and non-repudiation: needs something ONLY Alice knows and unique to Alice.
+	Alice encrypts msg wt her private key and send it to Bob. He decrypt by using her public key (no confidentiality)
+	wt confidentiality: encrypt the above once more wt Bob's public key.
+
+6. known ciphertext: list out frequencies of each character -> map the characters according to its natural frequencies in each languages.
+
+7. known plain-text: we only need 2 different letters to crack Affine.
+	c1 = ap1 + b mod 26
+	c2 = ap2 + b mod 26
+	-> a = (D-1)(p1 - p2) mod 26 
+D-1 is the inverse of (c1 - c2) mod 26. This could be found by looping through 1-25.
+	-> b = c1 - ap1
+
+8. no, because multiple rounds of affine is as effective as 1.

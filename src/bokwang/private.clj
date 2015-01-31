@@ -133,6 +133,3 @@
 	(if-let [fb-session (-> request :params :fb_session)]
 		(first-view-post-fbID request fb-session)
 		(password-check request)))
-
-
-
