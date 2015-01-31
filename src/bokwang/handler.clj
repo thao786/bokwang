@@ -70,9 +70,10 @@
 	(context "/private" []
 		(GET "/" request (private/first-view-get request))
 		(POST "/" request (private/log-in request))) ;this expect a fb-session-id in request
-	    
-
+	  
 	(GET  "/test/:id" request (str request))
+
+	(GET  "/upload-doc" request (r/render "private/doc-upload.html"))
 
 
 

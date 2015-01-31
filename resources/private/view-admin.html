@@ -19,7 +19,8 @@
   	<title>Bokwang Centre - Admin</title>  
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   	<!-- Bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">   
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'> 
     <link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
     <link  href="%{l/static-file-host}/csssheet.css" rel="stylesheet">
@@ -47,7 +48,7 @@
 
   	<div class="row">    
       <div class="col-sm-2">
-          %include {"util/zen-nav-bar.html"}
+          %include {"private/private-nav-bar.html"}
       </div>
 
       <div class="col-sm-9" style="border-left: solid 1px #dfdeeb;">
@@ -60,8 +61,6 @@
 
 			 <br><br><br>
 
-			 %include {"private/doc-upload.html"}
-
 		  </div>
 	</div>	
  </div>
@@ -71,15 +70,15 @@
 <br><br><br><br>
 
 %include {"util/footer.html"}
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-   <script>
-      $(document).ready(function(){
-             
-        $(".searchble").click(function(){
-           $(".searchbox").slideToggle();    
-        });
-      });
-   </script>
+<script>
+$("#main-library-link").addClass("active");
+
+$(document).ready(function(){
+    $(".searchble").click(function(){
+       $(".searchbox").slideToggle();    
+    });
+});
+</script>
 </body>
 </html>
