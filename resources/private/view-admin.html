@@ -16,9 +16,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
-	<title>Bokwang Centre - Admin</title>  
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<!-- Bootstrap -->
+  	<title>Bokwang Centre - Admin</title>  
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	<!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">   
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'> 
     <link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
@@ -37,17 +37,18 @@
 </head>
 <body>
 
-<div class="container biggest">
+<div class="biggest">
 
-  %include {"util/header.html"}    
+%include {"util/header-private.html"}
 
 
-  <div class="container whiteBgr">  
+  <div class="whiteBgr">  
+    <br>
 
-  	<br>
-  	<br>
-
-  	<div class="row">
+  	<div class="row">    
+      <div class="col-sm-2">
+          %include {"util/zen-nav-bar.html"}
+      </div>
 
       <div class="col-sm-9" style="border-left: solid 1px #dfdeeb;">
 			 <p class="alert alert-info">This is an admin account. Hi <span class="text-warning"><i><b>%(user :fname)! </b></i></span></p>

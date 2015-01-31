@@ -1,0 +1,139 @@
+sudo gedit /sys/class/backlight/intel_backlight/brightness
+
+php home folder: /var/www/html
+sudo /etc/init.d/apache2 restart
+
+sudo apachectl start
+
+ssh thao@50.116.53.36
+ssh thao@104.200.28.224
+
+database server:
+psql -h 50.116.53.36 -U thao -d bokwang
+
+
+nginx:
+sudo service nginx reload
+sudo nano /etc/nginx/nginx.conf
+sudo gedit /etc/nginx/nginx.conf
+
+
+
+curl -X GET 'http://lotus-zen.com/fb-info.php'
+
+
+
+scp plink cse03257@red.cs.yorku.ca:/eecs/home/cse03257
+
+
+
+xbacklight -set 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sudo nano /etc/postfix/main.cf
+sudo nano /etc/postfix/virtual
+sudo /etc/init.d/postfix reload
+sudo service postfix restart
+cat /var/mail/thao
+
+
+
+
+to do: make a group-map: multiple key - multiple values
+regular maps: {:a 2 :b 4 :c 6}
+goal: map = {:a {} :b {} :c {}}
+(map :a)
+
+
+bokwang facebook:
+278376725619348
+c708ce358828a1319e349c3a4fe68250
+
+
+mysqladmin -p create mailserver
+mysql -p mailserver
+GRANT SELECT ON mailserver.* TO 'mailuser'@'127.0.0.1' IDENTIFIED BY 'fall2010';
+FLUSH PRIVILEGES;
+
+CREATE TABLE `virtual_domains` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `virtual_users` (
+  `id` int(11) NOT NULL auto_increment,
+  `domain_id` int(11) NOT NULL,
+  `password` varchar(106) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  FOREIGN KEY (domain_id) REFERENCES virtual_domains(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `mailserver`.`virtual_domains`
+  (`id` ,`name`)
+VALUES
+  ('1', 'trangngontinh.com');
+
+INSERT INTO `mailserver`.`virtual_users`
+  (`id`, `domain_id`, `password` , `email`)
+VALUES
+  ('1', '1', ENCRYPT('fall2010', CONCAT('$6$', SUBSTRING(SHA(RAND()), -16))), 'sales@trangngontinh.com'),
+  ('2', '1', ENCRYPT('fall2010', CONCAT('$6$', SUBSTRING(SHA(RAND()), -16))), 'subscribers@trangngontinh.com');
+
+sudo postmap -q trangngontinh.com mysql:/etc/postfix/mysql-virtual-mailbox-domains.cf
+sudo postmap -q trangngontinh.com mysql:/etc/postfix/mysql-virtual-mailbox-maps.cf
+sudo postmap -q trangngontinh.com mysql:/etc/postfix/mysql-virtual-alias-maps.cf
+
+
+
+
+
+
+
+
+
+(ns my-app (:require [taoensso.carmine :as car :refer (wcar)]))
+(def server1-conn {:pool {} :spec {:host "50.116.53.36" :port 6379}})
+(defmacro wcar* [& body] `(car/wcar server1-conn ~@body))
+
+(wcar* (car/ping)
+       (car/set "foo" "bar")
+       (car/get "foo"))
+
+
+
+
+
+
+
+

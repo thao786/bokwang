@@ -102,7 +102,9 @@
     	(POST "/file" request (doc/cke-store-img request)))
 
 	(POST "/delete-doc" request (doc/delete-doc (-> request :params :doc_id)))
-	 
+	(POST "/delete-attachment" request (doc/delete-attachment (-> request :params :doc_id) (-> request :params :file_name)))
+
+	
 	(route/resources "/")
 	(route/not-found (r/render "404.html")))
 

@@ -2,6 +2,9 @@
   <h1 class="text-success">Upload or edit a document <small>You can upload a file and/or paste the content here</small></h1>
 </div>
 
+
+<div id="announcement"></div>
+
 <div id="error"> </div>
 
 <!-- Place inside the <head> of your HTML -->
@@ -84,9 +87,9 @@
         <ul class="list-group" id="uploaded_files">
           %{
           (defn get-file-html [doc-id file]
-              (str "<li  class='list-group-item' id='existed_file_div_" (file :name) "'>"
+              (str "<li class='list-group-item' id='existed_file_div_" (file :name) "'>"
                   "<a href='" l/uploaded-file-path (file :name) "'>" (file :name) "</a>"
-                  "<img style='margin-left:10px; cursor: pointer;' onclick='delete_uploaded_file(\"" doc-id ", " (file :name) "\")' src='http://lotus-zen.com/btn/del-btn.png'/>"
+                  "<img style='margin-left:10px; cursor: pointer;' onclick='delete_uploaded_file(\"" doc-id "\", \"" (file :name) "\")' src='http://lotus-zen.com/btn/del-btn.png'/>"
                   "</li>"))
 
           (if-let [doc-id (params :doc-id)]
@@ -109,7 +112,23 @@
 
 <script>
 function delete_uploaded_file(doc, file){
-    alert(doc, file);
+    $.ajax({
+        url: 'http://lotus-zen.com/delete-attachment',
+        data: {doc_id: doc, file_name: file},
+        processData: true,
+        type: 'POST',
+        success: function(data){
+            if (data == "OK"){
+                div_id = "#existed_file_div_" + file;
+                div_id = div_id.replace(".", "\\."); alert(div_id);
+                $(div_id).remove();
+                $("#announcement").html(file + " has been deleted.");
+            }
+            else{
+                $("#error").html("Can't delete file. Please try sometimes later.");
+            }
+        }
+    });
 }
 
 var div_count = 2;
@@ -125,7 +144,6 @@ function upload_div(number){
 }
 
 function delete_div (id){
-  //  $("#" + id).html('');
     $("#" + id).remove();
 }
 

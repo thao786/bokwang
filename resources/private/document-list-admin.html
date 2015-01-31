@@ -2,7 +2,7 @@
 
 %{  
   (def documents
-      (let [query "select * from doc ORDER BY update_date"
+      (let [query "select * from doc ORDER BY update_date DESC"
           conn  (DriverManager/getConnection l/bokwang-db-url)
           stmt (.createStatement conn)
           documents (resultset-seq (.executeQuery stmt query))
@@ -57,7 +57,6 @@
 
 <script>
 function delete_doc(doc_id){
-
     $.ajax({
         url: 'http://lotus-zen.com/delete-doc',
         data: {doc_id: doc_id},

@@ -127,6 +127,16 @@
 			dummy (.close conn)]
 		"OK"))
 
+(defn delete-attachment [doc-id attachement-name]
+	(let [query 	(str "delete from upload_files where doc_id=? and name=?")
+			conn 	(DriverManager/getConnection l/bokwang-db-url)
+			stmt 	(.prepareStatement conn query)
+			stmt 	(doto stmt 
+						(.setString 1 doc-id)
+						(.setString 2 attachement-name))
+			dummy 	(.executeUpdate stmt)
+			dummy (.close conn)]
+		"OK"))
 
 (defn handle-doc
 	"store in postgres"
