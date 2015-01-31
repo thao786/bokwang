@@ -74,7 +74,8 @@
 	(GET  "/test/:id" request (str request))
 
 	(GET  "/upload-doc" request (r/render "private/doc-upload.html"))
-
+	(GET  "/member-list" request (r/render "private/member-list.html"))
+	(GET  "/add-member" request (r/render "private/member-list.html"))
 
 
 	(GET  "/upload" [] (r/render "file.html"))
