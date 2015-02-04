@@ -5,18 +5,13 @@
   (import '(java.sql DriverManager))
 }
 
-%{
-  (def user (params :user)) 
-  nil
-}
-
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
-    <title>Bokwang Centre - Admin</title>  
+    <title>Bokwang Centre - category control</title>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +37,6 @@
 
 %include {"util/header-private.html"}
 
-
   <div class="whiteBgr">  
     <br>
 
@@ -52,9 +46,45 @@
       </div>
 
       <div class="col-sm-9" style="border-left: solid 1px #dfdeeb;">
-       <p class="alert alert-info">Hi <span class="text-warning"><i><b>%(user :fname)! </b></i></span></p>
+          
+          <div id="announcement"></div>
 
-			 %include {"private/document-list.html"}
+          <div id="error"></div>
+
+			     Current available Categories:
+
+          <div id='category-div-sample'>
+              <span id='category-span-sample'>sample category</span>
+              <img id='category-img-sample' src='http://lotus-zen.com/btn/del-btn.png'/>
+          </div>
+
+%{
+  (def categories
+      (let [query (str "select * from category_list")
+          conn  (DriverManager/getConnection l/bokwang-db-url)
+          stmt (.createStatement conn)
+          categories (resultset-seq (.executeQuery stmt query))
+          dummy (.close conn)]
+      categories))
+
+  (defn get-category-row [cat]
+      (let [id (cat :id)
+            name (cat :category)]
+          (str "<div id='category-div-" id "'>"
+            "<span id='category-span-sample'>" name "</span>"
+            "<img id='category-img-" id "' onclick='delete_cat(\"" id "\")' src='http://lotus-zen.com/btn/del-btn.png'/>"
+            "</div>")))
+
+  (apply str (map get-category-row categories))
+}
+<br>
+
+Add Category:
+
+<form action="/add-category-list" method="post">
+    Category: <input type="text" name="category">
+    <button type="submit" class="btn btn-success" name="submit" >Submit</button>
+</form>
 
        <br><br><br>
 
@@ -69,12 +99,32 @@
 %include {"util/footer.html"}
 
 <script>
-$("#main-library-link").addClass("active");
+$("#category-link").addClass("active");
+
 $(document).ready(function(){
     $(".searchble").click(function(){
        $(".searchbox").slideToggle();    
     });
 });
+
+function delete_cat(cat){
+  $.ajax({
+        url: 'http://lotus-zen.com/delete-category-list',
+        data: {cat_id: cat},
+        processData: true,
+        type: 'POST',
+        success: function(data){
+            if (data == "OK"){
+                $("#category-div-" + cat).remove();
+                $("#announcement").html("Category has been deleted.");
+            }
+            else{
+                $("#error").html("Can't delete category. Please try sometimes later.");
+            }
+        }
+    });
+}
+
 </script>
 </body>
 </html>

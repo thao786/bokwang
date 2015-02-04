@@ -1,0 +1,40 @@
+adduser thao
+visudo
+ssh thao@104.200.28.224
+
+
+
+
+sudo apt-get update
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+
+sudo apt-get install oracle-java8-installer
+wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein --no-check-certificate
+chmod a+x lein
+mv lein /bin
+
+apt-get install nginx
+
+
+apt-get install git
+git init
+git remote add origin https://github.com/thao786/bokwang.git
+git remote add origin https://github.com/thao786/ngontinh.git
+
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=9999999999'
+git pull origin master
+
+
+
+sudo apt-get update
+sudo apt-get install build-essential
+sudo apt-get install tcl8.5
+wget http://download.redis.io/releases/redis-2.8.9.tar.gz
+tar xzf redis-2.8.9.tar.gz
+cd redis-2.8.9
+make
+sudo make install
+make distclean

@@ -48,40 +48,16 @@
 
     <div class="row">    
       <div class="col-sm-2">
-          %include {"private/private-nav-bar.html"}
-          <br><br>
-          
-    <div class="panel panel-info">
-      <div class="panel-heading"><b>Attachments</b></div>
-      <div class="panel-body">
-        <ul class="list-group" id="uploaded_files">
-          %{
-          (defn get-file-html [doc-id file]
-              (str "<li class='list-group-item' id='existed_file_div_" (file :name) "'>"
-                  "<a href='" l/uploaded-file-path (file :name) "'>" (file :name) "</a>"
-                  "<img style='margin-left:10px; cursor: pointer;' onclick='delete_uploaded_file(\"" doc-id "\", \"" (file :name) "\")' src='http://lotus-zen.com/btn/del-btn.png'/>"
-                  "</li>"))
-
-          (if-let [doc-id (params :doc-id)]
-              (let [query (str "select name from upload_files where doc_id='" doc-id "'")
-                    conn  (DriverManager/getConnection l/bokwang-db-url)
-                      stmt (.createStatement conn)
-                      files (resultset-seq (.executeQuery stmt query))
-                      dummy (.close conn)
-                      ]
-                  (reduce str (map #(get-file-html doc-id %) files))))
-          }
-        </ul>
+          %include {"private/private-nav-bar.html"}    
       </div>
+
+      <div class="col-sm-9" style="border-left: solid 1px #dfdeeb;">
+
+          %include {"private/template-doc-upload.html"}
+      </div>  
     </div>
-      </div>
-
-
-      %include {"private/template-doc-upload.html"}
-  </div>  
- </div>
+  </div>
 </div>
-
    
 <br><br><br><br>
 
@@ -89,13 +65,13 @@
 
 <script>
 $("#upload-doc-link").addClass("active");
+$("#attachment-div").hide();
 
-  $(document).ready(function(){
-         
+$(document).ready(function(){
     $(".searchble").click(function(){
        $(".searchbox").slideToggle();    
     });
-  });
+});
 </script>
 </body>
 </html>

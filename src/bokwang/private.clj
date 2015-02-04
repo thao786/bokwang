@@ -38,14 +38,9 @@
 		(if-let [user (get-user-basic-info user-id)]
 			(do ;inject to redis
 				(ses/cache cookie user)
-				(if (= (:role user) "admin") 	;if admin, show admin view
 					{:status 200
 					 :cookies {"zen" {:value cookie}}
-					 :body (r/render "private/view-admin.html" {:user user})}
-					
-					{:status 200
-					 :cookies {"zen" {:value cookie}}
-					 :body (r/render "private/view-member.html" {:user user})})))
+					 :body (r/render "private/view-admin.html" {:user user})}))
 		;no record wt such cookie, delete cookie and log in again
 		{:status 200
 		 :cookies {"zen" {:value "cookie" :max-age 1}}

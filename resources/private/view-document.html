@@ -27,20 +27,25 @@
       }
       .subhead{ 
         background-image:url('%{l/image-host}/footer.png');    
-      } 
+      }
       .biggest{
         background-image: url("%{l/image-host}/zenbg-1.png"), url("%{l/image-host}/zenbg-2.png");
       }
     </style>
 </head>
 <body>
-<div class="container biggest">
+<div class="biggest">
 
-  %include {"util/header.html"}    
+%include {"util/header-private.html"}
 
 
-  	<div class="container whiteBgr">
+  <div class="whiteBgr">  
+    <br>
 
+    <div class="row">    
+      <div class="col-sm-2">
+          %include {"private/private-nav-bar.html"}
+      </div>
 		%{
 			(def doc-id (params :doc-id))
 			(def cookie (params :cookie))
@@ -71,8 +76,33 @@
 		  	</h1>
 		</div>
 
+		<div id="attachment-div" class="panel panel-info">
+            <div class="panel-heading"><b>Attachments</b></div>
+            <div class="panel-body">
+              <ul class="list-group" id="uploaded_files">
+                %{
+                (defn get-file-html [doc-id file]
+                    (str "<li class='list-group-item' id='existed_file_div_" (file :name) "'>"
+                        "<a href='" l/uploaded-file-path (file :name) "'>" (file :name) "</a>"
+                        "</li>"))
+
+                (if-let [doc-id (params :doc-id)]
+                    (let [query (str "select name from upload_files where doc_id='" doc-id "'")
+                          conn  (DriverManager/getConnection l/bokwang-db-url)
+                            stmt (.createStatement conn)
+                            files (resultset-seq (.executeQuery stmt query))
+                            dummy (.close conn)
+                            ]
+                        (reduce str (map #(get-file-html doc-id %) files))))
+                }
+              </ul>
+            </div>
+        </div>
+
 		<p>%(doc :content) </p>
 	</div>
 </div>
+
+
 </body>
 </html>

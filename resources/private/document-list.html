@@ -1,0 +1,84 @@
+
+
+%{
+    (def role (user :role))
+    (def key-word (user :role))
+
+    (if (= role "admin")
+        (def level 1)
+        (def level (user :level)))
+
+    (def documents
+        (let [query (str "select * from doc where level >= " level " ORDER BY update_date DESC")
+            conn  (DriverManager/getConnection l/bokwang-db-url)
+            stmt (.createStatement conn)
+            documents (resultset-seq (.executeQuery stmt query))
+            dummy (.close conn)]
+        documents))
+
+    (defn get-doc-row [doc]
+        (let [doc-url (str l/view-doc-path (doc :doc_id))
+            link-tag (str "<a href='" doc-url "'>" (doc :title) "</a>")
+            get-td (fn [column] (str "<td>" column "</td>"))
+            edit-url (str l/edit-doc-path (doc :doc_id))
+            edit-link (str "<a href='" edit-url "'>edit</a>")
+            delete-link (str "<img onclick='delete_doc(\"" (doc :doc_id) "\")' src='http://lotus-zen.com/btn/del-btn.png'/>")]
+                (str "<tr id='row_" (doc :doc_id) "'>"
+                      (get-td link-tag)
+                      (get-td (doc :category))
+                      (get-td (doc :uploader))
+                      (get-td (doc :level))
+                      (get-td (doc :update_date))
+                      (get-td edit-link)
+                      (get-td delete-link)
+                      "</tr>")))
+
+
+  level
+}
+
+
+<div class="page-header">
+  <h1 class="text-success">List of all documents </h1>
+</div>
+
+
+<div id="announcement"></div>
+
+<div id="error"></div>
+
+<table class="table table-hover table-striped table-responsive">
+  <tr>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Uploader</th>
+    <th>Level</th>	
+    <th>Update Date</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+  %{ (apply str (map get-doc-row documents)) }
+</table>
+
+
+
+<script>
+function delete_doc(doc_id){
+    $.ajax({
+        url: 'http://lotus-zen.com/delete-doc',
+        data: {doc_id: doc_id},
+        processData: true,
+        type: 'POST',
+        success: function(data){
+            if (data == "OK"){
+                $("#row_" + doc_id).remove();
+                $("#announcement").html("File has been deleted.");
+            }
+            else{
+                $("#error").html("Can't delete file. Please try sometimes later.");
+            }
+        }
+    });
+}
+</script>

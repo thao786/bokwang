@@ -16,6 +16,7 @@
             [bokwang.private :as private]
             [bokwang.user :as user]
             [bokwang.class :as c]
+            [bokwang.category :as cat]
             [bokwang.doc :as doc]))
 
 
@@ -106,7 +107,10 @@
 	(POST "/delete-doc" request (doc/delete-doc (-> request :params :doc_id)))
 	(POST "/delete-attachment" request (doc/delete-attachment (-> request :params :doc_id) (-> request :params :file_name)))
 
-	
+	(GET  "/category-control" request (r/render "private/category-control.html"))
+	(POST "/delete-category-list" request (cat/delete-category-list (-> request :params :cat_id)))
+	(POST "/add-category-list" request (cat/add-category-list (-> request :params :category)))
+
 	(route/resources "/")
 	(route/not-found (r/render "404.html")))
 

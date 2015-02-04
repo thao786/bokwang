@@ -11,6 +11,7 @@
             [clojure.java.io :as io]
             [bokwang.session :as ses]
             [bokwang.user :as u]
+            [bokwang.category :as cat]
             [bokwang.lib :as l]))
 
 (defn make-sense-str [long-title]
@@ -157,7 +158,9 @@
 			now 	(java.sql.Date. (.getTime (java.util.Date.)))]
 		(if-let [doc-id ((request :params) :doc_id)]
 			(do (edit-doc request doc-id title level content category now)
+				;(cat/store-category-doc doc-id (params :category))
 				(doall (handle-upload-files doc-id (params :files)))
+					(cat/store-category-doc doc-id (params :category))
 					{:status 302
 			   		:headers {"Location" (str "http://lotus-zen.com/edit-doc/" doc-id)}
 			   		:body (r/render "private/edit-document.html" {:doc-id doc-id})})

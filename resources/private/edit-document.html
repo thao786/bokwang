@@ -32,12 +32,19 @@
     </style>
 </head>
 <body>
-  <div class="container biggest">
+<div class="biggest">
 
-    %include {"util/header.html"}    
+  %include {"util/header-private.html"}
 
+  <div class="whiteBgr"><br>
+    <div class= "row">
 
-    <div class="container whiteBgr">
+      <div class="col-sm-2">
+          %include {"private/private-nav-bar.html"}
+      </div>
+
+      <div class="col-sm-9" style="border-left: solid 1px #dfdeeb;">
+
 %{
 	(def doc-id (params :doc-id))
 	
@@ -60,9 +67,9 @@
 
 <a href='%(str l/view-doc-path doc-id)'> View this document </a>
 
-%include {"private/doc-upload.html"}
-
-
+%include {"private/template-doc-upload.html"}
+    </div>
+  </div>
   </div>
 </div>
 
@@ -82,7 +89,11 @@ $("#upload_form").append(hidden_id_input);
 CKEDITOR.on('instanceReady', 
 	function(){ 
 		CKEDITOR.instances.editor1.insertHtml('%content');
-	}); 
+	});
+
+$("#edit-doc-link").show();
+$("#edit-doc-link").addClass("active");
+
 </script>
 
 
