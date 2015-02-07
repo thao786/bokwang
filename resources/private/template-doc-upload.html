@@ -23,7 +23,7 @@
                 user-list))
 
             (defn get-category-row [cat]
-              (str "<input type='checkbox' name='category' value='" (cat :id) "'> " (cat :category)))
+              (str "<input id='category_" (cat :id) "' type='checkbox' name='category' value='" (cat :id) "'> " (cat :category)))
 
           (apply str (map get-category-row categories))
       }

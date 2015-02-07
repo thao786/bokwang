@@ -1,5 +1,4 @@
 
-
 %{
     (def role (user :role))
     (def key-word (user :role))
@@ -22,19 +21,19 @@
             get-td (fn [column] (str "<td>" column "</td>"))
             edit-url (str l/edit-doc-path (doc :doc_id))
             edit-link (str "<a href='" edit-url "'>edit</a>")
-            delete-link (str "<img onclick='delete_doc(\"" (doc :doc_id) "\")' src='http://lotus-zen.com/btn/del-btn.png'/>")]
+            delete-link (str "<img onclick='delete_doc(\"" (doc :doc_id) "\")' src='http://lotus-zen.com/btn/del-btn.png'/>")
+            category-list (cat/get-category-from-doc-id (doc :doc_id))]
                 (str "<tr id='row_" (doc :doc_id) "'>"
                       (get-td link-tag)
-                      (get-td (doc :category))
-                      (get-td (doc :uploader))
+                      (get-td (util/concat-list category-list))
+                      (get-td (u/get-name (doc :uploader)))
                       (get-td (doc :level))
                       (get-td (doc :update_date))
                       (get-td edit-link)
                       (get-td delete-link)
                       "</tr>")))
 
-
-  level
+  nil
 }
 
 

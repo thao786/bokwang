@@ -54,5 +54,13 @@
 			dummy (.executeUpdate stmt query)]
 		(.close conn)))
 
-
+(defn get-name [user-id]
+	(let [query 	(str "select fname, lname from users where userid='" user-id "'")
+			conn (DriverManager/getConnection l/bokwang-db-url)
+			stmt (.createStatement conn)
+			result (first (resultset-seq (.executeQuery stmt query)))
+			dummy (.close conn)
+			fname (result :fname)
+			lname (result :lname)]
+		(str fname " " lname)))
 

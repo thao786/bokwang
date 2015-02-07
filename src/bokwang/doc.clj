@@ -11,17 +11,9 @@
             [clojure.java.io :as io]
             [bokwang.session :as ses]
             [bokwang.user :as u]
+            [bokwang.util :as util]
             [bokwang.category :as cat]
             [bokwang.lib :as l]))
-
-(defn make-sense-str [long-title]
-	(let [short-title (if (< (.length long-title) 50) 
-					long-title
-					(subs long-title 0 50))
-			filter-title (.replaceAll short-title "[^a-zA-Z0-9 ]" "")
-			title (.replaceAll filter-title " " "_")
-			now (System/currentTimeMillis)]
-		(str title now)))
 
 (defn store-file
 	"return the file name of uploaded file.
@@ -54,40 +46,37 @@
 
 (defn store-doc
 	"store in postgres"
-	[request title level content category now]
-	(let [doc-id (make-sense-str title)
+	[request title level content now]
+	(let [doc-id (util/make-sense-str title)
 			conn 	(DriverManager/getConnection l/bokwang-db-url)
-			query 	"INSERT INTO doc (doc_id, title, content, uploader, category, level, upload_date, update_date) 
-					VALUES(?, ?, ?, ?, ?, ?, ?, ?)"
+			query 	"INSERT INTO doc (doc_id, title, content, level, uploader, upload_date, update_date) 
+					VALUES(?, ?, ?, ?, ?, ?, ?)"
 			stmt 	(.prepareStatement conn query)
 			stmt 	(doto stmt
 						(.setString 1 doc-id)
 						(.setString 2 title)
 						(.setString 3 content)
-						(.setString 4 (ses/get-cache-req request :user-id))
-						(.setString 5 category)
-						(.setInt 6 level)
-						(.setDate 7 now)
-						(.setDate 8 now))
+						(.setInt 4 level)
+						(.setString 5 (ses/get-cache-req request :user-id))
+						(.setDate 6 now)
+						(.setDate 7 now))
 			dummy 	(.executeUpdate stmt)
 			dummy (.close conn)]
 		doc-id))
 
 (defn edit-doc
 	"store in postgres"
-	[request doc-id title level content category now]
+	[request doc-id title level content now]
 	(let [	conn 	(DriverManager/getConnection l/bokwang-db-url)
-			query 	(str "UPDATE doc SET title = ?, content = ?, category = ?, level = ?, update_date = ? where doc_id = '" doc-id "'")
+			query 	(str "UPDATE doc SET title = ?, content = ?, level = ?, update_date = ? where doc_id = '" doc-id "'")
 			stmt 	(.prepareStatement conn query)
 			stmt 	(doto stmt
 						(.setString 1 title)
 						(.setString 2 content)
-						(.setString 3 category)
-						(.setInt 4 level)
-						(.setDate 5 now))
-			dummy 	(.executeUpdate stmt)
-			dummy (.close conn)]
-		"edit"))
+						(.setInt 3 level)
+						(.setDate 4 now))
+			dummy 	(.executeUpdate stmt)]
+		(.close conn)))
 
 (defn check-category [categories]
 	(try
@@ -154,18 +143,16 @@
 			title (params :title)
 			level (u/check-level (params :level))
 			content (params :content)
-			category (check-category (params :category))
 			now 	(java.sql.Date. (.getTime (java.util.Date.)))]
 		(if-let [doc-id ((request :params) :doc_id)]
-			(do (edit-doc request doc-id title level content category now)
-				;(cat/store-category-doc doc-id (params :category))
+			(do (edit-doc request doc-id title level content now)
+				(cat/store-category-doc doc-id (params :category))
 				(doall (handle-upload-files doc-id (params :files)))
-					(cat/store-category-doc doc-id (params :category))
-					{:status 302
-			   		:headers {"Location" (str "http://lotus-zen.com/edit-doc/" doc-id)}
-			   		:body (r/render "private/edit-document.html" {:doc-id doc-id})})
+				{:status 302
+		   		:headers {"Location" (str "http://lotus-zen.com/edit-doc/" doc-id)}
+		   		:body (r/render "private/edit-document.html" {:doc-id doc-id})})
 
-			(let [doc-id (store-doc request title level content category now)]
+			(let [doc-id (store-doc request title level content now)]
 				(do (doall (handle-upload-files doc-id (params :files)))
 						{:status 302
 				   		:headers {"Location" (str "http://lotus-zen.com/edit-doc/" doc-id)}
