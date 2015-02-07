@@ -1,19 +1,22 @@
 
 %{
     (def role (user :role))
-    (def key-word (user :role))
+    (def column-search (params :column-search))
+    (def column-value (params :column-value))
 
     (if (= role "admin")
         (def level 1)
         (def level (user :level)))
 
     (def documents
-        (let [query (str "select * from doc where level >= " level " ORDER BY update_date DESC")
-            conn  (DriverManager/getConnection l/bokwang-db-url)
-            stmt (.createStatement conn)
-            documents (resultset-seq (.executeQuery stmt query))
-            dummy (.close conn)]
-        documents))
+        (if column-search
+            5
+            (let [query (str "select * from doc where level >= " level " ORDER BY update_date DESC")
+                conn  (DriverManager/getConnection l/bokwang-db-url)
+                stmt (.createStatement conn)
+                documents (resultset-seq (.executeQuery stmt query))
+                dummy (.close conn)]
+            documents)))
 
     (defn get-doc-row [doc]
         (let [doc-url (str l/view-doc-path (doc :doc_id))
@@ -33,8 +36,21 @@
                       (get-td delete-link)
                       "</tr>")))
 
-  nil
+    nil
 }
+
+<div id="search-div"> Filter Documents based on:
+    <form action="/search-doc" method="post">
+        Title: <input type="text" name="title">
+        Content: <input type="text" name="content">
+        Uploader: <input type="text" name="uploader">
+        Level: <input type="text" name="level">
+        Upload Date: <input id="upload_date" type="text" name="upload_date">
+        Update Date: <input type="text" name="update_date">
+
+        <button type="submit" class="btn btn-success" name="submit" >Submit</button>
+    </form>
+</div>
 
 
 <div class="page-header">
@@ -63,6 +79,8 @@
 
 
 <script>
+$("#upload_date").datepick();
+
 function delete_doc(doc_id){
     $.ajax({
         url: 'http://lotus-zen.com/delete-doc',
