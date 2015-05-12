@@ -33,24 +33,23 @@
 
 (defn view-based-on-cookie
 	"depends on the cookie, determine roles and render the correct view"
-	[cookie]
+	[cookie request]
 	(if-let [user-id (get-userid cookie)]
 		(if-let [user (get-user-basic-info user-id)]
 			(do ;inject to redis
 				(ses/cache cookie user)
-					{:status 200
-					 :cookies {"zen" {:value cookie}}
-					 :body (r/render "private/view-admin.html" {:user user})}))
+				{:status 200
+				 :cookies {"zen" {:value cookie}}
+				 :body (r/render "private/view-admin.html" {:user user :search (request :params)})}))
 		;no record wt such cookie, delete cookie and log in again
 		{:status 200
 		 :cookies {"zen" {:value "cookie" :max-age 1}}
 		 :body (r/render "private/login-form.html")}))
 
-
 (defn first-view-get [request]
 	(if-let [zen-cookie-map ((request :cookies) "zen")]
 		;has a cookie
-		(view-based-on-cookie (zen-cookie-map :value))
+		(view-based-on-cookie (zen-cookie-map :value) request)
 
 		;1st visit, there is no zen cookie
 		(r/render "private/login-form.html")))
@@ -103,7 +102,7 @@
 
 					dummy (if (= 0 (count existed-users))
 							(insert-fb-user fb-info))]
-				(view-based-on-cookie cookie))	;send cookie and render view 
+				(view-based-on-cookie cookie request))	;send cookie and render view 
 			"there is something wrong with your facebook session ID. Please try again.")))
 
 (defn password-check
@@ -120,7 +119,7 @@
 					(let [user-id (-> existed-users first :userid)]
 						(let [cookie (gen-cookie)
 								dummy (ses/cache cookie {:user-id user-id})]
-							(view-based-on-cookie cookie)))))
+							(view-based-on-cookie cookie request)))))
 			"please provide password")
 		"please provide email"))
 

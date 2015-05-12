@@ -1,16 +1,19 @@
 
 %{
     (def role (user :role))
-    (def column-search (params :column-search))
-    (def column-value (params :column-value))
+
+    (def search false)
+    (if (params :search)
+        (if (= (-> params :search :search) "yes")
+            (def search true)))
 
     (if (= role "admin")
         (def level 1)
         (def level (user :level)))
 
-    (def documents
-        (if column-search
-            5
+    (if search
+        (def documents (search/handle-search (params :search)))
+        (def documents
             (let [query (str "select * from doc where level >= " level " ORDER BY update_date DESC")
                 conn  (DriverManager/getConnection l/bokwang-db-url)
                 stmt (.createStatement conn)
@@ -36,18 +39,20 @@
                       (get-td delete-link)
                       "</tr>")))
 
-    nil
+    (params :search)
 }
 
-<div id="search-div"> Filter Documents based on:
-    <form action="/search-doc" method="post">
+<div id="search-div"> Filter Documents (the less filter you fill the more documents you will find):
+    <form action="/search-doc" method="post" onsubmit="$('#search_hidden_boolean').val('yes')">
         Title: <input type="text" name="title">
+        Category: <input type="text" name="category">
         Content: <input type="text" name="content">
         Uploader: <input type="text" name="uploader">
         Level: <input type="text" name="level">
-        Upload Date: <input id="upload_date" type="text" name="upload_date">
-        Update Date: <input type="text" name="update_date">
-
+        Upload Date: <input id="upload_date" type="text" name="uload_date">
+        Update Date: <input id="update_date" type="text" name="update_date">
+        
+        <input type="hidden" id="search_hidden_boolean" name="search" value="no">
         <button type="submit" class="btn btn-success" name="submit" >Submit</button>
     </form>
 </div>
@@ -79,7 +84,14 @@
 
 
 <script>
-$("#upload_date").datepick();
+function change_search_value(){
+    $("#search_hidden_boolean").val("yes");
+}
+
+$(document).ready(function(){
+    $("#upload_date").datepicker();
+    $("#update_date").datepicker();
+});
 
 function delete_doc(doc_id){
     $.ajax({

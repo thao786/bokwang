@@ -3,13 +3,14 @@
            '[bokwang.user :as u]
            '[bokwang.util :as util]
            '[bokwang.category :as cat]
+           '[bokwang.search_doc :as search]
            '[bokwang.lib :as l])
 
   (import '(java.sql DriverManager))
 }
 
 %{
-  (def user (params :user)) 
+  (def user (params :user))
   
   nil
 }
@@ -22,8 +23,9 @@
     <link rel="icon" href="%{l/image-host}/favicon.png" type="image/gif" sizes="20x20">
     <title>Bokwang Centre - Admin</title>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.js"></script>
-
+    <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>

@@ -16,6 +16,7 @@
             [bokwang.private :as private]
             [bokwang.user :as user]
             [bokwang.class :as c]
+            [bokwang.search_doc :as search_doc]
             [bokwang.category :as cat]
             [bokwang.doc :as doc]))
 
@@ -110,6 +111,8 @@
 	(GET  "/category-control" request (r/render "private/category-control.html"))
 	(POST "/delete-category-list" request (cat/delete-category-list (-> request :params :cat_id)))
 	(POST "/add-category-list" request (cat/add-category-list (-> request :params :category)))
+
+	(POST "/search-doc" request (private/first-view-get request))
 
 	(route/resources "/")
 	(route/not-found (r/render "404.html")))
