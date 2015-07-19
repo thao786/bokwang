@@ -1,11 +1,17 @@
 (ns bokwang.lib)
 
 
-(def static-file-host "http://lotus-zen.com/file")
-(def host "http://lotus-zen.com")
+;(def static-file-host "http://lotus-zen.com/file")
+(def static-file-host "")
+
+;(def host "http://lotus-zen.com")
+(def host "http://localhost:3000")
 
 (def bootstrap-host "http://lotus-zen.com/bootstrap")
-(def image-host "http://lotus-zen.com")
+
+;(def image-host "http://lotus-zen.com/image")
+(def image-host "image")
+
 
 (def fb-verify-server "http://lotus-zen.com/fb-info.php")
 
