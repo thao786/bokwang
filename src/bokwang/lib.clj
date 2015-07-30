@@ -4,8 +4,8 @@
 ;(def static-file-host "http://lotus-zen.com/file")
 (def static-file-host "")
 
-;(def host "http://lotus-zen.com")
-(def host "http://localhost:3000")
+(def host "http://lotus-zen.com")
+;(def host "")
 
 (def bootstrap-host "http://lotus-zen.com/bootstrap")
 

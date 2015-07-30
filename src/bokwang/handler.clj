@@ -15,6 +15,8 @@
 
 (defroutes app-routes
 	(GET "/" [] (r/render "index.html"))
+	(GET "/index.html" [] (r/render "index.html"))
+
 	(GET "/programs.html" [] (r/render "programs.html"))
 
 	(GET "/meditation.html" [] (r/render "meditation.html"))

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="image/favicon.png" type="image/gif" sizes="20x20">
+    <title>Zen Prayers</title>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">    
+    <link  href="/csssheet.css" rel="stylesheet">
+    <style>
+      body{
+          background-image: url("image/zen-1.png"), url("image/zen-2.png");
+      }
+      .subhead{ 
+        background-image:url('image/footer.png');    
+      } 
+      .biggest{
+        background-image: url("image/zenbg-1.png"), url("image/zenbg-2.png");
+      }
+      h3{
+        color: #aa531e;
+      }
+      .artist{
+        color:#937766;
+      }
+    </style>
+  </head>
+
+<body>
+
+<div class="container biggest">
+
+  
+
+
+<div class="container">
+  <div class="masthead">
+    <a href=""><img src="image/logo1.png" class="img-responsive" width="320" height="90"></a>
+    <!-- <a class="pull-right"><button type="button" class="btn btn-default">Login</button></a> -->
+    <nav id="navigation" class="site-navigation" role="navigation">
+      <ul class="menu">
+        <li id="home-tab" class="menu-item"><a href="">HOME</a></li>
+        <li id="about-tab" class="menu-item"><a href="/hae-kwang.html">OUR TEACHER</a>
+          <ul class="dropdown">
+            <li class="menu-item sub-menu"><a href="/about-taego.html">Taego Order</a></li>
+            <li class="menu-item sub-menu"><a href="/gallery.html">Community Activity</a></li>
+          </ul>
+        </li>
+        <li id="zen-tab" class="menu-item"><a href="/zen.html">ZEN TEACHING</a>
+          <ul class="dropdown">
+            <li class="menu-item sub-menu"><a href="/zen.html">Zen Buddhism</a></li>
+            <li class="menu-item sub-menu"><a href="/zen-prayers.html">Prayers</a></li> 
+          </ul>
+        </li>
+        </li>
+        <li id="programs-tab" class="menu-item"><a href="/programs.html">PROGRAMS</a>
+          <ul class="dropdown">
+            <li class="menu-item sub-menu"><a href="/meditation.html">Meditation</a></li>
+            <li class="menu-item sub-menu"><a href="/reflection-focusing.html">Zen Reflection</a></li>
+            <li class="menu-item sub-menu"><a href="/qigong.html">Qigong</a></li>            
+            <li class="menu-item sub-menu"><a href="/nstructor-training-about.html">Qigong Instructor Training</a></li>
+            <li class="menu-item sub-menu"><a href="/buddhist-study.html">Buddhism Studies</a></li>
+            <li class="menu-item sub-menu"><a href="/food-healing.html">Food Based Healing</a></li>
+          </ul>
+        </li>
+        <li id="faqs-tab" class="menu-item"><a href="https://bokwang.wordpress.com/">BLOGS</a></li>
+        <li id="calendar-tab" class="menu-item"><a href="/calendar.html">CALENDAR</a></li>
+        <li id="contact-tab" class="menu-item"><a href="/contact.html">CONTACT</a></li>
+         
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</div>    
+
+    <div class="container whiteBgr"> 
+          <ol class="breadcrumb">
+            <li><a href="">Home</a></li>
+            <li><a href="/zen.html">Zen</a></li>            
+            <li class="active">Zen Prayers</a></li>
+          </ol>
+<!--====================================================================-->
+
+
+      <div class="row">
+        <div class="col-sm-3">
+          
+
+<div class="list-group">
+  	<a id="zen-bud" href="/zen.html" class="list-group-item activeBgr"><b><span class="glyphicon glyphicon-leaf"></span> Zen Buddhism</b></a>
+    <a id="zen-prayers" href="/zen-prayers.html" class="list-group-item activeBgr"><b><span class="glyphicon glyphicon-leaf"></span> Prayers</b></a>
+</div>
+ 
+
+          
+      <div class="advertisement hidden-sm hidden-xs">
+
+        <hr>
+        <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FQiToday&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=60" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>
+
+        <h3 class="text-success text-center">Get A Membership</h3>
+        <p class="text-center"><button class="btn btn-md btn-default">Join Us</button></p>
+
+      <hr>
+
+<h3 class="text-success text-center">Join The Newsletters</h3>
+      <div class="form-group">
+
+      <form id="email_subscribe" action="/subscribe" name="email_subscribe" method="POST" enctype="multipart/form-data">
+        <input type="email"  class="form-control" style="margin-bottom:5px;" id="email" name="email" placeholder="Enter email" required>
+        <input type="text" maxlength="20" class="form-control" style="margin-bottom:5px;" id="fname" name="fname" placeholder="First Name">
+        <input type="text" maxlength="20" class="form-control" style="margin-bottom:5px;" id="lname" name="lname" placeholder="Last Name">
+        <input type="text" id="dummy" name="dummy" style="display: none;" >
+        <p class="text-center"><button id="email_subscribe_submit" class="btn btn-md btn-default">Subcribe</button></p>
+      </form>
+
+      <script>
+          $("#email_subscribe").click(function(){
+              $.post("/subscribe", {email: "txt@tr.ca"}, function(data){
+                  alert("Data: " );
+              });
+          });
+      </script>
+      </div>
+      <hr>
+
+
+
+
+
+
+
+
+
+
+      <hr>
+      <h3 class="text-success text-center">Donation</h3>
+      <p class="small text-muted">More than ever, your donation is needed to ensure that bolab kgiehw wfkw kf.</p>
+      <p class="text-center"><a href="/donation"><img src="http://www.credit-card-logos.com/images/multiple_credit-card-logos-2/credit_card_paypal_logos_2.gif" width="190" height="24" border="0"></a></p>
+      <hr>
+  </div>
+
+
+        </div>
+
+        <div class="col-sm-9" style="border-left: solid 1px #dfdeeb;">
+            <div class="pofbody">
+                <div class="header" style="margin-top:-40px;">
+                  <h1><b>World Peace & Healing Prayers</b></h1>
+                  <p>"We are all flowers in the Great Spirit's garden. We share a common root, and the root is Mother Earth."</p>
+                  <p class="text-right" style="margin-top:-10px;">- Hopi Prophecy -</span></p>
+                </div>
+              <hr>
+
+              <p class="text-center"><img src="image/prayer.jpg" class="img-thumbnail"></p>
+              <hr>
+
+      
+<h3>A Buddhist Prayer for Peace</h3>
+<p>May all beings everywhere plagued with sufferings of body and mind quickly be freed from their illnesses. <br>May those frightened cease to be afraid, and may those bound be free. <br>May the powerless find power and may people think of befriending one another. <br>May those who find themselves in trackless, fearful wildernesses - the children, the aged, the unprotected - be guarded by beneficent celestials, and may they swiftly attain Buddhahood.&nbsp;<br>&nbsp;-&nbsp;U.N. Day of Prayer for World Peace</p>
+
+<br>
+
+
+<h3>Earth Prayer</h3>
+<p>We gently caress you, the Earth, our planet and our home. <br>Our vision has brought us closer to you, making us aware of the harm we have done to the life-network upon which we ourselves depend. <br>We are reminded that we have poisoned your waters, your lands, your air.&nbsp; <br>We have filled you with the bones of our dead from war and greed.&nbsp; <br>Your pain is our pain. <br>Touching you gently, we pray that we may become peace-bringers and life-bringers so that our home in its journey around the Sun not become a sterile and lonely place.&nbsp; <br>May this prayer and its power last forever.&nbsp;&nbsp;&nbsp;<br>&nbsp;-&nbsp;Sensei Ulrich,&nbsp;Manitoba Buddhist Temple </p>
+
+   
+<br>
+
+<h3>Native American Proverb</h3>
+<p>Treat the earth well.  We do not inherit the earth from our ancestors, we borrow it from our children.<br>
+Sunset. Then I was standing on the highest mountain of them all, and round about beneath me was the whole hoop of the world. And while I stood there I saw more than I can tell and I understood more than I saw; for I was seeing in a sacred manner the shapes of all things in the spirit, and the shape of all shapes as they must live together like one being.<br>
+And I say the sacred hoop of my people was one of the many hoops that made one circle, wide as daylight and as starlight, and in the center grew one mighty flowering tree to shelter all the children of one mother and one father. And I saw that it was holy... But anywhere is the center of the world.&nbsp;&nbsp;&nbsp;<br>&nbsp;-&nbsp;Black Elk </p>
+
+   
+<br>
+
+<h3>Water Flows</h3>
+<p>Water flows over these hands.<br>May I use them skillfully<br>to preserve our precious planet.<br>&nbsp;-&nbsp;Thich Nhat Hanh</p>
+
+<br>
+
+
+<h3>Over Cherry Blossoms</h3>
+<p>Over cherry blossoms<br>white clouds<br>over clouds<br>the deep sky<br>over cherry blossoms<br>over clouds<br>over the sky<br>I can climb on forever<br>once in spring<br>I with god<br>had a quiet talk.<br>&nbsp;-&nbsp;Shuntaro Tanikawa</p>
+<font color="#666644">
+   
+   <br>
+
+
+</font>
+<h3>Golden Chain</h3>
+<p>I am a link in Lord Buddha’s golden chain of love that stretches around the world. <br>I must keep my link bright and strong. <br>I will try to be kind and gentle to every living thing, and protect all who are weaker than myself.&nbsp; <br>I will try to think pure and beautiful thoughts, to say pure and beautiful words, and to do pure and beautiful deeds, knowing that on what I do now depends my happiness and misery.<br>May every link in Lord Buddha’s golden chain of love become bright and strong and may we all attain perfect peace.<br>&nbsp;-&nbsp;Buddhist Prayer</p>
+<font color="#666644">
+   
+   <br>
+
+
+</font>
+<h3>Prayer of Lovingkindness</h3>
+<p>May all beings be peaceful.<br>May all beings be happy.<br>May all beings be safe.<br>May all beings awaken to <br>the light of their true nature.<br>May all beings be free.<br>&nbsp;-&nbsp;Metta Prayer</p>
+<font color="#666644">
+   
+   <br>
+
+
+</font>
+<h3>May Peace Harmonious</h3>
+<p>May peace harmonious bless this land;<br>May it be ever free from maladies and war;<br>May there be harvest rich, and increased yield of grain;<br>May everyone delight in righteousness;<br>May no perverted thought find entry to your minds;<br>May all your thoughts e’er pious be and lead<br>to your success religiously.<br>&nbsp;-&nbsp;Tibetan Great Yogi, Milarepa</p>
+<font color="#666644">
+   
+   <br>
+
+
+</font>
+<h3>Tibetan Wind Horse&nbsp;Prayer</h3>
+<p>As Wind carries our prayers for Earth and All Life, may respect and love light our way.<br>May our hearts be filled with compassion for others and for ourselves.<br>May peace increase on Earth. May it begin with me.<br>&nbsp;-&nbsp;Tibetan prayer flag is 'Lung ta', meaning 'Wind Horse'</p>
+<font color="#666644">
+   
+   <br>
+
+
+</font>
+<h3>Buddhist&nbsp;Prayer</h3>
+<p>We reverently pray for <br>eternal harmony in the universe.<br>May the weather be seasonable, <br>may the harvest be fruitful, <br>may countries exist in harmony, <br>and may all people enjoy happiness.&nbsp;<br>&nbsp;-&nbsp;Buddhist Prayer</p>
+
+<br>
+
+
+<h3>Bodhisattva Prayer for Humanity</h3>
+<p>May I be a guard for those who need protection<br>A guide for those on the path<br>A boat, a raft, a bridge for those who wish to cross the flood<br>May I be a lamp in the darkness<br>A resting place for the weary<br>A healing medicine for all who are sick<br>A vase of plenty, a tree of miracles<br>And for the boundless multitudes of living beings<br>May I bring sustenance and awakening<br>Enduring like the earth and sky<br>Until all beings are freed from sorrow<br>And all are awakened.<br>&nbsp;-&nbsp;Shantideva, Indian Buddhist sage 700 A.D.&nbsp; Prayer&nbsp;performed each morning by His Holiness the Dalai Lama</p>
+<font color="#666644">
+   
+   <br>
+
+
+</font>
+<h3>Being Peace </h3>
+<p>If we are peaceful.<br>If we are happy.<br>We can smile and blossom<br>Like a flower.<br>And everyone<br>In our family,<br>Our entire society<br>Will benefit<br>From our peace.<br>&nbsp;-&nbsp;Thich Nhat Hanh</p>
+<font color="#666644">
+   
+   <br>
+
+
+</font>
+<h3>A Buddhist Prayer </h3>
+<p>Evoking the presence of great compassion, let us fill our hearts with our own compassion – towards ourselves and towards all living beings.<br>Let us pray that all living beings realize that they are all brothers and sisters, all nourished from the same source of life.&nbsp;<br>&nbsp;-&nbsp;Buddhist Prayer</p>
+
+<br>
+
+
+<h3>We Pray for Peace</h3>
+<p>We pray for peace in all the world;<br>We pray that evil may be overcome by good;<br>We pray for harmony in the Sangha,<br>and for the cessation of all disaster.<br>&nbsp;-&nbsp;From Shasta Abbey</p>
+<font color="#666644">
+   
+   <br>
+
+
+</font>
+<h3>Offering the Mandala</h3>
+<p>Here is the great Earth, <br>filled with the smell of incense, <br>covered with a blanket of flowers, <br>the Great Mountain, the Four Continents, <br>wearing a jewel of the Sun and Moon.<br>In my mind I make them the Paradise of a Buddha, <br>and offer it all to You.<br>By this deed, May every living being <br>Experience the Pure World.<br>&nbsp;-&nbsp;Tibetan Prayer</p>
+
+<br>
+
+
+<h3>New Year Poem and Wishes</h3>
+<p>Under the glorious canopy of redwood trees<br>The New Year peacock dances<br>Sun and moon rise into the blue sky<br>The earth grows and happinesss increases<br>In this New Year<br>&nbsp;-&nbsp;H.E. Khempo Yurmed Tinly Rinpoche</p>
+
+<br>
+
+
+<h3>Sky is Free</h3>
+<p>Sky is free.<br>Ocean is blissful.<br>Trees are divine.<br>Rocks are enlightened.<br>So are we.<br>Who is still searching ...<br>for what?<br>&nbsp;-&nbsp;Anam Thubten Rinpoche</p>
+
+<br>
+
+
+<h3>Enlightenment</h3>
+<p>Enlightenment is like the moon reflected on the water. <br>The moon does not get wet, nor is the water broken. <br>Although its light is wide and great, <br>The moon is reflected even in a puddle an inch wide. <br>The whole moon and the entire sky <br>Are reflected in one dewdrop on the grass.&nbsp;<br>&nbsp;-&nbsp;Dogen</p>
+<font color="#666644">
+   
+   <br>
+
+
+</font>
+<h3>Quotes and Inspirations</h3>
+<p>May all beings everywhere be happy, peaceful, and free.<br>&nbsp;-&nbsp;The Buddha</p>
+<p>Display a heart of boundless love for all the world.<br>&nbsp;-&nbsp;The Buddha</p>
+<p>All that we are arises with our thoughts. With our thoughts, we make the world.<br>&nbsp;-&nbsp;The Buddha</p>
+<p>Without inner peace, outer peace is impossible.&nbsp; We all wish for world peace, but world peace will never be achieved unless we first establish peace within our own mind.<br>&nbsp;-&nbsp;Geshe Kelsang Gyatso</p>
+<p>The dedication of a virtuous act for all beings is like a adding a drop of water to the ocean.&nbsp; As long as the ocean exists, the drop of water exists.&nbsp; So, too, a small positive action, when directed toward the benefit of all beings, will endure forever.<br>&nbsp;-&nbsp;The Buddha&nbsp;</p>
+<p>I believe that to meet the challenge of our times, human beings will have to develop a greater sense of universal responsibility. We must all learn to work not just for our own self, family, or nation, but for the benefit of all humankind. Universal responsibility is the key to human survival. It is the best foundation for world peace, the equitable use of natural resources, and through concern for future generations, the proper care of the environment.<br>&nbsp;-&nbsp;His Holiness&nbsp;the Dalai Lama</p>
+<p>Buddhism emphasizes the impact our individual actions have on our lives and the world around us, and it follows from this perspective that caring for the natural world begins with each of us.<br>&nbsp;- Gil Fronsdal, Vipassana teacher <strong><font color="#719f32">4</font></strong></p>
+<p>All are nothing but flowers<br>In a flowing universe.<br>&nbsp;-&nbsp;Nakagawa Soen-Roshi</p>
+<p>You should entreat trees and rocks to preach the Dharma, and you should ask the rice fields and gardens for the truth.<br>&nbsp;-&nbsp;Eihei Dogen</p>
+<p>My heart that was rapt away by the wild cherry blossoms - will it return to my body when they scatter?<br>&nbsp;-&nbsp;Kotomichi</p>
+<p>The color of the mountains is Buddha's body; the sound of running water is his great speech.<br>&nbsp;-&nbsp;Dogen</p>
+<p>Words have the power to both destroy and heal. When words are both true and kind, they can change our world.<br>&nbsp;-&nbsp;The Buddha</p>
+<p>Student -&nbsp;How may I enter the Way?<br>Teacher&nbsp;-&nbsp;Do you hear the murmur of the mountain stream? <em>There</em> you may enter.<br>&nbsp;-&nbsp;Zen Koan</p>
+<p>Be aware of the contact between your feet and the Earth. Walk as if you are kissing the Earth with your feet. We have caused a lot of damage to the Earth. Now it is time for us to take good care of her. We bring our peace and calm to the surface of the Earth and share the lesson of love. We walk in that spirit.<br>&nbsp;-&nbsp;Thich Nhat Hanh</p>
+<p>Drink your tea slowly and reverently, as if it is the axis on which the world earth revolves - slowly, evenly, without rushing toward the future.&nbsp;Live the actual moment.<br>Only this moment is life.<br>&nbsp;-&nbsp;Thich Nhat Hanh</p>
+
+<br><br>
+          </div>
+      </div>
+    </div>
+  </div>  
+</div>
+   
+<br><br><br><br>
+
+
+
+
+<footer class="subhead">  
+  <div class="container">
+    <div class="subhead-blue">
+      <div class="row">
+        <div class="col-md-3">
+          <h4 class="text-danger" style="margin-top:10px;"><b>Bo Kwang Center</b></h4>
+          <address>
+              57 Gorevale Dr, L6P 2H2<br>
+              Brampton, ON, Canada<br>
+              Phone: (905) 915-3017<br>
+              Email: lotus-zen@earthlink.net
+          </address>
+        </div>
+        <div class="col-md-6 text-center" style="margin-top:70px;">
+          <p>Non-commercial re-use with attribution are encouraged. All other rights reserved.<p>
+          <p>© 2014 Bokwang Center.</p>
+        </div>          
+        <div class="col-md-3" style="margin-top:70px;">
+          <p> <a href=""><img src="image/mail.png" onmouseout="this.src='image/mail.png'" onmouseover="this.src='image/mail2.png'" width="32" height="32" class="socialicon"></a>
+
+              <a href=""><img src="image/facebook.png" onmouseout="this.src='image/facebook.png'" onmouseover="this.src='image/facebook2.png'" width="32" height="32" class="socialicon"></a>
+
+              <a href="http://bokwang.imgur.com"><img src="image/imgur.png" onmouseout="this.src='image/imgur.png'" onmouseover="this.src='image/imgur2.png'" width="32" height="32" class="socialicon"></a>
+
+              <a href="http://www.meetup.com/Qi-Gong-Zen-Healing/"><img src="image/meetup.png" onmouseout="this.src='image/meetup.png'" onmouseover="this.src='image/meetup2.png'" width="32" height="32" class="socialicon"></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<footer class="subhead2">  
+  <div class="container">
+    <p class="text-right small">Designed by <a href="http://catindisguise.com/"><b style="color:#81846e;">Cat In Disguise</b></a></p>
+  </div>
+</footer>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="bootstrap/js/bootstrap.min.js"></script>
+   <script>
+      $(document).ready(function(){
+        $("#zen-tab").addClass("active");
+        $("#zen-prayers").addClass("active");
+             
+        $(".searchble").click(function(){
+           $(".searchbox").slideToggle();    
+        });
+      });
+   </script>
+</body>
+</html>
